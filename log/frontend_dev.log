@@ -1,0 +1,204 @@
+Jul 16 10:20:38 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 16 10:20:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:20:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:20:38 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 16 10:20:38 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 16 10:20:38 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 16 10:20:38 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 16 10:20:38 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:20:38 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:20:38 symfony [info] {sfWebDebugLogger} Configuration 68.39 ms (9)
+Jul 16 10:20:38 symfony [info] {sfWebDebugLogger} Factories 241.10 ms (1)
+Jul 16 10:20:38 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 16 10:20:38 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 10.70 ms (1)
+Jul 16 10:20:38 symfony [info] {sfWebResponse} Send content (28285 o)
+Jul 16 10:20:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/index with parameters array (  'module' => 'contenido',  'action' => 'index',)
+Jul 16 10:20:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:20:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:20:43 symfony [info] {contenidoActions} Call "contenidoActions->executeIndex()"
+Jul 16 10:20:43 symfony [info] {contenidoActions} Forward to action "default/module"
+Jul 16 10:20:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:20:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:20:43 symfony [info] {defaultActions} Call "defaultActions->executeModule()"
+Jul 16 10:20:43 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/moduleSuccess.php"
+Jul 16 10:20:43 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 16 10:20:43 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 16 10:20:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:20:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:20:43 symfony [info] {sfWebDebugLogger} Configuration 14.05 ms (13)
+Jul 16 10:20:43 symfony [info] {sfWebDebugLogger} Factories 21.94 ms (1)
+Jul 16 10:20:43 symfony [info] {sfWebDebugLogger} Action "contenido/index" 40.47 ms (1)
+Jul 16 10:20:43 symfony [info] {sfWebDebugLogger} Action "default/module" 0.09 ms (1)
+Jul 16 10:20:43 symfony [info] {sfWebDebugLogger} View "Success" for "default/module" 37.72 ms (1)
+Jul 16 10:20:43 symfony [info] {sfWebResponse} Send content (30300 o)
+Jul 16 10:22:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:22:43 symfony [info] {sfFrontWebController} Action "contenido/ver" does not exist
+Jul 16 10:22:43 symfony [err] {sfError404Exception} Action "contenido/ver" does not exist.
+Jul 16 10:22:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 16 10:22:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:22:43 symfony [info] {sfWebDebugLogger} Configuration 0.66 ms (5)
+Jul 16 10:22:43 symfony [info] {sfWebDebugLogger} Factories 21.88 ms (1)
+Jul 16 10:24:16 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/contenido/verSusccesful.php" (/).
+Jul 16 10:24:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 16 10:24:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:24:16 symfony [info] {sfWebDebugLogger} Configuration 0.62 ms (5)
+Jul 16 10:24:16 symfony [info] {sfWebDebugLogger} Factories 21.21 ms (1)
+Jul 16 10:30:01 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/contenido/verSusccesful.php" (/).
+Jul 16 10:30:01 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 16 10:30:01 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:30:01 symfony [info] {sfWebDebugLogger} Configuration 0.60 ms (5)
+Jul 16 10:30:01 symfony [info] {sfWebDebugLogger} Factories 20.72 ms (1)
+Jul 16 10:30:04 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:30:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:30:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:30:04 symfony [info] {contenidoActions} Call "contenidoActions->executeVer()"
+Jul 16 10:30:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/contenido/templates/verSuccess.php"
+Jul 16 10:30:04 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:30:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:30:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:30:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:30:04 symfony [info] {sfWebDebugLogger} Configuration 9.80 ms (10)
+Jul 16 10:30:04 symfony [info] {sfWebDebugLogger} Factories 21.15 ms (1)
+Jul 16 10:30:04 symfony [info] {sfWebDebugLogger} Action "contenido/ver" 0.10 ms (1)
+Jul 16 10:30:04 symfony [info] {sfWebDebugLogger} View "Success" for "contenido/ver" 31.00 ms (1)
+Jul 16 10:30:04 symfony [info] {sfWebResponse} Send content (26750 o)
+Jul 16 10:30:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:30:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:30:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:30:43 symfony [info] {contenidoActions} Call "contenidoActions->executeVer()"
+Jul 16 10:30:43 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/contenido/templates/verSuccess.php"
+Jul 16 10:30:43 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:30:43 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:30:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:30:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:30:43 symfony [info] {sfWebDebugLogger} Configuration 1.10 ms (9)
+Jul 16 10:30:43 symfony [info] {sfWebDebugLogger} Factories 21.87 ms (1)
+Jul 16 10:30:43 symfony [info] {sfWebDebugLogger} Action "contenido/ver" 0.11 ms (1)
+Jul 16 10:30:43 symfony [info] {sfWebDebugLogger} View "Success" for "contenido/ver" 8.76 ms (1)
+Jul 16 10:30:43 symfony [info] {sfWebResponse} Send content (26780 o)
+Jul 16 10:30:45 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:30:45 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:30:45 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:30:45 symfony [info] {contenidoActions} Call "contenidoActions->executeVer()"
+Jul 16 10:30:45 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/contenido/templates/verSuccess.php"
+Jul 16 10:30:45 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:30:45 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:30:45 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:30:45 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:30:45 symfony [info] {sfWebDebugLogger} Configuration 1.15 ms (9)
+Jul 16 10:30:45 symfony [info] {sfWebDebugLogger} Factories 20.41 ms (1)
+Jul 16 10:30:45 symfony [info] {sfWebDebugLogger} Action "contenido/ver" 0.10 ms (1)
+Jul 16 10:30:45 symfony [info] {sfWebDebugLogger} View "Success" for "contenido/ver" 7.84 ms (1)
+Jul 16 10:30:45 symfony [info] {sfWebResponse} Send content (26779 o)
+Jul 16 10:31:07 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:31:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:31:07 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:31:07 symfony [info] {contenidoActions} Call "contenidoActions->executeVer()"
+Jul 16 10:31:07 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/contenido/templates/verSuccess.php"
+Jul 16 10:31:07 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:07 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:31:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:31:07 symfony [info] {sfWebDebugLogger} Configuration 1.03 ms (9)
+Jul 16 10:31:07 symfony [info] {sfWebDebugLogger} Factories 20.41 ms (1)
+Jul 16 10:31:07 symfony [info] {sfWebDebugLogger} Action "contenido/ver" 0.10 ms (1)
+Jul 16 10:31:07 symfony [info] {sfWebDebugLogger} View "Success" for "contenido/ver" 7.28 ms (1)
+Jul 16 10:31:07 symfony [info] {sfWebResponse} Send content (26781 o)
+Jul 16 10:31:33 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:31:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:31:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:31:33 symfony [info] {contenidoActions} Call "contenidoActions->executeVer()"
+Jul 16 10:31:33 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/contenido/templates/verSuccess.php"
+Jul 16 10:31:33 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:33 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:31:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:31:33 symfony [info] {sfWebDebugLogger} Configuration 0.96 ms (9)
+Jul 16 10:31:33 symfony [info] {sfWebDebugLogger} Factories 20.26 ms (1)
+Jul 16 10:31:33 symfony [info] {sfWebDebugLogger} Action "contenido/ver" 0.11 ms (1)
+Jul 16 10:31:33 symfony [info] {sfWebDebugLogger} View "Success" for "contenido/ver" 7.34 ms (1)
+Jul 16 10:31:33 symfony [info] {sfWebResponse} Send content (26779 o)
+Jul 16 10:31:34 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:31:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:31:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:31:34 symfony [info] {contenidoActions} Call "contenidoActions->executeVer()"
+Jul 16 10:31:34 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/contenido/templates/verSuccess.php"
+Jul 16 10:31:34 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:34 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:31:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} Configuration 1.10 ms (9)
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} Factories 20.14 ms (1)
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} Action "contenido/ver" 0.11 ms (1)
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} View "Success" for "contenido/ver" 8.65 ms (1)
+Jul 16 10:31:34 symfony [info] {sfWebResponse} Send content (26779 o)
+Jul 16 10:31:34 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:31:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:31:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:31:34 symfony [info] {contenidoActions} Call "contenidoActions->executeVer()"
+Jul 16 10:31:34 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/contenido/templates/verSuccess.php"
+Jul 16 10:31:34 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:34 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:31:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} Configuration 1.07 ms (9)
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} Factories 21.19 ms (1)
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} Action "contenido/ver" 0.17 ms (1)
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} View "Success" for "contenido/ver" 7.27 ms (1)
+Jul 16 10:31:34 symfony [info] {sfWebResponse} Send content (26779 o)
+Jul 16 10:31:34 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:31:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:31:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:31:34 symfony [info] {contenidoActions} Call "contenidoActions->executeVer()"
+Jul 16 10:31:34 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/contenido/templates/verSuccess.php"
+Jul 16 10:31:34 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:34 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:31:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} Configuration 1.05 ms (9)
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} Factories 21.10 ms (1)
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} Action "contenido/ver" 0.15 ms (1)
+Jul 16 10:31:34 symfony [info] {sfWebDebugLogger} View "Success" for "contenido/ver" 7.82 ms (1)
+Jul 16 10:31:35 symfony [info] {sfWebResponse} Send content (26778 o)
+Jul 16 10:31:35 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:31:35 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:31:35 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:31:35 symfony [info] {contenidoActions} Call "contenidoActions->executeVer()"
+Jul 16 10:31:35 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/contenido/templates/verSuccess.php"
+Jul 16 10:31:35 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:35 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:31:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} Configuration 0.97 ms (9)
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} Factories 19.96 ms (1)
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} Action "contenido/ver" 0.10 ms (1)
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} View "Success" for "contenido/ver" 7.64 ms (1)
+Jul 16 10:31:35 symfony [info] {sfWebResponse} Send content (26779 o)
+Jul 16 10:31:35 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:31:35 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:31:35 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:31:35 symfony [info] {contenidoActions} Call "contenidoActions->executeVer()"
+Jul 16 10:31:35 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/contenido/templates/verSuccess.php"
+Jul 16 10:31:35 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:35 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:31:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} Configuration 1.01 ms (9)
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} Factories 20.03 ms (1)
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} Action "contenido/ver" 0.10 ms (1)
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} View "Success" for "contenido/ver" 7.32 ms (1)
+Jul 16 10:31:35 symfony [info] {sfWebResponse} Send content (26779 o)
+Jul 16 10:31:35 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /contenido/ver with parameters array (  'module' => 'contenido',  'action' => 'ver',)
+Jul 16 10:31:35 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 16 10:31:35 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 16 10:31:35 symfony [info] {contenidoActions} Call "contenidoActions->executeVer()"
+Jul 16 10:31:35 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/contenido/templates/verSuccess.php"
+Jul 16 10:31:35 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:35 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 16 10:31:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 16 10:31:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} Configuration 1.07 ms (9)
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} Factories 20.58 ms (1)
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} Action "contenido/ver" 0.16 ms (1)
+Jul 16 10:31:35 symfony [info] {sfWebDebugLogger} View "Success" for "contenido/ver" 8.26 ms (1)
+Jul 16 10:31:35 symfony [info] {sfWebResponse} Send content (26779 o)
