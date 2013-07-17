@@ -1,0 +1,23 @@
+                                                                                                           
+# Debemos asegurarnos de que esta línea exista una sola vez en nuestra configuración
+NameVirtualHost 127.0.0.1:8080
+
+# Esta es la configuración de nuestro proyecto
+Listen 127.0.0.1:8080
+
+<VirtualHost 127.0.0.1:8080>
+   DocumentRoot "/home/ave/Quirofano/web"
+   DirectoryIndex index.php
+   <Directory "/home/ave/Quirofano/web">
+      AllowOverride All
+      Allow from All
+   </Directory>
+   Alias /sf /home/ave/Quirofano/SYM/symfony/data/web/sf
+   <Directory "/home/ave/Quirofano/SYM/symfony/data/web/sf">
+      AllowOverride All
+      Allow from All
+   </Directory>
+   ErrorLog "/var/log/apache2/proyecto-error_log"
+   CustomLog "/var/log/apache2/proyecto-access_log" common
+</VirtualHost>
+

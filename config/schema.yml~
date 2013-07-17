@@ -245,7 +245,7 @@ propel:
 #          - { local: servicio, foreign: id }
 
   siga_sala_log:
-    _attributes:          { phpName: Registrosala, package: lib.model.data }
+    _attributes:          { phpName: Registrosala, package: lib.model.config }
     id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
     sala_id:              { type: integer }
     motivo:               { type: varchar(255) }
