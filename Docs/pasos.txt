@@ -7,8 +7,8 @@ php lib/vendor/symfony/data/bin/symfony generate:project proyecto --orm=Propel
 
 Crear modulos:
 ------------------------
-php symfony app frontend
-php symfony app backend
+php symfony generate:app frontend
+php symfony generate:app backend
 ------------------------
 -----------------------------
 Preparación
