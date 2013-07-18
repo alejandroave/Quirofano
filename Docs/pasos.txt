@@ -1,0 +1,28 @@
+
+
+Instalar symfony:
+-------------------
+php lib/vendor/symfony/data/bin/symfony generate:project proyecto --orm=Propel
+
+
+Crear modulos:
+------------------------
+php symfony app frontend
+php symfony app backend
+------------------------
+-----------------------------
+Preparación
+Descargar plugin: https://github.com/propelorm/sfPropelORMPlugin
+
+
+Modificar config/propel.ini #Repositorio#
+Modificar config/Database.yml #nuestros datos propios#
+Modificar config/scheme.yml   #Repositorio# 
+Modificar config/ ProjectConfiguration.class.php  #Repositorio#
+---------------------------------
+Base de datos:
+Crear base de datos con el nombre de la configuracion de Database.yml
+Ejecutar:
+php symfony propel:build --sql --db Crear tablas en la base de datos
+-----------------------------------
+Crear agenda:
