@@ -33,5 +33,5 @@ php symfony propel:build --sql --db Crear tablas en la base de datos
 -----------------------------------
 Crear agenda:
 php symfony propel:build --all-classes
-php symfony propel:generate-module frontend agenda Agenda
+sudo php symfony propel:generate-module frontend agenda Agenda
 -----------------------------------
