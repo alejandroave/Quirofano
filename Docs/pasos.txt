@@ -15,14 +15,16 @@ Preparación
 Descargar plugin: https://github.com/propelorm/sfPropelORMPlugin
 
 
-Modificar config/propel.ini #Repositorio#
-Modificar config/Database.yml #nuestros datos propios#
-Modificar config/scheme.yml   #Repositorio# 
-Modificar config/ ProjectConfiguration.class.php  #Repositorio#
+Modificar config/propel.ini #Modificar la linea propel.database.url y propel.database.password#
+Modificar config/databases.yml #Modificar dns y password#
+Modificar config/schema.yml   #Copiar la info del archivo del repositorio# 
+Modificar config/ ProjectConfiguration.class.php  #Modificar la linea enablePlugins igual al archivo del repo#
 ---------------------------------
 Base de datos:
 Crear base de datos con el nombre de la configuracion de Database.yml
-Ejecutar:
+Ejecutar en la carpeta donde esta guardado el proyecto:
 php symfony propel:build --sql --db Crear tablas en la base de datos
 -----------------------------------
 Crear agenda:
+php symfony generate:module frontend agenda Agenda
+-----------------------------------
