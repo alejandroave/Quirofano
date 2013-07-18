@@ -1,9 +1,15 @@
 
-
 Instalar symfony:
 -------------------
 php lib/vendor/symfony/data/bin/symfony generate:project proyecto --orm=Propel
-
+----------------------
+Crear servidor virtual
+ejemplo archivo "qui"
+este archivo se debe crear dentro de /etc/apache2/sites-available
+Una vez creado el archivo se ejecuta la siguiente instruccion en la linea de comandos
+:$ a2ensite qui
+se reinicia el servidor
+----------------------
 
 Crear modulos:
 ------------------------
