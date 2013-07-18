@@ -468,3 +468,82 @@ Jul 17 11:04:09 symfony [info] {sfWebDebugLogger} Factories 21.52 ms (1)
 Jul 17 11:04:09 symfony [info] {sfWebDebugLogger} Action "agenda/index" 35.64 ms (1)
 Jul 17 11:04:09 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 10.68 ms (1)
 Jul 17 11:04:09 symfony [info] {sfWebResponse} Send content (34868 o)
+Jul 17 11:24:36 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/edit/id/1 with parameters array (  'module' => 'agenda',  'action' => 'edit',  'id' => '1',)
+Jul 17 11:24:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 17 11:24:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 17 11:24:36 symfony [info] {agendaActions} Call "agendaActions->executeEdit()"
+Jul 17 11:24:36 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT `ID`, `PROGRAMACION`, `HORA`, `INGRESO`, `SALA_ID`, `QUIROFANO_ID`, `EGRESO`, `CIE9MC`, `CIE9MC_ID`, `CX_REALIZADA`, `CX_REALIZADA_ID`, `TIPO_CX`, `DIAGNOSTICO`, `DIAGNOSTICO_ID`, `PACIENTE_NAME`, `PACIENTE_ID`, `EDAD`, `GENERO`, `GENERO_ID`, `REGISTRO`, `SERVICIO`, `ANESTESIA_ID`, `ANESTESIA_EMPLEADA`, `EV_ADVERSOS_ANESTESIA`, `OBSERVACIONES`, `REQUERIMIENTO`, `REQ_INSUMOS`, `REQ_HEMODERIV`, `REQ_LABORATORIO`, `REQ_ANESTESICO`, `STATUS`, `CAUSA_DIFERIDO_ID`, `SOLICITADO`, `RIESGOQX_ID`, `CONTAMINACIONQX_ID`, `EVENTOQX_ID`, `COMPLICACIONES`, `VAL_PRE_ANESTESICA`, `REINTERVENCION`, `PERMISOS`, `TIPO_PROC_ID`, `ATENCION_ID`, `TIEMPO_FUERA`, `PROCEDENCIA`, `CLASIFICACIONQX`, `REGION_PX`, `EXTENSION_PX`, `ANEXO_DETALLE`, `DESTINO_PX`, `LIBERACION_SALA`, `TIEMPO_EST`, `RIESGO_QX_PRE`, `SHOW_IN_INDEX`, `PROTOCOLO`, `CANCELADA`, `CREATED_AT`, `UPDATED_AT` FROM `hc_agenda` WHERE `ID` = '1'
+Jul 17 11:24:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/editSuccess.php"
+Jul 17 11:24:36 symfony [info] {sfPartialView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/_form.php"
+Jul 17 11:24:36 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 17 11:24:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 17 11:24:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 17 11:24:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 11:24:36 symfony [info] {sfWebDebugLogger} Configuration 1.15 ms (9)
+Jul 17 11:24:36 symfony [info] {sfWebDebugLogger} Factories 21.09 ms (1)
+Jul 17 11:24:36 symfony [info] {sfWebDebugLogger} Action "agenda/edit" 52.99 ms (1)
+Jul 17 11:24:36 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/edit" 55.38 ms (1)
+Jul 17 11:24:36 symfony [info] {sfWebDebugLogger} Partial "agenda/_form" 45.91 ms (1)
+Jul 17 11:24:36 symfony [info] {sfWebResponse} Send content (99114 o)
+Jul 17 11:45:56 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /agenda with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Jul 17 11:45:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 17 11:45:56 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 17 11:45:56 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Jul 17 11:45:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT hc_agenda.ID, hc_agenda.PROGRAMACION, hc_agenda.HORA, hc_agenda.INGRESO, hc_agenda.SALA_ID, hc_agenda.QUIROFANO_ID, hc_agenda.EGRESO, hc_agenda.CIE9MC, hc_agenda.CIE9MC_ID, hc_agenda.CX_REALIZADA, hc_agenda.CX_REALIZADA_ID, hc_agenda.TIPO_CX, hc_agenda.DIAGNOSTICO, hc_agenda.DIAGNOSTICO_ID, hc_agenda.PACIENTE_NAME, hc_agenda.PACIENTE_ID, hc_agenda.EDAD, hc_agenda.GENERO, hc_agenda.GENERO_ID, hc_agenda.REGISTRO, hc_agenda.SERVICIO, hc_agenda.ANESTESIA_ID, hc_agenda.ANESTESIA_EMPLEADA, hc_agenda.EV_ADVERSOS_ANESTESIA, hc_agenda.OBSERVACIONES, hc_agenda.REQUERIMIENTO, hc_agenda.REQ_INSUMOS, hc_agenda.REQ_HEMODERIV, hc_agenda.REQ_LABORATORIO, hc_agenda.REQ_ANESTESICO, hc_agenda.STATUS, hc_agenda.CAUSA_DIFERIDO_ID, hc_agenda.SOLICITADO, hc_agenda.RIESGOQX_ID, hc_agenda.CONTAMINACIONQX_ID, hc_agenda.EVENTOQX_ID, hc_agenda.COMPLICACIONES, hc_agenda.VAL_PRE_ANESTESICA, hc_agenda.REINTERVENCION, hc_agenda.PERMISOS, hc_agenda.TIPO_PROC_ID, hc_agenda.ATENCION_ID, hc_agenda.TIEMPO_FUERA, hc_agenda.PROCEDENCIA, hc_agenda.CLASIFICACIONQX, hc_agenda.REGION_PX, hc_agenda.EXTENSION_PX, hc_agenda.ANEXO_DETALLE, hc_agenda.DESTINO_PX, hc_agenda.LIBERACION_SALA, hc_agenda.TIEMPO_EST, hc_agenda.RIESGO_QX_PRE, hc_agenda.SHOW_IN_INDEX, hc_agenda.PROTOCOLO, hc_agenda.CANCELADA, hc_agenda.CREATED_AT, hc_agenda.UPDATED_AT FROM `hc_agenda`
+Jul 17 11:45:56 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php"
+Jul 17 11:45:56 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 17 11:45:56 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 17 11:45:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 17 11:45:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 11:45:56 symfony [info] {sfWebDebugLogger} Configuration 1.86 ms (9)
+Jul 17 11:45:56 symfony [info] {sfWebDebugLogger} Factories 21.43 ms (1)
+Jul 17 11:45:56 symfony [info] {sfWebDebugLogger} Action "agenda/index" 36.20 ms (1)
+Jul 17 11:45:56 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 10.16 ms (1)
+Jul 17 11:45:56 symfony [info] {sfWebResponse} Send content (34785 o)
+Jul 17 12:14:01 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/edit/id/1 with parameters array (  'module' => 'agenda',  'action' => 'edit',  'id' => '1',)
+Jul 17 12:14:01 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 17 12:14:01 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 17 12:14:01 symfony [info] {agendaActions} Call "agendaActions->executeEdit()"
+Jul 17 12:14:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT `ID`, `PROGRAMACION`, `HORA`, `INGRESO`, `SALA_ID`, `QUIROFANO_ID`, `EGRESO`, `CIE9MC`, `CIE9MC_ID`, `CX_REALIZADA`, `CX_REALIZADA_ID`, `TIPO_CX`, `DIAGNOSTICO`, `DIAGNOSTICO_ID`, `PACIENTE_NAME`, `PACIENTE_ID`, `EDAD`, `GENERO`, `GENERO_ID`, `REGISTRO`, `SERVICIO`, `ANESTESIA_ID`, `ANESTESIA_EMPLEADA`, `EV_ADVERSOS_ANESTESIA`, `OBSERVACIONES`, `REQUERIMIENTO`, `REQ_INSUMOS`, `REQ_HEMODERIV`, `REQ_LABORATORIO`, `REQ_ANESTESICO`, `STATUS`, `CAUSA_DIFERIDO_ID`, `SOLICITADO`, `RIESGOQX_ID`, `CONTAMINACIONQX_ID`, `EVENTOQX_ID`, `COMPLICACIONES`, `VAL_PRE_ANESTESICA`, `REINTERVENCION`, `PERMISOS`, `TIPO_PROC_ID`, `ATENCION_ID`, `TIEMPO_FUERA`, `PROCEDENCIA`, `CLASIFICACIONQX`, `REGION_PX`, `EXTENSION_PX`, `ANEXO_DETALLE`, `DESTINO_PX`, `LIBERACION_SALA`, `TIEMPO_EST`, `RIESGO_QX_PRE`, `SHOW_IN_INDEX`, `PROTOCOLO`, `CANCELADA`, `CREATED_AT`, `UPDATED_AT` FROM `hc_agenda` WHERE `ID` = '1'
+Jul 17 12:14:01 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/editSuccess.php"
+Jul 17 12:14:01 symfony [info] {sfPartialView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/_form.php"
+Jul 17 12:14:01 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 17 12:14:01 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 17 12:14:01 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 17 12:14:01 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 12:14:01 symfony [info] {sfWebDebugLogger} Configuration 1.19 ms (9)
+Jul 17 12:14:01 symfony [info] {sfWebDebugLogger} Factories 21.44 ms (1)
+Jul 17 12:14:01 symfony [info] {sfWebDebugLogger} Action "agenda/edit" 51.43 ms (1)
+Jul 17 12:14:01 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/edit" 56.35 ms (1)
+Jul 17 12:14:01 symfony [info] {sfWebDebugLogger} Partial "agenda/_form" 46.25 ms (1)
+Jul 17 12:14:01 symfony [info] {sfWebResponse} Send content (99114 o)
+Jul 17 12:23:26 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /agenda with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Jul 17 12:23:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 17 12:23:26 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 17 12:23:26 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Jul 17 12:23:26 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT hc_agenda.ID, hc_agenda.PROGRAMACION, hc_agenda.HORA, hc_agenda.INGRESO, hc_agenda.SALA_ID, hc_agenda.QUIROFANO_ID, hc_agenda.EGRESO, hc_agenda.CIE9MC, hc_agenda.CIE9MC_ID, hc_agenda.CX_REALIZADA, hc_agenda.CX_REALIZADA_ID, hc_agenda.TIPO_CX, hc_agenda.DIAGNOSTICO, hc_agenda.DIAGNOSTICO_ID, hc_agenda.PACIENTE_NAME, hc_agenda.PACIENTE_ID, hc_agenda.EDAD, hc_agenda.GENERO, hc_agenda.GENERO_ID, hc_agenda.REGISTRO, hc_agenda.SERVICIO, hc_agenda.ANESTESIA_ID, hc_agenda.ANESTESIA_EMPLEADA, hc_agenda.EV_ADVERSOS_ANESTESIA, hc_agenda.OBSERVACIONES, hc_agenda.REQUERIMIENTO, hc_agenda.REQ_INSUMOS, hc_agenda.REQ_HEMODERIV, hc_agenda.REQ_LABORATORIO, hc_agenda.REQ_ANESTESICO, hc_agenda.STATUS, hc_agenda.CAUSA_DIFERIDO_ID, hc_agenda.SOLICITADO, hc_agenda.RIESGOQX_ID, hc_agenda.CONTAMINACIONQX_ID, hc_agenda.EVENTOQX_ID, hc_agenda.COMPLICACIONES, hc_agenda.VAL_PRE_ANESTESICA, hc_agenda.REINTERVENCION, hc_agenda.PERMISOS, hc_agenda.TIPO_PROC_ID, hc_agenda.ATENCION_ID, hc_agenda.TIEMPO_FUERA, hc_agenda.PROCEDENCIA, hc_agenda.CLASIFICACIONQX, hc_agenda.REGION_PX, hc_agenda.EXTENSION_PX, hc_agenda.ANEXO_DETALLE, hc_agenda.DESTINO_PX, hc_agenda.LIBERACION_SALA, hc_agenda.TIEMPO_EST, hc_agenda.RIESGO_QX_PRE, hc_agenda.SHOW_IN_INDEX, hc_agenda.PROTOCOLO, hc_agenda.CANCELADA, hc_agenda.CREATED_AT, hc_agenda.UPDATED_AT FROM `hc_agenda`
+Jul 17 12:23:26 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php"
+Jul 17 12:23:26 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 17 12:23:26 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 17 12:23:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 17 12:23:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 12:23:26 symfony [info] {sfWebDebugLogger} Configuration 1.06 ms (9)
+Jul 17 12:23:26 symfony [info] {sfWebDebugLogger} Factories 25.58 ms (1)
+Jul 17 12:23:26 symfony [info] {sfWebDebugLogger} Action "agenda/index" 44.26 ms (1)
+Jul 17 12:23:26 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 13.30 ms (1)
+Jul 17 12:23:26 symfony [info] {sfWebResponse} Send content (34786 o)
+Jul 17 18:12:51 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /agenda with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Jul 17 18:12:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 17 18:12:51 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 17 18:12:51 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Jul 17 18:12:51 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT hc_agenda.ID, hc_agenda.PROGRAMACION, hc_agenda.HORA, hc_agenda.INGRESO, hc_agenda.SALA_ID, hc_agenda.QUIROFANO_ID, hc_agenda.EGRESO, hc_agenda.CIE9MC, hc_agenda.CIE9MC_ID, hc_agenda.CX_REALIZADA, hc_agenda.CX_REALIZADA_ID, hc_agenda.TIPO_CX, hc_agenda.DIAGNOSTICO, hc_agenda.DIAGNOSTICO_ID, hc_agenda.PACIENTE_NAME, hc_agenda.PACIENTE_ID, hc_agenda.EDAD, hc_agenda.GENERO, hc_agenda.GENERO_ID, hc_agenda.REGISTRO, hc_agenda.SERVICIO, hc_agenda.ANESTESIA_ID, hc_agenda.ANESTESIA_EMPLEADA, hc_agenda.EV_ADVERSOS_ANESTESIA, hc_agenda.OBSERVACIONES, hc_agenda.REQUERIMIENTO, hc_agenda.REQ_INSUMOS, hc_agenda.REQ_HEMODERIV, hc_agenda.REQ_LABORATORIO, hc_agenda.REQ_ANESTESICO, hc_agenda.STATUS, hc_agenda.CAUSA_DIFERIDO_ID, hc_agenda.SOLICITADO, hc_agenda.RIESGOQX_ID, hc_agenda.CONTAMINACIONQX_ID, hc_agenda.EVENTOQX_ID, hc_agenda.COMPLICACIONES, hc_agenda.VAL_PRE_ANESTESICA, hc_agenda.REINTERVENCION, hc_agenda.PERMISOS, hc_agenda.TIPO_PROC_ID, hc_agenda.ATENCION_ID, hc_agenda.TIEMPO_FUERA, hc_agenda.PROCEDENCIA, hc_agenda.CLASIFICACIONQX, hc_agenda.REGION_PX, hc_agenda.EXTENSION_PX, hc_agenda.ANEXO_DETALLE, hc_agenda.DESTINO_PX, hc_agenda.LIBERACION_SALA, hc_agenda.TIEMPO_EST, hc_agenda.RIESGO_QX_PRE, hc_agenda.SHOW_IN_INDEX, hc_agenda.PROTOCOLO, hc_agenda.CANCELADA, hc_agenda.CREATED_AT, hc_agenda.UPDATED_AT FROM `hc_agenda`
+Jul 17 18:12:51 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php"
+Jul 17 18:12:51 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 17 18:12:51 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 17 18:12:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 17 18:12:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 18:12:51 symfony [info] {sfWebDebugLogger} Configuration 1.57 ms (9)
+Jul 17 18:12:51 symfony [info] {sfWebDebugLogger} Factories 281.26 ms (1)
+Jul 17 18:12:51 symfony [info] {sfWebDebugLogger} Action "agenda/index" 260.37 ms (1)
+Jul 17 18:12:51 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 73.23 ms (1)
+Jul 17 18:12:51 symfony [info] {sfWebResponse} Send content (34788 o)
