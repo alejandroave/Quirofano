@@ -3,7 +3,9 @@
 Instalar symfony:
 -------------------
 php lib/vendor/symfony/data/bin/symfony generate:project proyecto --orm=Propel
-
+----------------------
+Crear servidor virtual
+----------------------
 
 Crear modulos:
 ------------------------
