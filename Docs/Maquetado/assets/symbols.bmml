@@ -1,0 +1,35 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="240" measuredH="124" mockupW="180" mockupH="104">
+  <controls>
+    <control controlID="1" controlTypeID="__group__" x="60" y="80" w="180" h="44" measuredW="180" measuredH="44" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <controlName>Combo%20Field</controlName>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="180" h="-1" measuredW="112" measuredH="21" zOrder="0" locked="false" isInGroup="1">
+          <controlProperties>
+            <text>Tipo%20Programacion%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::ComboBox" x="0" y="20" w="180" h="-1" measuredW="160" measuredH="24" zOrder="1" locked="false" isInGroup="1">
+          <controlProperties>
+            <state>closed</state>
+            <text>Electiva%20Hospitalizado%0AElectivos%20Ambulatorios%0AUrgentes%20Hospitalizados%0AUrgentes%20del%20Area%20de%20Urgencias%0AUrgentes%20de%20Consulta</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="2" controlTypeID="__group__" x="60" y="20" w="109" h="45" measuredW="109" measuredH="45" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <controlName>Text%20Field</controlName>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="-1" h="-1" measuredW="38" measuredH="21" zOrder="0" locked="false" isInGroup="2">
+          <controlProperties>
+            <text>Fecha%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="0" y="19" w="109" h="-1" measuredW="79" measuredH="26" zOrder="1" locked="false" isInGroup="2"/>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
