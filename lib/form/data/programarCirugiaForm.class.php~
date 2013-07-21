@@ -11,6 +11,13 @@ class AgendaForm extends BaseAgendaForm
 {
   public function configure()
   {
-
+	$this->useFields(array(
+		'id',
+		'programacion',
+		'hora',
+	    	'ingreso',
+		'sala_id',
+      		'quirofano_id'
+	));
   }
 }

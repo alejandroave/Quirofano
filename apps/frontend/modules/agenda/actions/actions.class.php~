@@ -20,12 +20,6 @@ class agendaActions extends sfActions
     $this->form = new AgendaForm();
   }
 
-  public function executeProgramar(sfWebRequest $request)
-  {
-    $this->form = new programarCirugiaForm();
-  }
-
-
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
