@@ -6,6 +6,8 @@ http://www.jdbaldoma.net/2012/05/instalando-symfony-14-en-ubuntu.html
 
 Crear Proyecto con Propel
 ----------------------
+Crear una carpeta
+Posicionarte en esa carpeta creada y teclear lo siguiente
 php lib/vendor/symfony/data/bin/symfony generate:project proyecto --orm=Propel
 ----------------------
 
