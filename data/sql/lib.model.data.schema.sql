@@ -4,6 +4,21 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ---------------------------------------------------------------------
+-- hc_usuarios
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `hc_usuarios`;
+
+CREATE TABLE `hc_usuarios`
+(
+    `nombre` VARCHAR(256),
+    `pass` VARCHAR(256),
+    `tipo` VARCHAR(256),
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+-- ---------------------------------------------------------------------
 -- hc_agenda
 -- ---------------------------------------------------------------------
 
