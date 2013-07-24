@@ -9,6 +9,35 @@
  */
 class userActions extends sfActions
 {
+
+ public function executeLogin(sfWebRequest $request)
+    {
+        $this->form = new UsersLoginForm();
+        if($request->isMethod('post'))
+        {
+            $this->form->bind($request->getParameter($this->form->getName()));
+            if($this->form->isValid())
+            {
+                $loginSuccess = Doctrine_Query::create()
+                ->select('u.email, u.password')
+                ->from('users u')
+                ->where('u.email = ? and u.password = ?', array($request->getParameter('email'), $request->getParameter('password')))
+                ->fetchArray();
+                
+                if($loginSuccess)
+                {
+                    $this->getUser()->setFlash('success', 'You have logged in successfully.');
+                    $this->redirect('users/index');
+                }
+                else
+                {
+                    $this->getUser()->setFlash('notice', 'Error while logging in.');
+                }
+            }
+        }
+    }
+
+####################defaul#####################################
   public function executeIndex(sfWebRequest $request)
   {
     $this->Users = UserQuery::create()->find();
@@ -71,3 +100,4 @@ class userActions extends sfActions
     }
   }
 }
+########################defaul#####################################

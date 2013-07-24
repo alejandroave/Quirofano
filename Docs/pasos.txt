@@ -8,8 +8,17 @@ Crear Proyecto con Propel
 ----------------------
 Crear una carpeta
 Posicionarte en esa carpeta creada y teclear lo siguiente
-php lib/vendor/symfony/data/bin/symfony generate:project proyecto --orm=Propel
+php carpeta/symfony/data/bin/symfony generate:project proyecto --orm=Propel
 ----------------------
+
+Crear modulos:
+------------------------
+php symfony generate:app frontend
+php symfony generate:app backend
+------------------------
+
+
+
 
 Crear servidor virtual
 ----------------------
@@ -20,11 +29,7 @@ sudo a2ensite qui
 sudo service apache2 reload #Reiniciar apache
 ----------------------
 
-Crear modulos:
-------------------------
-php symfony generate:app frontend
-php symfony generate:app backend
-------------------------
+
 
 Preparacion
 -----------------------------

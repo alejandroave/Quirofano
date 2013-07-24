@@ -1052,3 +1052,22 @@ Jul 24 10:14:32 symfony [info] {sfWebDebugLogger} Factories 52.20 ms (1)
 Jul 24 10:14:32 symfony [info] {sfWebDebugLogger} Action "user/index" 23.98 ms (1)
 Jul 24 10:14:32 symfony [info] {sfWebDebugLogger} View "Success" for "user/index" 8.31 ms (1)
 Jul 24 10:14:32 symfony [info] {sfWebResponse} Send content (29651 o)
+Jul 24 10:30:47 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jul 24 10:59:11 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jul 24 10:59:12 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jul 24 11:05:04 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jul 24 11:05:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 24 11:05:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 24 11:05:04 symfony [info] {userActions} Call "userActions->executeLogin()"
+Jul 24 11:05:05 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jul 24 11:05:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 24 11:05:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 24 11:05:05 symfony [info] {userActions} Call "userActions->executeLogin()"
+Jul 24 11:46:36 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jul 24 11:46:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 24 11:46:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 24 11:46:36 symfony [info] {userActions} Call "userActions->executeLogin()"
+Jul 24 11:59:49 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jul 24 11:59:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 24 11:59:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 24 11:59:49 symfony [info] {userActions} Call "userActions->executeLogin()"

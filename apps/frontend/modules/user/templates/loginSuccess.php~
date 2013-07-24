@@ -1,0 +1,7 @@
+<?php if($sf_user->getFlash("error")): ?>
+    <div class="error"><?php echo $sf_user->getFlash("error"); ?></div>
+<?php endif; ?>
+<form action="<?php echo url_for("@user_login"); ?>" method="post">
+  <?php echo $form; ?>
+  <input type="submit" value="Entrar" />
+</form>
