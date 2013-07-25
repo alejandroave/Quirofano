@@ -8,7 +8,7 @@ Crear Proyecto con Propel
 ----------------------
 Crear una carpeta
 Posicionarte en esa carpeta creada y teclear lo siguiente
-php lib/vendor/symfony/data/bin/symfony generate:project proyecto --orm=Propel
+php carpeta/symfony/data/bin/symfony generate:project proyecto --orm=Propel
 ----------------------
 
 Crear modulos:
@@ -17,6 +17,12 @@ php symfony generate:app frontend
 php symfony generate:app backend
 ------------------------
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 2edf029864a167a0f4065d5222c4c2c767e44405
 Crear servidor virtual
 ----------------------
 Ejemplo usando archivo que le dimos el nombre de qui (puede ser cualquier nombre)
@@ -26,6 +32,11 @@ sudo a2ensite qui
 sudo service apache2 reload #Reiniciar apache
 ----------------------
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2edf029864a167a0f4065d5222c4c2c767e44405
 Preparacion
 -----------------------------
 Descargar plugin: https://github.com/propelorm/sfPropelORMPlugin

@@ -1,0 +1,56 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1359" measuredH="471" mockupW="1336" mockupH="430">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Webcam" x="23" y="179" w="118" h="92" measuredW="177" measuredH="146" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Arrow" x="134" y="210" w="70" h="31" measuredW="150" measuredH="100" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="212" y="109" w="368" h="287" measuredW="450" measuredH="400" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Navegador%20web%0Ahttp%3A//sigahu.local%0A%20%0A%20%0A%20%0A%20%0A%20%0A%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Arrow" x="665" y="210" w="106" h="31" measuredW="150" measuredH="100" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="656" y="41" w="703" h="419" measuredW="450" measuredH="400" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Navegador%20web%0Ahttp%3A//sigahu.local/quirofano/inspeccionar/quirofanocentral%0A%20%0A%20%0A%20%0A%20%0A%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::StickyNote" x="64" y="257" w="133" h="74" measuredW="109" measuredH="123" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Ingresar%20a%20inspeccionar%20salas</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::StickyNote" x="580" y="402" w="148" h="69" measuredW="109" measuredH="123" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>P%E1gina%20de%20inspeccionar%20salas</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Arrow" x="584" y="226" w="70" h="31" measuredW="150" measuredH="100" zOrder="7" locked="false" isInGroup="-1"/>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Image" x="227" y="193" w="298" h="41" measuredW="304" measuredH="44" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>../images/im02.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Image" x="233" y="235" w="85" h="119" measuredW="87" measuredH="121" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>../images/im06.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::SubTitle" x="863" y="124" w="-1" h="-1" measuredW="288" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Salas%20de%20quir%F3fano%20central</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Title" x="23" y="41" w="-1" h="-1" measuredW="348" measuredH="43" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Inspeccionar%20salas</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Image" x="683" y="151" w="652" h="270" measuredW="728" measuredH="294" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>../images/im11.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
