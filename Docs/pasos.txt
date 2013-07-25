@@ -24,6 +24,8 @@ Crear este archivo dentro de /etc/apache2/sites-available
 Una vez creado el archivo se ejecuta la siguiente instruccion en la linea de comandos
 sudo a2ensite qui
 sudo service apache2 reload #Reiniciar apache
+sudo a2enmod rewrite
+sudo service apache2 reload
 ----------------------
 
 Preparacion
