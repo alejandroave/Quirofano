@@ -1071,3 +1071,339 @@ Jul 24 11:59:49 symfony [info] {sfPatternRouting} Match route "default" (/:modul
 Jul 24 11:59:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
 Jul 24 11:59:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
 Jul 24 11:59:49 symfony [info] {userActions} Call "userActions->executeLogin()"
+Jul 25 09:35:45 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 25 09:35:45 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 09:35:45 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 09:35:45 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 25 09:35:45 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 25 09:35:45 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 09:35:45 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 09:35:45 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 09:35:45 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 09:35:45 symfony [info] {sfWebDebugLogger} Configuration 44.03 ms (10)
+Jul 25 09:35:45 symfony [info] {sfWebDebugLogger} Factories 266.15 ms (1)
+Jul 25 09:35:45 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 25 09:35:45 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 45.02 ms (1)
+Jul 25 09:35:45 symfony [info] {sfWebResponse} Send content (28469 o)
+Jul 25 09:35:54 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 09:35:54 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 09:35:54 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 09:35:54 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 09:35:55 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 09:35:55 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 09:35:55 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 09:35:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 09:35:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 09:35:55 symfony [info] {sfWebDebugLogger} Configuration 1.14 ms (9)
+Jul 25 09:35:55 symfony [info] {sfWebDebugLogger} Factories 21.62 ms (1)
+Jul 25 09:35:55 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 290.60 ms (1)
+Jul 25 09:35:55 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 59.96 ms (1)
+Jul 25 09:35:55 symfony [info] {sfWebResponse} Send content (39142 o)
+Jul 25 09:49:24 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 09:49:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 09:49:24 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 09:49:24 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 09:49:24 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 09:49:24 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 09:49:24 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 09:49:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 09:49:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 09:49:24 symfony [info] {sfWebDebugLogger} Configuration 1.10 ms (9)
+Jul 25 09:49:24 symfony [info] {sfWebDebugLogger} Factories 20.50 ms (1)
+Jul 25 09:49:24 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 40.87 ms (1)
+Jul 25 09:49:24 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 22.40 ms (1)
+Jul 25 09:49:24 symfony [info] {sfWebResponse} Send content (39174 o)
+Jul 25 09:51:03 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 09:51:03 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 09:51:03 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 09:51:03 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 09:51:03 symfony [err] {InvalidArgumentException} Widget schema does not include the following field(s): tipo_prco_id
+Jul 25 09:51:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Jul 25 09:51:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 09:51:03 symfony [info] {sfWebDebugLogger} Configuration 0.88 ms (8)
+Jul 25 09:51:03 symfony [info] {sfWebDebugLogger} Factories 20.63 ms (1)
+Jul 25 09:51:03 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 111.90 ms (1)
+Jul 25 09:51:54 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 09:51:54 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 09:51:54 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 09:51:54 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 09:51:54 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 09:51:54 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 09:51:54 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 09:51:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 09:51:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 09:51:54 symfony [info] {sfWebDebugLogger} Configuration 1.08 ms (9)
+Jul 25 09:51:54 symfony [info] {sfWebDebugLogger} Factories 21.03 ms (1)
+Jul 25 09:51:54 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 39.88 ms (1)
+Jul 25 09:51:54 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 22.10 ms (1)
+Jul 25 09:51:54 symfony [info] {sfWebResponse} Send content (39531 o)
+Jul 25 09:53:15 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 09:53:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 09:53:15 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 09:53:15 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 09:53:15 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 09:53:15 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 09:53:15 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 09:53:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 09:53:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 09:53:15 symfony [info] {sfWebDebugLogger} Configuration 1.01 ms (9)
+Jul 25 09:53:15 symfony [info] {sfWebDebugLogger} Factories 23.22 ms (1)
+Jul 25 09:53:15 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 39.25 ms (1)
+Jul 25 09:53:15 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 21.51 ms (1)
+Jul 25 09:53:15 symfony [info] {sfWebResponse} Send content (39871 o)
+Jul 25 09:56:12 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 09:56:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 09:56:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 09:56:12 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 09:56:12 symfony [err] {InvalidArgumentException} Widget schema does not include the following field(s): evento_id
+Jul 25 09:56:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Jul 25 09:56:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 09:56:12 symfony [info] {sfWebDebugLogger} Configuration 0.90 ms (8)
+Jul 25 09:56:12 symfony [info] {sfWebDebugLogger} Factories 20.66 ms (1)
+Jul 25 09:56:12 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 71.19 ms (1)
+Jul 25 09:56:26 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 09:56:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 09:56:26 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 09:56:26 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 09:56:26 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 09:56:26 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 09:56:26 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 09:56:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 09:56:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 09:56:26 symfony [info] {sfWebDebugLogger} Configuration 1.08 ms (9)
+Jul 25 09:56:26 symfony [info] {sfWebDebugLogger} Factories 21.44 ms (1)
+Jul 25 09:56:26 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 40.05 ms (1)
+Jul 25 09:56:26 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 22.77 ms (1)
+Jul 25 09:56:26 symfony [info] {sfWebResponse} Send content (44714 o)
+Jul 25 10:03:36 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:03:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:03:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:03:36 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:03:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:03:36 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:03:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:03:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:03:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:03:36 symfony [info] {sfWebDebugLogger} Configuration 1.18 ms (9)
+Jul 25 10:03:36 symfony [info] {sfWebDebugLogger} Factories 21.17 ms (1)
+Jul 25 10:03:36 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 39.57 ms (1)
+Jul 25 10:03:36 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 21.90 ms (1)
+Jul 25 10:03:36 symfony [info] {sfWebResponse} Send content (42708 o)
+Jul 25 10:05:19 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:05:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:05:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:05:19 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:05:36 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:05:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:05:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:05:36 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:05:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:05:36 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:05:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:05:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:05:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:05:36 symfony [info] {sfWebDebugLogger} Configuration 0.93 ms (9)
+Jul 25 10:05:36 symfony [info] {sfWebDebugLogger} Factories 21.07 ms (1)
+Jul 25 10:05:36 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 38.81 ms (1)
+Jul 25 10:05:36 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 21.48 ms (1)
+Jul 25 10:05:36 symfony [info] {sfWebResponse} Send content (42714 o)
+Jul 25 10:07:25 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:07:25 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:07:25 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:07:25 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:07:25 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:07:25 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:07:25 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:07:25 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:07:25 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:07:25 symfony [info] {sfWebDebugLogger} Configuration 1.02 ms (9)
+Jul 25 10:07:25 symfony [info] {sfWebDebugLogger} Factories 21.10 ms (1)
+Jul 25 10:07:25 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 40.00 ms (1)
+Jul 25 10:07:25 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 21.04 ms (1)
+Jul 25 10:07:25 symfony [info] {sfWebResponse} Send content (42633 o)
+Jul 25 10:07:31 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:07:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:07:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:07:31 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:07:32 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:07:32 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:07:32 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:07:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:07:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:07:32 symfony [info] {sfWebDebugLogger} Configuration 1.21 ms (9)
+Jul 25 10:07:32 symfony [info] {sfWebDebugLogger} Factories 26.85 ms (1)
+Jul 25 10:07:32 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 43.90 ms (1)
+Jul 25 10:07:32 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 20.06 ms (1)
+Jul 25 10:07:32 symfony [info] {sfWebResponse} Send content (42601 o)
+Jul 25 10:07:53 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:07:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:07:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:07:53 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:07:53 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:07:53 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:07:53 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:07:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:07:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:07:53 symfony [info] {sfWebDebugLogger} Configuration 1.08 ms (9)
+Jul 25 10:07:53 symfony [info] {sfWebDebugLogger} Factories 21.32 ms (1)
+Jul 25 10:07:53 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 41.61 ms (1)
+Jul 25 10:07:53 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 21.44 ms (1)
+Jul 25 10:07:53 symfony [info] {sfWebResponse} Send content (42633 o)
+Jul 25 10:08:04 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:08:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:08:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:08:04 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:08:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:08:04 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:08:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:08:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:08:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:08:04 symfony [info] {sfWebDebugLogger} Configuration 0.96 ms (9)
+Jul 25 10:08:04 symfony [info] {sfWebDebugLogger} Factories 21.06 ms (1)
+Jul 25 10:08:04 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 38.61 ms (1)
+Jul 25 10:08:04 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 20.83 ms (1)
+Jul 25 10:08:04 symfony [info] {sfWebResponse} Send content (42600 o)
+Jul 25 10:08:19 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:08:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:08:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:08:19 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:08:19 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:08:19 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:08:19 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:08:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:08:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:08:19 symfony [info] {sfWebDebugLogger} Configuration 127.69 ms (9)
+Jul 25 10:08:19 symfony [info] {sfWebDebugLogger} Factories 71.06 ms (1)
+Jul 25 10:08:19 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 41.84 ms (1)
+Jul 25 10:08:19 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 22.21 ms (1)
+Jul 25 10:08:19 symfony [info] {sfWebResponse} Send content (42603 o)
+Jul 25 10:08:38 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:08:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:08:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:08:38 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:08:38 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:08:38 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:08:38 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:08:38 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:08:38 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:08:38 symfony [info] {sfWebDebugLogger} Configuration 1.43 ms (9)
+Jul 25 10:08:38 symfony [info] {sfWebDebugLogger} Factories 27.18 ms (1)
+Jul 25 10:08:38 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 43.26 ms (1)
+Jul 25 10:08:38 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 21.44 ms (1)
+Jul 25 10:08:38 symfony [info] {sfWebResponse} Send content (42601 o)
+Jul 25 10:10:58 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:10:58 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:10:58 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:10:58 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:10:58 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:10:58 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:10:58 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:10:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:10:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:10:58 symfony [info] {sfWebDebugLogger} Configuration 1.00 ms (9)
+Jul 25 10:10:58 symfony [info] {sfWebDebugLogger} Factories 20.97 ms (1)
+Jul 25 10:10:58 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 39.68 ms (1)
+Jul 25 10:10:58 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 18.52 ms (1)
+Jul 25 10:10:58 symfony [info] {sfWebResponse} Send content (39886 o)
+Jul 25 10:13:09 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:13:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:13:09 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:13:09 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:13:36 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:13:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:13:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:13:36 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:13:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:13:36 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:13:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:13:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:13:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:13:36 symfony [info] {sfWebDebugLogger} Configuration 0.98 ms (9)
+Jul 25 10:13:36 symfony [info] {sfWebDebugLogger} Factories 20.54 ms (1)
+Jul 25 10:13:36 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 36.61 ms (1)
+Jul 25 10:13:36 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 17.73 ms (1)
+Jul 25 10:13:36 symfony [info] {sfWebResponse} Send content (39920 o)
+Jul 25 10:14:10 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:14:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:14:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:14:10 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:14:10 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:14:10 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:14:10 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:14:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:14:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:14:10 symfony [info] {sfWebDebugLogger} Configuration 0.93 ms (9)
+Jul 25 10:14:10 symfony [info] {sfWebDebugLogger} Factories 21.30 ms (1)
+Jul 25 10:14:10 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 39.90 ms (1)
+Jul 25 10:14:10 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 19.18 ms (1)
+Jul 25 10:14:10 symfony [info] {sfWebResponse} Send content (39913 o)
+Jul 25 10:19:00 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:19:00 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:19:00 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:19:00 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:19:00 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:19:00 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:19:00 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:19:00 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:19:00 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:19:00 symfony [info] {sfWebDebugLogger} Configuration 1.07 ms (9)
+Jul 25 10:19:00 symfony [info] {sfWebDebugLogger} Factories 24.50 ms (1)
+Jul 25 10:19:00 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 38.01 ms (1)
+Jul 25 10:19:00 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 17.15 ms (1)
+Jul 25 10:19:00 symfony [info] {sfWebResponse} Send content (39956 o)
+Jul 25 10:19:26 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:19:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:19:26 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:19:26 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:19:26 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:19:26 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:19:26 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:19:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:19:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:19:26 symfony [info] {sfWebDebugLogger} Configuration 1.22 ms (9)
+Jul 25 10:19:26 symfony [info] {sfWebDebugLogger} Factories 20.71 ms (1)
+Jul 25 10:19:26 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 37.46 ms (1)
+Jul 25 10:19:26 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 18.43 ms (1)
+Jul 25 10:19:26 symfony [info] {sfWebResponse} Send content (39955 o)
+Jul 25 10:22:50 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:22:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:22:50 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:22:50 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:22:50 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:22:50 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:22:50 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:22:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:22:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:22:50 symfony [info] {sfWebDebugLogger} Configuration 1.13 ms (9)
+Jul 25 10:22:50 symfony [info] {sfWebDebugLogger} Factories 21.40 ms (1)
+Jul 25 10:22:50 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 41.32 ms (1)
+Jul 25 10:22:50 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 19.11 ms (1)
+Jul 25 10:22:50 symfony [info] {sfWebResponse} Send content (40024 o)
+Jul 25 10:23:47 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:23:47 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:23:47 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:23:47 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:23:47 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:23:47 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:23:47 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:23:47 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:23:47 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:23:47 symfony [info] {sfWebDebugLogger} Configuration 1.10 ms (9)
+Jul 25 10:23:47 symfony [info] {sfWebDebugLogger} Factories 20.76 ms (1)
+Jul 25 10:23:47 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 41.83 ms (1)
+Jul 25 10:23:47 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 18.77 ms (1)
+Jul 25 10:23:48 symfony [info] {sfWebResponse} Send content (40065 o)
+Jul 25 10:25:20 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 25 10:25:20 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 10:25:20 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 10:25:20 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 25 10:25:20 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 25 10:25:20 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:25:20 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 25 10:25:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 10:25:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 10:25:20 symfony [info] {sfWebDebugLogger} Configuration 1.10 ms (9)
+Jul 25 10:25:20 symfony [info] {sfWebDebugLogger} Factories 20.52 ms (1)
+Jul 25 10:25:20 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 36.93 ms (1)
+Jul 25 10:25:20 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 18.46 ms (1)
+Jul 25 10:25:20 symfony [info] {sfWebResponse} Send content (40032 o)
