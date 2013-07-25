@@ -11,20 +11,20 @@ Posicionarte en esa carpeta creada y teclear lo siguiente
 php lib/vendor/symfony/data/bin/symfony generate:project proyecto --orm=Propel
 ----------------------
 
-Crear servidor virtual
-----------------------
-Ejemplo archivo qui
-Crear este archivo dentro de /etc/apache2/sites-available
-Una vez creado el archivo se ejecuta la siguiente instruccion en la linea de comandos
-sudo a2ensite qui
-sudo service apache2 reload #Reiniciar apache
-----------------------
-
 Crear modulos:
 ------------------------
 php symfony generate:app frontend
 php symfony generate:app backend
 ------------------------
+
+Crear servidor virtual
+----------------------
+Ejemplo usando archivo que le dimos el nombre de qui (puede ser cualquier nombre)
+Crear este archivo dentro de /etc/apache2/sites-available
+Una vez creado el archivo se ejecuta la siguiente instruccion en la linea de comandos
+sudo a2ensite qui
+sudo service apache2 reload #Reiniciar apache
+----------------------
 
 Preparacion
 -----------------------------
@@ -37,6 +37,11 @@ Modificar config/schema.yml   #Copiar la info del archivo del repositorio#
 Modificar config/ ProjectConfiguration.class.php  #Modificar la linea enablePlugins igual al archivo del repo#
 ---------------------------------
 
+Crear las clases:
+-----------------------------------
+php symfony propel:build --all-classes
+-----------------------------------
+
 Base de datos:
 -----------------------------------
 Crear base de datos con el nombre de la configuracion de Database.yml
@@ -46,6 +51,5 @@ php symfony propel:build --sql --db Crear tablas en la base de datos
 
 Crear agenda:
 -----------------------------------
-php symfony propel:build --all-classes
 sudo php symfony propel:generate-module frontend agenda Agenda
 -----------------------------------
