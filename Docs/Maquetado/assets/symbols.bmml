@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="240" measuredH="124" mockupW="180" mockupH="104">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="240" measuredH="181" mockupW="180" mockupH="161">
   <controls>
     <control controlID="1" controlTypeID="__group__" x="60" y="80" w="180" h="44" measuredW="180" measuredH="44" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
@@ -29,6 +29,28 @@
           </controlProperties>
         </control>
         <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="0" y="19" w="109" h="-1" measuredW="79" measuredH="26" zOrder="1" locked="false" isInGroup="2"/>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="3" controlTypeID="__group__" x="60" y="140" w="166" h="41" measuredW="166" measuredH="41" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <controlName>Radio%20Boolean%20Field</controlName>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="-1" h="-1" measuredW="60" measuredH="21" zOrder="0" locked="false" isInGroup="3">
+          <controlProperties>
+            <text>Protocolo</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::RadioButton" x="0" y="19" w="92" h="22" measuredW="38" measuredH="22" zOrder="1" locked="false" isInGroup="3">
+          <controlProperties>
+            <text>No</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::RadioButton" x="74" y="19" w="92" h="22" measuredW="33" measuredH="22" zOrder="2" locked="false" isInGroup="3">
+          <controlProperties>
+            <text>Si</text>
+          </controlProperties>
+        </control>
       </groupChildrenDescriptors>
     </control>
   </controls>
