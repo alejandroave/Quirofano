@@ -1,4 +1,9 @@
 propel:
+  hc_usuarios:  
+    _attributes:          { phpName: User, package: lib.model.data }
+    nombre:               { type: varchar(256) }
+    pass:                 { type: varchar(256) }
+    tipo:                 { type: varchar(256) }
 #Tabla referente a la programacion de cirugias
   hc_agenda:
     _attributes:          { phpName: Agenda, package: lib.model.data }
@@ -245,7 +250,7 @@ propel:
 #          - { local: servicio, foreign: id }
 
   siga_sala_log:
-    _attributes:          { phpName: Registrosala, package: lib.model.config }
+    _attributes:          { phpName: Registrosala, package: lib.model.data }
     id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
     sala_id:              { type: integer }
     motivo:               { type: varchar(255) }

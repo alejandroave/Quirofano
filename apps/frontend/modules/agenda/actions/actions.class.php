@@ -11,6 +11,7 @@ class agendaActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
+    $this->filtro = $request->getParameter('filter', false);
     $this->Agendas = AgendaQuery::create()->find();
   }
 
@@ -18,6 +19,12 @@ class agendaActions extends sfActions
   {
     $this->form = new AgendaForm();
   }
+
+  public function executeProgramar(sfWebRequest $request)
+  {
+    $this->form = new programarCirugiaForm();
+  }
+
 
   public function executeCreate(sfWebRequest $request)
   {

@@ -1,5 +1,7 @@
 <h1>Agendas List</h1>
 
+<?php echo $filtro ?>
+
 <table>
   <thead>
     <tr>

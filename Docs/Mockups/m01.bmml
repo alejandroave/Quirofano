@@ -1,0 +1,49 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1334" measuredH="467" mockupW="1309" mockupH="402">
+  <controls>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Webcam" x="25" y="203" w="118" h="92" measuredW="177" measuredH="146" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Arrow" x="136" y="234" w="70" h="31" measuredW="150" measuredH="100" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="206" y="111" w="376" h="309" measuredW="450" measuredH="400" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Navegador%20web%0Ahttp%3A//sigahu.local%0A%20%0A%20%0A%20%0A%20%0A%20%0A%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::Arrow" x="667" y="234" w="106" h="31" measuredW="150" measuredH="100" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Image" x="213" y="195" w="363" h="189" measuredW="381" measuredH="223" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>../images/im01.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="658" y="65" w="676" h="402" measuredW="450" measuredH="400" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Navegador%20web%0Ahttp%3A//sigahu.local/quirofano%0A%20%0A%20%0A%20%0A%20%0A%20%0A%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::StickyNote" x="65" y="281" w="133" h="74" measuredW="109" measuredH="123" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Ingresar%20credenciales</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::StickyNote" x="597" y="359" w="148" h="69" measuredW="109" measuredH="123" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>P%E1gina%20de%20inicio</text>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Image" x="667" y="195" w="-1" h="-1" measuredW="653" measuredH="156" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>../images/im07.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Arrow" x="588" y="250" w="70" h="31" measuredW="150" measuredH="100" zOrder="9" locked="false" isInGroup="-1"/>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Title" x="810" y="145" w="366" h="-1" measuredW="353" measuredH="43" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Lista%20de%20quir%F3fanos</text>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Title" x="25" y="65" w="108" h="-1" measuredW="103" measuredH="43" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Home</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
