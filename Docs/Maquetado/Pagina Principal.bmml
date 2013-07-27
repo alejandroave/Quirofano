@@ -175,7 +175,7 @@
         <text>Lista%20de%20Quirofanos</text>
       </controlProperties>
     </control>
-    <control controlID="45" controlTypeID="com.balsamiq.mockups::TabBar" x="269" y="272" w="706" h="40" measuredW="261" measuredH="100" zOrder="26" locked="false" isInGroup="-1">
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::TabBar" x="269" y="272" w="706" h="40" measuredW="260" measuredH="100" zOrder="26" locked="false" isInGroup="-1">
       <controlProperties>
         <backgroundAlpha>1</backgroundAlpha>
         <borderStyle>none</borderStyle>
@@ -192,7 +192,7 @@
         <borderStyle>roundedSolid</borderStyle>
       </controlProperties>
     </control>
-    <control controlID="47" controlTypeID="com.balsamiq.mockups::DataGrid" x="278" y="306" w="688" h="135" measuredW="351" measuredH="125" zOrder="27" locked="false" isInGroup="-1">
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::DataGrid" x="278" y="306" w="688" h="135" measuredW="350" measuredH="125" zOrder="27" locked="false" isInGroup="-1">
       <controlProperties>
         <alternateRowColor>16777215</alternateRowColor>
         <borderStyle>none</borderStyle>
@@ -244,6 +244,15 @@
         <bold>true</bold>
         <size>18</size>
         <text>Navegaci%F3n</text>
+      </controlProperties>
+    </control>
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::Canvas" x="278" y="338" w="163" h="29" measuredW="100" measuredH="70" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0</backgroundAlpha>
+        <borderColor>16777215</borderColor>
+        <borderStyle>none</borderStyle>
+        <href>Agenda%20de%20Quirofano%20Central%26bm%3BAgenda%20de%20Quirofano%20Central.bmml%26bm%3BAgenda%20de%20Quirofano%20Central.bmml%26bm%3BAgenda%20de%20Quirofano%20Central.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22278%2C337%2C441%2C366%22%20href%3D%22Agenda%2520de%2520Quirofano%2520Central.bmml%22%20alt%3D%22Agenda%20de%20Quirofano%20Central%22%20id%3D%2257%22/%3E</map>
       </controlProperties>
     </control>
   </controls>
