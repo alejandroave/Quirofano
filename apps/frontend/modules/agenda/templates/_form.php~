@@ -21,7 +21,7 @@
     <tbody>
       <?php echo $form->renderGlobalErrors() ?>
       <tr>
-        <th><?php echo $form['programacion']->renderLabel() ?></th>
+        <th><?php echo $form['programacion']->renderLabel('PROGRAMACION') ?></th>
         <td>
           <?php echo $form['programacion']->renderError() ?>
           <?php echo $form['programacion']->render() ?>

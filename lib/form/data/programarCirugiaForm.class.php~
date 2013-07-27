@@ -62,7 +62,7 @@ class programarCirugiaForm extends BaseAgendaForm
 	));
 
 	$this->widgetSchema['diagnostico']->setAttributes(array(
-		'placeholder' => 'diagnostico del paciente'
+		'placeholder' => 'Diagnóstico del paciente',
 		'data-source' => 'http://example.com/api/data',
 		'data-field'  => 'diagnostico_id'
 	));

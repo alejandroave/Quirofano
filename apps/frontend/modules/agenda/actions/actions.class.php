@@ -22,7 +22,9 @@ class agendaActions extends sfActions
 
   public function executeProgramar(sfWebRequest $request)
   {
-    $this->form = new programarCirugiaForm();
+    if (!$request->isMethod('POST')) {
+      $this->form = new programarCirugiaForm();
+    }
   }
 
 

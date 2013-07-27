@@ -9,7 +9,7 @@
 </div>
 <dl class="sfTMessageInfo">
   <dt>EL AVE</dt>	
-  <dt>Project setup successful</dt>
+  //<dt>Project setup successful</dt>
   <dd>This project uses the symfony libraries. If you see no image in this page, you may need to configure your web server so that it gains access to the <code>symfony_data/web/sf/</code> directory.</dd>
 
   <dt>This is a temporary page</dt>

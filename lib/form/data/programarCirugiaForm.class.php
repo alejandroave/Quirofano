@@ -68,7 +68,8 @@ class programarCirugiaForm extends BaseAgendaForm
 	));
 
 	$this->widgetSchema->setLabels(array(
-		'paciente_name' => 'Nombre del Paciente'
+		'paciente_name' => 'Nombre del Paciente',
+		'diagnostico'   => 'Diágnostico'
 	));
   }
 }

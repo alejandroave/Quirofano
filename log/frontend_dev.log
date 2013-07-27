@@ -1407,3 +1407,94 @@ Jul 25 10:25:20 symfony [info] {sfWebDebugLogger} Factories 20.52 ms (1)
 Jul 25 10:25:20 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 36.93 ms (1)
 Jul 25 10:25:20 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 18.46 ms (1)
 Jul 25 10:25:20 symfony [info] {sfWebResponse} Send content (40032 o)
+Jul 25 12:01:04 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 25 12:01:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 12:01:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 12:01:04 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 25 12:01:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 25 12:01:04 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:01:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:01:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 12:01:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 12:01:04 symfony [info] {sfWebDebugLogger} Configuration 15.30 ms (10)
+Jul 25 12:01:04 symfony [info] {sfWebDebugLogger} Factories 22.65 ms (1)
+Jul 25 12:01:04 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 25 12:01:04 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 11.49 ms (1)
+Jul 25 12:01:04 symfony [info] {sfWebResponse} Send content (28465 o)
+Jul 25 12:01:09 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /job with parameters array (  'module' => 'job',  'action' => 'index',)
+Jul 25 12:01:09 symfony [info] {sfFrontWebController} Action "job/index" does not exist
+Jul 25 12:01:09 symfony [err] {sfError404Exception} Action "job/index" does not exist.
+Jul 25 12:01:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 25 12:01:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 12:01:09 symfony [info] {sfWebDebugLogger} Configuration 0.59 ms (5)
+Jul 25 12:01:09 symfony [info] {sfWebDebugLogger} Factories 20.14 ms (1)
+Jul 25 12:01:13 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 25 12:01:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 12:01:13 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 12:01:13 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 25 12:01:13 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 25 12:01:13 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:01:13 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:01:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 12:01:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 12:01:13 symfony [info] {sfWebDebugLogger} Configuration 1.02 ms (9)
+Jul 25 12:01:13 symfony [info] {sfWebDebugLogger} Factories 30.95 ms (1)
+Jul 25 12:01:13 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 25 12:01:13 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 8.87 ms (1)
+Jul 25 12:01:13 symfony [info] {sfWebResponse} Send content (28463 o)
+Jul 25 12:12:12 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 25 12:12:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 12:12:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 12:12:12 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 25 12:12:12 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 25 12:12:12 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:12:12 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:12:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 12:12:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 12:12:12 symfony [info] {sfWebDebugLogger} Configuration 1.06 ms (9)
+Jul 25 12:12:12 symfony [info] {sfWebDebugLogger} Factories 22.02 ms (1)
+Jul 25 12:12:12 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 25 12:12:12 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 8.31 ms (1)
+Jul 25 12:12:12 symfony [info] {sfWebResponse} Send content (28463 o)
+Jul 25 12:14:11 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 25 12:14:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 12:14:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 12:14:11 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 25 12:14:11 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 25 12:14:11 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:14:11 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:14:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 12:14:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 12:14:11 symfony [info] {sfWebDebugLogger} Configuration 1.08 ms (9)
+Jul 25 12:14:11 symfony [info] {sfWebDebugLogger} Factories 20.47 ms (1)
+Jul 25 12:14:11 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 25 12:14:11 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 8.25 ms (1)
+Jul 25 12:14:11 symfony [info] {sfWebResponse} Send content (28534 o)
+Jul 25 12:14:12 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 25 12:14:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 12:14:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 12:14:12 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 25 12:14:12 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 25 12:14:12 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:14:12 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:14:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 12:14:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 12:14:12 symfony [info] {sfWebDebugLogger} Configuration 1.15 ms (9)
+Jul 25 12:14:12 symfony [info] {sfWebDebugLogger} Factories 22.64 ms (1)
+Jul 25 12:14:12 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 25 12:14:12 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 8.95 ms (1)
+Jul 25 12:14:12 symfony [info] {sfWebResponse} Send content (28534 o)
+Jul 25 12:14:31 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 25 12:14:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 25 12:14:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 25 12:14:31 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 25 12:14:31 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 25 12:14:31 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:14:31 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 25 12:14:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 25 12:14:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 25 12:14:31 symfony [info] {sfWebDebugLogger} Configuration 1.09 ms (9)
+Jul 25 12:14:31 symfony [info] {sfWebDebugLogger} Factories 21.58 ms (1)
+Jul 25 12:14:31 symfony [info] {sfWebDebugLogger} Action "default/index" 0.10 ms (1)
+Jul 25 12:14:31 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 9.19 ms (1)
+Jul 25 12:14:31 symfony [info] {sfWebResponse} Send content (28516 o)
