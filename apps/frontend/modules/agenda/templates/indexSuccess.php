@@ -1,5 +1,5 @@
+<!-- >
 <h1>Agendas List</h1>
-
 <?php echo $filtro ?>
 
 <table>
@@ -130,3 +130,39 @@
 </table>
 
   <a href="<?php echo url_for('agenda/new') ?>">New</a>
+-->
+<?php slot('titulo') ?>
+  <title>Lista Global de Quirofanos | SIGA-HU </title>
+<?php end_slot() ?>
+
+<h1>Lista de Quirofanos</h1>
+
+<ul id="navTabs">
+  <li class="tab active"><a href="/quirofano/activo/1">Activos</a></li>
+  <li class="tab "><a href="/quirofano/ambulatorio/1">Ambulatorios</a></li>
+  <li class="tab "><a href="/quirofano/todas/1">Todos</a></li>
+</ul>
+
+<div id="camasPanel">
+  <table width="100%">
+    <thead>
+    <tr id="tabla">
+      <th>Nombre</th>
+      <th>Programar</th>
+      <th>Diferidas</th>      
+      <th>Inspeccionar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($Quirofanos as $Quirofano): ?>
+    <tr>
+      <td><a href="<?php echo url_for('quirofano/show?slug='.$Quirofano->getSlug()) ?>"><?php echo $Quirofano->getNombre() ?></a></td>
+      <td><a href="<?php echo url_for('quirofano/programar?slug='.$Quirofano->getSlug())  ?>">Programar Cirugia</a></td>
+      <td><a href="<?php echo url_for('quirofano/diferidas?slug='.$Quirofano->getSlug())  ?>">Cirugias Diferidas</a></td>
+      <td><a href="<?php echo url_for('quirofano/inspeccionar?slug='.$Quirofano->getSlug())  ?>">Salas</a></td>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+  </table>
+  <a href="<?php echo url_for('quirofano/agendadiaria')?>">Agenda Global del Dia</a>
+</div>
