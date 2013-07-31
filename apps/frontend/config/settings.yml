@@ -30,6 +30,14 @@ all:
     # Output escaping settings
     escaping_strategy:      true
     escaping_method:        ESC_SPECIALCHARS
-
+    lazy_cache_key:         true
     # Enable the database manager
-    use_database:           true
+    #use_database:           true
+    login_module:           sfGuardAuth   # To be called when a non-authenticated user
+    login_action:           signin        # Tries to access a secure page
+
+    secure_module:          sfGuardAuth   # To be called when a user doesn't have
+    secure_action:          secure        # The credentials required for an action
+    enabled_modules:        [default, sfGuardAuth]
+    default_culture:        es        # Default user culture
+    charset:                utf-8

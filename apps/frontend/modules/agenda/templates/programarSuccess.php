@@ -4,21 +4,21 @@
 <style>
   .formulario {
     float: left;
-    background: cyan;   
+    background:#ebf4fb;;   
   }
 
   .formulario .area {
     float: left;
   }
 
-  .formulario .etiqueta {
+  .formulario .label {
     float: left;
-    font-size: bold;
+    font-size: bold;	
   }
 
-  .formulario .campo {
+  .formulario .field {	
+    margin:0px 0 0px 0px;
     float: left;
-    background: yellow;
   }
 </style>
 <!--
@@ -69,31 +69,33 @@
 <?php echo $form ?>
 </table>
 -->
+
+<div class='formulario'>
 <form method="POST">
 <!-- <form method="POST" action="<?php //echo url_for('quirofano/programar?slug='.$Quirofano->getSlug()) ?>">   -->
-<div class="area cols03">
+
+<div class="area">
     <div class="label"><?php echo $form['sala_id']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['sala_id']->renderError() ?>
       <?php echo $form['sala_id'] ?>
     </div>
   </div>
-<div class="area cols02">
+<div class="area">
     <div class="label"><?php echo $form['programacion']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['programacion']->renderError() ?>
       <?php echo $form['programacion'] ?>
     </div>
   </div>
-<div class="area cols02">
+<div class="area">
     <div class="label"><?php echo $form['hora']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['hora']->renderError() ?>
       <?php echo $form['hora'] ?>
     </div>
   </div>
-
-  <div class="area cols02">
+  <div class="area">
     <div class="label"><?php echo $form['tiempo_est']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['tiempo_est']->renderError() ?>
@@ -101,14 +103,14 @@
     </div>
   </div>
 
-  <div class="area cols03">
+  <div class="area">
     <div class="label"><?php echo $form['tipo_proc_id']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['tipo_proc_id']->renderError() ?>
       <?php echo $form['tipo_proc_id'] ?>
     </div>
   </div>
-<div class="area cols03">
+<div class="area">
     <div class="label"><?php echo $form['registro']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['registro']->renderError() ?>
@@ -116,7 +118,7 @@
     </div>
   </div>
 
-  <div class="area cols09">
+  <div class="area">
     <div class="label"><?php echo $form['paciente_name']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['paciente_name']->renderError() ?>
@@ -124,7 +126,7 @@
     </div>
   </div>
 
-  <div class="area cols03">
+  <div class="area">
     <div class="label"><?php echo $form['edad']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['edad']->renderError() ?>
@@ -132,7 +134,7 @@
     </div>
   </div>
 
-  <div class="area cols03">
+  <div class="area">
     <div class="label"><?php echo $form['genero']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['genero']->renderError() ?>
@@ -140,7 +142,7 @@
     </div>
   </div>
 
-<div class="area cols03">
+<div class="area">
     <div class="label"><?php echo $form['procedencia']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['procedencia']->renderError() ?>
@@ -148,7 +150,7 @@
     </div>
   </div>
 
-  <div class="area cols03">
+  <div class="area">
     <div class="label"><?php echo $form['servicio']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['servicio']->renderError() ?>
@@ -156,7 +158,7 @@
     </div>
   </div>
 
-  <div class="area cols06">
+  <div class="area">
     <div class="label"><?php echo $form['diagnostico']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['diagnostico']->renderError() ?>
@@ -164,7 +166,7 @@
     </div>
   </div>
 
-  <div class="area cols03 horizontal">
+  <div class="area">
     <div class="label"><?php echo $form['protocolo']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['protocolo']->renderError() ?>
@@ -172,14 +174,14 @@
     </div>
   </div>
 
-  <div class="area cols03 horizontal">
+  <div class="area">
     <div class="label"><?php echo $form['reintervencion']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['reintervencion']->renderError() ?>
       <?php echo $form['reintervencion'] ?>
     </div>
   </div>
-<div class="area cols03">
+<div class="area">
     <div class="label"><?php echo $form['atencion_id']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['atencion_id']->renderError() ?>
@@ -188,7 +190,7 @@
   </div>
 
  
-  <div class="area cols04">
+  <div class="area">
     <div class="label"><?php echo $form['riesgo_qx_pre']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['riesgo_qx_pre']->renderError() ?>
@@ -196,7 +198,7 @@
     </div>
   </div>
 
-  <div class="area cols04">
+  <div class="area">
     <div class="label"><?php echo $form['req_insumos']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_insumos']->renderError() ?>
@@ -204,7 +206,7 @@
     </div>
   </div>
 
-  <div class="area cols04">
+  <div class="area">
     <div class="label"><?php echo $form['req_anestesico']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_anestesico']->renderError() ?>
@@ -212,7 +214,7 @@
     </div>
   </div>
 
-<div class="area cols04">
+<div class="area">
     <div class="label"><?php echo $form['req_hemoderiv']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_hemoderiv']->renderError() ?>
@@ -220,7 +222,7 @@
     </div>
   </div>
 
-  <div class="area cols04">
+  <div class="area">
     <div class="label"><?php echo $form['req_laboratorio']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_laboratorio']->renderError() ?>
@@ -228,7 +230,7 @@
     </div>
   </div>
 
-  <div class="area cols04">
+  <div class="area">
     <div class="label"><?php echo $form['requerimiento']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['requerimiento']->renderError() ?>
@@ -240,7 +242,7 @@
     <?php echo $form->renderHiddenFields() ?>
     <input type="submit" value="Guardar">
   </div>
-
-</form>
+</form><!-Termina form->
+</div> <!- Termina formulario-->
 
 

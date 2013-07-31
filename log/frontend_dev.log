@@ -1498,3 +1498,784 @@ Jul 25 12:14:31 symfony [info] {sfWebDebugLogger} Factories 21.58 ms (1)
 Jul 25 12:14:31 symfony [info] {sfWebDebugLogger} Action "default/index" 0.10 ms (1)
 Jul 25 12:14:31 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 9.19 ms (1)
 Jul 25 12:14:31 symfony [info] {sfWebResponse} Send content (28516 o)
+Jul 30 12:10:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Jul 30 12:10:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Jul 30 12:10:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Jul 30 12:10:11 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 30 12:10:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:10:11 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:10:11 symfony [info] {sfBasicSecurityFilter} Action "default/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Jul 30 12:10:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:10:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 12:10:11 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Jul 30 12:10:11 symfony [err] {sfException} Call to undefined method myUser::setReferer.
+Jul 30 12:10:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Jul 30 12:10:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 12:10:11 symfony [info] {sfWebDebugLogger} Configuration 171.63 ms (11)
+Jul 30 12:10:11 symfony [info] {sfWebDebugLogger} Factories 179.78 ms (1)
+Jul 30 12:10:11 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 70.42 ms (1)
+Jul 30 12:10:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Jul 30 12:10:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Jul 30 12:10:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Jul 30 12:10:14 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 30 12:10:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:10:14 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:10:14 symfony [info] {sfBasicSecurityFilter} Action "default/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Jul 30 12:10:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:10:14 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 12:10:14 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Jul 30 12:10:14 symfony [err] {sfException} Call to undefined method myUser::setReferer.
+Jul 30 12:10:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Jul 30 12:10:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 12:10:14 symfony [info] {sfWebDebugLogger} Configuration 1.32 ms (11)
+Jul 30 12:10:14 symfony [info] {sfWebDebugLogger} Factories 26.96 ms (1)
+Jul 30 12:10:14 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 32.15 ms (1)
+Jul 30 12:14:29 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 30 12:14:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:14:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:14:29 symfony [info] {sfBasicSecurityFilter} Action "default/index" requires authentication, forwarding to "default/login"
+Jul 30 12:14:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:14:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:14:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 12:14:29 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jul 30 12:14:29 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/loginSuccess.php"
+Jul 30 12:14:29 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:14:29 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:14:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 12:14:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 12:14:29 symfony [info] {sfWebDebugLogger} Configuration 3.79 ms (12)
+Jul 30 12:14:29 symfony [info] {sfWebDebugLogger} Factories 26.17 ms (1)
+Jul 30 12:14:29 symfony [info] {sfWebDebugLogger} Action "default/login" 0.13 ms (1)
+Jul 30 12:14:29 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 20.14 ms (1)
+Jul 30 12:14:29 symfony [info] {sfWebResponse} Send content (29786 o)
+Jul 30 12:14:30 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 30 12:14:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:14:30 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:14:30 symfony [info] {sfBasicSecurityFilter} Action "default/index" requires authentication, forwarding to "default/login"
+Jul 30 12:14:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:14:30 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:14:30 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 12:14:30 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jul 30 12:14:30 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/loginSuccess.php"
+Jul 30 12:14:30 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:14:30 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:14:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 12:14:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 12:14:30 symfony [info] {sfWebDebugLogger} Configuration 1.35 ms (12)
+Jul 30 12:14:30 symfony [info] {sfWebDebugLogger} Factories 27.63 ms (1)
+Jul 30 12:14:30 symfony [info] {sfWebDebugLogger} Action "default/login" 0.09 ms (1)
+Jul 30 12:14:30 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 8.91 ms (1)
+Jul 30 12:14:30 symfony [info] {sfWebResponse} Send content (29784 o)
+Jul 30 12:14:36 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 30 12:14:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:14:36 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:14:36 symfony [info] {sfBasicSecurityFilter} Action "default/index" requires authentication, forwarding to "default/login"
+Jul 30 12:14:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:14:36 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:14:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 12:14:36 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jul 30 12:14:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/loginSuccess.php"
+Jul 30 12:14:36 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:14:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:14:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 12:14:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 12:14:36 symfony [info] {sfWebDebugLogger} Configuration 1.44 ms (12)
+Jul 30 12:14:36 symfony [info] {sfWebDebugLogger} Factories 21.50 ms (1)
+Jul 30 12:14:36 symfony [info] {sfWebDebugLogger} Action "default/login" 0.10 ms (1)
+Jul 30 12:14:36 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 10.22 ms (1)
+Jul 30 12:14:36 symfony [info] {sfWebResponse} Send content (29785 o)
+Jul 30 12:14:44 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 30 12:14:44 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:14:44 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:14:44 symfony [info] {sfBasicSecurityFilter} Action "default/index" requires authentication, forwarding to "default/login"
+Jul 30 12:14:44 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:14:44 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:14:44 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 12:14:44 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jul 30 12:14:44 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/loginSuccess.php"
+Jul 30 12:14:44 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:14:44 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:14:44 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 12:14:44 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 12:14:44 symfony [info] {sfWebDebugLogger} Configuration 1.38 ms (12)
+Jul 30 12:14:44 symfony [info] {sfWebDebugLogger} Factories 21.30 ms (1)
+Jul 30 12:14:44 symfony [info] {sfWebDebugLogger} Action "default/login" 0.12 ms (1)
+Jul 30 12:14:44 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 10.17 ms (1)
+Jul 30 12:14:44 symfony [info] {sfWebResponse} Send content (29753 o)
+Jul 30 12:15:33 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 30 12:15:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:15:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:15:33 symfony [info] {sfBasicSecurityFilter} Action "default/index" requires authentication, forwarding to "default/login"
+Jul 30 12:15:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:15:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:15:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 12:15:33 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jul 30 12:15:33 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/loginSuccess.php"
+Jul 30 12:15:33 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:15:33 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:15:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 12:15:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 12:15:33 symfony [info] {sfWebDebugLogger} Configuration 1.35 ms (12)
+Jul 30 12:15:33 symfony [info] {sfWebDebugLogger} Factories 22.95 ms (1)
+Jul 30 12:15:33 symfony [info] {sfWebDebugLogger} Action "default/login" 0.09 ms (1)
+Jul 30 12:15:33 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 10.62 ms (1)
+Jul 30 12:15:33 symfony [info] {sfWebResponse} Send content (29753 o)
+Jul 30 12:17:22 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /programar with parameters array (  'module' => 'programar',  'action' => 'index',)
+Jul 30 12:17:22 symfony [info] {sfFrontWebController} Action "programar/index" does not exist
+Jul 30 12:17:22 symfony [err] {sfError404Exception} Action "programar/index" does not exist.
+Jul 30 12:17:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 30 12:17:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 12:17:22 symfony [info] {sfWebDebugLogger} Configuration 0.61 ms (5)
+Jul 30 12:17:22 symfony [info] {sfWebDebugLogger} Factories 21.27 ms (1)
+Jul 30 12:17:28 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 30 12:17:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:17:28 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:17:28 symfony [info] {sfBasicSecurityFilter} Action "agenda/programar" requires authentication, forwarding to "default/login"
+Jul 30 12:17:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 12:17:28 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 30 12:17:28 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 12:17:28 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jul 30 12:17:28 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/loginSuccess.php"
+Jul 30 12:17:28 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:17:28 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 12:17:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 12:17:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 12:17:28 symfony [info] {sfWebDebugLogger} Configuration 13.91 ms (13)
+Jul 30 12:17:28 symfony [info] {sfWebDebugLogger} Factories 22.13 ms (1)
+Jul 30 12:17:28 symfony [info] {sfWebDebugLogger} Action "default/login" 0.09 ms (1)
+Jul 30 12:17:28 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 9.24 ms (1)
+Jul 30 12:17:28 symfony [info] {sfWebResponse} Send content (29907 o)
+Jul 30 18:11:50 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 30 18:11:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 18:11:50 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 18:11:50 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 30 18:11:50 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 30 18:11:50 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 18:11:50 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 18:11:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 18:11:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 18:11:50 symfony [info] {sfWebDebugLogger} Configuration 3.59 ms (9)
+Jul 30 18:11:50 symfony [info] {sfWebDebugLogger} Factories 325.65 ms (1)
+Jul 30 18:11:50 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 30 18:11:50 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 162.23 ms (1)
+Jul 30 18:11:50 symfony [info] {sfWebResponse} Send content (28487 o)
+Jul 30 18:12:07 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/index with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Jul 30 18:12:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 18:12:07 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 18:12:07 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Jul 30 18:12:07 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SELECT hc_agenda.ID, hc_agenda.PROGRAMACION, hc_agenda.HORA, hc_agenda.INGRESO, hc_agenda.SALA_ID, hc_agenda.QUIROFANO_ID, hc_agenda.EGRESO, hc_agenda.CIE9MC, hc_agenda.CIE9MC_ID, hc_agenda.CX_REALIZADA, hc_agenda.CX_REALIZADA_ID, hc_agenda.TIPO_CX, hc_agenda.DIAGNOSTICO, hc_agenda.DIAGNOSTICO_ID, hc_agenda.PACIENTE_NAME, hc_agenda.PACIENTE_ID, hc_agenda.EDAD, hc_agenda.GENERO, hc_agenda.GENERO_ID, hc_agenda.REGISTRO, hc_agenda.SERVICIO, hc_agenda.ANESTESIA_ID, hc_agenda.ANESTESIA_EMPLEADA, hc_agenda.EV_ADVERSOS_ANESTESIA, hc_agenda.OBSERVACIONES, hc_agenda.REQUERIMIENTO, hc_agenda.REQ_INSUMOS, hc_agenda.REQ_HEMODERIV, hc_agenda.REQ_LABORATORIO, hc_agenda.REQ_ANESTESICO, hc_agenda.STATUS, hc_agenda.CAUSA_DIFERIDO_ID, hc_agenda.SOLICITADO, hc_agenda.RIESGOQX_ID, hc_agenda.CONTAMINACIONQX_ID, hc_agenda.EVENTOQX_ID, hc_agenda.COMPLICACIONES, hc_agenda.VAL_PRE_ANESTESICA, hc_agenda.REINTERVENCION, hc_agenda.PERMISOS, hc_agenda.TIPO_PROC_ID, hc_agenda.ATENCION_ID, hc_agenda.TIEMPO_FUERA, hc_agenda.PROCEDENCIA, hc_agenda.CLASIFICACIONQX, hc_agenda.REGION_PX, hc_agenda.EXTENSION_PX, hc_agenda.ANEXO_DETALLE, hc_agenda.DESTINO_PX, hc_agenda.LIBERACION_SALA, hc_agenda.TIEMPO_EST, hc_agenda.RIESGO_QX_PRE, hc_agenda.SHOW_IN_INDEX, hc_agenda.PROTOCOLO, hc_agenda.CANCELADA, hc_agenda.CREATED_AT, hc_agenda.UPDATED_AT FROM `hc_agenda`
+Jul 30 18:12:07 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php"
+Jul 30 18:12:07 symfony [info] {main} Set slot "titulo"
+Jul 30 18:12:07 symfony [notice] {sfWebDebugLogger}  Notice at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Undefined variable: Quirofanos)
+Jul 30 18:12:07 symfony [warning] {sfWebDebugLogger}  Warning at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Invalid argument supplied for foreach())
+Jul 30 18:12:07 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:12:07 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:12:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 18:12:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 18:12:07 symfony [info] {sfWebDebugLogger} Configuration 22.38 ms (10)
+Jul 30 18:12:07 symfony [info] {sfWebDebugLogger} Factories 21.18 ms (1)
+Jul 30 18:12:07 symfony [info] {sfWebDebugLogger} Action "agenda/index" 461.73 ms (1)
+Jul 30 18:12:07 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 75.06 ms (1)
+Jul 30 18:12:07 symfony [info] {sfWebResponse} Send content (35222 o)
+Jul 30 18:12:27 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 30 18:12:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 18:12:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 18:12:27 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 30 18:12:27 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 30 18:12:27 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:12:27 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:12:27 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 18:12:27 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 18:12:27 symfony [info] {sfWebDebugLogger} Configuration 1.14 ms (9)
+Jul 30 18:12:27 symfony [info] {sfWebDebugLogger} Factories 23.75 ms (1)
+Jul 30 18:12:27 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 401.18 ms (1)
+Jul 30 18:12:27 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 32.62 ms (1)
+Jul 30 18:12:27 symfony [info] {sfWebResponse} Send content (50129 o)
+Jul 30 18:13:04 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/index with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Jul 30 18:13:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 18:13:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 18:13:04 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Jul 30 18:13:04 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT hc_agenda.ID, hc_agenda.PROGRAMACION, hc_agenda.HORA, hc_agenda.INGRESO, hc_agenda.SALA_ID, hc_agenda.QUIROFANO_ID, hc_agenda.EGRESO, hc_agenda.CIE9MC, hc_agenda.CIE9MC_ID, hc_agenda.CX_REALIZADA, hc_agenda.CX_REALIZADA_ID, hc_agenda.TIPO_CX, hc_agenda.DIAGNOSTICO, hc_agenda.DIAGNOSTICO_ID, hc_agenda.PACIENTE_NAME, hc_agenda.PACIENTE_ID, hc_agenda.EDAD, hc_agenda.GENERO, hc_agenda.GENERO_ID, hc_agenda.REGISTRO, hc_agenda.SERVICIO, hc_agenda.ANESTESIA_ID, hc_agenda.ANESTESIA_EMPLEADA, hc_agenda.EV_ADVERSOS_ANESTESIA, hc_agenda.OBSERVACIONES, hc_agenda.REQUERIMIENTO, hc_agenda.REQ_INSUMOS, hc_agenda.REQ_HEMODERIV, hc_agenda.REQ_LABORATORIO, hc_agenda.REQ_ANESTESICO, hc_agenda.STATUS, hc_agenda.CAUSA_DIFERIDO_ID, hc_agenda.SOLICITADO, hc_agenda.RIESGOQX_ID, hc_agenda.CONTAMINACIONQX_ID, hc_agenda.EVENTOQX_ID, hc_agenda.COMPLICACIONES, hc_agenda.VAL_PRE_ANESTESICA, hc_agenda.REINTERVENCION, hc_agenda.PERMISOS, hc_agenda.TIPO_PROC_ID, hc_agenda.ATENCION_ID, hc_agenda.TIEMPO_FUERA, hc_agenda.PROCEDENCIA, hc_agenda.CLASIFICACIONQX, hc_agenda.REGION_PX, hc_agenda.EXTENSION_PX, hc_agenda.ANEXO_DETALLE, hc_agenda.DESTINO_PX, hc_agenda.LIBERACION_SALA, hc_agenda.TIEMPO_EST, hc_agenda.RIESGO_QX_PRE, hc_agenda.SHOW_IN_INDEX, hc_agenda.PROTOCOLO, hc_agenda.CANCELADA, hc_agenda.CREATED_AT, hc_agenda.UPDATED_AT FROM `hc_agenda`
+Jul 30 18:13:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php"
+Jul 30 18:13:04 symfony [info] {main} Set slot "titulo"
+Jul 30 18:13:04 symfony [notice] {sfWebDebugLogger}  Notice at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Undefined variable: Quirofanos)
+Jul 30 18:13:04 symfony [warning] {sfWebDebugLogger}  Warning at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Invalid argument supplied for foreach())
+Jul 30 18:13:04 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:13:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:13:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 18:13:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 18:13:04 symfony [info] {sfWebDebugLogger} Configuration 1.05 ms (9)
+Jul 30 18:13:04 symfony [info] {sfWebDebugLogger} Factories 21.15 ms (1)
+Jul 30 18:13:04 symfony [info] {sfWebDebugLogger} Action "agenda/index" 34.80 ms (1)
+Jul 30 18:13:04 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 9.53 ms (1)
+Jul 30 18:13:04 symfony [info] {sfWebResponse} Send content (35219 o)
+Jul 30 18:13:13 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 30 18:13:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 18:13:13 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 18:13:13 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 30 18:13:13 symfony [info] {sfPHPView} Render "/home/ave/Escritorio/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 30 18:13:13 symfony [info] {sfPHPView} Decorate content with "/home/ave/Escritorio/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 18:13:13 symfony [info] {sfPHPView} Render "/home/ave/Escritorio/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 30 18:13:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 18:13:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 18:13:13 symfony [info] {sfWebDebugLogger} Configuration 1.40 ms (9)
+Jul 30 18:13:13 symfony [info] {sfWebDebugLogger} Factories 148.55 ms (1)
+Jul 30 18:13:13 symfony [info] {sfWebDebugLogger} Action "default/index" 0.16 ms (1)
+Jul 30 18:13:13 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 25.51 ms (1)
+Jul 30 18:13:13 symfony [info] {sfWebResponse} Send content (28795 o)
+Jul 30 18:13:59 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/index with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Jul 30 18:13:59 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 18:13:59 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 18:13:59 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Jul 30 18:13:59 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT hc_agenda.ID, hc_agenda.PROGRAMACION, hc_agenda.HORA, hc_agenda.INGRESO, hc_agenda.SALA_ID, hc_agenda.QUIROFANO_ID, hc_agenda.EGRESO, hc_agenda.CIE9MC, hc_agenda.CIE9MC_ID, hc_agenda.CX_REALIZADA, hc_agenda.CX_REALIZADA_ID, hc_agenda.TIPO_CX, hc_agenda.DIAGNOSTICO, hc_agenda.DIAGNOSTICO_ID, hc_agenda.PACIENTE_NAME, hc_agenda.PACIENTE_ID, hc_agenda.EDAD, hc_agenda.GENERO, hc_agenda.GENERO_ID, hc_agenda.REGISTRO, hc_agenda.SERVICIO, hc_agenda.ANESTESIA_ID, hc_agenda.ANESTESIA_EMPLEADA, hc_agenda.EV_ADVERSOS_ANESTESIA, hc_agenda.OBSERVACIONES, hc_agenda.REQUERIMIENTO, hc_agenda.REQ_INSUMOS, hc_agenda.REQ_HEMODERIV, hc_agenda.REQ_LABORATORIO, hc_agenda.REQ_ANESTESICO, hc_agenda.STATUS, hc_agenda.CAUSA_DIFERIDO_ID, hc_agenda.SOLICITADO, hc_agenda.RIESGOQX_ID, hc_agenda.CONTAMINACIONQX_ID, hc_agenda.EVENTOQX_ID, hc_agenda.COMPLICACIONES, hc_agenda.VAL_PRE_ANESTESICA, hc_agenda.REINTERVENCION, hc_agenda.PERMISOS, hc_agenda.TIPO_PROC_ID, hc_agenda.ATENCION_ID, hc_agenda.TIEMPO_FUERA, hc_agenda.PROCEDENCIA, hc_agenda.CLASIFICACIONQX, hc_agenda.REGION_PX, hc_agenda.EXTENSION_PX, hc_agenda.ANEXO_DETALLE, hc_agenda.DESTINO_PX, hc_agenda.LIBERACION_SALA, hc_agenda.TIEMPO_EST, hc_agenda.RIESGO_QX_PRE, hc_agenda.SHOW_IN_INDEX, hc_agenda.PROTOCOLO, hc_agenda.CANCELADA, hc_agenda.CREATED_AT, hc_agenda.UPDATED_AT FROM `hc_agenda`
+Jul 30 18:13:59 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php"
+Jul 30 18:13:59 symfony [info] {main} Set slot "titulo"
+Jul 30 18:13:59 symfony [notice] {sfWebDebugLogger}  Notice at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Undefined variable: Quirofanos)
+Jul 30 18:13:59 symfony [warning] {sfWebDebugLogger}  Warning at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Invalid argument supplied for foreach())
+Jul 30 18:13:59 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:13:59 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:13:59 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 18:13:59 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 18:13:59 symfony [info] {sfWebDebugLogger} Configuration 1.10 ms (9)
+Jul 30 18:13:59 symfony [info] {sfWebDebugLogger} Factories 20.92 ms (1)
+Jul 30 18:13:59 symfony [info] {sfWebDebugLogger} Action "agenda/index" 36.48 ms (1)
+Jul 30 18:13:59 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 9.89 ms (1)
+Jul 30 18:13:59 symfony [info] {sfWebResponse} Send content (35251 o)
+Jul 30 18:14:06 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 30 18:14:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 18:14:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 18:14:06 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 30 18:14:06 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 30 18:14:06 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:14:06 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:14:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 18:14:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 18:14:06 symfony [info] {sfWebDebugLogger} Configuration 1.22 ms (9)
+Jul 30 18:14:06 symfony [info] {sfWebDebugLogger} Factories 22.10 ms (1)
+Jul 30 18:14:06 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 42.25 ms (1)
+Jul 30 18:14:06 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 25.62 ms (1)
+Jul 30 18:14:06 symfony [info] {sfWebResponse} Send content (50130 o)
+Jul 30 18:14:12 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/index with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Jul 30 18:14:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 18:14:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 18:14:12 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Jul 30 18:14:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT hc_agenda.ID, hc_agenda.PROGRAMACION, hc_agenda.HORA, hc_agenda.INGRESO, hc_agenda.SALA_ID, hc_agenda.QUIROFANO_ID, hc_agenda.EGRESO, hc_agenda.CIE9MC, hc_agenda.CIE9MC_ID, hc_agenda.CX_REALIZADA, hc_agenda.CX_REALIZADA_ID, hc_agenda.TIPO_CX, hc_agenda.DIAGNOSTICO, hc_agenda.DIAGNOSTICO_ID, hc_agenda.PACIENTE_NAME, hc_agenda.PACIENTE_ID, hc_agenda.EDAD, hc_agenda.GENERO, hc_agenda.GENERO_ID, hc_agenda.REGISTRO, hc_agenda.SERVICIO, hc_agenda.ANESTESIA_ID, hc_agenda.ANESTESIA_EMPLEADA, hc_agenda.EV_ADVERSOS_ANESTESIA, hc_agenda.OBSERVACIONES, hc_agenda.REQUERIMIENTO, hc_agenda.REQ_INSUMOS, hc_agenda.REQ_HEMODERIV, hc_agenda.REQ_LABORATORIO, hc_agenda.REQ_ANESTESICO, hc_agenda.STATUS, hc_agenda.CAUSA_DIFERIDO_ID, hc_agenda.SOLICITADO, hc_agenda.RIESGOQX_ID, hc_agenda.CONTAMINACIONQX_ID, hc_agenda.EVENTOQX_ID, hc_agenda.COMPLICACIONES, hc_agenda.VAL_PRE_ANESTESICA, hc_agenda.REINTERVENCION, hc_agenda.PERMISOS, hc_agenda.TIPO_PROC_ID, hc_agenda.ATENCION_ID, hc_agenda.TIEMPO_FUERA, hc_agenda.PROCEDENCIA, hc_agenda.CLASIFICACIONQX, hc_agenda.REGION_PX, hc_agenda.EXTENSION_PX, hc_agenda.ANEXO_DETALLE, hc_agenda.DESTINO_PX, hc_agenda.LIBERACION_SALA, hc_agenda.TIEMPO_EST, hc_agenda.RIESGO_QX_PRE, hc_agenda.SHOW_IN_INDEX, hc_agenda.PROTOCOLO, hc_agenda.CANCELADA, hc_agenda.CREATED_AT, hc_agenda.UPDATED_AT FROM `hc_agenda`
+Jul 30 18:14:12 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php"
+Jul 30 18:14:12 symfony [info] {main} Set slot "titulo"
+Jul 30 18:14:12 symfony [notice] {sfWebDebugLogger}  Notice at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Undefined variable: Quirofanos)
+Jul 30 18:14:12 symfony [warning] {sfWebDebugLogger}  Warning at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Invalid argument supplied for foreach())
+Jul 30 18:14:12 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:14:12 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:14:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 18:14:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 18:14:12 symfony [info] {sfWebDebugLogger} Configuration 1.19 ms (9)
+Jul 30 18:14:12 symfony [info] {sfWebDebugLogger} Factories 25.61 ms (1)
+Jul 30 18:14:12 symfony [info] {sfWebDebugLogger} Action "agenda/index" 39.86 ms (1)
+Jul 30 18:14:12 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 9.90 ms (1)
+Jul 30 18:14:12 symfony [info] {sfWebResponse} Send content (35219 o)
+Jul 30 18:14:35 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 30 18:14:35 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 30 18:14:35 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 30 18:14:35 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 30 18:14:35 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 30 18:14:35 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:14:35 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 30 18:14:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 30 18:14:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 30 18:14:35 symfony [info] {sfWebDebugLogger} Configuration 1.04 ms (9)
+Jul 30 18:14:35 symfony [info] {sfWebDebugLogger} Factories 21.11 ms (1)
+Jul 30 18:14:35 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 39.37 ms (1)
+Jul 30 18:14:35 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 26.00 ms (1)
+Jul 30 18:14:35 symfony [info] {sfWebResponse} Send content (50130 o)
+Jul 31 09:37:16 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 31 09:37:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 09:37:16 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 09:37:16 symfony [info] {sfBasicSecurityFilter} Action "agenda/programar" requires authentication, forwarding to "default/login"
+Jul 31 09:37:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 09:37:16 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 09:37:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 09:37:16 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jul 31 09:37:16 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/loginSuccess.php"
+Jul 31 09:37:16 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 09:37:16 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 09:37:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 09:37:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 09:37:16 symfony [info] {sfWebDebugLogger} Configuration 166.78 ms (12)
+Jul 31 09:37:16 symfony [info] {sfWebDebugLogger} Factories 156.04 ms (1)
+Jul 31 09:37:16 symfony [info] {sfWebDebugLogger} Action "default/login" 0.13 ms (1)
+Jul 31 09:37:16 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 10.52 ms (1)
+Jul 31 09:37:16 symfony [info] {sfWebResponse} Send content (29910 o)
+Jul 31 09:41:36 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 31 09:41:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 09:41:36 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 09:41:36 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 09:41:36 symfony [info] {sfBasicSecurityFilter} Action "agenda/programar" requires authentication, forwarding to "default/login"
+Jul 31 09:41:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 09:41:36 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 09:41:36 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 09:41:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 09:41:36 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jul 31 09:41:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/loginSuccess.php"
+Jul 31 09:41:36 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 09:41:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 09:41:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 09:41:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 09:41:36 symfony [info] {sfWebDebugLogger} Configuration 163.08 ms (12)
+Jul 31 09:41:36 symfony [info] {sfWebDebugLogger} Factories 65.23 ms (1)
+Jul 31 09:41:36 symfony [info] {sfWebDebugLogger} Action "default/login" 0.10 ms (1)
+Jul 31 09:41:36 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 11.16 ms (1)
+Jul 31 09:41:36 symfony [info] {sfWebResponse} Send content (30726 o)
+Jul 31 09:41:40 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /default/login with parameters array (  'module' => 'default',  'action' => 'login',)
+Jul 31 09:41:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 09:41:40 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 09:41:40 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 09:41:40 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 09:41:40 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jul 31 09:41:40 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/loginSuccess.php"
+Jul 31 09:41:40 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 09:41:40 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 09:41:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 09:41:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 09:41:40 symfony [info] {sfWebDebugLogger} Configuration 0.99 ms (9)
+Jul 31 09:41:40 symfony [info] {sfWebDebugLogger} Factories 21.03 ms (1)
+Jul 31 09:41:40 symfony [info] {sfWebDebugLogger} Action "default/login" 0.11 ms (1)
+Jul 31 09:41:40 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 7.96 ms (1)
+Jul 31 09:41:40 symfony [info] {sfWebResponse} Send content (28974 o)
+Jul 31 09:43:41 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /default/login with parameters array (  'module' => 'default',  'action' => 'login',)
+Jul 31 09:43:41 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 09:43:41 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 09:43:41 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 09:43:41 symfony [info] {sfBasicSecurityFilter} Action "default/login" requires authentication, forwarding to "sfGuardAuth/signin"
+Jul 31 09:43:41 symfony [err] {sfConfigurationException} The module "sfGuardAuth" is not enabled.
+Jul 31 09:43:41 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Jul 31 09:43:41 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 09:43:41 symfony [info] {sfWebDebugLogger} Configuration 158.23 ms (8)
+Jul 31 09:43:41 symfony [info] {sfWebDebugLogger} Factories 60.65 ms (1)
+Jul 31 09:45:12 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /default/login with parameters array (  'module' => 'default',  'action' => 'login',)
+Jul 31 09:45:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 09:45:12 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 09:45:12 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 09:45:12 symfony [info] {sfBasicSecurityFilter} Action "default/login" requires authentication, forwarding to "sfGuardAuth/signin"
+Jul 31 09:45:12 symfony [err] {sfConfigurationException} The module "sfGuardAuth" is not enabled.
+Jul 31 09:45:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Jul 31 09:45:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 09:45:12 symfony [info] {sfWebDebugLogger} Configuration 207.64 ms (8)
+Jul 31 09:45:12 symfony [info] {sfWebDebugLogger} Factories 62.39 ms (1)
+Jul 31 10:18:51 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 31 10:18:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:18:51 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:18:51 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:18:51 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:18:51 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 31 10:18:51 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 31 10:18:51 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:18:51 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:18:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:18:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:18:51 symfony [info] {sfWebDebugLogger} Configuration 159.97 ms (9)
+Jul 31 10:18:51 symfony [info] {sfWebDebugLogger} Factories 119.52 ms (1)
+Jul 31 10:18:51 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 139.55 ms (1)
+Jul 31 10:18:51 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 47.54 ms (1)
+Jul 31 10:18:51 symfony [info] {sfWebResponse} Send content (51136 o)
+Jul 31 10:21:23 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 31 10:21:23 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:21:23 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:21:23 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:21:23 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:21:23 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 31 10:21:23 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 31 10:21:23 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:21:23 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:21:23 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:21:23 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:21:23 symfony [info] {sfWebDebugLogger} Configuration 16.50 ms (10)
+Jul 31 10:21:23 symfony [info] {sfWebDebugLogger} Factories 24.28 ms (1)
+Jul 31 10:21:23 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 31 10:21:23 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 10.81 ms (1)
+Jul 31 10:21:23 symfony [info] {sfWebResponse} Send content (29421 o)
+Jul 31 10:21:29 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /agenda with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Jul 31 10:21:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:21:29 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:21:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:21:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:21:29 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Jul 31 10:21:29 symfony [debug] {sfPropelLogger} time:  0.033 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT hc_agenda.ID, hc_agenda.PROGRAMACION, hc_agenda.HORA, hc_agenda.INGRESO, hc_agenda.SALA_ID, hc_agenda.QUIROFANO_ID, hc_agenda.EGRESO, hc_agenda.CIE9MC, hc_agenda.CIE9MC_ID, hc_agenda.CX_REALIZADA, hc_agenda.CX_REALIZADA_ID, hc_agenda.TIPO_CX, hc_agenda.DIAGNOSTICO, hc_agenda.DIAGNOSTICO_ID, hc_agenda.PACIENTE_NAME, hc_agenda.PACIENTE_ID, hc_agenda.EDAD, hc_agenda.GENERO, hc_agenda.GENERO_ID, hc_agenda.REGISTRO, hc_agenda.SERVICIO, hc_agenda.ANESTESIA_ID, hc_agenda.ANESTESIA_EMPLEADA, hc_agenda.EV_ADVERSOS_ANESTESIA, hc_agenda.OBSERVACIONES, hc_agenda.REQUERIMIENTO, hc_agenda.REQ_INSUMOS, hc_agenda.REQ_HEMODERIV, hc_agenda.REQ_LABORATORIO, hc_agenda.REQ_ANESTESICO, hc_agenda.STATUS, hc_agenda.CAUSA_DIFERIDO_ID, hc_agenda.SOLICITADO, hc_agenda.RIESGOQX_ID, hc_agenda.CONTAMINACIONQX_ID, hc_agenda.EVENTOQX_ID, hc_agenda.COMPLICACIONES, hc_agenda.VAL_PRE_ANESTESICA, hc_agenda.REINTERVENCION, hc_agenda.PERMISOS, hc_agenda.TIPO_PROC_ID, hc_agenda.ATENCION_ID, hc_agenda.TIEMPO_FUERA, hc_agenda.PROCEDENCIA, hc_agenda.CLASIFICACIONQX, hc_agenda.REGION_PX, hc_agenda.EXTENSION_PX, hc_agenda.ANEXO_DETALLE, hc_agenda.DESTINO_PX, hc_agenda.LIBERACION_SALA, hc_agenda.TIEMPO_EST, hc_agenda.RIESGO_QX_PRE, hc_agenda.SHOW_IN_INDEX, hc_agenda.PROTOCOLO, hc_agenda.CANCELADA, hc_agenda.CREATED_AT, hc_agenda.UPDATED_AT FROM `hc_agenda`
+Jul 31 10:21:29 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php"
+Jul 31 10:21:29 symfony [info] {main} Set slot "titulo"
+Jul 31 10:21:29 symfony [notice] {sfWebDebugLogger}  Notice at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Undefined variable: Quirofanos)
+Jul 31 10:21:29 symfony [warning] {sfWebDebugLogger}  Warning at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Invalid argument supplied for foreach())
+Jul 31 10:21:29 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:21:29 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:21:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:21:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:21:29 symfony [info] {sfWebDebugLogger} Configuration 1.11 ms (9)
+Jul 31 10:21:29 symfony [info] {sfWebDebugLogger} Factories 21.60 ms (1)
+Jul 31 10:21:29 symfony [info] {sfWebDebugLogger} Action "agenda/index" 190.73 ms (1)
+Jul 31 10:21:29 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 75.40 ms (1)
+Jul 31 10:21:29 symfony [info] {sfWebResponse} Send content (36189 o)
+Jul 31 10:21:38 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 31 10:21:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:21:38 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:21:38 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:21:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:21:38 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 31 10:21:38 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 31 10:21:38 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:21:38 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:21:38 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:21:38 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:21:38 symfony [info] {sfWebDebugLogger} Configuration 1.06 ms (9)
+Jul 31 10:21:38 symfony [info] {sfWebDebugLogger} Factories 22.15 ms (1)
+Jul 31 10:21:38 symfony [info] {sfWebDebugLogger} Action "default/index" 0.08 ms (1)
+Jul 31 10:21:38 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 9.48 ms (1)
+Jul 31 10:21:38 symfony [info] {sfWebResponse} Send content (29485 o)
+Jul 31 10:22:26 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 31 10:22:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:22:26 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:22:26 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:22:26 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:22:26 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 31 10:22:26 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 31 10:22:26 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:22:26 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:22:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:22:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:22:26 symfony [info] {sfWebDebugLogger} Configuration 1.23 ms (9)
+Jul 31 10:22:26 symfony [info] {sfWebDebugLogger} Factories 25.83 ms (1)
+Jul 31 10:22:26 symfony [info] {sfWebDebugLogger} Action "default/index" 0.10 ms (1)
+Jul 31 10:22:26 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 9.97 ms (1)
+Jul 31 10:22:26 symfony [info] {sfWebResponse} Send content (29517 o)
+Jul 31 10:23:54 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 31 10:23:54 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:23:54 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:23:54 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:23:54 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:23:54 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 31 10:23:54 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 31 10:23:54 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:23:54 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:23:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:23:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:23:54 symfony [info] {sfWebDebugLogger} Configuration 1.14 ms (9)
+Jul 31 10:23:54 symfony [info] {sfWebDebugLogger} Factories 23.07 ms (1)
+Jul 31 10:23:54 symfony [info] {sfWebDebugLogger} Action "default/index" 0.10 ms (1)
+Jul 31 10:23:54 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 8.49 ms (1)
+Jul 31 10:23:54 symfony [info] {sfWebResponse} Send content (29485 o)
+Jul 31 10:23:57 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/agenda/" (/).
+Jul 31 10:23:57 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 31 10:23:57 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:23:57 symfony [info] {sfWebDebugLogger} Configuration 0.60 ms (5)
+Jul 31 10:23:57 symfony [info] {sfWebDebugLogger} Factories 23.46 ms (1)
+Jul 31 10:24:02 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/agenda/" (/).
+Jul 31 10:24:02 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 31 10:24:02 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:24:02 symfony [info] {sfWebDebugLogger} Configuration 0.59 ms (5)
+Jul 31 10:24:02 symfony [info] {sfWebDebugLogger} Factories 21.81 ms (1)
+Jul 31 10:24:04 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 31 10:24:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:24:04 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:24:04 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:24:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:24:04 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 31 10:24:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 31 10:24:04 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:24:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:24:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:24:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:24:04 symfony [info] {sfWebDebugLogger} Configuration 1.20 ms (9)
+Jul 31 10:24:04 symfony [info] {sfWebDebugLogger} Factories 25.75 ms (1)
+Jul 31 10:24:04 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 43.02 ms (1)
+Jul 31 10:24:04 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 26.39 ms (1)
+Jul 31 10:24:04 symfony [info] {sfWebResponse} Send content (52705 o)
+Jul 31 10:24:16 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/agenda/" (/).
+Jul 31 10:24:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 31 10:24:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:24:16 symfony [info] {sfWebDebugLogger} Configuration 0.77 ms (5)
+Jul 31 10:24:16 symfony [info] {sfWebDebugLogger} Factories 24.63 ms (1)
+Jul 31 10:26:03 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/agenda/" (/).
+Jul 31 10:26:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 31 10:26:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:26:03 symfony [info] {sfWebDebugLogger} Configuration 0.66 ms (5)
+Jul 31 10:26:03 symfony [info] {sfWebDebugLogger} Factories 23.25 ms (1)
+Jul 31 10:26:04 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/agenda/" (/).
+Jul 31 10:26:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 31 10:26:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:26:04 symfony [info] {sfWebDebugLogger} Configuration 0.68 ms (5)
+Jul 31 10:26:04 symfony [info] {sfWebDebugLogger} Factories 23.88 ms (1)
+Jul 31 10:26:10 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/agenda/" (/).
+Jul 31 10:26:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 31 10:26:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:26:11 symfony [info] {sfWebDebugLogger} Configuration 156.53 ms (5)
+Jul 31 10:26:11 symfony [info] {sfWebDebugLogger} Factories 65.78 ms (1)
+Jul 31 10:26:13 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 31 10:26:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:26:13 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:26:13 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:26:13 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:26:13 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 31 10:26:13 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 31 10:26:13 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:26:13 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:26:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:26:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:26:13 symfony [info] {sfWebDebugLogger} Configuration 15.20 ms (10)
+Jul 31 10:26:13 symfony [info] {sfWebDebugLogger} Factories 22.56 ms (1)
+Jul 31 10:26:13 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 31 10:26:13 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 11.21 ms (1)
+Jul 31 10:26:13 symfony [info] {sfWebResponse} Send content (29489 o)
+Jul 31 10:26:16 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 31 10:26:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:26:16 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:26:16 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:26:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:26:16 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 31 10:26:16 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 31 10:26:16 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:26:16 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:26:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:26:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:26:16 symfony [info] {sfWebDebugLogger} Configuration 14.42 ms (10)
+Jul 31 10:26:16 symfony [info] {sfWebDebugLogger} Factories 25.04 ms (1)
+Jul 31 10:26:16 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 41.76 ms (1)
+Jul 31 10:26:16 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 28.95 ms (1)
+Jul 31 10:26:16 symfony [info] {sfWebResponse} Send content (51136 o)
+Jul 31 10:26:19 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/agenda/" (/).
+Jul 31 10:26:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 31 10:26:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:26:19 symfony [info] {sfWebDebugLogger} Configuration 0.93 ms (5)
+Jul 31 10:26:19 symfony [info] {sfWebDebugLogger} Factories 27.01 ms (1)
+Jul 31 10:27:08 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 31 10:27:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:27:08 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:27:08 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:27:08 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:27:08 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 31 10:27:08 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 31 10:27:08 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:27:08 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:27:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:27:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:27:08 symfony [info] {sfWebDebugLogger} Configuration 1.57 ms (9)
+Jul 31 10:27:08 symfony [info] {sfWebDebugLogger} Factories 36.23 ms (1)
+Jul 31 10:27:08 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 50.82 ms (1)
+Jul 31 10:27:08 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 32.18 ms (1)
+Jul 31 10:27:08 symfony [info] {sfWebResponse} Send content (51133 o)
+Jul 31 10:28:49 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/agenda/" (/).
+Jul 31 10:28:49 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 31 10:28:49 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:28:49 symfony [info] {sfWebDebugLogger} Configuration 0.69 ms (5)
+Jul 31 10:28:49 symfony [info] {sfWebDebugLogger} Factories 29.15 ms (1)
+Jul 31 10:31:04 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 31 10:31:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:31:04 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:31:04 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:31:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:31:04 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 31 10:31:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 31 10:31:04 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:31:04 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:31:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:31:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:31:04 symfony [info] {sfWebDebugLogger} Configuration 1.11 ms (9)
+Jul 31 10:31:04 symfony [info] {sfWebDebugLogger} Factories 23.61 ms (1)
+Jul 31 10:31:04 symfony [info] {sfWebDebugLogger} Action "default/index" 0.10 ms (1)
+Jul 31 10:31:04 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 9.38 ms (1)
+Jul 31 10:31:04 symfony [info] {sfWebResponse} Send content (29485 o)
+Jul 31 10:31:08 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 31 10:31:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:31:08 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:31:08 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:31:08 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:31:08 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 31 10:31:08 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 31 10:31:08 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:31:08 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:31:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:31:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:31:08 symfony [info] {sfWebDebugLogger} Configuration 1.06 ms (9)
+Jul 31 10:31:08 symfony [info] {sfWebDebugLogger} Factories 22.79 ms (1)
+Jul 31 10:31:08 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 45.66 ms (1)
+Jul 31 10:31:08 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 27.43 ms (1)
+Jul 31 10:31:08 symfony [info] {sfWebResponse} Send content (51133 o)
+Jul 31 10:31:11 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/agenda/" (/).
+Jul 31 10:31:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 31 10:31:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:31:11 symfony [info] {sfWebDebugLogger} Configuration 0.53 ms (5)
+Jul 31 10:31:11 symfony [info] {sfWebDebugLogger} Factories 20.19 ms (1)
+Jul 31 10:32:07 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/agenda/" (/).
+Jul 31 10:32:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 31 10:32:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:32:07 symfony [info] {sfWebDebugLogger} Configuration 150.26 ms (5)
+Jul 31 10:32:07 symfony [info] {sfWebDebugLogger} Factories 64.77 ms (1)
+Jul 31 10:32:09 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 31 10:32:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:32:09 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:32:09 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:32:09 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:32:09 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 31 10:32:09 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 31 10:32:09 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:32:09 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:32:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:32:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:32:09 symfony [info] {sfWebDebugLogger} Configuration 15.17 ms (10)
+Jul 31 10:32:09 symfony [info] {sfWebDebugLogger} Factories 24.09 ms (1)
+Jul 31 10:32:09 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 42.43 ms (1)
+Jul 31 10:32:09 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 29.28 ms (1)
+Jul 31 10:32:09 symfony [info] {sfWebResponse} Send content (51136 o)
+Jul 31 10:32:13 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/index with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Jul 31 10:32:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:32:13 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:32:13 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:32:13 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:32:13 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Jul 31 10:32:13 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT hc_agenda.ID, hc_agenda.PROGRAMACION, hc_agenda.HORA, hc_agenda.INGRESO, hc_agenda.SALA_ID, hc_agenda.QUIROFANO_ID, hc_agenda.EGRESO, hc_agenda.CIE9MC, hc_agenda.CIE9MC_ID, hc_agenda.CX_REALIZADA, hc_agenda.CX_REALIZADA_ID, hc_agenda.TIPO_CX, hc_agenda.DIAGNOSTICO, hc_agenda.DIAGNOSTICO_ID, hc_agenda.PACIENTE_NAME, hc_agenda.PACIENTE_ID, hc_agenda.EDAD, hc_agenda.GENERO, hc_agenda.GENERO_ID, hc_agenda.REGISTRO, hc_agenda.SERVICIO, hc_agenda.ANESTESIA_ID, hc_agenda.ANESTESIA_EMPLEADA, hc_agenda.EV_ADVERSOS_ANESTESIA, hc_agenda.OBSERVACIONES, hc_agenda.REQUERIMIENTO, hc_agenda.REQ_INSUMOS, hc_agenda.REQ_HEMODERIV, hc_agenda.REQ_LABORATORIO, hc_agenda.REQ_ANESTESICO, hc_agenda.STATUS, hc_agenda.CAUSA_DIFERIDO_ID, hc_agenda.SOLICITADO, hc_agenda.RIESGOQX_ID, hc_agenda.CONTAMINACIONQX_ID, hc_agenda.EVENTOQX_ID, hc_agenda.COMPLICACIONES, hc_agenda.VAL_PRE_ANESTESICA, hc_agenda.REINTERVENCION, hc_agenda.PERMISOS, hc_agenda.TIPO_PROC_ID, hc_agenda.ATENCION_ID, hc_agenda.TIEMPO_FUERA, hc_agenda.PROCEDENCIA, hc_agenda.CLASIFICACIONQX, hc_agenda.REGION_PX, hc_agenda.EXTENSION_PX, hc_agenda.ANEXO_DETALLE, hc_agenda.DESTINO_PX, hc_agenda.LIBERACION_SALA, hc_agenda.TIEMPO_EST, hc_agenda.RIESGO_QX_PRE, hc_agenda.SHOW_IN_INDEX, hc_agenda.PROTOCOLO, hc_agenda.CANCELADA, hc_agenda.CREATED_AT, hc_agenda.UPDATED_AT FROM `hc_agenda`
+Jul 31 10:32:13 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php"
+Jul 31 10:32:13 symfony [info] {main} Set slot "titulo"
+Jul 31 10:32:13 symfony [notice] {sfWebDebugLogger}  Notice at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Undefined variable: Quirofanos)
+Jul 31 10:32:13 symfony [warning] {sfWebDebugLogger}  Warning at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Invalid argument supplied for foreach())
+Jul 31 10:32:13 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:32:13 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:32:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:32:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:32:13 symfony [info] {sfWebDebugLogger} Configuration 1.27 ms (9)
+Jul 31 10:32:13 symfony [info] {sfWebDebugLogger} Factories 23.00 ms (1)
+Jul 31 10:32:13 symfony [info] {sfWebDebugLogger} Action "agenda/index" 39.02 ms (1)
+Jul 31 10:32:13 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 9.46 ms (1)
+Jul 31 10:32:13 symfony [info] {sfWebResponse} Send content (36221 o)
+Jul 31 10:37:40 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/index with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Jul 31 10:37:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:37:40 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:37:40 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:37:40 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:37:40 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Jul 31 10:37:40 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT hc_agenda.ID, hc_agenda.PROGRAMACION, hc_agenda.HORA, hc_agenda.INGRESO, hc_agenda.SALA_ID, hc_agenda.QUIROFANO_ID, hc_agenda.EGRESO, hc_agenda.CIE9MC, hc_agenda.CIE9MC_ID, hc_agenda.CX_REALIZADA, hc_agenda.CX_REALIZADA_ID, hc_agenda.TIPO_CX, hc_agenda.DIAGNOSTICO, hc_agenda.DIAGNOSTICO_ID, hc_agenda.PACIENTE_NAME, hc_agenda.PACIENTE_ID, hc_agenda.EDAD, hc_agenda.GENERO, hc_agenda.GENERO_ID, hc_agenda.REGISTRO, hc_agenda.SERVICIO, hc_agenda.ANESTESIA_ID, hc_agenda.ANESTESIA_EMPLEADA, hc_agenda.EV_ADVERSOS_ANESTESIA, hc_agenda.OBSERVACIONES, hc_agenda.REQUERIMIENTO, hc_agenda.REQ_INSUMOS, hc_agenda.REQ_HEMODERIV, hc_agenda.REQ_LABORATORIO, hc_agenda.REQ_ANESTESICO, hc_agenda.STATUS, hc_agenda.CAUSA_DIFERIDO_ID, hc_agenda.SOLICITADO, hc_agenda.RIESGOQX_ID, hc_agenda.CONTAMINACIONQX_ID, hc_agenda.EVENTOQX_ID, hc_agenda.COMPLICACIONES, hc_agenda.VAL_PRE_ANESTESICA, hc_agenda.REINTERVENCION, hc_agenda.PERMISOS, hc_agenda.TIPO_PROC_ID, hc_agenda.ATENCION_ID, hc_agenda.TIEMPO_FUERA, hc_agenda.PROCEDENCIA, hc_agenda.CLASIFICACIONQX, hc_agenda.REGION_PX, hc_agenda.EXTENSION_PX, hc_agenda.ANEXO_DETALLE, hc_agenda.DESTINO_PX, hc_agenda.LIBERACION_SALA, hc_agenda.TIEMPO_EST, hc_agenda.RIESGO_QX_PRE, hc_agenda.SHOW_IN_INDEX, hc_agenda.PROTOCOLO, hc_agenda.CANCELADA, hc_agenda.CREATED_AT, hc_agenda.UPDATED_AT FROM `hc_agenda`
+Jul 31 10:37:40 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php"
+Jul 31 10:37:40 symfony [info] {main} Set slot "titulo"
+Jul 31 10:37:40 symfony [notice] {sfWebDebugLogger}  Notice at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Undefined variable: Quirofanos)
+Jul 31 10:37:40 symfony [warning] {sfWebDebugLogger}  Warning at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Invalid argument supplied for foreach())
+Jul 31 10:37:40 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:37:40 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 10:37:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:37:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:37:40 symfony [info] {sfWebDebugLogger} Configuration 1.31 ms (9)
+Jul 31 10:37:40 symfony [info] {sfWebDebugLogger} Factories 27.07 ms (1)
+Jul 31 10:37:40 symfony [info] {sfWebDebugLogger} Action "agenda/index" 38.18 ms (1)
+Jul 31 10:37:40 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 12.08 ms (1)
+Jul 31 10:37:40 symfony [info] {sfWebResponse} Send content (36256 o)
+Jul 31 10:37:42 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 31 10:37:42 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:37:42 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:37:42 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:37:42 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:37:42 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 31 10:37:42 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 31 10:37:42 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:37:42 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:37:42 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:37:42 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:37:42 symfony [info] {sfWebDebugLogger} Configuration 14.82 ms (10)
+Jul 31 10:37:42 symfony [info] {sfWebDebugLogger} Factories 30.99 ms (1)
+Jul 31 10:37:42 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 31 10:37:42 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 10.41 ms (1)
+Jul 31 10:37:42 symfony [info] {sfWebResponse} Send content (29489 o)
+Jul 31 10:48:11 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 31 10:48:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:48:11 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:48:11 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:48:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:48:11 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 31 10:48:11 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 31 10:48:11 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:48:11 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:48:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:48:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:48:11 symfony [info] {sfWebDebugLogger} Configuration 1.07 ms (9)
+Jul 31 10:48:11 symfony [info] {sfWebDebugLogger} Factories 21.66 ms (1)
+Jul 31 10:48:11 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 31 10:48:11 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 8.26 ms (1)
+Jul 31 10:48:11 symfony [info] {sfWebResponse} Send content (29417 o)
+Jul 31 10:57:29 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 31 10:57:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 10:57:29 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 10:57:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 10:57:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 10:57:29 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 31 10:57:29 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 31 10:57:29 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:57:29 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 10:57:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 10:57:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 10:57:29 symfony [info] {sfWebDebugLogger} Configuration 1.12 ms (9)
+Jul 31 10:57:29 symfony [info] {sfWebDebugLogger} Factories 22.54 ms (1)
+Jul 31 10:57:29 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 31 10:57:29 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 7.81 ms (1)
+Jul 31 10:57:29 symfony [info] {sfWebResponse} Send content (29449 o)
+Jul 31 11:01:18 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 31 11:01:18 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 11:01:18 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 11:01:18 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 11:01:18 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 11:01:18 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 31 11:01:18 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/indexSuccess.php"
+Jul 31 11:01:18 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 11:01:18 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/SYM/symfony/lib/controller/default/templates/defaultLayout.php"
+Jul 31 11:01:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 11:01:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 11:01:18 symfony [info] {sfWebDebugLogger} Configuration 0.97 ms (9)
+Jul 31 11:01:18 symfony [info] {sfWebDebugLogger} Factories 21.56 ms (1)
+Jul 31 11:01:18 symfony [info] {sfWebDebugLogger} Action "default/index" 0.09 ms (1)
+Jul 31 11:01:18 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 7.88 ms (1)
+Jul 31 11:01:18 symfony [info] {sfWebResponse} Send content (29485 o)
+Jul 31 11:01:19 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 31 11:01:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 11:01:19 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 11:01:19 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 11:01:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 11:01:19 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 31 11:01:19 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 31 11:01:19 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 11:01:19 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 11:01:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 11:01:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 11:01:19 symfony [info] {sfWebDebugLogger} Configuration 1.48 ms (9)
+Jul 31 11:01:19 symfony [info] {sfWebDebugLogger} Factories 27.43 ms (1)
+Jul 31 11:01:19 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 41.24 ms (1)
+Jul 31 11:01:19 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 26.27 ms (1)
+Jul 31 11:01:19 symfony [info] {sfWebResponse} Send content (51133 o)
+Jul 31 11:17:26 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Jul 31 11:17:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 11:17:26 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 11:17:26 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 11:17:26 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 11:17:26 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Jul 31 11:17:26 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Jul 31 11:17:26 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 11:17:26 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 11:17:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 11:17:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 11:17:26 symfony [info] {sfWebDebugLogger} Configuration 1.09 ms (9)
+Jul 31 11:17:26 symfony [info] {sfWebDebugLogger} Factories 20.00 ms (1)
+Jul 31 11:17:26 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 38.68 ms (1)
+Jul 31 11:17:26 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 25.76 ms (1)
+Jul 31 11:17:27 symfony [info] {sfWebResponse} Send content (51165 o)
+Jul 31 11:17:29 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/index with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Jul 31 11:17:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 11:17:29 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Jul 31 11:17:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 31 11:17:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 11:17:29 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Jul 31 11:17:29 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.0 MB | mempeak:    4.0 MB | memdelta:      0.0 B | SELECT hc_agenda.ID, hc_agenda.PROGRAMACION, hc_agenda.HORA, hc_agenda.INGRESO, hc_agenda.SALA_ID, hc_agenda.QUIROFANO_ID, hc_agenda.EGRESO, hc_agenda.CIE9MC, hc_agenda.CIE9MC_ID, hc_agenda.CX_REALIZADA, hc_agenda.CX_REALIZADA_ID, hc_agenda.TIPO_CX, hc_agenda.DIAGNOSTICO, hc_agenda.DIAGNOSTICO_ID, hc_agenda.PACIENTE_NAME, hc_agenda.PACIENTE_ID, hc_agenda.EDAD, hc_agenda.GENERO, hc_agenda.GENERO_ID, hc_agenda.REGISTRO, hc_agenda.SERVICIO, hc_agenda.ANESTESIA_ID, hc_agenda.ANESTESIA_EMPLEADA, hc_agenda.EV_ADVERSOS_ANESTESIA, hc_agenda.OBSERVACIONES, hc_agenda.REQUERIMIENTO, hc_agenda.REQ_INSUMOS, hc_agenda.REQ_HEMODERIV, hc_agenda.REQ_LABORATORIO, hc_agenda.REQ_ANESTESICO, hc_agenda.STATUS, hc_agenda.CAUSA_DIFERIDO_ID, hc_agenda.SOLICITADO, hc_agenda.RIESGOQX_ID, hc_agenda.CONTAMINACIONQX_ID, hc_agenda.EVENTOQX_ID, hc_agenda.COMPLICACIONES, hc_agenda.VAL_PRE_ANESTESICA, hc_agenda.REINTERVENCION, hc_agenda.PERMISOS, hc_agenda.TIPO_PROC_ID, hc_agenda.ATENCION_ID, hc_agenda.TIEMPO_FUERA, hc_agenda.PROCEDENCIA, hc_agenda.CLASIFICACIONQX, hc_agenda.REGION_PX, hc_agenda.EXTENSION_PX, hc_agenda.ANEXO_DETALLE, hc_agenda.DESTINO_PX, hc_agenda.LIBERACION_SALA, hc_agenda.TIEMPO_EST, hc_agenda.RIESGO_QX_PRE, hc_agenda.SHOW_IN_INDEX, hc_agenda.PROTOCOLO, hc_agenda.CANCELADA, hc_agenda.CREATED_AT, hc_agenda.UPDATED_AT FROM `hc_agenda`
+Jul 31 11:17:29 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php"
+Jul 31 11:17:29 symfony [info] {main} Set slot "titulo"
+Jul 31 11:17:29 symfony [notice] {sfWebDebugLogger}  Notice at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Undefined variable: Quirofanos)
+Jul 31 11:17:29 symfony [warning] {sfWebDebugLogger}  Warning at /home/ave/Quirofano/apps/frontend/modules/agenda/templates/indexSuccess.php on line 157 (Invalid argument supplied for foreach())
+Jul 31 11:17:29 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 11:17:29 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Jul 31 11:17:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 11:17:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 11:17:29 symfony [info] {sfWebDebugLogger} Configuration 1.20 ms (9)
+Jul 31 11:17:29 symfony [info] {sfWebDebugLogger} Factories 38.05 ms (1)
+Jul 31 11:17:29 symfony [info] {sfWebDebugLogger} Action "agenda/index" 54.78 ms (1)
+Jul 31 11:17:29 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/index" 10.67 ms (1)
+Jul 31 11:17:29 symfony [info] {sfWebResponse} Send content (36223 o)
