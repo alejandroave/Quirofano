@@ -32,7 +32,8 @@ all:
     escaping_method:        ESC_SPECIALCHARS
     lazy_cache_key:         true
     # Enable the database manager
-    #use_database:           true
+    use_database:           true
+
     login_module:           sfGuardAuth   # To be called when a non-authenticated user
     login_action:           signin        # Tries to access a secure page
 

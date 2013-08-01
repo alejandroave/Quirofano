@@ -10,6 +10,6 @@
     <?php include_javascripts() ?>
   </head>
   <body>
-    <?php echo $sf_content ?>
+    <?php echo $sf_content ?>   
   </body>
 </html>
