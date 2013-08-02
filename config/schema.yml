@@ -4,6 +4,7 @@ propel:
     nombre:               { type: varchar(256) }
     pass:                 { type: varchar(256) }
     tipo:                 { type: varchar(256) }
+
 #Tabla referente a la programacion de cirugias
   hc_agenda:
     _attributes:          { phpName: Agenda, package: lib.model.data }
@@ -11,6 +12,7 @@ propel:
 #    evento_id:
     programacion:         { type: date }
     hora:                 { type: time }
+    last_time:            { type: timestamp }
     ingreso:              { type: timestamp }
     sala_id:              { type: integer }
     quirofano_id:         { type: integer }

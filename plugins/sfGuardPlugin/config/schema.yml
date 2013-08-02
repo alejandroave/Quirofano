@@ -4,13 +4,13 @@ propel:
   sf_guard_group:
     _attributes:    { phpName: sfGuardGroup }
     id:             ~
-    name:           { type: varchar, size: 255, required: true, index: unique }
+    name:           { type: varchar(255), required: true, index: unique }
     description:    { type: longvarchar }
   
   sf_guard_permission:
     _attributes:    { phpName: sfGuardPermission }
     id:             ~
-    name:           { type: varchar, size: 255, required: true, index: unique }
+    name:           { type: varchar(255), required: true, index: unique }
     description:    { type: longvarchar }
   
   sf_guard_group_permission:
