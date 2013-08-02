@@ -1,9 +1,9 @@
 propel:
   hc_usuarios:  
     _attributes:          { phpName: User, package: lib.model.data }
-    nombre:               { type: varchar(256) }
-    pass:                 { type: varchar(256) }
-    tipo:                 { type: varchar(256) }
+    nombre:               { type: varchar(64) }
+    pass:                 { type: varchar(64) }
+    tipo:                 { type: array }
 
 #Tabla referente a la programacion de cirugias
   hc_agenda:
@@ -323,7 +323,7 @@ propel:
     detalles:             { type: varchar, size 256 }
     servicio_id:          { type: integer }
     created_at:
-    _foreignKeys:
+#    _foreignKeys:
 #      agenda_procedimientos:
 #        foreignTable:     siga_cie9mc
 #        onUpdate:         cascade
