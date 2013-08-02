@@ -1,4 +1,2 @@
-cache/*
-log/*
-lib/model/migration/*
-
+cache
+log

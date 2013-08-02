@@ -12,6 +12,7 @@ propel:
 #    evento_id:
     programacion:         { type: date }
     hora:                 { type: time }
+    inicio:               { type: timestamp }
     last_time:            { type: timestamp }
     ingreso:              { type: timestamp }
     sala_id:              { type: integer }
@@ -304,7 +305,7 @@ propel:
     diagnostico_id:       { type: varchar, size: 8 }
     tipo_diagnostico:     { type: integer }
     created_at:
-    _foreignKeys:
+#   _foreignKeys:
 #      agenda_diagnosticos:
 #        foreignTable:     siga_clave
 #        onUpdate:         cascade
@@ -339,9 +340,16 @@ propel:
   hc_agenda_regrogramar:
     _attributes:          { phpName: Procedimientregrogramado, package: lib.model.data }
     id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
-    agenda_id:
+    agenda_id:            { type: integer }
     programacion:         { type: date }
     hora:                 { type: time }
     sala_id:              { type: integer }
     tiempo_est:           { type: time }
     created_at:
+    _foreignKeys:
+      agenda_reprogramar:
+        foreignTable:     hc_agenda
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: agenda_id, foreign: id }

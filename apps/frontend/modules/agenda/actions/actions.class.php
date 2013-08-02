@@ -12,12 +12,23 @@ class agendaActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->filtro = $request->getParameter('filter', false);
-    $this->Agendas = AgendaQuery::create()->find();
+    $this->Cirugias = AgendaQuery::create()->find();
   }
 
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new AgendaForm();
+  }
+  
+  public function executeQuirofano(sfWebRequest $request)
+  {
+    $quirofano_id = $request->getParameter('quirofano');
+    $date = $request->getParameter('date', 'today');
+    $this->Cirugias = AgendaQuery::create()
+      ->filterByQuirofanoId($quirofano_id)
+      ->filterByLastTime(array('min' => strtotime($date), 'max' => strtotime($date.' + 1 Day')))
+      ->orderByStatus()
+      ->find();
   }
 
   public function executeProgramar(sfWebRequest $request)
