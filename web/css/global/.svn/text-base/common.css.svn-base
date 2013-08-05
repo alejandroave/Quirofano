@@ -1,0 +1,31 @@
+/* ~~~~~~~~~ common ~~~~~~~~~~ */
+
+body, select, input, textarea {
+	font: 0.625em/1.4 tahoma, verdana, arial, helvetica, sans-serif;
+	color: #333;
+}
+body {
+	 background: #ccc;
+}
+h1 {
+	font-weight: normal;
+	color: #666;
+	/* font: 3.2em/1.4 georgia, 'times new roman', times, serif; */
+	margin: 0.2em 0 0;
+}
+h2 {
+	font-weight: normal;
+	color: #666;
+	/* font: 2.4em/1.4 georgia, 'times new roman', times, serif; */
+	margin: 0.2em 0;	
+}
+section p, section ul, section ol, aside p, aside ul, aside ol {
+	font-size: 1em;
+	margin: 0 0;
+}
+section ul {
+	margin-left: 1em;
+}
+section ol {
+	margin-left: 1.4em;
+}

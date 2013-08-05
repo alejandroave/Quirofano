@@ -1,0 +1,54 @@
+header #header-content {
+  align: left !important;
+  width: 100% !important;
+  ,
+}
+
+article #article-content {
+  align: left !important;
+  width: 100% !important;
+}
+
+
+aside {
+  align: left !important;
+  display: yes !important;
+}
+
+section#content {
+  align: left !important;
+  width: 100% !important;
+}
+
+footer {
+  align: left !important;
+  display: none !important;
+}
+
+div #menu-bg {
+  align: left !important;
+  background: #eeeeee;
+  width: auto;
+}
+
+/*
+if(screen.width < 800)
+{ var navegador = navigator.userAgent.toLowerCase();
+ if( navegador.search(/iphone|ipod|android|nok(6|i)|symbian/) > -1 )
+ { document.replaceChild(document.createElement("html"), document.documentElement); var aNewBodyElement = document.createElement("body"); 
+ aNewBodyElement.id = "onbile"; aNewBodyElement.style.margin = "0"; 
+ aNewBodyElement.style.width = screen.width+"px"; 
+ aNewBodyElement.style.height = screen.height+"px"; 
+ document.body = aNewBodyElement; 
+ var metacreate = document.createElement("meta"); 
+ metacreate.name = "viewport"; 
+ metacreate.content = "width="+screen.width+"; initial-scale=1.0"; 
+ document.body.appendChild(metacreate); 
+ var OnbileFrame = document.createElement("IFRAME"); 
+ OnbileFrame.id = "testFrame"; 
+ OnbileFrame.style.width = screen.width+"px"; 
+ OnbileFrame.style.height = screen.height+"px"; 
+ OnbileFrame.src = "http://www.onbile.com/biomedica"; 
+ document.body.appendChild(OnbileFrame); }else{ document.location= "http://www.onbile.com/biomedica"; 
+  } 
+};

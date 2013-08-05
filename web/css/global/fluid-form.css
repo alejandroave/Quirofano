@@ -1,0 +1,164 @@
+/* Estilos de los controles del formulario */
+input[type='text'], input[type='date'], input[type='password'], input[type='file'], input[type='search'] {
+  font-size: 1.1em;
+  margin: 0 0 2px;
+  padding: 2px 0px; /* */
+  width: 100%;
+}
+
+.fluid-form select {
+  font-size: 1.1em;
+  height: 23px;
+  margin: 0 0 2px;
+  padding: 0px 0px; /* */
+  width: 100%;
+}
+
+.fluid-form textarea {
+  font-size: 1.1em;
+  height: 5em;
+  margin: 0 0 2px;
+  padding: 2px 0px; /* */
+  width: 100%;
+}
+
+/* @section: Estilos del.fluid-form basados en medidas relativas */
+.fluid-form {
+    background-color: #CCCCCC;
+    border-radius: 5px 0 5px 5px;
+    clear: both;
+    float: left;
+    margin: 0px 0 15px;
+    padding: 0 0 15px;
+    width: 100%;
+}
+
+  .fluid-form h1 {
+    background-color: #667D8A;
+    color: white;
+    font-size: 1.8em;
+    margin: 0 auto;
+  }
+
+  .fluid-form h2 {
+    clear: both;
+    float: left;
+    margin: 10px 5px 5px;
+    padding: 0 5px;
+    width: 96%;
+	color: #59544C;
+	font-size: 2.4em;
+  }
+
+  .fluid-form .area  { /* Compatibilidad con el marcado existente */
+    float: left;
+    margin: 0.5% 1% 0;
+    width: 22%;
+  }
+
+  .fluid-form > .field {
+    float: left;
+    margin: 5px 10px 0 10px;
+    width: 22%;
+  }
+
+  .fluid-form .label {
+    font-size: 1.0em;
+    font-weight: bold;
+    width: 100%
+  }
+
+  .fluid-form .field {
+    min-height: 23px;
+    position: relative;
+    width: 100%;
+  }
+
+  .fluid-form .cols01  { width:  6.3%; }
+  .fluid-form .cols02  { width: 14.6%; }
+  .fluid-form .cols03  { width: 22.9%; }
+  .fluid-form .cols04  { width: 31.3%; }
+  .fluid-form .cols05  { width: 39.6%; }
+  .fluid-form .cols06  { width: 47.9%; }
+  .fluid-form .cols07  { width: 56.3%; }
+  .fluid-form .cols08  { width: 64.6%; }
+  .fluid-form .cols09  { width: 72.9%; }
+  .fluid-form .cols10  { width: 81.3%; }
+  .fluid-form .cols11  { width: 89.6%; }
+  .fluid-form .cols12  { width: 98.0%; }
+
+  .fluid-form .sexto   { width: 10%; }
+  .fluid-form .single  { width: 16%; }
+  .fluid-form .doble   { width: 34%; }
+  .fluid-form .triple  { width: 52%; }
+
+  .fluid-form .quarter { width: 16%; }
+  .fluid-form .half    { width: 34%; }
+  .fluid-form .tercio  { width: 22%; }
+  .fluid-form .tercio2 { width: 46%; }
+  .fluid-form .full    { width: 70%; }
+
+  .fluid-form .control {
+    background-color: #8F8679;
+    clear: both;
+    float: left;
+    margin: 10px 10px 0;
+    min-height: 2em;
+    overflow: hidden;
+    padding: 5px 0;
+    text-align: center;
+    width: 98%;
+  }
+
+/* @section: Estilos de las Indicaciones */
+  .fluid-form .hide {
+    display: none;
+  }
+
+  .fluid-form .tarea {
+    background: #CCCCCC;
+    border: 1px solid #999999;
+    float: left;
+    margin: 5px 10px 0px 10px;
+    padding: 3px 0 3px 0;
+    width: 700px;
+  }
+
+  .fluid-form .tarea .datestamp {   /* Area para la fecha de las Indicaciones */
+    float: left;
+    margin: 10px 10px 10px 10px;
+    width: 80px;
+  }
+
+  .fluid-form .tarea .date {
+    color: black;
+    font-size: 1.2em;
+  }
+
+  .fluid-form .tarea .time {
+    color: black;
+    margin: 0 auto;
+  }
+
+  .fluid-form .tarea .contenido {
+    float: left;
+    width: 500px;
+    /* margin-left: 100px; /**/
+  }
+
+  .fluid-form .tarea .chk-button {
+    color: black;
+    float: left;
+    margin: 25px 5px 0 5px;
+    text-align: center;
+    width: 90px;
+  }
+
+  .fluid-form .disabled {
+    background-color: silver !important;
+    border-color: gray !important;
+  }
+
+  .fluid-form .right {
+    text-align: right
+  }

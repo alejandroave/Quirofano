@@ -1,0 +1,582 @@
+/* /css/global/formularios.css
+ *
+ * Contiene los estilos de los formularios referentes a su comportamiento
+ * global, esta en intima relacion con el sistema 960gs
+ * */
+
+.nota {
+  margin: 0 10px;
+}
+
+input[type='text'],
+input[type='date'],
+input[type='password'],
+input[type='file'] {
+  font-size: 0.9em;
+  margin: 0 0 2px;
+  padding: 2px 1px;
+  width: 99%;
+}
+
+select {
+  width: 99%;
+  font-size: 0.9em;
+  margin-bottom: 0px;
+}
+
+textarea  {
+  width: 98.3%;
+  font-size: 0.9em;
+}
+
+input {
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border: 1px solid #454555;
+}
+
+input[type='submit'],
+input[type='button'] {
+  font-size: .9em;
+}
+
+input[type='button']#authorize {
+  border: 2px solid black;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px 0;
+  width: 99%;
+}
+
+/*
+select {
+  height: 2em;
+  margin-bottom: 4px;
+}  */
+textarea  {
+  height: 3em;
+}
+
+.control input[type='submit'] {
+  border-color: #7C7C7C #C3C3C3 #DDDDDD;
+  color: #454545;
+  font-weight: bold;
+  padding: 3px;
+  width: 50% !important;
+}
+
+.control .a-button {
+  -moz-border-radius:3px 3px 3px 3px;
+  /*border:1px solid #454555; */
+  background-color: #F2F2F2;
+  border-color:#7C7C7C #C3C3C3 #DDDDDD;
+  color:#454545;
+  display: block;
+  font: 0.9em/1.4 tahoma,verdana,arial,helvetica,sans-serif;
+  font-weight:bold;
+  margin: 0 auto;
+  padding: 4px;
+  text-decoration: none;
+  width: 49% !important;
+}
+
+.formulario {
+  background-color: #cccccc;
+  margin: 5px 0 15px 0;
+  padding: 0 0 15px 0;
+}
+
+  .formulario h1 {
+    background-color: #333333;
+    color: white;
+    font-size: 1.8em;
+    margin: 0 auto;
+  }
+
+  .formulario h2 {
+    clear: both;
+    float: left;
+    margin: 10px 5px 5px;
+    padding: 0 5px;
+    width: 96%;
+  }
+
+  .formulario .area  { /* Compatibilidad con el marcado existente */
+    float: left;
+    margin: 5px 10px 0 10px;
+    width: 160px;
+  }
+
+  .formulario > .field {
+    float: left;
+    margin: 5px 10px 0 10px;
+    width: 160px;
+  }
+
+  .formulario .label {
+    font-size: 1.0em;
+    font-weight: bold;
+    width: 100%
+  }
+
+  .formulario .field {
+    min-height: 23px;
+    position: relative;
+    width: 100%;
+  }
+
+  .formulario .cols01  { width:  40px; }
+  .formulario .cols02  { width: 100px; }
+  .formulario .cols03  { width: 160px; }
+  .formulario .cols04  { width: 220px; }
+  .formulario .cols05  { width: 280px; }
+  .formulario .cols06  { width: 340px; }
+  .formulario .cols07  { width: 400px; }
+  .formulario .cols08  { width: 460px; }
+  .formulario .cols09  { width: 520px; }
+  .formulario .cols10  { width: 580px; }
+  .formulario .cols11  { width: 640px; }
+  .formulario .cols12  { width: 700px; }
+
+  .formulario .sexto   { width: 100px; }
+  .formulario .single  { width: 160px; }
+  .formulario .doble   { width: 340px; }
+  .formulario .triple  { width: 520px; }
+
+  .formulario .quarter { width: 160px; }
+  .formulario .half    { width: 340px; }
+  .formulario .tercio  { width: 220px; }
+  .formulario .tercio2 { width: 460px; }
+  .formulario .full    { width: 700px; }
+
+  .formulario .control {
+    background-color: #333333;
+    clear: both;
+    float: left;
+    margin: 10px 10px 0;
+    min-height: 2em;
+    overflow: hidden;
+    padding: 5px 0;
+    text-align: center;
+    width: 700px;
+  }
+
+/* @section: Estilos de las Indicaciones */
+  .formulario .hide {
+    display: none;
+  }
+
+  .formulario .tarea {
+    background: #CCCCCC;
+    border: 1px solid #999999;
+    float: left;
+    margin: 5px 10px 0px 10px;
+    padding: 3px 0 3px 0;
+    width: 700px;
+  }
+
+  .formulario .tarea .datestamp {   /* Area para la fecha de las Indicaciones */
+    float: left;
+    margin: 10px 10px 10px 10px;
+    width: 80px;
+  }
+
+  .formulario .tarea .date {
+    color: black;
+    font-size: 1.2em;
+  }
+
+  .formulario .tarea .time {
+    color: black;
+    margin: 0 auto;
+  }
+
+  .formulario .tarea .contenido {
+    float: left;
+    width: 500px;
+    /* margin-left: 100px; /**/
+  }
+
+  .formulario .tarea .chk-button {
+    color: black;
+    float: left;
+    margin: 25px 5px 0 5px;
+    text-align: center;
+    width: 90px;
+  }
+
+  .formulario .disabled {
+    background-color: silver !important;
+    border-color: gray !important;
+  }
+
+  .formulario .right {
+    text-align: right
+  }
+
+.formulario {
+  -moz-border-radius: 0 0 10px 10px;
+  -moz-box-shadow: 10px 10px 10px #999999;
+  -o-border-radius: 0 0 10px 10px;
+  -o-box-shadow: 10px 10px 10px #999999;
+  -webkit-border-radius: 0 0 10px 10px;
+  -webkit-box-shadow: 10px 10px 10px #999999;
+  padding: 0 0 15px 0;
+  margin: 5px 0 15px 0;
+}
+
+  .formulario h2 {
+    clear: both;
+    float: left;
+    margin: 10px 5px 5px;
+    padding: 0 5px;
+    width: 96%;
+  }
+
+  .formulario .hide {
+    display: none;
+  }
+
+  .formulario .tarea {
+    float: left;
+    margin: 5px 10px 0px 10px;
+    padding: 1px 3px 3px;
+    width: 96%;
+  }
+
+  .formulario .tarea .datestamp {
+    float: left;
+    margin: 5px;
+  }
+
+  .formulario .disabled {
+    background-color: silver !important;
+    border-color: gray !important;
+  }
+
+  .formulario .right {
+    text-align: right
+  }
+
+  .disabled .medico,
+  .disabled .chk-button,
+  .disabled .date {
+    display: none !important;
+  }
+
+/**
+ *  Estilos del formulario basados en medidas absolutas
+ */
+  .formulario .area {
+    float: left;
+    margin: 5px 10px 0 10px;
+    width: 160px;
+    /* height: 39px;*/
+  }
+
+  .formulario .label {
+    font-size: 1.0em;
+    font-weight: bold;
+  }
+
+  .formulario .doble {
+    width: 340px;
+  }
+
+  .formulario .triple {
+    width: 520px;
+  }
+
+
+/* Estilos de Formulario basados en Proporciones
+ * full = Ocupa la totalidad del formulario
+ * half = ocupa la mitad del formulario
+ * tercio = Ocupa la tercera parte del formulario
+ * tercio2 = Ocupa 2 tercios del formulario, solo ajusta con tercio
+ * quarter = Ocupa la cuarta parte del formulario ajusta con half y quarter
+ *  */
+
+  .formulario .full {
+    width: 98%;
+  }
+
+  .formulario .half {
+    width: 340px;
+  }
+
+  .formulario .tercio {
+    width: 220px;
+  }
+
+  .formulario .tercio {
+    width: 220px;
+  }
+
+  .formulario .tercio2 {
+    width: 460px;
+  }
+
+  .formulario .quarter {
+    width: 160px;
+  }
+
+  .formulario #btn-holder {
+    background: black;
+    clear: both;
+    margin: 15px 10px 0 0;
+  }
+
+  .horizontal .radio_list li {
+    display: inline;
+  }
+
+#actions-menu {
+  background-color: white;
+  float: left;
+  height: 497px;
+  padding: 8px 8px 0px;
+  width: 240px;
+}
+
+#actions-menu #actions-list {
+  background-color: #E7E7E7;
+  border: 1px inset gray;
+  overflow-y: scroll;
+}
+
+#actions-body {
+  float:left;
+  margin: 0 5px;
+  /*display: inline;
+  position:relative; */
+}
+
+#actions-menu #qr-code {
+  height: 147px;
+  text-align: center;
+  width: 240px;
+}
+
+#actions-list h3{
+  margin-left: 3px;
+}
+
+/**
+ * Estilos para el panel de Enfermeria
+ *************************************************** */
+
+#enfermeria {
+  background-color: white;
+  float: left;
+  /*height: 537px;
+  width: 100%; */
+}
+
+#enfermeria #roomContainer ul {
+  margin-left: 0;
+}
+
+#enfermeria #roomContainer {
+  /*background-color: red;*/
+  border: 0px none transparent !important;
+  float: left;
+  height: 530px;
+  width: 60px;
+}
+
+#enfermeria #camaContainer {
+  background-color: cyan;
+  float: left;
+  height: 40px;
+  width: 900px;
+}
+
+#enfermeria #graphContainer {
+  float: left;
+  height: 490px;
+  width: 540px;
+}
+
+#enfermeria #chartContainer {
+  background-color: green;
+  float: left;
+  height: 300px;
+  width: 100%;
+}
+
+#enfermeria #controlContainer {
+  background-color: orange;
+  float: left;
+  height: 190px;
+  width: 100%;
+}
+
+#enfermeria #taskContainer {
+  background-color: sienna;
+  float: left;
+  height: 490px;
+  width: 360px;
+}
+
+#enfermeria .vtabs {
+  /* border: 1px solid black; */
+  border-right: 0 none transparent;
+  border-left: 0 none transparent;
+  float: right;
+  font-size: 2em;
+  /* height: 60px; */
+  margin: 3px 0 3px 0;
+  padding: 15px 0;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/**
+ * Clases para el plugin Quicksearch
+ *************************************************************** */
+/* Es la form que rodea a todo el contenido generado por el plugin */
+form.quicksearch {
+  border-bottom: 2px solid black;
+  margin: 0 0 10px;
+}
+
+/* Campo creado por el plugin para las busquedas */
+ .quicksearch .qs_input {
+  -moz-border-radius: 20px;
+  -o-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border: 1px solid black;
+  margin: 0 0 5px;
+  padding: 3px 9px;
+  width: 30%
+}
+
+.odd {
+  background-color: #C7c7c7;
+}
+
+/***
+ * Clase para los links de pacientes
+ *********************************************************************** */
+ a.butonize {
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  /* background-color: #BF3503; */
+  background-color: white;
+  /* border: 2px solid #E7E7E7; */
+  border: 2px solid black;
+  color: black;
+  font-weight: bold;
+  padding: 2px 15px;
+  text-decoration: none;
+ }
+
+ a.butonize:hover {
+  /* border: 2px solid #BF3503; */
+  color: #BF3503;
+ }
+
+ /**
+  * Clases del modulo de Admision
+  ********************************************************************** */
+table#admision a {
+  color: black;
+  display: block;
+  font-weight: bold;
+  /*margin: 3px 0;*/
+  padding: 3px 0 3px 3px;
+  text-decoration: none;
+}
+
+table#admision a:hover {
+  color: #666666;
+}
+
+/**
+ * Clases para los tipos de historia Clinica
+ ************************************************************************ */
+.modulelist {
+  padding:1em;
+  margin: 0 0 1em;
+  width:90%;
+}
+
+.modulelist li {
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  cursor: move;
+  list-style: none outside none;
+  margin: 2px 0;
+  padding: 5px 2px 2px 20px;
+}
+
+/**
+ * Clases para la historia Clinica
+ */
+.report {
+  background-color: white;
+  border: 1px solid black;
+}
+
+  .report h3 {
+    display: inline;
+  }
+
+/* CSS Tabs is licensed under Creative Commons Attribution 3.0 - http://creativecommons.org/licenses/by/3.0/
+ * http://unraveled.com/publications/css_tabs/
+/* begin css tabs */
+
+ul#navTabs { /* general settings */
+  text-align: center; /* set to left, right or center */
+  margin: 1em 0 1em 0; /* set margins as desired */
+  font: bold 11px verdana, arial, sans-serif; /* set font as desired */
+  border-bottom: 2px solid #888; /* set border COLOR as desired */
+  list-style-type: none;
+  padding: 3px 10px 3px 10px; /* THIRD number must change with respect to padding-top (X) below */
+}
+
+ul#navTabs li { /* do not change */
+  display: inline;
+}
+
+ul#navTabs li.active { /* settings for selected tab */
+  border-bottom: 1px solid #E7E7E7; /* set border color to page background color */
+  background-color: #E7E7E7; /* set background color to match above border color */
+}
+
+ul#navTabs li.active a { /* settings for selected tab link */
+  background-color: #E7E7E7; /* set selected tab background color as desired */
+  color: #000; /* set selected tab link color as desired */
+  position: relative;
+  top: 2px;
+  padding-top: 6px; /* must change with respect to padding (X) above and below */
+}
+
+ul#navTabs li a { /* settings for all tab links */
+  border: 2px solid #888; /* set border COLOR as desired; usually matches border color specified in #tabnav */
+  padding: 3px 20px; /* set padding (tab size) as desired; FIRST number must change with respect to padding-top (X) above */
+  background-color: #888; /* set unselected tab background color as desired */
+  color: white; /* set unselected tab link color as desired */
+  margin-right: 0px; /* set additional spacing between tabs as desired */
+  text-decoration: none;
+  border-bottom: none !important;
+}
+
+ul#navTabs a:hover { /* settings for hover effect */
+  background: #E7E7E7; /* set desired hover color */
+  color: black;
+}
+
+/* end css tabs */
+
+#camasPanel {
+/*
+  border-left: 2px solid #888;
+  border-bottom: 2px solid #888;
+  border-right: 2px solid #888; */
+  margin-bottom: 25px;
+}
