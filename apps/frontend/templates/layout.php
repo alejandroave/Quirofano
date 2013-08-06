@@ -50,16 +50,17 @@
 
   <!-- ======================== JAVASCRIPT ======================== -->
   <script type="text/javascript" src="/js/global/jquery-1.7.1.min.js"></script>    <!-- 1.5.1 --><!-- 1.4.2 -->
-  <script type="text/javascript" src="/js/global/jquery-ui-1.8.14.custom.min.js"></script>    <!-- 1.8.2 -->
+  <script type="text/javascript" src="/js/global/jquery-ui-1.8.20.custom.min.js"></script>    <!-- 1.8.2 -->
   <!--<script type="text/javascript" src="/js/global/ui.timepickr.js"></script>    <!-- 1.8.2 -->
   <script type="text/javascript" src="/js/global/datepickerPreferences.js"></script>
-  <script type="text/javascript" src="/js/global/seekAttention.jquery.js"></script>
-  <!-- Estas lineas se deben agregar a cada modulo que realmente requiera usar las funciones de colapsado de cajas   -->
-  <script type="text/javascript" src="/js/jquery.elastic-1.6.1.js"></script>
-  <script type="text/javascript" src="/js/toggleTextarea.js"></script>
-  <script type="text/javascript" src="/js/global/interactiveControl.js"></script>
+  <!-- <script type="text/javascript" src="/js/global/seekAttention.jquery.js"></script>   <!-- plugin para llamar la atencion de areas -->
 
-  <!--conditional comments --><!--[if IE]><script src="js/html5.js"></script><![endif]-->
+  <!-- Estas lineas se deben agregar a cada modulo que realmente requiera usar las funciones de colapsado de cajas   -->
+  <!-- <script type="text/javascript" src="/js/jquery.elastic-1.6.1.js"></script>     <!-- textarea elasticas -->
+  <!-- <script type="text/javascript" src="/js/toggleTextarea.js"></script>           <!-- Ocultar textarea de los campos -->
+  <!-- <script type="text/javascript" src="/js/global/interactiveControl.js"></script>     <!-- Script generico para ocultar campos relacionados -->
+
+  <!--conditional comments --><!--[if IE]><script src="js/html5.js"></script><![endif]--> <!-- Activa la compatibilidad con IE8 -->
 
 <!-- Hojas de Estilo y JavaScrips añadidos por el Template de la Accion -->
 </head>
