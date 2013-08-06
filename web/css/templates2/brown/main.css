@@ -1,0 +1,1157 @@
+div {
+  /* border: 1px dotted black; */
+}
+
+/* ********************************************************************
+ - Estilo de los campos en los formularios
+ - Antonio Sanchez Uresti
+ - 21/08/2009
+******************************************************************** */
+
+/* Contenedor de formularios,  */
+div.formulario {
+  width: 96%;
+  float: left;
+  margin: 10px 0px 0px 0px;
+  padding: 0px 20px 20px 20px;
+  background-color: #FFEBB8;
+  -moz-border-radius: 0px 0px 10px 10px;
+  -moz-box-shadow: 10px 10px 10px #999;
+  -webkit-border-radius: 0px 0px 10px 10px;
+  -webkit-box-shadow: 10px 10px 10px #999;
+  display: block;
+  margin-bottom: 2em;
+}
+/* Encabezado Principal del Formulario */
+.formulario h1 {
+  margin: 0px -20px 20px -20px;
+  background-color: #4A2211;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  letter-spacing: .1em;
+  border-bottom: none !important;
+  float: left;
+  width: 100%;
+}
+
+.formulario h2 {
+  border-bottom:1px dotted sienna;
+  clear:both;
+  float:left;
+  font-family:"Lucida Grande",Tahoma,Arial,sans-serif;
+  font-size:1.2em;
+  font-weight:bold;
+  letter-spacing:0.15em;
+  line-height:135%;
+  margin:10px 0 10px -0.7em;
+  padding-left: 15px;
+  width:97%;
+}
+/* Encabezados secundarios se definiran aqui
+******************************************************************** */
+
+.formulario fieldset {
+  border: 3px double sienna;
+  float: left;
+  margin: 5px 0px;
+  padding: 5px 0px;
+}
+
+/* Definicion de las cajas de texto, cajas de archivos, listas desplegables y areas de texto */
+.formulario input[type="text"], .formulario input[type="file"] , .formulario input[type="password"] , .formulario select, .formulario textarea {
+  background: white url('/images/fieldbg.gif') repeat-x scroll center top;
+  border-color:#7C7C7C #C3C3C3 #DDDDDD;
+  border-style:solid;
+  border-width:1px;
+  color:#333333;
+  font-family: "Lucida Grande",Tahoma,Arial,sans-serif;
+  font-size:100%;
+  margin-bottom: 1.7em;
+  width: 100% !important;
+}
+
+/* Estilo del boton Enviar */
+.formulario input[type="submit"] {
+  color: #333333;
+  font-weight: bold;
+  padding: 3px;
+  border-color: #7C7C7C #C3C3C3 #DDDDDD;
+  color: green;
+  width: 50% !important;
+}
+
+/* Estilo de cajas de texto y cajas de archivo */
+.formulario input[type="text"], .formulario input[type="file"] {
+  padding: 2px 0px;
+}
+
+/* Estilo de listas desplegables */
+.formulario select {
+  padding: 2px 0;
+}
+
+/* Estilo de las opciones de listas desplegables */
+.formulario select option{
+  padding: 0 4px;
+}
+
+/* Estilo del contenedor de la etiqueta */
+.formulario .label {
+  color: #666666;
+  display: inline;
+  font-family: "Lucida Grande",Tahoma,Arial,sans-serif;
+  font-weight:bold;
+  margin-bottom: 3px;
+  min-height:1em;
+  padding-top: 1px;
+}
+
+.formulario .nota {
+  clear: both;
+  float: left;
+  color: #BB0000;
+  display: inline;;
+  margin-bottom: 3px;
+  text-align: justify
+}
+
+.label .error_list {
+  display: inline;
+  float: right;
+  list-style-type: none;
+  font-weight: normal;
+}
+
+/* Estilo del contenedor de campo/etiqueta */
+.formulario .area {
+  min-height: 2.0em;
+  float: left;
+  margin: 0 .5% ;
+  padding: 0 .5%;
+  overflow: hidden;
+  width: 144px;
+}
+
+/* Falsos campos de contenido */
+.formulario .fakefield {
+  border: 1px solid black;
+  font-style: italic;
+  font-weight: bold;
+  background-color: white;
+  width: 98%;
+  height: 1.5em;
+  padding: 0 2px;
+  margin-bottom: 1em;
+}
+
+/* Ajuste a los campos de select de UN espacio */
+.area select {
+  width: 167px;
+}
+
+/* Ajuste a los campos de select de DOBLE espacio */
+.doble select {
+  width: 335px;
+}
+
+/* Clase de los campos que miden toda la pantalla */
+.formulario .full{
+  width: 98%;
+}
+
+/* Clase de los campos que miden la mitad parte de la pantalla */
+.formulario .half {
+  width: 48%;
+}
+
+/* Clase de los campos que miden un tercio  de la pantalla */
+.formulario .tercio {
+  width: 31%;
+}
+
+/* Clase de los campos que miden 2 tercios  de la pantalla */
+.formulario .tercio2 {
+  width: 64%;
+}
+
+/* Coreecion a los campos select de la mitad (HALF) */
+.half select {
+  width:100%
+}
+
+/* Clase de los campos que miden la 4ta parte de la pantalla */
+.formulario .quarter {
+  width: 23%;
+}
+
+.formulario .unomedio {
+  width: 204px !important;
+}
+
+/* Estilo de los campos de DOBLE espacio  */
+.formulario .doble {
+  width: 295px;
+}
+
+/* Estilo de los campos de DOBLE espacio  */
+.formulario .triple {
+  width: 444px;
+}
+
+/* Estilo de los campos de CUADRUPLE espacio  */
+.formulario .cuadruple {
+  width: 680px;
+}
+
+/* Zona de control del formulario */
+.formulario .control {
+  background-color: #E5D3A4;
+  clear: both;
+  text-align: center;
+  width: 98%;
+  min-height: 2.0em;
+  float: none;
+  margin: 0 .5% ;
+  padding: 1em .5%;
+  overflow: hidden;
+  -moz-border-radius: 5px;
+  -moz-box-shadow: 2px 2px 5px #666;
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 5px #666;
+}
+
+/* Botones del Panel de Control */
+.control .button {
+  width: 61px;
+  background-color: silver;
+  border: 1px solid #ccc;
+  padding: 6px 25px ;
+  margin: 2px 60px;
+  display: block;
+  float: left;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+/* efecto HOVER */
+.control .button:hover {
+  border-top: 1px solid #FFF;
+  border-left: 1px solid #FFF;
+  border-bottom: 1px solid #666;
+  border-right: 1px solid #666;
+}
+
+.button .text {
+  color: black;
+  float: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-style: italic;
+}
+
+.control img {
+  border: none 0px;
+}
+
+.horizontal .radio_list li {
+  display: inline;
+}
+
+/* Campos ocultos */
+.hide {
+  display: none !important;
+}
+
+/* ********************************************************************
+ *              Estilo de los mensajes de Error
+******************************************************************** */
+.error_list {
+  color: red;
+  margin: 0px !important;
+}
+
+/* ********************************************************************
+ *              Estilos de los Campos de los Modulos :D
+******************************************************************** */
+.modulelist {
+  width: 90%;
+  padding: 1em;
+  background: #e5d3a4;
+  border: 1px solid #e5d3a4;
+}
+
+.modulelist li {
+  font-weight: bold;
+  height:1.5em;
+  line-height:1.2em;
+  border: 1px solid sienna;
+  margin: 2px 0;
+  padding: 5px 2px 2px 1.0em;
+  cursor: move;
+  list-style: none;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+#usados {
+  width: 90%;
+}
+
+.disponibles  {
+  height: 40em;
+  overflow: auto;
+}
+
+.clear {
+  clear: both;
+  width: 100%;
+}
+
+/* div.area {
+  min-width: 13.5em;
+  min-height: 4.5em;
+  float: left;
+  margin: 2px 2px; */
+  /* background-color: #dac09a;
+  background-color: #e5d19a;*/
+  /*background-color: #e5d3a4;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}*/
+
+/* div.label {
+  color: white;
+  padding: 1px 3px;
+  font-weight: bold;
+  background: #CC6C0C url('/images/brown/n3.gif') repeat-x;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+}
+
+div.field {
+  padding: 2px;
+} */
+
+fieldset.form {
+    float:left;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    padding: 2px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: solid 3px #CC6C0C;
+    clear: both;
+}
+
+.form legend {
+    border: solid 1px #CC6C0C;
+    color: white;
+    background: #CC6C0C url('/images/brown/n3.gif') repeat-x;
+    margin: 0px 10px;
+    padding: 2px 6px;
+    font: bold small-caps 1.3em sans-serif;
+}
+
+/* -------------------------------------------------------------------------------------
+    <<<< ESTOS ESTILOS SERAN REVOCADOS >>>>
+Definiciones de Estilo de los Formularios
+------------------------------------------------------------------------------------- */
+
+div.menu {
+  float: left;
+  width: 21%;
+  text-decoration: none;
+/*
+  border: 1px solid black;
+*/
+}
+
+div.menu ol {
+  list-style-image:none;
+  list-style-position:inside;
+  list-style-type: none;
+}
+
+div.menu ol li a {
+  text-decoration: none;
+}
+div.menu ol li {
+  font-size: .9em;
+}
+
+.topShadow {
+  float: left;
+  background:url(/images/sombras.png);
+  background-position: -5px -5px;
+  width: 98%;
+  height: 10px;
+}
+
+.bottomShadow {
+  float: left;
+  background:url(/images/sombras.png);
+  background-position: -5px -25px;
+  width: 99%;
+  height: 10px;
+}
+
+/* ********************************************************************
+/ Estilos para las tablas de los resumenes
+/*********************************************************************/
+table.index {
+  /* border: 1px solid black; */
+}
+
+.index thead tr{
+  padding: 3px;
+  color: white;
+  background-color: #4A2211;
+}
+
+.index tbody td{
+  text-align: center;
+}
+
+.index th {
+  padding: 3px;
+  font-family: tahoma;
+}
+
+.index tr {
+  background-color: silver;
+  border-bottom: 1px solid black;
+}
+
+.index img {
+  background-color: white;
+  border: 1px solid black;
+
+}
+
+.index img:hover {
+  background-color: lightGreen;
+}
+
+.index tr.even {
+  background-color: white;
+  border-left: 1px solid gray;
+}
+
+.index tr.odd {
+  background-color: #FFEBB8;
+  border-left: 1px solid gray;
+}
+
+.index  td {
+
+}
+
+.index a {
+  font-weight: bold;
+  color: DarkSlateGray;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+/* ********************************************************************
+                        Colocacion de los Sprites
+******************************************************************** */
+
+.sprite {
+  background: url(/images/csg-4a55132214d87.png) no-repeat top left;
+  padding-left: 24px !important;
+}
+
+.sp-accept { background-position: 0 -16px; }
+.sp-add { background-position: 0 -48px; }
+.sp-anchor { background-position: 0 -80px; }
+.sp-application { background-position: 0 -112px; }
+.sp-application_double { background-position: 0 -144px; }
+.sp-application_edit { background-position: 0 -176px; }
+.sp-application_form { background-position: 0 -208px; }
+.sp-application_form_add { background-position: 0 -240px; }
+.sp-application_form_edit { background-position: 0 -272px; }
+.sp-application_home { background-position: 0 -304px; }
+.sp-application_osx { background-position: 0 -336px; }
+.sp-application_side_boxes { background-position: 0 -368px; }
+.sp-application_side_list { background-position: 0 -400px; }
+.sp-application_side_tree { background-position: 0 -432px; }
+.sp-application_split { background-position: 0 -464px; }
+.sp-application_tile_horizontal { background-position: 0 -496px; }
+.sp-application_tile_vertical { background-position: 0 -528px; }
+.sp-application_view_columns { background-position: 0 -560px; }
+.sp-application_view_detail { background-position: 0 -592px; }
+.sp-application_view_gallery { background-position: 0 -624px; }
+.sp-application_view_icons { background-position: 0 -656px; }
+.sp-application_view_list { background-position: 0 -688px; }
+.sp-application_view_tile { background-position: 0 -720px; }
+.sp-application_xp { background-position: 0 -752px; }
+.sp-arrow_redo { background-position: 0 -784px; }
+.sp-arrow_turn_right { background-position: 0 -816px; }
+.sp-asterisk_orange { background-position: 0 -848px; }
+.sp-asterisk_yellow { background-position: 0 -880px; }
+.sp-book { background-position: 0 -912px; }
+.sp-book_add { background-position: 0 -944px; }
+.sp-book_delete { background-position: 0 -976px; }
+.sp-book_go { background-position: 0 -1008px; }
+.sp-book_next { background-position: 0 -1040px; }
+.sp-book_open { background-position: 0 -1072px; }
+.sp-book_previous { background-position: 0 -1104px; }
+.sp-box { background-position: 0 -1136px; }
+.sp-briefcase { background-position: 0 -1168px; }
+.sp-bug_add { background-position: 0 -1200px; }
+.sp-building { background-position: 0 -1232px; }
+.sp-building_key { background-position: 0 -1264px; }
+.sp-bullet_disk { background-position: 0 -1296px; }
+.sp-bullet_go { background-position: 0 -1328px; }
+.sp-bullet_orange { background-position: 0 -1360px; }
+.sp-calculator { background-position: 0 -1392px; }
+.sp-calculator_edit { background-position: 0 -1424px; }
+.sp-calendar { background-position: 0 -1456px; }
+.sp-calendar_edit { background-position: 0 -1488px; }
+.sp-calendar_view_day { background-position: 0 -1520px; }
+.sp-calendar_view_month { background-position: 0 -1552px; }
+.sp-cancel { background-position: 0 -1584px; }
+.sp-cart_go { background-position: 0 -1616px; }
+.sp-cart_put { background-position: 0 -1648px; }
+.sp-cart_remove { background-position: 0 -1680px; }
+.sp-cd { background-position: 0 -1712px; }
+.sp-chart_bar { background-position: 0 -1744px; }
+.sp-chart_curve { background-position: 0 -1776px; }
+.sp-chart_line { background-position: 0 -1808px; }
+.sp-chart_organisation { background-position: 0 -1840px; }
+.sp-chart_pie { background-position: 0 -1872px; }
+.sp-clock { background-position: 0 -1904px; }
+.sp-clock_red { background-position: 0 -1936px; }
+.sp-cog { background-position: 0 -1968px; }
+.sp-coins { background-position: -32px -16px; }
+.sp-comment { background-position: -32px -48px; }
+.sp-comments { background-position: -32px -80px; }
+.sp-comments_add { background-position: -32px -112px; }
+.sp-comments_delete { background-position: -32px -144px; }
+.sp-computer { background-position: -32px -176px; }
+.sp-connect { background-position: -32px -208px; }
+.sp-contrast { background-position: -32px -240px; }
+.sp-control_eject { background-position: -32px -272px; }
+.sp-control_end { background-position: -32px -304px; }
+.sp-control_equalizer { background-position: -32px -336px; }
+.sp-control_fastforward { background-position: -32px -368px; }
+.sp-control_pause { background-position: -32px -400px; }
+.sp-control_play { background-position: -32px -432px; }
+.sp-control_repeat { background-position: -32px -464px; }
+.sp-control_rewind { background-position: -32px -496px; }
+.sp-control_start { background-position: -32px -528px; }
+.sp-control_stop { background-position: -32px -560px; }
+.sp-creditcards { background-position: -32px -592px; }
+.sp-cross { background-position: -32px -624px; }
+.sp-css { background-position: -32px -656px; }
+.sp-cup { background-position: -32px -688px; }
+.sp-cursor { background-position: -32px -720px; }
+.sp-cut { background-position: -32px -752px; }
+.sp-database { background-position: -32px -784px; }
+.sp-database_table { background-position: -32px -816px; }
+.sp-date { background-position: -32px -848px; }
+.sp-delete { background-position: -32px -880px; }
+.sp-disconnect { background-position: -32px -912px; }
+.sp-disk { background-position: -32px -944px; }
+.sp-door { background-position: -32px -976px; }
+.sp-door_in { background-position: -32px -1008px; }
+.sp-door_open { background-position: -32px -1040px; }
+.sp-door_out { background-position: -32px -1072px; }
+.sp-drive { background-position: -32px -1104px; }
+.sp-drive_web { background-position: -32px -1136px; }
+.sp-dvd { background-position: -32px -1168px; }
+.sp-email { background-position: -32px -1200px; }
+.sp-emoticon_evilgrin { background-position: -32px -1232px; }
+.sp-emoticon_grin { background-position: -32px -1264px; }
+.sp-emoticon_happy { background-position: -32px -1296px; }
+.sp-emoticon_smile { background-position: -32px -1328px; }
+.sp-emoticon_surprised { background-position: -32px -1360px; }
+.sp-emoticon_tongue { background-position: -32px -1392px; }
+.sp-emoticon_unhappy { background-position: -32px -1424px; }
+.sp-emoticon_waii { background-position: -32px -1456px; }
+.sp-emoticon_wink { background-position: -32px -1488px; }
+.sp-error { background-position: -32px -1520px; }
+.sp-exclamation { background-position: -32px -1552px; }
+.sp-eye { background-position: -32px -1584px; }
+.sp-feed { background-position: -32px -1616px; }
+.sp-female { background-position: -32px -1648px; }
+.sp-film { background-position: -32px -1680px; }
+.sp-find { background-position: -32px -1712px; }
+.sp-flag_blue { background-position: -32px -1744px; }
+.sp-flag_green { background-position: -32px -1776px; }
+.sp-flag_orange { background-position: -32px -1808px; }
+.sp-flag_pink { background-position: -32px -1840px; }
+.sp-flag_purple { background-position: -32px -1872px; }
+.sp-flag_red { background-position: -32px -1904px; }
+.sp-flag_yellow { background-position: -32px -1936px; }
+.sp-folder { background-position: -32px -1968px; }
+.sp-folder_add { background-position: -64px -16px; }
+.sp-folder_delete { background-position: -64px -48px; }
+.sp-folder_explore { background-position: -64px -80px; }
+.sp-folder_page { background-position: -64px -112px; }
+.sp-folder_page_white { background-position: -64px -144px; }
+.sp-folder_picture { background-position: -64px -176px; }
+.sp-folder_table { background-position: -64px -208px; }
+.sp-folder_user { background-position: -64px -240px; }
+.sp-font { background-position: -64px -272px; }
+.sp-group { background-position: -64px -304px; }
+.sp-house { background-position: -64px -336px; }
+.sp-html { background-position: -64px -368px; }
+.sp-image { background-position: -64px -400px; }
+.sp-images { background-position: -64px -432px; }
+.sp-information { background-position: -64px -464px; }
+.sp-ipod_sound { background-position: -64px -496px; }
+.sp-keyboard { background-position: -64px -528px; }
+.sp-layers { background-position: -64px -560px; }
+.sp-layout { background-position: -64px -592px; }
+.sp-lightbulb { background-position: -64px -624px; }
+.sp-lightning { background-position: -64px -656px; }
+.sp-lock { background-position: -64px -688px; }
+.sp-lorry { background-position: -64px -720px; }
+.sp-lorry_flatbed { background-position: -64px -752px; }
+.sp-magifier_zoom_out { background-position: -64px -784px; }
+.sp-magnifier { background-position: -64px -816px; }
+.sp-magnifier_zoom_in { background-position: -64px -848px; }
+.sp-male { background-position: -64px -880px; }
+.sp-map { background-position: -64px -912px; }
+.sp-medal_bronze_1 { background-position: -64px -944px; }
+.sp-medal_bronze_2 { background-position: -64px -976px; }
+.sp-medal_bronze_3 { background-position: -64px -1008px; }
+.sp-medal_gold_1 { background-position: -64px -1040px; }
+.sp-medal_gold_2 { background-position: -64px -1072px; }
+.sp-medal_gold_3 { background-position: -64px -1104px; }
+.sp-medal_silver_1 { background-position: -64px -1136px; }
+.sp-medal_silver_2 { background-position: -64px -1168px; }
+.sp-medal_silver_3 { background-position: -64px -1200px; }
+.sp-money { background-position: -64px -1232px; }
+.sp-money_dollar { background-position: -64px -1264px; }
+.sp-money_euro { background-position: -64px -1296px; }
+.sp-money_pound { background-position: -64px -1328px; }
+.sp-money_yen { background-position: -64px -1360px; }
+.sp-monitor { background-position: -64px -1392px; }
+.sp-mouse { background-position: -64px -1424px; }
+.sp-music { background-position: -64px -1456px; }
+.sp-new { background-position: -64px -1488px; }
+.sp-newspaper { background-position: -64px -1520px; }
+.sp-note { background-position: -64px -1552px; }
+.sp-overlays { background-position: -64px -1584px; }
+.sp-package { background-position: -64px -1616px; }
+.sp-page { background-position: -64px -1648px; }
+.sp-page_add { background-position: -64px -1680px; }
+.sp-page_attach { background-position: -64px -1712px; }
+.sp-page_code { background-position: -64px -1744px; }
+.sp-page_copy { background-position: -64px -1776px; }
+.sp-page_delete { background-position: -64px -1808px; }
+.sp-page_edit { background-position: -64px -1840px; }
+.sp-page_excel { background-position: -64px -1872px; }
+.sp-page_find { background-position: -64px -1904px; }
+.sp-page_gear { background-position: -64px -1936px; }
+.sp-page_go { background-position: -64px -1968px; }
+.sp-page_green { background-position: -96px -16px; }
+.sp-page_paintbrush { background-position: -96px -48px; }
+.sp-page_paste { background-position: -96px -80px; }
+.sp-page_red { background-position: -96px -112px; }
+.sp-page_refresh { background-position: -96px -144px; }
+.sp-page_save { background-position: -96px -176px; }
+.sp-page_white { background-position: -96px -208px; }
+.sp-page_white_acrobat { background-position: -96px -240px; }
+.sp-page_white_add { background-position: -96px -272px; }
+.sp-page_white_cd { background-position: -96px -304px; }
+.sp-page_white_code { background-position: -96px -336px; }
+.sp-page_white_code_red { background-position: -96px -368px; }
+.sp-page_white_copy { background-position: -96px -400px; }
+.sp-page_white_cup { background-position: -96px -432px; }
+.sp-page_white_database { background-position: -96px -464px; }
+.sp-page_white_dvd { background-position: -96px -496px; }
+.sp-page_white_edit { background-position: -96px -528px; }
+.sp-page_white_excel { background-position: -96px -560px; }
+.sp-page_white_get { background-position: -96px -592px; }
+.sp-page_white_go { background-position: -96px -624px; }
+.sp-page_white_horizontal { background-position: -96px -656px; }
+.sp-page_white_magnify { background-position: -96px -688px; }
+.sp-page_white_paint { background-position: -96px -720px; }
+.sp-page_white_paintbrush { background-position: -96px -752px; }
+.sp-page_white_paste { background-position: -96px -784px; }
+.sp-page_white_picture { background-position: -96px -816px; }
+.sp-page_white_powerpoint { background-position: -96px -848px; }
+.sp-page_white_stack { background-position: -96px -880px; }
+.sp-page_white_text { background-position: -96px -912px; }
+.sp-page_white_text_width { background-position: -96px -944px; }
+.sp-page_white_tux { background-position: -96px -976px; }
+.sp-page_white_vector { background-position: -96px -1008px; }
+.sp-page_white_width { background-position: -96px -1040px; }
+.sp-page_white_word { background-position: -96px -1072px; }
+.sp-page_white_world { background-position: -96px -1104px; }
+.sp-page_white_zip { background-position: -96px -1136px; }
+.sp-page_word { background-position: -96px -1168px; }
+.sp-paintbrush { background-position: -96px -1200px; }
+.sp-paste_plain { background-position: -96px -1232px; }
+.sp-paste_word { background-position: -96px -1264px; }
+.sp-pencil { background-position: -96px -1296px; }
+.sp-phone { background-position: -96px -1328px; }
+.sp-photo { background-position: -96px -1360px; }
+.sp-photos { background-position: -96px -1392px; }
+.sp-picture { background-position: -96px -1424px; }
+.sp-picture_empty { background-position: -96px -1456px; }
+.sp-picture_save { background-position: -96px -1488px; }
+.sp-pictures { background-position: -96px -1520px; }
+.sp-pilcrow { background-position: -96px -1552px; }
+.sp-plugin_disabled { background-position: -96px -1584px; }
+.sp-printer { background-position: -96px -1616px; }
+.sp-printer_empty { background-position: -96px -1648px; }
+.sp-printer_error { background-position: -96px -1680px; }
+.sp-rainbow { background-position: -96px -1712px; }
+.sp-report { background-position: -96px -1744px; }
+.sp-report_disk { background-position: -96px -1776px; }
+.sp-report_go { background-position: -96px -1808px; }
+.sp-report_link { background-position: -96px -1840px; }
+.sp-report_picture { background-position: -96px -1872px; }
+.sp-report_user { background-position: -96px -1904px; }
+.sp-report_word { background-position: -96px -1936px; }
+.sp-resultset_first { background-position: -96px -1968px; }
+.sp-resultset_last { background-position: -128px -16px; }
+.sp-resultset_next { background-position: -128px -48px; }
+.sp-resultset_previous { background-position: -128px -80px; }
+.sp-rss { background-position: -128px -112px; }
+.sp-script { background-position: -128px -144px; }
+.sp-script_add { background-position: -128px -176px; }
+.sp-script_error { background-position: -128px -208px; }
+.sp-script_go { background-position: -128px -240px; }
+.sp-server { background-position: -128px -272px; }
+.sp-shading { background-position: -128px -304px; }
+.sp-shape_align_bottom { background-position: -128px -336px; }
+.sp-shape_align_center { background-position: -128px -368px; }
+.sp-shape_align_left { background-position: -128px -400px; }
+.sp-shape_align_middle { background-position: -128px -432px; }
+.sp-shape_align_right { background-position: -128px -464px; }
+.sp-shape_align_top { background-position: -128px -496px; }
+.sp-shape_flip_horizontal { background-position: -128px -528px; }
+.sp-shape_flip_vertical { background-position: -128px -560px; }
+.sp-shape_group { background-position: -128px -592px; }
+.sp-shape_handles { background-position: -128px -624px; }
+.sp-shape_move_back { background-position: -128px -656px; }
+.sp-shape_move_backwards { background-position: -128px -688px; }
+.sp-shape_move_forwards { background-position: -128px -720px; }
+.sp-shape_move_front { background-position: -128px -752px; }
+.sp-shape_rotate_anticlockwise { background-position: -128px -784px; }
+.sp-shape_rotate_clockwise { background-position: -128px -816px; }
+.sp-shape_square { background-position: -128px -848px; }
+.sp-shape_ungroup { background-position: -128px -880px; }
+.sp-shield { background-position: -128px -912px; }
+.sp-sitemap { background-position: -128px -944px; }
+.sp-sound { background-position: -128px -976px; }
+.sp-sound_low { background-position: -128px -1008px; }
+.sp-sound_mute { background-position: -128px -1040px; }
+.sp-sound_none { background-position: -128px -1072px; }
+.sp-spellcheck { background-position: -128px -1104px; }
+.sp-sport_8ball { background-position: -128px -1136px; }
+.sp-sport_basketball { background-position: -128px -1168px; }
+.sp-sport_football { background-position: -128px -1200px; }
+.sp-sport_golf { background-position: -128px -1232px; }
+.sp-sport_raquet { background-position: -128px -1264px; }
+.sp-sport_shuttlecock { background-position: -128px -1296px; }
+.sp-sport_soccer { background-position: -128px -1328px; }
+.sp-sport_tennis { background-position: -128px -1360px; }
+.sp-star { background-position: -128px -1392px; }
+.sp-status_away { background-position: -128px -1424px; }
+.sp-status_busy { background-position: -128px -1456px; }
+.sp-status_offline { background-position: -128px -1488px; }
+.sp-status_online { background-position: -128px -1520px; }
+.sp-stop { background-position: -128px -1552px; }
+.sp-style { background-position: -128px -1584px; }
+.sp-sum { background-position: -128px -1616px; }
+.sp-tab { background-position: -128px -1648px; }
+.sp-tab_add { background-position: -128px -1680px; }
+.sp-tab_delete { background-position: -128px -1712px; }
+.sp-table { background-position: -128px -1744px; }
+.sp-table_gear { background-position: -128px -1776px; }
+.sp-table_multiple { background-position: -128px -1808px; }
+.sp-table_refresh { background-position: -128px -1840px; }
+.sp-table_relationship { background-position: -128px -1872px; }
+.sp-table_row_delete { background-position: -128px -1904px; }
+.sp-table_row_insert { background-position: -128px -1936px; }
+.sp-table_save { background-position: -128px -1968px; }
+.sp-table_sort { background-position: -160px -16px; }
+.sp-tag_blue { background-position: -160px -48px; }
+.sp-tag_green { background-position: -160px -80px; }
+.sp-tag_orange { background-position: -160px -112px; }
+.sp-tag_pink { background-position: -160px -144px; }
+.sp-tag_purple { background-position: -160px -176px; }
+.sp-tag_red { background-position: -160px -208px; }
+.sp-tag_yellow { background-position: -160px -240px; }
+.sp-telephone { background-position: -160px -272px; }
+.sp-television { background-position: -160px -304px; }
+.sp-text_align_center { background-position: -160px -336px; }
+.sp-text_align_justify { background-position: -160px -368px; }
+.sp-text_align_left { background-position: -160px -400px; }
+.sp-text_align_right { background-position: -160px -432px; }
+.sp-text_allcaps { background-position: -160px -464px; }
+.sp-text_bold { background-position: -160px -496px; }
+.sp-text_columns { background-position: -160px -528px; }
+.sp-text_dropcaps { background-position: -160px -560px; }
+.sp-text_heading_1 { background-position: -160px -592px; }
+.sp-text_heading_2 { background-position: -160px -624px; }
+.sp-text_heading_3 { background-position: -160px -656px; }
+.sp-text_heading_4 { background-position: -160px -688px; }
+.sp-text_heading_5 { background-position: -160px -720px; }
+.sp-text_heading_6 { background-position: -160px -752px; }
+.sp-text_horizontalrule { background-position: -160px -784px; }
+.sp-text_indent { background-position: -160px -816px; }
+.sp-text_indent_remove { background-position: -160px -848px; }
+.sp-text_italic { background-position: -160px -880px; }
+.sp-text_kerning { background-position: -160px -912px; }
+.sp-text_letter_omega { background-position: -160px -944px; }
+.sp-text_letterspacing { background-position: -160px -976px; }
+.sp-text_linespacing { background-position: -160px -1008px; }
+.sp-text_list_bullets { background-position: -160px -1040px; }
+.sp-text_list_numbers { background-position: -160px -1072px; }
+.sp-text_lowercase { background-position: -160px -1104px; }
+.sp-text_padding_bottom { background-position: -160px -1136px; }
+.sp-text_padding_left { background-position: -160px -1168px; }
+.sp-text_padding_right { background-position: -160px -1200px; }
+.sp-text_padding_top { background-position: -160px -1232px; }
+.sp-text_replace { background-position: -160px -1264px; }
+.sp-text_signature { background-position: -160px -1296px; }
+.sp-text_smallcaps { background-position: -160px -1328px; }
+.sp-textfield { background-position: -160px -1360px; }
+.sp-thumb_down { background-position: -160px -1392px; }
+.sp-thumb_up { background-position: -160px -1424px; }
+.sp-tick { background-position: -160px -1456px; }
+.sp-time { background-position: -160px -1488px; }
+.sp-timeline_marker { background-position: -160px -1520px; }
+.sp-transmit { background-position: -160px -1552px; }
+.sp-tux { background-position: -160px -1584px; }
+.sp-user { background-position: -160px -1616px; }
+.sp-user_comment { background-position: -160px -1648px; }
+.sp-user_female { background-position: -160px -1680px; }
+.sp-user_gray { background-position: -160px -1712px; }
+.sp-user_green { background-position: -160px -1744px; }
+.sp-user_orange { background-position: -160px -1776px; }
+.sp-user_red { background-position: -160px -1808px; }
+.sp-user_suit { background-position: -160px -1840px; }
+.sp-vcard { background-position: -160px -1872px; }
+.sp-vector { background-position: -160px -1904px; }
+.sp-wand { background-position: -160px -1936px; }
+
+/* ********************************************************************
+ *   Estilos utilizados por el plugin pageSlide
+ *   @ Scott Robin
+ *   Enero 2009
+******************************************************************** */
+#pageslide-body-wrap {
+    position: relative;
+}
+
+#pageslide-slide-wrap {
+    position: fixed;
+    width: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: #789898;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: none;
+  z-index: 999;
+}
+
+#pageslide-content {
+    color: #000;
+}
+
+#pageslide-content h2 {
+    color:#7DBC3D;
+    font-size:22px;
+    font-weight: bold;
+    margin-bottom:25px;
+}
+
+/* ********************************************************************
+                  Complementos al plugin pageSlide
+******************************************************************** */
+#slideMain {
+  padding: 20px;
+}
+
+#slideInner {
+  float: left;
+  background-color: #F9EBAE;
+  height: 100%;
+  position: relative;
+}
+
+#slideInner .topbar {
+  font-family: "Lucida Grande",Tahoma,Arial,sans-serif;
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  background-color: #3C6573;
+}
+
+#slideInner .content {
+  margin: 15px 15px;
+}
+
+/* ********************************************************************
+Clases de los reportes de la Historia Clinica
+******************************************************************** */
+.report {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.report img {
+  padding: 0px;
+  border: 0px none transparent;
+}
+
+.report h1 {
+  color: black;
+  font-size: 1.6em;
+  font-variant: small-caps;
+  padding: 2px;
+  border: 0px none transparent !important;
+  letter-spacing: 2px;
+  background-color: #ddd;
+  text-transform: capitalize;
+}
+
+.report h2 {
+  color: black;
+  font-size: 1.2em;
+  border: 0px none transparent;
+  padding-top: 3px;
+  letter-spacing: 0px;
+}
+
+.report h3 {
+  color: black;
+  font-size: 1.1em !important;
+  font-style: italic;
+  border: 0px none transparent;
+  padding-top: 3px;
+  letter-spacing: 0px;
+}
+
+.report .textbox {
+  border: 2px inset;
+  padding: 2px;
+}
+
+.report div  {
+  min-height: 1em;
+}
+
+.report span {
+  padding: 0px 5px !important;
+  width: 100px;
+}
+/* **********************************************************************
+            Estilo del menu de Acciones en Pacientes en Internamiento
+********************************************************************** */
+ div#menu-bg.short {
+  width: 70px;
+ }
+
+.short ul#navmenu-v, .short ul#navmenu-v li  {
+  text-align: left;
+  width: 80px !important;
+}
+
+.short ul#navmenu-v li  ul li {
+  width: 160px !important;
+}
+
+.short ul#navmenu-v a {
+  line-height: 16px;
+}
+
+.short ul#navmenu-v ul {
+  left: 76px !important;
+  z-index: 100;
+}
+/* **********************************************************************
+Estilo de las busquedas de QUICKSEARCH
+********************************************************************** */
+.quicksearch .qs_input {
+  margin: 0 0 3px 0;
+  padding: 3px 9px;
+  border: 1px black solid;
+  font: 9pt tahoma;
+  width: 30%;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+}
+.quicksearch label.qs_label {
+  margin:0;
+  padding:0;
+  color:#000000;
+  font-family: "tahoma,trebuchet ms",helvetica,sans-serif;
+  font-size:9pt;
+}
+/*  **********************************************************************
+Estilos para las paginas de reporte de pacientes
+**********************************************************************  */
+.pxname {
+  font-size: 2.6em;
+  font-family: serif;
+  font-style: italic;
+  letter-spacing: 0;
+  margin: .4em 0 .2em 1em;
+}
+
+#actions-menu {
+  background-color: white;
+  margin-right: 5px;
+
+  width: 19%;
+  float: left;
+  height: 100%;
+}
+
+#actions-menu h3 {
+  font-size: 1.3em;
+  padding: .3em;
+  letter-spacing: 0;
+}
+
+#actions-menu ul {
+  padding: .5em 0 0 1.5em;
+  list-style: none;
+}
+
+#actions-menu li {
+  font-weight: bold;
+}
+
+#actions-menu li a{
+  text-decoration: none;
+}
+
+#actions-menu li:hover {
+  list-style: disc;
+}
+
+#actions-body {
+  background-color: white;
+  float: left;
+  width: 80%;
+  /* min-height: 311px; */
+}
+
+#menu-bg {
+  background-color: #EEE;
+  width: 100%
+}
+
+/* ------------------------------------------------------------------------
+                    Estilos de los links como botones
+------------------------------------------------------------------------ */
+a.butonize {
+  background-color: sienna;
+  color: white;
+  padding: 0px 15px;
+  font-weight: bold;
+  text-decoration: none;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+a.butonize:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+
+/* ------------------------------------------------------------------------
+                    Estilos de las secciones de Busqueda
+------------------------------------------------------------------------ */
+
+.search {
+  background-color: #FFEBB8;
+  border: 5px double #4A2211;
+  margin: 10px 0;
+  padding: 15px;
+}
+
+.search legend {
+  background-color: #4A2211;
+  border: 1px solid #4A2211;
+  color: white;
+  font: bold 1.2em tahoma ;
+  margin: 0 20px;
+  padding: 0.2em 15px;
+}
+
+.search label {
+  color: #666;
+  font-family:  "Lucida Grande",Tahoma,Arial,sans-serif;
+}
+
+.search th {
+  text-align: right;
+}
+
+.search tr {
+  padding: 35px 0;
+}
+
+/* ************************************************************
+ * Estilo de las Progress Bar
+ *  de www.pausanchez.es
+ * ***********************************************************/
+.ProgressBar     {
+  width: 100%;
+  border: 1px solid black;
+  background: #FFEBB8;
+  height: 1.25em;
+  display: block;
+}
+
+.ProgressBarText {
+  position: absolute;
+  font-size: 1em;
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
+}
+
+.ProgressBarFill {
+  height: 100%;
+  background: #D96C3D;
+  display: block;
+  overflow: visible;
+}
+
+/*
+ * Clases de la Ficha de Identificacion
+ * */
+
+.idtag {
+  background-color: white;
+  float: right;
+  border: 1px solid black;
+  padding: 3px;
+  padding-right: px;
+  width: 99%;
+}
+
+.idtag .campo {
+  margin: 3px;
+
+}
+
+.idtag .label {
+  float: left;
+  font-weight: bold;
+}
+
+.idtag .data {
+  float: none;
+  font-weight: normal;
+}

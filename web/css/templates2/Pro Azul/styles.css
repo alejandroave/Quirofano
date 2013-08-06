@@ -1,0 +1,427 @@
+/* /css/nourish/styles.css
+ *
+ * Contiene los estilos de la plantilla que modifican la apariencia de todo el
+ * proyecto, Los valores por default estan indicados delante de la propiedad en
+ * un comentario en el formta:
+ *
+ * /* propiedad: valor; /* default: valor_en_main.css * /
+ *
+ * Para modificar su valor hay que remover el /* inicial y asignarlo, las propiedades
+ * no asignadas no presentan ningun marcaje
+ * */
+
+#sf_content {
+}
+
+/* @section: Contenido de los Formularios */
+
+.formulario {
+  border-radius: 0 0 10px 10px;
+  box-shadow: 10px 10px 10px #999999;
+  -o-border-radius: 0 0 10px 10px;
+  -o-box-shadow: 10px 10px 10px #999999;
+  -webkit-border-radius: 0 0 10px 10px;
+  -webkit-box-shadow: 10px 10px 10px #999999;
+  background-color: #e5e5e5; /* default: #CCCCCC */
+  /* margin: 5px 0 15px 0;  /* default: 5px 0 15px 0 */
+  /* padding: 0 0 15px 0;  /* default: 0 0 15px 0 */
+}
+
+  .formulario h1 {
+    background-color: #4f6970;  /* default: #333333 */
+    /*color: white; /* default: white */
+    /*font-size: 1.8em;   /* @default 1.8 em */
+    /*margin: 0 auto; /* @default: 0 auto */
+    padding: 3px 10px;
+    text-align: left;
+  }
+
+  .formulario h2 {
+    border-bottom: 1px dotted BurlyWood;
+    /* clear: both;  /* @default: both */
+    /* float: left;  /* @default: left */
+    /* margin: 10px 5px 5px;   /* @default: 10px 5px 5px */
+    /* padding: 0 5px;   /* @default: 0 5px */
+    /* width: 96%;   /* @default: 96% */
+  }
+
+  .formulario > .field {
+    /* float: left;   /* @default: left */
+    /* margin: 5px 10px 0 10px;  /* @default: 5px 10px 0 10px */
+    /* width: 160px;  /* @default: 160px */
+  }
+
+  .formulario .label {
+    /* font-size: 1.0em;  /* @default: 1.0em */
+    /* font-weight: bold; /* @default: bold*/
+    /* width: 100%;       /* @default: 100% */
+  }
+
+  .formulario .field {
+    /* width: 100%;       /* @default: 100% */
+  }
+
+  .formulario fieldset {
+    margin: 0px;
+  }
+
+  .formulario .control {
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px #666666;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 2px 2px 2px #666666;
+    background-color: #4f6976; /* @default: #333333 */
+    /* clear: both;               /* @default: both */
+    /* float: left;               /* @default: left */
+    /* margin: 10px 10px 0;       /* @default: 10px 10px 0 */
+    /* min-height: 2em;           /* @default: 2en */
+    /* overflow: hidden;          /* @default: hidden */
+    padding: 1em 0px;         /* @default: 5px 0 */
+    /* text-align: center;        /* @default: center */
+    /* width: 700px;              /* @default: 700px */
+  }
+
+/* @section: Estilos de las Indicaciones */
+  .formulario .tarea {
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: LightSteelBlue;   /* @default: #CCCCCC */
+    border: 1px solid CornflowerBlue;    /* @default: 1px solid #999999 */
+    /* float: left;       /* @default: left */
+    /* margin: 5px 10px 0px 10px;   /* @default: 5px 10px 0px 10px */
+    /* padding: 3px 0 3px 0;    /* @default: 3px 0 3px 0 */
+    /* width: 700px;    /* @default: 700px */
+  }
+
+  .formulario .tarea .datestamp {
+    /* float: left;    /* @default: left */
+    margin: 7px 10px 10px 10px;    /* @default: 10px 10px 10px 10px */
+    text-align: center;
+    /* width: 80px; /* @default: 80px */
+  }
+
+  .formulario .tarea .date {
+    /* color: black;   /* @default: black */
+    /* font-size: 1.2em; /* @default: 1.2em */
+  }
+
+  .formulario .tarea .time {
+    /* color: black;   /* @default: black */
+    /* margin: 0 auto;   /* @default: 0 auto */
+  }
+
+  .formulario .tarea .contenido {   /* Area con los datos de la indicacion */
+    /*margin-left: 100px; /**/
+  }
+
+  .formulario .tarea .indicacion {
+    color: black;
+    font-size: 1.5em;
+    margin: 0px;
+    width: 80%;
+  }
+
+  .formulario .tarea .descripcion {
+    clear: right;
+    color: black;
+    font-size: 1.2em;
+    width: 60%;
+  }
+
+  .formulario .tarea .medico {
+    clear: right;
+    color: black;
+    font-size: 1.1em;
+    width: 60%;
+  }
+
+  .formulario .farmaco {
+    background-color: #b0c7cf
+  }
+
+  .formulario .manejo {
+    background-color: #bbd4db
+  }
+
+  .formulario .radiografico {
+    background-color: #c6e0e8
+  }
+
+  .formulario .nutricion {
+    background-color: #d1ecf5
+  }
+
+  .formulario .gabinete {
+    background-color: #d9f6ff
+  }
+
+  .formulario .tarea .chk-button {  /* Area del boton para deshabilitar indicaciones */
+    /* color: black;   /* @default: black */
+    /* float: right;   /* @default: left */
+    /* margin: -15px 3px 0;    /* @default: 25px 5px 0px 5px */
+    /* text-align: center;   /* @default: center */
+    /* width: 90px   /* @default: 90px */
+  }
+
+input[type='button']#authorize {    /* Boton que bloquea/desbloquea las Indicaciones medicas*/
+  /* border: 2px solid black;    /* @default: 2px solid black */
+  font-size: 1.2em;     /* @default: 1em */
+  font-weight: bold;    /* @default: normal */
+  padding: 10px 0 10px 0;    /* @default: 5px 0 */
+  /*width: 701px;   /* @default: 700px; */
+}
+
+/* @section: Formulario Principal de Login */
+
+#sf_content #login {
+  margin: 0 0;
+  width: 190px;
+}
+
+
+/* @section: Estilo de los botones de accion */
+
+a.actionlink{
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background: dimGray;
+  color: white;
+  font-weight: bold;
+  margin: 0 5px;
+  padding: 0px 5px;
+  text-decoration: none;
+}
+
+/* @section: Clases para las acciones habilitadas (go) y Deshabilitadas (stop))*/
+.go {
+  background-color: #e1e219;
+}
+
+.stop {
+  background-color: #c0262a;
+}
+
+
+/* @section: Estilos para el area de identificacion del paciente*/
+#idtag {
+  border-radius: 7px;
+  box-shadow: 10px 10px 10px #999999;
+  -o-border-radius: 7px;
+  -o-box-shadow: 10px 10px 10px #999999;
+  -webkit-border-radius: 7px;
+  -webkit-box-shadow: 10px 10px 10px #999999;
+  background-color: #e1e249;
+  border: 2px groove beige;
+  margin: 5px 0 10px 0;
+  padding: 5px;
+}
+
+  #idtag .campo {
+    float: left;
+    margin: 0 3px;
+    width: 49%;
+  }
+
+  #idtag .label {
+    float: left; /**/
+    font-weight: bold;
+    margin: 0 3px 0 0;
+  }
+
+  #idtag .data {
+    float: left;
+    /*font-weight: normal; /**/
+  }
+
+  #idtag .pxname {
+    font-size: 1.8em;
+    font-weight: bold;
+    width: 99%;
+  }
+
+/* ************************************************************
+ * @section: Estilo de las Progress Bar
+ *  de www.pausanchez.es
+ * ***********************************************************/
+.ProgressBar     {
+  border-radius: 5px;
+  border: 1px solid black;
+  background: #e2e2e2;
+  clear: left;
+  display: block;
+  height: 1.25em;
+  width: 100%;
+}
+
+.ProgressBarText {
+  position: absolute;
+  font-size: 1em;
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
+}
+
+.ProgressBarFill {
+  height: 100%;
+  background: #8bb8c4;
+  display: block;
+  overflow: visible;
+}
+/*
+#actions-menu {
+  background: white;
+  padding: 3px;
+  width: 214px;
+} */
+
+#actions-menu #actions-list {
+  display: block;
+  height: 150px;
+}
+
+#qr-code {
+  text-align: center;
+}
+
+
+/**
+ * @section: Clases para los tipos de historia Clinica
+ ************************************************************************ */
+.modulelist {
+  background-color: #BF3503;
+  border:1px solid #E5D3A4;
+}
+
+.modulelist li {
+  background-color: #D18000;
+  border: 1px solid #454545;
+  font-weight: bold;
+  height: 1.5em;
+  line-height: 1.2em;
+}
+
+/* CSS Tabs is licensed under Creative Commons Attribution 3.0 - http://creativecommons.org/licenses/by/3.0/
+ * http://unraveled.com/publications/css_tabs/
+/* begin css tabs */
+
+ul#navTabs { /* general settings */
+  background: url("images/ui-bg_highlight-hard_35_c5dfe7_1x100.png") repeat-x scroll 50% 50% #C5DFE7;
+  border-bottom: 1px solid #ffffff; /* set border COLOR as desired */
+  border-top: 1px solid #8DBBC8;
+  border-left: 1px solid #8DBBC8;
+  border-right:  1px solid #8DBBC8;
+  margin-bottom: 0;
+  padding-top: 20px;
+  text-align: left;
+  border-radius: 10px 10px 0 0 ;
+}
+
+ul#navTabs li.active { /* settings for selected tab */
+  border-bottom: 1px solid Beige; /* set border color to page background color */
+  background-color: #FDFDFD; /* set background color to match above border color */
+}
+
+ul#navTabs li.active a { /* settings for selected tab link */
+  background-color: #e1e279; /* set selected tab background color as desired */
+}
+
+ul#navTabs li a { /* settings for all tab links */
+  border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  border: 1px solid #8DBBC8; /* set border COLOR as desired; usually matches border color specified in #tabnav */
+  border-radius: 5px 5px 0 0;
+  background-color: #8dbbc8; /* set unselected tab background color as desired */
+  color: white; /* set unselected tab link color as desired */
+}
+
+ul#navTabs a:hover { /* settings for hover effect */
+  background: #e1e279; /* set desired hover color */
+  color: black;
+}
+
+/* end css tabs */
+
+#camasPanel {
+  border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0 0 10px 10px;
+  box-shadow: 10px 10px 10px #999;
+  -webkit-box-shadow: 10px 10px 10px #999;
+  background: #ffffff;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 10px 10px 10px #999;
+  border-left: 1px solid #8DBBC8;
+  border-right: 1px solid #8DBBC8;
+  border-bottom: 1px solid #8DBBC8;
+  padding: 10px 10px 10px;
+}
+
+#camasPanel #tabla {
+  font: normal 11px verdana, arial, sans-serif;
+  margin: 0 0 15px 0;
+}
+
+#camasPanel #tabla a{
+  font-weight: bold;
+  color: #4f6970;
+  text-decoration: none;
+}
+
+#camasPanel #control {
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #666;
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 2px #666;
+  background: #BF3503;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #666;
+  padding: 15px 10px;
+}
+
+#camasPanel .page {
+  float: left;
+  margin: 0 10px;
+}
+
+#camasPanel .page a {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #BF3503;
+  border-radius: 5px;
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+#camasPanel .page a:hover {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: orange;
+}
+
+#camasPanel .page a.active {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: orange;
+}
+
+#camasPanel #value {
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+}
+
+ul#navTabs li.active a { /* settings for selected tab link */
+  background-color: #e1e379; /* set selected tab background color as desired */
+  color: #000; /* set selected tab link color as desired */
+  position: relative;
+  top: 1px;
+  padding-top: 6px; /* must change with respect to padding (X) above and below */
+}

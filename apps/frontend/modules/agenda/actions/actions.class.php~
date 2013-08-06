@@ -9,20 +9,62 @@
  */
 class agendaActions extends sfActions
 {
+ public function executeDefault(sfWebRequest $request) {
+    $this->Quirofanos = QuirofanoQuery::create()->find();
+    $this->setTemplate('index');
+  }
+
   public function executeIndex(sfWebRequest $request)
   {
-    $this->filtro = $request->getParameter('filter', false);
-    $this->Agendas = AgendaQuery::create()->find();
+    $this->Quirofanos = IndexQuery::create()->find();
   }
+
+// public function executeDefault(sfWebRequest $request) {
+//    $this->Agendas = AgendaQuery::create()->find();
+//    $this->setTemplate('index');
+//  }
+
+//  public function executeIndex(sfWebRequest $request)
+//  {
+//    $this->Agendas = AgendaQuery::create()->find();
+//  }
+
+
+
+//  public function executeIndex(sfWebRequest $request)
+//  {
+//    $this->Agendas = AgendaQuery::create()->find();
+    //$this->Agendas = AgendaQuery::create()->find();
+   // $this->form = new IndexForm();
+//  }
+
+
+//  public function executeIndex(sfWebRequest $request)
+//  {
+//    $this->filtro = $request->getParameter('filter', false);
+//    $this->Cirugias = AgendaQuery::create()->find();
+//  }
+
 
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new AgendaForm();
   }
+  
+  public function executeQuirofano(sfWebRequest $request)
+  {
+    $quirofano_id = $request->getParameter('quirofano');
+    $date = $request->getParameter('date', 'today');
+    $this->Cirugias = AgendaQuery::create()
+      ->filterByQuirofanoId($quirofano_id)
+      ->filterByLastTime(array('min' => strtotime($date), 'max' => strtotime($date.' + 1 Day')))
+      ->orderByStatus()
+      ->find();
+  }
 
   public function executeProgramar(sfWebRequest $request)
   {
-    if ($request->isMethod('GET')) {
+    if (!$request->isMethod('POST')) {
       $this->form = new programarCirugiaForm();
     }
   }

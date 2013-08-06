@@ -1,0 +1,141 @@
+/* ==============================================================================================
+    * Estilos de los Campos de los Modulos :D
+============================================================================================== */
+div.fields {
+  float: left;
+  width: 100%;
+  margin: 0 0px;
+}
+
+.innerFrame{
+  float: left;
+  margin: 10px 0px 0px 0px;
+  padding: 0px 10px 20px 10px;
+  background-color: #FFEBB8;
+  -moz-border-radius: 0px 0px 10px 10px;
+  -webkit-border-radius: 0px 0px 10px 10px;
+  display: block;
+}
+
+.formH1 {
+  margin: 0px -10px 20px -10px;
+  background-color: #4A2211;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  letter-spacing: .0em;
+  border-bottom: none !important;
+  float: left;
+  width: 100%;
+}
+
+.innerFrame h2 {
+  font-family: "Lucida Grande",Tahoma,Arial,sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 135%;
+  letter-spacing: 0.15em;
+  border-bottom: 1px dotted sienna;
+  padding-left: 0.7em;
+  margin: 10px 0 5px -0.7em;
+  width: 97%;
+  float: left;
+  clear: both;
+}
+
+.innerFrame h3 {
+  font-family: "Lucida Grande",Tahoma,Arial,sans-serif;
+  font-size: 1.0em !important;
+  font-weight: normal;
+  line-height: 100%;
+  letter-spacing: .4em;
+  border-bottom: 1px none sienna;
+  padding-left: .7em;
+  margin: 10px 0 5px 0;
+  width: 97%;
+  float: left;
+  clear: both;
+}
+
+#fieldset {
+  margin: auto;
+  text-align: left;
+  width: auto;
+}
+
+div.areaModulos{
+  min-height: 4.0em;
+  float: left;
+  margin: 2px 2px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  overflow: hidden;
+}
+
+div.singleSpace{
+  min-height: 1.5em !important;
+}
+
+div.labelModulos {
+  font-family: "Lucida Grande",Tahoma,Arial,sans-serif;
+  color: #666666;
+  font-weight:bold;
+  min-height:1em;
+  padding: 1px 0 3px;
+}
+
+div.fieldModulos {
+  padding: 0px;
+}
+
+.fieldModulos .radio_list li {
+  display: inline; 
+}
+
+.fieldModulos ul {
+  margin: 0px !important;
+}
+
+input[type="text"], input[type="file"] , select, textarea {
+  width: 12.0em;
+} 
+
+.corto{
+  width: 3em !important;
+}
+
+.medio{
+  width: 5em !important;
+}
+
+.uno{
+  width: 12.0em;
+}
+
+.mitad{
+  width: 49% !important;
+}
+
+.unomedio{
+  width: 17.0em !important;
+}
+
+.doble {
+  width: 24.6em !important;
+}
+
+.triple {
+  width: 37em !important;
+}
+
+.cuadruple {
+  width: 49.7em !important;
+}
+
+.full {
+  width: 95% !important;
+}
+
+.lf {
+  clear: left;
+}
