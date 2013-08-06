@@ -1,213 +1,248 @@
-<?php
-  header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-  header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-?>
-
-<!DOCTYPE html>
-<?php
-  //$template = 'nourish';
-  if ($sf_user->isAuthenticated()) {
-    $template = $sf_user->getAttribute('template', "nourish", 'options');
-  } else {
-    $template = "nourish";
+<h1>Programar Cirugia</h1>
+<link rel="stylesheet" type="text/css" media="screen" href="/css/global/main.css" /> <!-- Da formato basico a los formularios -->
+<?php //include_partial('form', array('form' => $form)) ?>
+<style>
+  .formulario {
+    float: left;
+    background:#ebf4fb;;   
   }
-?>
 
-<html lang="es">
-<head>
-  <meta charset="utf-8">
+  .formulario .area {
+    float: left;
+  }
 
-  <!-- Titulo dela Página -->
-<?php if (!include_slot('titulo')): ?>
-  <title>SIGA - HU</title>
-<?php endif; ?>
+  .formulario .label {
+    float: left;
+    font-size: bold;	
+  }
 
-  <!-- meta tags -->
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <meta http-equiv="Expires" content="0">
-  <meta http-equiv="Last-Modified" content="0">
-  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-
-  <!-- ======================== STYLESHEET ======================== -->
-  <!-- Hojas de estilo global todas reciden en /css/global/  -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/reset.css" /> <!-- Elimina los estilos por default -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/common.css" />  <!-- Marcado basico para elementos mas comunes -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/960gs-16-fixed.css" /> <!-- Permite el uso de 960 grid System a 16 columnas -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/main.css" /> <!-- Da formato basico a los formularios -->
-
-  <!-- Hoja de Estilos del Template estan en /css/templates/$nombredeplantilla-->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates/<?php echo $template ?>/default.css" /> <!-- Hoja de estilos principal -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates/<?php echo $template ?>/styles.css" />  <!-- Modificaciones del template -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates/<?php echo $template ?>/jquery-ui.custom.css" />  <!-- Estilos de widgets -->
-
-  <!-- Hojas de estilo de utilidades -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/jquery.pnotify.default.css" /> <!-- Hoja de estilos de las Notificaciones -->
-  <link rel="stylesheet" type="text/css" href="/css/global/famfamsprites/styles/icons.css"><!-- Incluye los iconos de famfamicons en modo nuevo -->
-  <!-- Esta debe ser eliminada al reemplazar todas las llamadas a ss_sprite por icon -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/sprite.css"><!-- Incluye los iconos de famfamicons en modo viejo -->
-
-  <!-- ======================== JAVASCRIPT ======================== -->
-  <script type="text/javascript" src="/js/global/jquery-1.7.1.min.js"></script>    <!-- 1.5.1 --><!-- 1.4.2 -->
-  <script type="text/javascript" src="/js/global/jquery-ui-1.8.14.custom.min.js"></script>    <!-- 1.8.2 -->
-  <!--<script type="text/javascript" src="/js/global/ui.timepickr.js"></script>    <!-- 1.8.2 -->
-  <script type="text/javascript" src="/js/global/datepickerPreferences.js"></script>
-  <script type="text/javascript" src="/js/global/seekAttention.jquery.js"></script>
-  <!-- Estas lineas se deben agregar a cada modulo que realmente requiera usar las funciones de colapsado de cajas   -->
-  <script type="text/javascript" src="/js/jquery.elastic-1.6.1.js"></script>
-  <script type="text/javascript" src="/js/toggleTextarea.js"></script>
-  <script type="text/javascript" src="/js/global/interactiveControl.js"></script>
-
-  <!--conditional comments --><!--[if IE]><script src="js/html5.js"></script><![endif]-->
-
-<!-- Hojas de Estilo y JavaScrips añadidos por el Template de la Accion -->
-</head>
-
-<body>
-  <header id='main-header'>
-    <div id='header-content' class='container_16'>
-    <!-- Logo Principal -->
-      <div id='logo' class='grid_16'>
-        <div id="image"></div>
-        <h1 class='grid_4'>siga-hu</h1>
-        <p id='row1'class='grid_11'>Sistema Integral de Gestión Administrativa</p>
-        <p id='row2'class='grid_11'>Hospital Universitario de la U.A.N.L.</p>
-      </div>
-
-      <div class='clearfix'></div>
-      <nav id='menu'>
-        <ul id="main">
-        <li><a href="/" class="active">SIGA</a></li>
-<?php if ($sf_user->getAttribute('categoriaId', null, 'profile') == 10 ): ?>
-        <li><a href="/backend.php/" target="admin">Administraci&oacute;n</a></li>
-<?php endif; ?>
-        <!--
-        <li><a id="bloquear" href="#">Bloqueo</a></li>
-        <li><a href="<?php echo url_for("opciones/new")?>" id="opciones">Opciones</a></li> -->
-        <li style="float:right"><a href="<?php echo url_for("comentario/new?url={$sf_request->getParameter('module')}-{$sf_request->getParameter('action')}") ?>" id="comentario"><span class="icon icon-star1"></span></a></li>
-        </ul>
-      </nav>
+  .formulario .field {	
+    margin:0px 0 0px 0px;
+    float: left;
+  }
+</style>
+<!--
+<div class='formulario'>
+<form action='' method='post'>
+<div class='area'>
+  <div class='etiqueta'><?php echo $form['programacion']->renderLabel() ?></div>
+    <div class='campo'>
+      <?php echo $form['programacion']->renderError() ?>
+      <?php echo $form['programacion']->render() ?>
     </div>
-  </header>
-
-  <article class='clearfix'>
-    <div id='article-content' class='container_16'>
-<?php if ($sf_user->isAuthenticated() && !$sf_user->hasBasicProfile() && $sf_request->getParameter('module') !== 'profile'): ?>
-<!-- --- Alerta de Perfil Incompleto -->
-        <div id="alert_dialog">
-          <p>El perfil de usuario esta incompleto para llenarlo haga click <strong><?php echo link_to('AQUI', 'profile/editar', array("id"=>"marcar")) ?></strong>.</p>
-          <p>Para cerrar este dialogo y continuar trabajando seleccione <strong>'Cerrar'</strong>, </p>
-          <br />
-          <p><strong>Nota:</strong> Este dialogo aparecera en todas las acciones hasta que se
-          complete el perfil de usuario</p>
-        </div>
-
-        <script>
-          (function(){
-            $('#alert_dialog').dialog({
-              buttons: {
-                'Cerrar': function() {
-                  $(this).dialog("close");
-                }
-              },
-              closeOnEscape: false,
-              draggable: true,
-              modal: true,
-              resizable: false,
-              title: 'Alerta de Perfil Incompleto',
-              width: 420
-            });
-          })();
-        </script>
-
-<!-- Comentamos el codigo original para hacer un overlay completo
-        <div id="profile_alert">
-          El perfil de usuario esta incompleto vaya a "Mi Perfil" en la barra de navegación o <?php echo link_to('haga click AQUI', 'profile/editar', array("id"=>"marcar")) ?>
-        </div>
-
-        <script>
-          $(function() {
-            $('#profile_alert').slideDown("slow");
-
-            $("a#marcar").click(function() {
-              $('span#perfil').seekAttention({
-                blur: true,
-                fade: false,
-                fadeSpeed: 100,
-                hideOnClick: false,
-              });
-              return false;
-            });
-          });
-        </script> -->
-<!-- --- Fin de la alerta -->
-<?php endif; ?>
-
-      <!-- --------- Inicia Id Usuario ----------------- -->
-      <aside id='sidebar' class='grid_4'>
-      <?php if($sf_user->isAuthenticated()): ?>
-        <div id="userId">
-          <div id="name"><?php echo $sf_user->getFullName() ?></div> <!-- Se comentarion las lneas de identificacion del usuario -->
-          <div><?php echo $sf_user->getServicioName() ?></div>
-          <div><?php echo $sf_user->getDepartamentoName() ?></div>
-          <div><?php echo $sf_user->getArea() ?></div>
-          <span id='perfil'><a href='<?php echo url_for('profile/editar') ?>'>Mi Perfil</a></span>
-          <span><a href='<?php echo url_for('comentario/index') ?>'>Comentarios</a></span>
-          <span><a href='<?php echo url_for('sfGuardAuth/signout') ?>'>Cerrar</a></span>
-        </div>
-      <?php endif; ?>
-      <!-- --------- Termina Id Usuario ----------------- -->
-
-      <!-- --------- Inicia Menu Lateral ----------------- -->
-        <?php include_partial('global/sidemenu', array('user' => $sf_user)) ?>
-      <!-- --------- termina Menu Lateral ----------------- -->
-      </aside>
-
-      <section id='content' class='grid_12 alpha omega' >
-<!-- ############################################## Contenido del Modulo Symfony ############################################## -->
-        <div id="sf_content" class="">
-          <?php echo $sf_content ?>
-        </div>
-<!-- ########################################## Fin del contenido del Modulo Symfony ###########################################-->
-      </section>
+</div>
+<div class='area'>
+  <div class='etiqueta'><?php echo $form['hora']->renderLabel() ?></div>
+    <div class='campo'>
+      <?php echo $form['hora']->renderError() ?>
+      <?php echo $form['hora']->render() ?>
     </div>
-  </article>
-
-  <div class='clearfix'></div>
-
-  <footer id="footer" class="clearfix">
-    <div id='footer-container' class='container_16 clearfix'>
-      <p class="copyright grid_5">SIGA-HU &copy;&nbsp;&nbsp;2010 Todos los Derechos Reservados</p>
-      <!--<p class='grid_4 push_1'>Diseño por <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>-->
-      <p class='grid_2'><?php echo date ( "d-m-Y" );?></p>
-      <p class="grid_8">
-        <!--<a href="#">Politica de Privacidad</a>
-        &nbsp;&#8226;&nbsp;
-        <a href="#">Términos de Uso</a>-->
-        <p>Francisco I. Madero, 3501 Mitras Centro, Monterrey, Nuevo León.  Tel: 01 81 8123 2663.</p>
-      </p>
+</div>
+<div class='area'>
+  <div class='etiqueta'><?php echo $form['sala_id']->renderLabel() ?></div>
+    <div class='campo'>
+      <?php echo $form['sala_id']->renderError() ?>
+      <?php echo $form['sala_id']->render() ?>
     </div>
-  </footer>
+</div>
+<div class='area'>
+  <div class='etiqueta'><?php echo $form['paciente_name']->renderLabel() ?></div>
+    <div class='campo'>
+      <?php echo $form['paciente_name']->renderError() ?>
+      <?php echo $form['paciente_name']->render() ?>
+    </div>
+</div>
+<div class='area'>
+  <div class='etiqueta'><?php echo $form['paciente_id']->renderLabel() ?></div>
+    <div class='campo'>
+      <?php echo $form['paciente_id']->renderError() ?>
+      <?php echo $form['paciente_id']->render() ?>
+    </div>
+</div>
+<div class='area'>
+    <div class='campo'>
+      <input type='submit' value='Guardar' />
+    </div>
+</div>
+</div>
+<table border ='1'>
+<?php echo $form ?>
+</table>
+-->
 
-<script>
-  $(function() {
-    $('ul.error_list').mouseover(function(){
-      $(this).fadeTo(500, 0.2);
-    })
-    .mouseout(function() {
-      $(this).fadeTo(500, 1);
-    });
-  })
-</script>
+<div class='formulario'>
+<form method="POST">
+<!-- <form method="POST" action="<?php //echo url_for('quirofano/programar?slug='.$Quirofano->getSlug()) ?>">   -->
 
-  <div id="bloqueo" title="El sistema ha sido bloqueado" style="display: none">
-    <br />
-    Introduce tu contrase&ntilde;a para continuar<br /><br />
-    <form>
-      <input id="pass" type="password"  />
-    </form>
+<div class="area">
+    <div class="label"><?php echo $form['sala_id']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['sala_id']->renderError() ?>
+      <?php echo $form['sala_id'] ?>
+    </div>
+  </div>
+<div class="area">
+    <div class="label"><?php echo $form['programacion']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['programacion']->renderError() ?>
+      <?php echo $form['programacion'] ?>
+    </div>
+  </div>
+<div class="area">
+    <div class="label"><?php echo $form['hora']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['hora']->renderError() ?>
+      <?php echo $form['hora'] ?>
+    </div>
+  </div>
+  <div class="area">
+    <div class="label"><?php echo $form['tiempo_est']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['tiempo_est']->renderError() ?>
+      <?php echo $form['tiempo_est'] ?>
+    </div>
   </div>
 
-  <script src='/js/global/global.js'></script>
-</body>
+  <div class="area">
+    <div class="label"><?php echo $form['tipo_proc_id']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['tipo_proc_id']->renderError() ?>
+      <?php echo $form['tipo_proc_id'] ?>
+    </div>
+  </div>
+<div class="area">
+    <div class="label"><?php echo $form['registro']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['registro']->renderError() ?>
+      <?php echo $form['registro'] ?>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="label"><?php echo $form['paciente_name']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['paciente_name']->renderError() ?>
+      <?php echo $form['paciente_name'] ?>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="label"><?php echo $form['edad']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['edad']->renderError() ?>
+      <?php echo $form['edad'] ?>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="label"><?php echo $form['genero']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['genero']->renderError() ?>
+      <?php echo $form['genero'] ?>
+    </div>
+  </div>
+
+<div class="area">
+    <div class="label"><?php echo $form['procedencia']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['procedencia']->renderError() ?>
+      <?php echo $form['procedencia'] ?>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="label"><?php echo $form['servicio']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['servicio']->renderError() ?>
+      <?php echo $form['servicio'] ?>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="label"><?php echo $form['diagnostico']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['diagnostico']->renderError() ?>
+      <?php echo $form['diagnostico'] ?>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="label"><?php echo $form['protocolo']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['protocolo']->renderError() ?>
+      <?php echo $form['protocolo'] ?>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="label"><?php echo $form['reintervencion']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['reintervencion']->renderError() ?>
+      <?php echo $form['reintervencion'] ?>
+    </div>
+  </div>
+<div class="area">
+    <div class="label"><?php echo $form['atencion_id']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['atencion_id']->renderError() ?>
+      <?php echo $form['atencion_id'] ?>
+    </div>
+  </div>
+
+ 
+  <div class="area">
+    <div class="label"><?php echo $form['riesgo_qx_pre']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['riesgo_qx_pre']->renderError() ?>
+      <?php echo $form['riesgo_qx_pre'] ?>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="label"><?php echo $form['req_insumos']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['req_insumos']->renderError() ?>
+      <?php echo $form['req_insumos'] ?>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="label"><?php echo $form['req_anestesico']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['req_anestesico']->renderError() ?>
+      <?php echo $form['req_anestesico'] ?>
+    </div>
+  </div>
+
+<div class="area">
+    <div class="label"><?php echo $form['req_hemoderiv']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['req_hemoderiv']->renderError() ?>
+      <?php echo $form['req_hemoderiv'] ?>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="label"><?php echo $form['req_laboratorio']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['req_laboratorio']->renderError() ?>
+      <?php echo $form['req_laboratorio'] ?>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="label"><?php echo $form['requerimiento']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['requerimiento']->renderError() ?>
+      <?php echo $form['requerimiento'] ?>
+    </div>
+  </div>
+
+<div class="area control">
+    <?php echo $form->renderHiddenFields() ?>
+    <input type="submit" value="Guardar">
+  </div>
+</form><!-Termina form->
+</div> <!- Termina formulario-->
+
+
