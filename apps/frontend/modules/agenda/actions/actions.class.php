@@ -14,12 +14,13 @@ class agendaActions extends sfActions
     $this->filtro = $request->getParameter('filter', false);
     $this->Cirugias = AgendaQuery::create()->find();
   }
+  
 
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new AgendaForm();
   }
-  
+
   public function executeQuirofano(sfWebRequest $request)
   {
     $quirofano_id = $request->getParameter('quirofano');

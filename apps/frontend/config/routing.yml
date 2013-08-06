@@ -4,7 +4,7 @@
 # default rules default
 homepage:
   url:   /
-  param: { module: agenda, action: index }
+  param: { module: agenda, action: programar }
 
 por_quirofano:
   url:   /agenda-quirofano/:quirofano/:date

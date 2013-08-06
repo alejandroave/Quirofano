@@ -11,9 +11,9 @@ DROP TABLE IF EXISTS `hc_usuarios`;
 
 CREATE TABLE `hc_usuarios`
 (
-    `nombre` VARCHAR(256),
-    `pass` VARCHAR(256),
-    `tipo` VARCHAR(256),
+    `nombre` VARCHAR(64),
+    `pass` VARCHAR(64),
+    `tipo` TEXT,
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
@@ -29,6 +29,7 @@ CREATE TABLE `hc_agenda`
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `programacion` DATE,
     `hora` TIME,
+    `inicio` DATETIME,
     `last_time` DATETIME,
     `ingreso` DATETIME,
     `sala_id` INTEGER,
@@ -193,10 +194,12 @@ CREATE TABLE `hc_agenda_regrogramar`
     `tiempo_est` TIME,
     `created_at` DATETIME,
     PRIMARY KEY (`id`),
-    INDEX `hc_agenda_regrogramar_FI_1` (`agenda_id`),
-    CONSTRAINT `hc_agenda_regrogramar_FK_1`
+    INDEX `FI_nda_reprogramar` (`agenda_id`),
+    CONSTRAINT `agenda_reprogramar`
         FOREIGN KEY (`agenda_id`)
         REFERENCES `hc_agenda` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
 # This restores the fkey checks, after having unset them earlier
