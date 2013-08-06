@@ -20,7 +20,14 @@
     margin:0px 0 0px 0px;
     float: left;
   }
+
 </style>
+
+
+
+
+
+
 <!--
 <div class='formulario'>
 <form action='' method='post'>

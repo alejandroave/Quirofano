@@ -4,4 +4,4 @@
 default:
   enabled:     false
   with_layout: false
-  lifetime:    800
+  lifetime:    1
