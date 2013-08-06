@@ -1,0 +1,40 @@
+
+header #header-content {
+  width: 100% !important;
+}
+
+article #article-content {
+  width: 100% !important;
+}
+
+
+aside {
+  display: none !important;
+}
+
+section#content {
+  width: 100% !important;
+}
+
+footer {
+  display: none !important;
+}
+
+div #menu-bg {
+  background: #eeeeee;
+  width: auto;
+}
+
+/**
+ * Cambios en el Estilo Base para ganar espacio Vertical en el template
+ * Nourish
+ */
+  article { margin-top: 0px }
+  #actions-list ul { margin-left: 0; }
+  body { overflow: hidden; } /**/
+  nav#menu { height: 25px; }
+  nav#menu a { margin: 2px 4px; padding: 2px 35px; }
+  div#menu-bg { margin: 1px 0; }
+  #logo h1 {font-size: 3em; width: 140px; }
+  #logo #row1 { padding-top: 7px; }
+  ul#navmenu-h { width: 100% }

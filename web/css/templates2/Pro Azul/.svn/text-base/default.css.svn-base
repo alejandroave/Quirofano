@@ -1,0 +1,192 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Modificacion del Template Nourish a HTML5
+basado en el tutorial http://www.dave-woods.co.uk/index.php/html5-tutorial-getting-started/
+Autor:      Antonio Sánchez Uresti
+Contacto:   antsanchez@gmail.com
+Fecha:      01/Jun/2010
+*/
+
+body {
+  color: #454545;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #E7e7e7;
+  text-align: left;
+}
+
+/* **************************************** ESTILOS DEL HEADER /* **************************************** */
+
+header {
+  background: #8bb8c4;
+  /* height: 150px; */
+  margin: 0 auto;
+
+}
+
+  header #header-content {
+    /* border: 1px solid yellow; */
+    margin: 0 auto;
+    /* width: 960px; */
+  }
+
+  header h1 {
+    color: white;
+    font-size: 5em;
+    font-weight: normal;
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+
+  header a{
+    text-decoration: none;
+  }
+
+  header p {
+    color: white;
+    font-size: 1.1em;
+    /* font-weight: bold; */
+  }
+
+  header #row1{
+    padding-top: 20px;
+  }
+
+  header #row1{
+    padding-top: 30px;
+  }
+
+/* **************************************** ESTILOS DEL NAV /* **************************************** */
+
+
+nav#menu {
+  background: #4F6970;
+  height: 35px;
+  border-radius: 10px 10px 0 0;
+}
+
+  nav#menu ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav#menu li {
+    display: inline;
+  }
+
+  nav#menu a{
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 4px 4px 4px;
+    padding: 5px 35px;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+
+  nav#menu a.active, nav#menu a:hover{
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    background-color: #e1e279;
+    color: #FFFFFF
+  }
+
+article {
+  background-color: #fdfdfd;
+  margin: 4px 0 0 0;
+  padding-top: 6px;
+  min-height: 440px;
+}
+
+  article #article-content {
+    /* background: #e7e7e7 url(../images/img05.gif) repeat-y scroll;
+    border-left: 2px groove white;
+    border-right: 2px  white; */
+  }
+
+#aside-nav {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  background-color: #C5DFE7; /* #EEEEEE; */
+  border: 1px solid #8DBBC8;
+  min-height: 410px;
+  padding: 0 0 10px 0;
+  width: 204px !important;
+  box-shadow: 3px 3px 3px #999999;
+}
+
+  #aside-nav h2 {
+    color: black;
+    font-size: 1.3em;
+    margin-top: 15px;
+    margin-left: 5px;
+  }
+
+  #aside-nav ul {
+    margin: 10px 3px;
+  }
+
+  #aside-nav ul ul li {
+    border-bottom: 1px solid white;
+    padding-bottom: 2px;
+    margin-bottom: 2px;
+  }
+
+  #aside-nav li a {
+    color: #0b4050;
+    font-size: 1.1em;
+    letter-spacing: -0.4pt;
+    padding: 3px;
+    text-decoration: none;
+  }
+
+  #aside-nav li a:hover {
+    text-decoration: underline;
+  }
+
+section h1 {
+  color: #454545;
+  font-size: 2.5em;
+  margin: 10px 0 5px;
+  text-align: center;
+}
+
+  section#content {
+    width: 720px;
+  }
+
+footer {
+  /* border-top: 2px solid black;*/
+  /* background-color: #e7e7e7;
+  background: url(../images/img01.gif) scroll; */
+  /* height: 150px; */
+  margin: 0 auto;
+  /* padding: 10px 0; */
+}
+
+  footer #footer-container {
+    border-top: 2px solid black;
+    padding: 10px 0 ;
+  }
+
+  footer a{
+    color: #454545;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  footer a:hover{
+    text-decoration: underline;
+  }
