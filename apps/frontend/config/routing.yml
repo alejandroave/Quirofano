@@ -6,6 +6,10 @@ homepage:
   url:   /
   param: { module: agenda, action: index }
 
+por_quirofano:
+  url:   /agenda-quirofano/:quirofano/:date
+  param: { module: agenda, action: quirofano }
+
 # generic rules
 # please, remove them by adding more specific rules
 default_index:

@@ -1,9 +1,10 @@
 propel:
   hc_usuarios:  
     _attributes:          { phpName: User, package: lib.model.data }
-    nombre:               { type: varchar(256) }
-    pass:                 { type: varchar(256) }
-    tipo:                 { type: varchar(256) }
+    nombre:               { type: varchar(64) }
+    pass:                 { type: varchar(64) }
+    tipo:                 { type: array }
+
 #Tabla referente a la programacion de cirugias
   hc_agenda:
     _attributes:          { phpName: Agenda, package: lib.model.data }
@@ -11,6 +12,8 @@ propel:
 #    evento_id:
     programacion:         { type: date }
     hora:                 { type: time }
+    inicio:               { type: timestamp }
+    last_time:            { type: timestamp }
     ingreso:              { type: timestamp }
     sala_id:              { type: integer }
     quirofano_id:         { type: integer }
@@ -302,7 +305,7 @@ propel:
     diagnostico_id:       { type: varchar, size: 8 }
     tipo_diagnostico:     { type: integer }
     created_at:
-    _foreignKeys:
+#   _foreignKeys:
 #      agenda_diagnosticos:
 #        foreignTable:     siga_clave
 #        onUpdate:         cascade
@@ -320,7 +323,7 @@ propel:
     detalles:             { type: varchar, size 256 }
     servicio_id:          { type: integer }
     created_at:
-    _foreignKeys:
+#    _foreignKeys:
 #      agenda_procedimientos:
 #        foreignTable:     siga_cie9mc
 #        onUpdate:         cascade
@@ -337,9 +340,16 @@ propel:
   hc_agenda_regrogramar:
     _attributes:          { phpName: Procedimientregrogramado, package: lib.model.data }
     id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
-    agenda_id:
+    agenda_id:            { type: integer }
     programacion:         { type: date }
     hora:                 { type: time }
     sala_id:              { type: integer }
     tiempo_est:           { type: time }
     created_at:
+    _foreignKeys:
+      agenda_reprogramar:
+        foreignTable:     hc_agenda
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: agenda_id, foreign: id }

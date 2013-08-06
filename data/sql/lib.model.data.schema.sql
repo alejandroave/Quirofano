@@ -29,6 +29,7 @@ CREATE TABLE `hc_agenda`
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `programacion` DATE,
     `hora` TIME,
+    `last_time` DATETIME,
     `ingreso` DATETIME,
     `sala_id` INTEGER,
     `quirofano_id` INTEGER,

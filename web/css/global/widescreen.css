@@ -1,0 +1,26 @@
+
+header #header-content {
+  width: 100% !important;
+}
+
+article #article-content {
+  width: 100% !important;
+}
+
+
+aside {
+  display: none !important;
+}
+
+section#content {
+  width: 100% !important;
+}
+
+/* footer {
+  display: none !important;
+} /**/
+
+div #menu-bg {
+  background: #eeeeee;
+  width: auto;
+}

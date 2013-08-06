@@ -1,0 +1,283 @@
+  /* Estilos Globales */
+  body {
+    background: #f2f2f2;
+  }
+
+  /* Estilo del encabezado*/
+
+  header {
+    background: #79919e;
+    background-image: -moz-linear-gradient(top, #79919e, #667d8a 27px, #667d8a 27px, #84a1b3); /**/
+    /*height: 120px; /**/
+  }
+
+    header #logo{
+      background: url("/images/hu.png");
+      /*border-radius: 50px;*/
+      /*border: 2px solid black;*/
+      float: left;
+      margin-right: 5px;
+      margin-top: 10px;
+      width: 90px;
+      height: 90px;
+    }
+
+    header h1#siga {
+    text-shadow: #313c42 2px 2px 4px;
+      color: white;
+      font-size: 55px;
+      font-weight: 500;
+      margin-top: 0;
+      padding: 12px 0 0;
+      text-align: center;
+    }
+
+    header #desc {
+    text-shadow: #313c42 2px 2px 4px;
+      color: white;
+      font-size: 16px;
+      padding-top: 34px;
+    }
+
+    header ul {
+      float: right;
+      left: 0px;
+      position: relative;
+      top: 0px;
+      /* padding-top: 98px; /**/
+    }
+
+    header ul li {
+      /*display: inline; /**/
+      float: left;
+      /* margin-top: 96px; /**/
+    }
+
+    header ul li a {
+      border-radius: 5px 5px 0 0;
+      background: #8f8579;
+      color: white;
+      display: block;
+      font-weight: bold;
+      margin-right: 10px;
+      padding: 5px 0;
+      text-align: center;
+      text-decoration: none;
+      width: 60px;
+    }
+
+  /*table {
+    font-size: 12px;
+  } /**/
+
+/* Estilo de las etiquetas del menu */
+  /* body {
+    border: 1px solid black;
+  } /**/
+
+  table {
+    border: 1px solid;
+    border-color: #8f8679;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-left: 17px;
+  }
+
+  table a{
+    color: <?php echo #2c678a ?>;
+  }
+
+  table thead tr th{
+   background: #EAE5E1;
+   border-radius: 5px;
+   color: #233945;
+   padding-left: 20px;
+   padding-right: 15px;
+   margin-top: 6px;
+  }
+
+
+  table tbody tr td{
+   color: #446e85;
+   padding-left: 20px;
+   padding-right: 15px;
+   padding-bottom: 2px;
+  }
+
+  table tbody tr th{
+   color: #233945;
+   text-align: right;
+  }
+
+  table tbody tr td a {
+   color: #446e85;
+  }
+
+  #newForm {
+   margin-top: 70px;
+   }
+
+   #index tbody tr td{
+   border-bottom: 1px dashed;
+   border-color: #b8b4b0;
+   background: white;
+   }
+
+
+  #menu ul li {
+    float: left;
+    /* display: inline; /**/
+  }
+
+  #menu ul li a {
+    color: #eae5e1;
+    border-radius: 5px 5px 0px 0px;
+    background: #8f8679;
+    background-image: -moz-linear-gradient(top, #8f8679, #756e64 27px, #59544c 27px, #b0a596);
+    display: block;
+    margin-right: 10px;
+    padding: 5px 0;
+    text-align: center;
+    width: 60px;
+  }
+
+/* Espacio de los datos del usuario */
+
+  #datos {
+    float: right;
+    height: 50px;
+    width: 300px;
+    /* display: inline; /**/
+  }
+
+  #datos {
+    border: 1px solid;
+    border-color: white;
+    border-radius: 10px 10px 10px 10px;
+    background: #8f8679;
+    background-image: -moz-linear-gradient(top, #8f8679, #59544c);
+    display: block;
+    margin-right: 10px;
+    margin-top:10px;
+    margin-bottom: 3px;
+    padding: 10px 10px;
+    text-align: left;
+    font-size: 12px;
+  }
+
+  #datos div {
+    color: White;
+    float: left;
+  }
+
+  #datos #nombre {
+    color: White;
+    /*background: #8f8679;*/
+    width: 200px;
+    font-size: 20px;
+  }
+
+  #datos #numero {
+    color: White;
+    /*background: #8f8679;*/
+    font-size: 18px;
+    float: right;
+  }
+
+  #datos #turno {
+   color: White;
+   /*background: #8f8679;*/
+   float: right;
+  }
+
+  /* Estilo de la barra de menu principal*/
+
+  #main-nav {
+    background: White;
+    /*border: 1px solid;
+    border-color: #8f8679;*/
+    box-shadow: 3px 3px 3px #aaaaaa;
+    margin-top: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 30px;
+    width: 150px;
+    height: 300px;
+    border-radius: 10px;
+    float: left;
+  }
+
+  #main-nav ul {
+    margin: 0;
+    font-size: 1.1em;
+  }
+
+  #subm {
+    color: white;
+    background: #8f8679;
+    background-image: -moz-linear-gradient(top, #8f8679, #756e64 27px, #59544c 27px, #b0a596);
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
+    text-align: right;
+
+  }
+
+  #opcion {
+    text-align: right;
+    padding-top: 5px;
+    padding-right: 10px;
+  }
+
+  #opcion li {
+  /*color: #233945;*/
+  /*border-bottom: 1px dashed;*/
+  /*border-color: #233945;*/
+  }
+
+  #opcion li a{
+  color: #233945;
+  }
+  /* estilo del apartado AYUDA*/
+
+  #help {
+    background: White;
+    border: 1px solid;
+    border-color: #8f8679;
+    box-shadow: 3px 3px 3px #aaaaaa;
+    margin-top: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 30px;
+    width: 150px;
+    height: 300px;
+    border-radius: 10px;
+    float: right;
+  }
+
+  #thelp {
+    color: White;
+    background: #8f8679;
+    background-image: -moz-linear-gradient(top, #8f8679, #756e64 27px, #59544c 27px, #b0a596);
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  #tthelp {
+    color: #37596b;
+    background: #eae5e1;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* estilo del footer*/
+
+  #text {
+    text-align: center;
+    background: white;
+  }
+

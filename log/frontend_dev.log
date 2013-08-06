@@ -3326,3 +3326,39 @@ Aug 05 11:14:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Fou
 Aug 05 11:14:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
 Aug 05 11:14:55 symfony [info] {sfWebDebugLogger} Configuration 0.67 ms (5)
 Aug 05 11:14:55 symfony [info] {sfWebDebugLogger} Factories 22.64 ms (1)
+Aug 05 20:31:33 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Aug 05 20:31:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 05 20:31:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Aug 05 20:31:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 05 20:31:33 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Aug 05 20:31:33 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Aug 05 20:31:33 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Aug 05 20:31:33 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Aug 05 20:31:33 symfony [info] {main} Get slot "titulo"
+Aug 05 20:31:33 symfony [info] {sfPartialView} Render "/home/ave/Quirofano/apps/frontend/templates/_sidemenu.php"
+Aug 05 20:31:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 05 20:31:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 05 20:31:33 symfony [info] {sfWebDebugLogger} Configuration 162.22 ms (9)
+Aug 05 20:31:33 symfony [info] {sfWebDebugLogger} Factories 134.09 ms (1)
+Aug 05 20:31:33 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 41.38 ms (1)
+Aug 05 20:31:33 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 32.19 ms (1)
+Aug 05 20:31:33 symfony [info] {sfWebDebugLogger} Partial "global/_sidemenu" 2.75 ms (1)
+Aug 05 20:31:34 symfony [info] {sfWebResponse} Send content (78505 o)
+Aug 05 20:32:58 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Aug 05 20:32:58 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 05 20:32:58 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Aug 05 20:32:58 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 05 20:32:58 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Aug 05 20:32:58 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Aug 05 20:32:58 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Aug 05 20:32:58 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Aug 05 20:32:58 symfony [info] {main} Get slot "titulo"
+Aug 05 20:32:58 symfony [info] {sfPartialView} Render "/home/ave/Quirofano/apps/frontend/templates/_sidemenu.php"
+Aug 05 20:32:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 05 20:32:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 05 20:32:58 symfony [info] {sfWebDebugLogger} Configuration 1.14 ms (9)
+Aug 05 20:32:58 symfony [info] {sfWebDebugLogger} Factories 21.77 ms (1)
+Aug 05 20:32:58 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 43.53 ms (1)
+Aug 05 20:32:58 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 31.23 ms (1)
+Aug 05 20:32:58 symfony [info] {sfWebDebugLogger} Partial "global/_sidemenu" 2.56 ms (1)
+Aug 05 20:32:58 symfony [info] {sfWebResponse} Send content (78591 o)

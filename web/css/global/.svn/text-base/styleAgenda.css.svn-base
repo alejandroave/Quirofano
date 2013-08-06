@@ -1,0 +1,174 @@
+  #agenda th {
+    /*background: lightgray; /**/
+    border-bottom: 2px solid black;
+    padding-left: 3px;
+  }
+
+  #agenda td {
+    /* background: #eeeeee; /**/
+    /* border-radius: 5px;  /**/
+    /* text-align: center;  /**/
+}
+
+  #agenda .solicitado {
+    /* border: 1px solid yellow !important; /**/
+    /* background: /**/
+  }
+
+  #agenda .solicitado td {
+    border-bottom: 1px solid green !important; /*#8200d4*/
+  }
+
+  #agenda .transoperatorio td {
+    font-weight: bold;
+    background-color: #d0e42b !important; /**/
+  }
+
+  #agenda .realizadas td {
+    font-weight: bold;
+    background-color: lightblue !important; /**/
+  }
+  
+  #agenda td {
+  background: url('/images/gradientbg.png');
+    border-bottom: 1px dashed #BBB; /**/
+    padding: 2px;
+  }
+
+  #agenda .icons {
+    width: 42px;
+  }
+
+  #agenda .cxrow div.tipocx,
+  #agenda .cxrow div.convenio {
+    background: url('/images/tipos de cirugía.png');
+    float: left;
+    height: 20px;
+    width: 21px;
+  }
+
+  #agenda .cxrow div.convenio {
+    left: 31px;
+    position: absolute;
+  }
+
+  #agenda .cxtipo_1 div.tipocx { background-position: 0 0px; }
+  #agenda .cxtipo_2 div.tipocx { background-position: 0 -20px; }
+  #agenda .cxtipo_3 div.tipocx { background-position: 0 -40px; }
+  #agenda .cxtipo_4 div.tipocx { background-position: 0 -60px; }
+  #agenda .cxtipo_5 div.tipocx { background-position: 0 -80px; }
+
+  #agenda .convenio div.convenio { background-position: 21px -200px; }
+  #agenda .convenio1 div.convenio { background-position: 21px 0px; }
+  #agenda .convenio2 div.convenio { background-position: 21px -20px; }
+  #agenda .convenio3 div.convenio { background-position: 21px -40px; }
+  #agenda .convenio4 div.convenio { background-position: 21px -60px; }
+  #agenda .convenio5 div.convenio { background-position: 21px -80px; }
+  #agenda .convenio6 div.convenio { background-position: 21px -100px; }
+  #agenda .convenio7 div.convenio { background-position: 21px -120px; }
+  #agenda .convenio8 div.convenio { background-position: 21px -140px; }
+
+  #agenda .cxrow div.atraso {
+    background-image: url('/images/reloj.png');
+    background-position: 0px 0px;
+    height: 20px;
+    width: 20px;
+  }
+
+  #agenda .diferido1 div.atraso  { background-position: 0px -20px; }
+  #agenda .diferido2 div.atraso  { background-position: 0px -40px; }
+  #agenda .diferido3 div.atraso  { background-position: 0px -60px; }
+  #agenda .diferido4 div.atraso  { background-position: 0px -80px; }
+  #agenda .diferido5 div.atraso  { background-position: 0px -100px; }
+  #agenda .diferido6 div.atraso  { background-position: 0px -120px; }
+  #agenda .diferido7 div.atraso  { background-position: 0px -140px; }
+  #agenda .diferido8 div.atraso  { background-position: 0px -160px; }
+  #agenda .diferido9 div.atraso  { background-position: 0px -180px; }
+  #agenda .diferido10 div.atraso { background-position: 0px -200px; }
+  #agenda .diferido11 div.atraso { background-position: 0px -220px; }
+  #agenda .diferido12 div.atraso { background-position: 0px -240px; }
+  #agenda .diferido13 div.atraso { background-position: 0px -260px; }
+  #agenda .diferido14 div.atraso { background-position: 0px -280px; }
+  #agenda .diferido15 div.atraso { background-position: 0px -300px; }
+  #agenda .diferido16 div.atraso { background-position: 0px -320px; }
+  #agenda .diferido17 div.atraso { background-position: 0px -340px; }
+  #agenda .diferido18 div.atraso { background-position: 0px -360px; }
+  #agenda .diferido19 div.atraso { background-position: 0px -380px; }
+  #agenda .diferido20 div.atraso { background-position: 0px -400px; }
+  #agenda .diferido21 div.atraso { background-position: 0px -420px; }
+  #agenda .diferido22 div.atraso { background-position: 0px -440px; }
+  #agenda .diferido23 div.atraso { background-position: 0px -460px; }
+  #agenda .diferido div.atraso   { background-position: 0px -480px; }
+  #agenda .atrasada div.atraso   { background-position: 0px -460px; }
+
+  #agenda tr.diferido {
+    /* background: #d40000; /**/
+    background: #c40000; /**/
+    color: white;
+    font-weight: Bold;
+  }
+  #agenda tr.atrasada {
+    /* background: #d40000; /**/
+    background: #e52222; /**/
+    color: white;
+    font-weight: Bold;
+  }
+  #agenda .button {
+    background-image: url('/images/tipos de cirugía.png') !important;
+    background-position: 0px -139px;
+    display: inline-block !important;
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  #agenda .modificar {
+    background-image: url('/images/tipos de cirugía.png') !important;
+    background-position: 0px -180px;
+    display: inline-block !important;
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  #agenda .iniciar {
+    background-image: url('/images/tipos de cirugía.png') !important;
+    background-position: 0px -160px;
+    display: inline-block !important;
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  #agenda .diferir {
+    background-image: url('/images/tipos de cirugía.png') !important;
+    background-position: 0px -220px;
+    display: inline-block !important;
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  #agenda .cancelar {
+    background-image: url('/images/tipos de cirugía.png') !important;
+    background-position: -20px -160px;
+    display: inline-block !important;
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  #agenda .realizada {
+    background-image: url('/images/tipos de cirugía.png') !important;
+    background-position: -20px -180px;
+    display: inline-block !important;
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  #agenda .cambio {
+    background-image: url('/images/tipos de cirugía.png') !important;
+    background-position: 0px -200px;
+    display: inline-block !important;
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  #agenda .solicitado .button {
+    background-position: 0px -120px;
+  }

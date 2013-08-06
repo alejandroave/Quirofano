@@ -21,9 +21,9 @@ abstract class BaseUserForm extends BaseFormPropel
     ));
 
     $this->setValidators(array(
-      'nombre' => new sfValidatorString(array('max_length' => 256, 'required' => false)),
-      'pass'   => new sfValidatorString(array('max_length' => 256, 'required' => false)),
-      'tipo'   => new sfValidatorString(array('max_length' => 256, 'required' => false)),
+      'nombre' => new sfValidatorString(array('max_length' => 64, 'required' => false)),
+      'pass'   => new sfValidatorString(array('max_length' => 64, 'required' => false)),
+      'tipo'   => new sfValidatorPass(array('required' => false)),
       'id'     => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
     ));
 

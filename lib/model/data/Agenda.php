@@ -19,4 +19,25 @@
  */
 class Agenda extends BaseAgenda
 {
+ /* doSave
+  * Extiende el metodo doSave para asignar la fecha de programacion y modificar la hora del ultimo
+  * acceso a la cirugia
+  * @autor: Antonio Sánchez Uresti
+  * @date:  2013-08-02
+  */
+  public function doSave(PropelPDO $con) 
+  {
+    switch ($this->getStatus()) {
+      case '1':
+        $v = strtotime($this->getProgramacion().''.$this->getHora());
+        $this->setLastTime($v);
+        $this->setInicio($v);
+        break;
+      case '2':
+        $this->setLastTime($this->getIngreso());
+        break;
+    }
+    return parent::doSave($con);
+  }
+  
 }
