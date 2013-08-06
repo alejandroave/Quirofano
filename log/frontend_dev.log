@@ -3362,3 +3362,51 @@ Aug 05 20:32:58 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 43.5
 Aug 05 20:32:58 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 31.23 ms (1)
 Aug 05 20:32:58 symfony [info] {sfWebDebugLogger} Partial "global/_sidemenu" 2.56 ms (1)
 Aug 05 20:32:58 symfony [info] {sfWebResponse} Send content (78591 o)
+Aug 05 21:18:36 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Aug 05 21:18:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 05 21:18:36 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Aug 05 21:18:36 symfony [info] {sfBasicSecurityFilter} Action "agenda/programar" requires authentication, forwarding to "sfGuardAuth/signin"
+Aug 05 21:18:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 05 21:18:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 05 21:18:36 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Aug 05 21:18:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Aug 05 21:18:36 symfony [info] {main} Set slot "titulo"
+Aug 05 21:18:36 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Aug 05 21:18:36 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Aug 05 21:18:36 symfony [info] {main} Get slot "titulo"
+Aug 05 21:18:36 symfony [info] {sfPartialView} Render "/home/ave/Quirofano/apps/frontend/templates/_sidemenu.php"
+Aug 05 21:18:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 05 21:18:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 05 21:18:36 symfony [info] {sfWebDebugLogger} Configuration 931.40 ms (12)
+Aug 05 21:18:36 symfony [info] {sfWebDebugLogger} Factories 279.55 ms (1)
+Aug 05 21:18:36 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 5.83 ms (1)
+Aug 05 21:18:36 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 117.22 ms (1)
+Aug 05 21:18:36 symfony [info] {sfWebDebugLogger} Partial "global/_sidemenu" 1.50 ms (1)
+Aug 05 21:18:36 symfony [info] {sfWebResponse} Send content (40766 o)
+Aug 05 21:19:22 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /agenda/programar with parameters array (  'module' => 'agenda',  'action' => 'programar',)
+Aug 05 21:19:22 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 05 21:19:22 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 05 21:19:22 symfony [info] {agendaActions} Call "agendaActions->executeProgramar()"
+Aug 05 21:19:22 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/modules/agenda/templates/programarSuccess.php"
+Aug 05 21:19:22 symfony [info] {sfPHPView} Decorate content with "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Aug 05 21:19:22 symfony [info] {sfPHPView} Render "/home/ave/Quirofano/apps/frontend/templates/layout.php"
+Aug 05 21:19:22 symfony [info] {main} Get slot "titulo"
+Aug 05 21:19:22 symfony [info] {sfPartialView} Render "/home/ave/Quirofano/apps/frontend/templates/_sidemenu.php"
+Aug 05 21:19:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 05 21:19:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 05 21:19:22 symfony [info] {sfWebDebugLogger} Configuration 157.01 ms (9)
+Aug 05 21:19:22 symfony [info] {sfWebDebugLogger} Factories 62.24 ms (1)
+Aug 05 21:19:22 symfony [info] {sfWebDebugLogger} Action "agenda/programar" 123.20 ms (1)
+Aug 05 21:19:22 symfony [info] {sfWebDebugLogger} View "Success" for "agenda/programar" 30.92 ms (1)
+Aug 05 21:19:22 symfony [info] {sfWebDebugLogger} Partial "global/_sidemenu" 0.97 ms (1)
+Aug 05 21:19:22 symfony [info] {sfWebResponse} Send content (58050 o)
+Aug 05 21:19:27 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /agenda with parameters array (  'module' => 'agenda',  'action' => 'index',)
+Aug 05 21:19:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 05 21:19:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 05 21:19:27 symfony [info] {agendaActions} Call "agendaActions->executeIndex()"
+Aug 05 21:19:28 symfony [err] {PropelException} Unable to open PDO connection [wrapped: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)]
+Aug 05 21:19:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Aug 05 21:19:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 05 21:19:28 symfony [info] {sfWebDebugLogger} Configuration 0.99 ms (8)
+Aug 05 21:19:28 symfony [info] {sfWebDebugLogger} Factories 22.71 ms (1)
+Aug 05 21:19:28 symfony [info] {sfWebDebugLogger} Action "agenda/index" 137.11 ms (1)

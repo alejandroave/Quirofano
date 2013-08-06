@@ -1,0 +1,370 @@
+commit f2c780cdd539aa1e1548227e3898d0350a3aa099
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Aug 5 20:50:00 2013 -0500
+
+    login
+
+commit 06cc20d9e7e2de7eb45a5b0636fa9d996615067b
+Merge: 0118275 a048b07
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Aug 5 20:42:38 2013 -0500
+
+    Merge branch 'master' of https://github.com/alejandroave/Quirofano
+    
+    Conflicts:
+    	apps/frontend/templates/layout.php
+    	cache/frontend/prod/config/config_app.yml.php
+    	cache/frontend/prod/config/config_autoload.yml.php
+    	cache/frontend/prod/config/config_config_handlers.yml.php
+    	cache/frontend/prod/config/config_core_compile.yml.php
+    	cache/frontend/prod/config/config_databases.yml.php
+    	cache/frontend/prod/config/config_factories.yml.php
+    	cache/frontend/prod/config/config_routing.yml.php
+    	cache/frontend/prod/config/config_settings.yml.php
+    	cache/frontend/prod/config/modules_agenda_config_filters.yml.php
+    	cache/frontend/prod/config/modules_agenda_config_module.yml.php
+    	cache/frontend/prod/config/modules_agenda_config_security.yml.php
+    	cache/frontend/prod/config/modules_agenda_config_view.yml.php
+    	cache/frontend/prod/config/modules_default_config_filters.yml.php
+    	cache/frontend/prod/config/modules_default_config_module.yml.php
+    	cache/frontend/prod/config/modules_default_config_security.yml.php
+    	cache/frontend/prod/config/modules_default_config_view.yml.php
+    	cache/frontend/prod/config/modules_sfGuardAuth_config_filters.yml.php
+    	cache/frontend/prod/config/modules_sfGuardAuth_config_module.yml.php
+    	cache/frontend/prod/config/modules_sfGuardAuth_config_security.yml.php
+    	cache/frontend/prod/config/modules_sfGuardAuth_config_view.yml.php
+    	cache/project_autoload.cache
+    	log/frontend_dev.log
+
+commit 0118275c43b95f6eb9e27a9d6be5a33df2509cee
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Aug 5 20:18:54 2013 -0500
+
+    modificaciones light
+
+commit a048b07f7ce042dcaa5956367e66eb5fe88f4da6
+Author: antsanch <antsanchez@gmail.com>
+Date:   Mon Aug 5 17:51:21 2013 -0500
+
+    Agregados los estilos basicos del sigahu
+
+commit 0c7ca578cb56914b704ae12b3bfed93b37b974fa
+Author: Antonio Sánchez Uresti <antsanch@ToshibaLap.(none)>
+Date:   Fri Aug 2 08:06:55 2013 -0500
+
+    creacion de los archivos cache/.gitignore y log/.gitignore
+
+commit 2a69552fec1b94844e1dea710c1008243691fb37
+Author: Antonio Sánchez Uresti <antsanch@ToshibaLap.(none)>
+Date:   Fri Aug 2 07:57:29 2013 -0500
+
+    creacion del .gitignore dentro de la carpeta lib/model/migration
+
+commit 4a1a3fe9ee3d34417fdbc629d6e8254f1dc43ced
+Author: Antonio Sánchez Uresti <antsanch@ToshibaLap.(none)>
+Date:   Fri Aug 2 02:39:55 2013 -0500
+
+    Regeneracion del modelo y algunis acrchivo
+
+commit 3e5f3b0769bf7892c9e2876fbc1f3f43b5e25594
+Author: Antonio Sánchez Uresti <antsanch@ToshibaLap.(none)>
+Date:   Thu Aug 1 22:23:11 2013 -0500
+
+    Agregado el .gitignore y eliminados el contenido de las carpetas log/, cache/ y lib/model/migration
+
+commit 77db61ba6d04b65044f4ed428b0b72e1e6c6a546
+Author: Antonio Sánchez Uresti <antsanch@ToshibaLap.(none)>
+Date:   Thu Aug 1 22:14:56 2013 -0500
+
+    Agregado el campo Agenda/last_time para almacenar el ultimo tiempo relevante de la agenda
+
+commit b064c26a641f6ba0350314eceda8084727031f98
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Thu Aug 1 14:04:54 2013 -0500
+
+    sfgardplugin
+
+commit 963829f4f94270e927e253e818556580a5e3e32e
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Wed Jul 31 11:20:06 2013 -0500
+
+    sfgard  plugin
+
+commit 586cd6593bf13088603e3f18b3c4c86b00f55ae2
+Author: vane90 <vane_slz@hotmail.com>
+Date:   Wed Jul 31 11:18:33 2013 -0500
+
+    documentación 2
+
+commit 0ba7955c9ac7d16be63eeb78f9f5f4de639cf227
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Tue Jul 30 09:20:48 2013 -0500
+
+    29 de julio de 2012
+
+commit b6ba07dabb39ec48d67772295e08129097349b00
+Merge: 6838d56 8d9b285
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Sat Jul 27 14:49:30 2013 -0500
+
+    Merge branch 'master' of https://github.com/alejandroave/Quirofano
+
+commit 6838d56f9892c1b2c81b35d929205bcd96c61e89
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Sat Jul 27 14:49:01 2013 -0500
+
+    26 de julio
+
+commit 8d9b285b4967c6d80c3784295771b77975d035b5
+Merge: 32e9e62 af9fb55
+Author: Antonio Sánchez Uresti <antsanch@ToshibaLap.(none)>
+Date:   Sat Jul 27 12:17:09 2013 -0500
+
+    Merge branch 'master' of https://github.com/alejandroave/Quirofano
+    fusion con los ultimos cambios
+
+commit 32e9e62bb6bee87d73b58c4add5dfe9cf44d991d
+Author: Antonio Sánchez Uresti <antsanch@ToshibaLap.(none)>
+Date:   Sat Jul 27 12:16:07 2013 -0500
+
+    Actualizacion del maquetado de la aplicacion
+    Eliminado el archivo prueba2.txt
+
+commit af9fb55d6c42852bfc1a9a66077b463956698c63
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Thu Jul 25 11:21:39 2013 -0500
+
+    25 de julio de 2013
+
+commit e3ce8838b853a55feb6b377bd5f4cd3e313cad6d
+Author: PedritoMtz <guelmi_rick_92@hotmail.com>
+Date:   Thu Jul 25 10:29:40 2013 -0500
+
+    Actulizacion
+
+commit 42dcb226ec858ef9a2468158a7d106b68bd3a643
+Author: PedritoMtz <guelmi_rick_92@hotmail.com>
+Date:   Thu Jul 25 09:42:12 2013 -0500
+
+    Actualizacion
+
+commit c22ff5757a87688f8464940ef0bbe52be9482e4e
+Merge: 34dc96c 2edf029
+Author: PedritoMtz <guelmi_rick_92@hotmail.com>
+Date:   Thu Jul 25 09:39:18 2013 -0500
+
+    Actualizacion
+
+commit 34dc96cc6d76ca1cef4845fe8ac609760047bb2e
+Author: PedritoMtz <guelmi_rick_92@hotmail.com>
+Date:   Thu Jul 25 09:22:05 2013 -0500
+
+    Actualizacion
+
+commit 2edf029864a167a0f4065d5222c4c2c767e44405
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Wed Jul 24 12:02:18 2013 -0500
+
+    corre
+
+commit 18105f1f25b4ad8024c7555e7c9e69fed26577f3
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Wed Jul 24 10:18:13 2013 -0500
+
+    pruebas
+
+commit 07e4b20c86b71988652aad39b1f46bcf9066af11
+Merge: 29a8b4d 6f82d2c
+Author: eddypre <eddypre@hotmail.com>
+Date:   Mon Jul 22 20:29:08 2013 -0500
+
+    Merge branch 'master' of https://github.com/alejandroave/Quirofano
+
+commit 29a8b4dfc5d92102f41f2b0c12186bc0cce11793
+Author: eddypre <eddypre@hotmail.com>
+Date:   Mon Jul 22 20:25:58 2013 -0500
+
+    new
+
+commit cd79f966d0e0bda573fb1732383337e83bf726c3
+Author: eddypre <eddypre@hotmail.com>
+Date:   Mon Jul 22 20:18:42 2013 -0500
+
+    Mockups de casos de uso
+
+commit 6f82d2c14f91769d686fc48cc7b3d3e23c36b629
+Merge: 0da59dd ef41985
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Jul 22 11:50:05 2013 -0500
+
+    Merge branch 'master' of https://github.com/alejandroave/Quirofano
+
+commit 0da59dd2bb7c1000888c5cadf078877da09c5fbf
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Jul 22 11:49:24 2013 -0500
+
+    doc analizis parte
+
+commit ef41985f897adfa303ce944a5dcc18cc2904295b
+Author: PedritoMtz <guelmi_rick_92@hotmail.com>
+Date:   Mon Jul 22 11:25:47 2013 -0500
+
+    Actualización
+
+commit c2a0d25439e4b0c30fa78fe318a8f85d5c7c902d
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Jul 22 11:20:52 2013 -0500
+
+    problematicas
+
+commit edda766e4b852cfd953a72e881f9506b58dcf716
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Jul 22 11:02:24 2013 -0500
+
+    Docmentación
+
+commit d124d56d9aa76017cdcf1f4f2aec26e38e9634e5
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Jul 22 10:41:03 2013 -0500
+
+    img
+
+commit c18d3f5906a18e504463392f55c9c6131aca5507
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Jul 22 10:29:30 2013 -0500
+
+    img
+
+commit 5a0f01bdf6d7e4bb794da0535c02dfcdf9bcae10
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Jul 22 10:16:26 2013 -0500
+
+    docs caso de usos umbrello
+
+commit 6cc5e71887e98e500376090f1b6f14497be8b153
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Sun Jul 21 13:23:49 2013 -0500
+
+    act
+
+commit 7e9545e600d6cd0f1a2f6deb318a407bf8d73e6c
+Author: antsanch <antsanchez@gmail.com>
+Date:   Fri Jul 19 15:30:49 2013 -0500
+
+    Archivos de Maquetado
+
+commit c152479ab00b2203950353e64d182e41fedb72e2
+Author: PedritoMtz <guelmi_rick_92@hotmail.com>
+Date:   Thu Jul 18 12:10:03 2013 -0500
+
+    Actualizacion
+
+commit fba4fa5a24d26983d649da6cbeb2fa63d40e865a
+Author: PedritoMtz <guelmi_rick_92@hotmail.com>
+Date:   Thu Jul 18 11:57:37 2013 -0500
+
+    Actualizacion
+
+commit 63015f92c10aa4dc9b20458291155017182aea79
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Thu Jul 18 11:55:23 2013 -0500
+
+    Docs
+
+commit 6eb83d1cd8df15edebb768bb9eaba20c039a74fa
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Thu Jul 18 11:51:55 2013 -0500
+
+    Pasos nuevo
+
+commit 97dddc2da028756ed0a033ca4404fafd60cc73dd
+Merge: 48b5b79 0fe9c8c
+Author: PedritoMtz <guelmi_rick_92@hotmail.com>
+Date:   Thu Jul 18 11:30:52 2013 -0500
+
+    Actualización
+
+commit 48b5b79ad771663b750e68b7410a122ee307c457
+Author: PedritoMtz <guelmi_rick_92@hotmail.com>
+Date:   Thu Jul 18 11:16:33 2013 -0500
+
+    Modificacion del Archivo
+
+commit 0fe9c8cd489d9fe2d0ff98a6502c6200f7ff431d
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Thu Jul 18 10:50:24 2013 -0500
+
+    Docs
+
+commit 041f853d1710e15337a64e040e272f9d54a2e7b0
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Thu Jul 18 10:45:44 2013 -0500
+
+    Docs
+
+commit 99d575ff462bbe339e91c0deb990df871f73b762
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Thu Jul 18 10:44:14 2013 -0500
+
+    Docs
+
+commit 15d4241179b63cac6cb511e913299ea1e9baea45
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Thu Jul 18 10:42:20 2013 -0500
+
+    Docs
+
+commit 77bef68705a793ad99c00651f3e7cf6c25122c33
+Merge: 098420b fae7e48
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Thu Jul 18 10:37:43 2013 -0500
+
+    Merge branch 'master' of https://github.com/alejandroave/Quirofano
+
+commit 098420be13bb17d955487424018e28ac451c5d8e
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Thu Jul 18 10:36:56 2013 -0500
+
+    Docs
+
+commit fae7e482f788440c5903b5583acd0b405d65ce7a
+Author: eddypre <eddypre@hotmail.com>
+Date:   Wed Jul 17 20:27:07 2013 -0500
+
+    intento 2
+
+commit 55f7f7bb468d7e43f2ee9b76f63eabd8b4d23d30
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Wed Jul 17 11:13:22 2013 -0500
+
+    Base de datos, Prope, Por el Doctor
+
+commit 63c06ec267e95c181810b81767eca82ba28c151d
+Author: eddypre <eddypre@hotmail.com>
+Date:   Tue Jul 16 19:42:37 2013 -0500
+
+    Prueba
+
+commit 4a70722c522280e409bb623ea7c494b2f543025f
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Tue Jul 16 11:17:48 2013 -0500
+
+    modulos propel y sheme_bkp
+
+commit 233afae34e41b415ee2d3c43c5954e9fd41cd80b
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Jul 15 16:10:55 2013 -0500
+
+    Proyecto Quirofano creado
+
+commit 61d5c5a4dc2b0e7a1316fc4bfa450250b20e86f2
+Author: alejandroave <alejandro.ave@gmail.com>
+Date:   Mon Jul 15 15:57:34 2013 -0500
+
+    algo
+
+commit 7aabbbaf88d186339af11923f8185d9f91beb0ab
+Author: alejandro <alejandro.ave@gmail.com>
+Date:   Mon Jul 15 13:49:56 2013 -0700
+
+    Initial commit
