@@ -1,0 +1,16 @@
+  $.datepicker.setDefaults({
+    altFormat: 'yy-mm-dd',
+    changeMonth: true,
+    changeYear: true,
+    clearText: 'Borrar',
+    closeText: 'Cerrar',
+    currentText: 'Mes actual',
+    dateFormat: 'd/M/yy',
+    dayNames: ['Domingo', 'Lunes', 'Martes','Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+    dayNamesShort: ['Dom,', 'Lun', 'Mar','Mie', 'Jue', 'Vie', 'Sab'],
+    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+    monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+    showButtonPanel: true,
+    yearRange: '-99:+1',
+  });

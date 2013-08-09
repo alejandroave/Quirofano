@@ -166,4 +166,6 @@
     </tbody>
   </table>
   <a href="<?php echo url_for('quirofano/agendadiaria')?>">Agenda del Dia</a>
+  <a href="<?php echo url_for('agenda/programar')?>">Programar cirugia</a>
+
 </div>

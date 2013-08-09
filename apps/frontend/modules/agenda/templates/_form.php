@@ -20,6 +20,7 @@
     </tfoot>
     <tbody>
       <?php echo $form->renderGlobalErrors() ?>
+
       <tr>
         <th><?php echo $form['programacion']->renderLabel() ?></th>
         <td>
@@ -27,6 +28,7 @@
           <?php echo $form['programacion']->render() ?>
         </td>
       </tr>
+
       <tr>
         <th><?php echo $form['hora']->renderLabel() ?></th>
         <td>
@@ -34,6 +36,7 @@
           <?php echo $form['hora'] ?>
         </td>
       </tr>
+
       <tr>
         <th><?php echo $form['ingreso']->renderLabel() ?></th>
         <td>
@@ -41,6 +44,7 @@
           <?php echo $form['ingreso'] ?>
         </td>
       </tr>
+
       <tr>
         <th><?php echo $form['sala_id']->renderLabel() ?></th>
         <td>
