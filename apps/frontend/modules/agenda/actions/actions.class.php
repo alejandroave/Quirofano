@@ -36,6 +36,15 @@ class agendaActions extends sfActions
   {
     if (!$request->isMethod('POST')) {
       $this->form = new programarCirugiaForm();
+    }else{
+          $this->form = new programarCirugiaForm();
+	  $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $Agenda = $form->save();
+}
+	  //$this->processForm($request, $this->form);
+
     }
   }
 
@@ -43,11 +52,8 @@ class agendaActions extends sfActions
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
-
     $this->form = new AgendaForm();
-
     $this->processForm($request, $this->form);
-
     $this->setTemplate('new');
   }
 
