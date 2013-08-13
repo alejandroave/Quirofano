@@ -11,8 +11,18 @@ class agendaActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->filtro = $request->getParameter('filter', false);
-    $this->Cirugias = AgendaQuery::create()->find();
+    //$this->form = new IndexForm();
+    //$this->filtro = $request->getParameter('filter', false);
+    //$this->Cirugias = AgendaQuery::create()->find();
+
+    $quirofano_id = $request->getParameter('quirofano');
+    $date = $request->getParameter('date', 'today');
+    $this->Cirugias = AgendaQuery::create()
+      ->filterByQuirofanoId($quirofano_id)
+      ->filterByLastTime(array('min' => strtotime($date), 'max' => strtotime($date.' + 1 Day')))
+      ->orderByStatus()
+      ->find();
+
   }
   
 
@@ -40,6 +50,8 @@ class agendaActions extends sfActions
       	 $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
 	 if ($this->form->isValid()) {
              $this->form->save();
+	     $this->redirect('agenda/index');
+
 }
     }
     

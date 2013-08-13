@@ -1,4 +1,4 @@
-<h1>Agendas List</h1>
+<!--h1>Agendas List</h1>
 
 <table>
   <thead>
@@ -128,7 +128,7 @@
 </table>
 
   <a href="<?php echo url_for('agenda/new') ?>">New</a>
-
+-->
 <?php slot('titulo') ?>
   <title>Lista Global de Quirofanos | SIGA-HU </title>
 <?php end_slot() ?>
