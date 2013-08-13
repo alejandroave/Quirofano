@@ -33,19 +33,16 @@ class agendaActions extends sfActions
   }
 
   public function executeProgramar(sfWebRequest $request)
-  {
-    if (!$request->isMethod('POST')) {
+  {   
+      //$this->forward404Unless($request->hasParameter('slug'));
       $this->form = new programarCirugiaForm();
-    }else{
-          $this->form = new programarCirugiaForm();
-	  $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $Agenda = $form->save();
+      if ($request->isMethod('POST')) {
+      	 $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+	 if ($this->form->isValid()) {
+             $this->form->save();
 }
-	  //$this->processForm($request, $this->form);
-
     }
+    
   }
 
 
@@ -92,9 +89,8 @@ class agendaActions extends sfActions
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {
-      $Agenda = $form->save();
-
-      $this->redirect('agenda/edit?id='.$Agenda->getId());
+      $programarCirugia = $form->save();
+      $this->redirect('agenda/edit?id='.$programarCirugia->getId());
     }
   }
 }
