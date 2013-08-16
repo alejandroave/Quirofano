@@ -17,6 +17,6 @@
 </style>
 <div class="formulario clearfix">
 <h1 style="color:#FFFFFF;">Programar Cirugia</h1>
-<?php include_partial('programarForm', array('form' => $form, 'Quirofano' => $quirofano)) ?>
+<?php include_partial('programarForm', array('form' => $form)) ?>
 </div>
 </html>

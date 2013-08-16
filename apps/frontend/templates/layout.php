@@ -157,11 +157,14 @@
           <span><a href='<?php echo url_for('comentario/index') ?>'>Comentarios</a></span>
           <span><a href='<?php echo url_for('sfGuardAuth/signout') ?>'>Cerrar</a></span>
         </div>
+
       <?php endif; ?>
       <!-- --------- Termina Id Usuario ----------------- -->
 
       <!-- --------- Inicia Menu Lateral ----------------- -->
+	<?php if($sf_user->isAuthenticated()): ?>
         <?php include_partial('global/sidemenu', array('user' => $sf_user)) ?>
+      <?php endif; ?>
       <!-- --------- termina Menu Lateral ----------------- -->
       </aside>
 

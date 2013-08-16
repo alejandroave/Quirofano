@@ -50,11 +50,11 @@ class agendaActions extends sfActions
       	 $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
 	 if ($this->form->isValid()) {
              $this->form->save();
-	     $this->redirect('agenda/index');
-
-}
-    }
-    
+	     //$programarCirugia = $form->save();	
+	     //$this->redirect('agenda/edit?id='.$this->getId());	
+	     //$this->redirect('agenda/index');
+	     }
+    }    
   }
 
 
@@ -79,9 +79,7 @@ class agendaActions extends sfActions
     $Agenda = AgendaQuery::create()->findPk($request->getParameter('id'));
     $this->forward404Unless($Agenda, sprintf('Object Agenda does not exist (%s).', $request->getParameter('id')));
     $this->form = new AgendaForm($Agenda);
-
     $this->processForm($request, $this->form);
-
     $this->setTemplate('edit');
   }
 
@@ -92,7 +90,6 @@ class agendaActions extends sfActions
     $Agenda = AgendaQuery::create()->findPk($request->getParameter('id'));
     $this->forward404Unless($Agenda, sprintf('Object Agenda does not exist (%s).', $request->getParameter('id')));
     $Agenda->delete();
-
     $this->redirect('agenda/index');
   }
 
