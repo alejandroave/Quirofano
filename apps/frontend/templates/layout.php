@@ -72,7 +72,7 @@
       <div id='logo' class='grid_16'>
         <div id="image"></div>
         <h1 class='grid_4'>siga-hu</h1>
-        <p id='row1'class='grid_11'>Sistema Integral de Gestión Administrativa</p>
+        <p id='row1'class='grid_11'>Sistema Integral de Gestión de Quirofanos</p>
         <p id='row2'class='grid_11'>Hospital Universitario de la U.A.N.L.</p>
       </div>
 
