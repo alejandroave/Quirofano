@@ -7,9 +7,9 @@
 <?php
   //$template = 'nourish';
   if ($sf_user->isAuthenticated()) {
-    $template = $sf_user->getAttribute('template', "nourish", 'options');
+    $template = $sf_user->getAttribute('template', "ProAzul", 'options');
   } else {
-    $template = "nourish";
+    $template = "ProAzul";
   }
 ?>
 
@@ -38,9 +38,9 @@
   <link rel="stylesheet" type="text/css" media="screen" href="/css/global/main.css" /> <!-- Da formato basico a los formularios -->
 
   <!-- Hoja de Estilos del Template estan en /css/templates/$nombredeplantilla-->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates/<?php echo $template ?>/default.css" /> <!-- Hoja de estilos principal -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates/<?php echo $template ?>/styles.css" />  <!-- Modificaciones del template -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates/<?php echo $template ?>/jquery-ui.custom.css" />  <!-- Estilos de widgets -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/default.css" /> <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/styles.css" />  <!-- Modificaciones del template -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/jquery-ui.custom.css" />  <!-- Estilos de widgets -->
 
   <!-- Hojas de estilo de utilidades -->
   <link rel="stylesheet" type="text/css" media="screen" href="/css/global/jquery.pnotify.default.css" /> <!-- Hoja de estilos de las Notificaciones -->

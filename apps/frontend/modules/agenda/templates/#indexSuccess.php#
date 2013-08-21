@@ -1,8 +1,6 @@
 <!---
 <h1>Agendas List</h1>
-
 <?php echo $filtro ?>
-
 <table>
   <thead>
     <tr>
@@ -132,6 +130,9 @@
 
   <a href="<?php echo url_for('agenda/new') ?>">New</a>
 -->
+
+
+
 <?php slot('titulo') ?>
   <title>Lista General de Quirofanos | SIGA-HU </title>
 <?php end_slot() ?>
@@ -166,7 +167,6 @@
     </tr>
     <?php endforeach; ?>
     </tbody>
-
   </table>
   <a href="<?php echo url_for('quirofano/agendadiaria')?>">Agenda del Dia</a>
   <a href="<?php echo url_for('agenda/programar')?>">Programar cirugia</a>
