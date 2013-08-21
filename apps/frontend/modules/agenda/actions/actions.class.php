@@ -52,7 +52,7 @@ class agendaActions extends sfActions
              $this->form->save();
 	     //$programarCirugia = $form->save();	
 	     //$this->redirect('agenda/edit?id='.$this->getId());	
-	     //$this->redirect('agenda/index');
+	     $this->redirect('agenda/index');
 	     }
     }    
   }
