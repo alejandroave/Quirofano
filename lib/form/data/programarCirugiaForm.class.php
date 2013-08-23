@@ -72,5 +72,35 @@ class programarCirugiaForm extends BaseAgendaForm
 		'paciente_name' => 'Nombre del Paciente',
 		'diagnostico'   => 'Diágnostico'
 	));
+
+	  $this->widgetSchema['reintervencion'] = new sfWidgetFormChoice(array(
+      	  	'choices' => array('0' => 'No', '1' => 'Si'),
+      	  	'expanded' => true
+    	));
+
+	
+	$this->validatorSchema['diagnostico']->setOption('required',true);
+        $this->validatorSchema['diagnostico']->setMessage('required','Falta diagnóstico');
+
+	$this->validatorSchema['hora']->setOption('required', true);
+        $this->validatorSchema['hora']->setMessage('required','Falta hora');
+
+	$this->validatorSchema['programacion']->setOption('required', true);
+        $this->validatorSchema['programacion']->setMessage('required','Falta fecha');
+	
+	$this->validatorSchema['tiempo_est']->setOption('required', true);
+        $this->validatorSchema['tiempo_est']->setMessage('required','Falta hora');
+	
+	  $this->validatorSchema['registro']->setOption('required', true);
+        $this->validatorSchema['registro']->setMessage('required','Falta registro');
+	
+	  $this->validatorSchema['tipo_proc_id']->setOption('required', true);
+        $this->validatorSchema['tipo_proc_id']->setMessage('required','Falta tipo');
+	
+	  $this->validatorSchema['paciente_name']->setOption('required', true);
+        $this->validatorSchema['paciente_name']->setMessage('required','Falta nombre');
+
+	         $this->validatorSchema['edad']->setOption('required', true);
+		 $this->validatorSchema['edad']->setMessage('required','Falta edad');
   }
 }
