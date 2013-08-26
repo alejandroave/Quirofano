@@ -64,10 +64,8 @@
 
 <div id="center" class="clearfix">
   <div id="login">
-
   <form action="<?php echo url_for('@sf_guard_signin') ?>" method="post">
     <?php echo $form->renderHiddenFields()?>
-
       <div class="area">
         <div class="label"><?php echo $form['username']->renderLabel('Usuario:') ?></div>
         <div class="field">
@@ -88,7 +86,6 @@
           <?php echo $form['remember']->renderLabel('Recordarme') ?>
         </div>
       </div>
-
       <div class="area clear">
         <input type="submit" value=" Entrar " />
       </div>

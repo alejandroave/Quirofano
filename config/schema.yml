@@ -25,6 +25,7 @@ propel:
     tipo_cx:              { type: integer }
     diagnostico:          { type: varchar(256) }
     diagnostico_id:       { type: varchar(8) }
+    medico_name:          { type: varchar(256) }
     paciente_name:        { type: varchar(256) }
     paciente_id:          { type: integer }
     edad:                 { type: varchar(16) }

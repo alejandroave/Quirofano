@@ -42,6 +42,7 @@ CREATE TABLE `hc_agenda`
     `tipo_cx` INTEGER,
     `diagnostico` VARCHAR(256),
     `diagnostico_id` VARCHAR(8),
+    `medico_name` VARCHAR(256),
     `paciente_name` VARCHAR(256),
     `paciente_id` INTEGER,
     `edad` VARCHAR(16),

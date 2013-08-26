@@ -49,7 +49,7 @@ class agendaActions extends sfActions
       if ($request->isMethod('POST')) {
       	 $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
 	 if ($this->form->isValid()) {
-             $this->form->save();
+             $Agenda= $this->form->save();
 	     //$programarCirugia = $form->save();	
 	     //$this->redirect('agenda/edit?id='.$this->getId());	
 	     $this->redirect('agenda/index');

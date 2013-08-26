@@ -559,7 +559,7 @@ ul#navTabs a:hover { /* settings for hover effect */
   ul.error_list {
     margin-left: 0px;
     position: absolute;
-    top: -20px;
+    top: -10px;
     width: 99%;
   }
 

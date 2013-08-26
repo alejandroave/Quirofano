@@ -8,7 +8,7 @@
     width: 700px;
   }
 
-
+<!--
   .formulario {
     float: left;
     background:#ebf4fb;;   
@@ -27,11 +27,20 @@
     margin:0px 0 0px 0px;
     float: left;
   }
-
+-->
 </style>
 
 <form method="POST">
 <!-- <form method="POST" action="<?php //echo url_for('quirofano/programar?slug='.$Quirofano->getSlug()) ?>">   -->
+
+<div class="area cols09">
+    <div class="label"><?php echo $form['medico_name']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['medico_name']->renderError() ?>
+      <?php echo $form['medico_name'] ?>
+    </div>
+</div>
+
 <div class="area cols03">
     <div class="label"><?php echo $form['sala_id']->renderLabel() ?></div>
     <div class="field">
@@ -76,7 +85,7 @@
     </div>
   </div>
 
-  <div class="area cols03">
+  <div class="area cols09">
     <div class="label"><?php echo $form['paciente_name']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['paciente_name']->renderError() ?>
@@ -164,7 +173,7 @@
     </div>
   </div>
 
-  <div class="area cols03">
+  <div class="area cols05">
     <div class="label"><?php echo $form['req_anestesico']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_anestesico']->renderError() ?>
@@ -211,16 +220,13 @@
 
 <script>
   $('#add_newProcedimientocirugia_link').addClass('addLink');
-
   $(function() {
     $('textarea').elastic();
-
     $('.searchable').each(function() {
       var $this = $(this),
           source = '<?php echo url_for('@homepage', true)?>' + $this.data('url'),
           focus = $this.attr('id'),
           select = $this.data('select');
-
       $this.autocomplete({
       minLength: 2,
       delay: 350,
@@ -240,14 +246,12 @@
           .appendTo( ul );
       }; /**/
     });
-
     $('.searchpx').each(function() {
       var $this = $(this),
           source = '<?php echo url_for('@homepage', true)?>' + $this.data('url'),
           focus = $this.attr('id'),
           select = $this.data('select');
           /* console.log(select); /**/
-
       $this.autocomplete({
         minLength: 2,
         delay: 350,
@@ -289,6 +293,5 @@
         });
       });
     });
-
   });
 </script>
