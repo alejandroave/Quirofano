@@ -354,3 +354,38 @@ propel:
         onDelete:         setnull
         references:
           - { local: agenda_id, foreign: id }
+
+
+#Tablas que guardan informacion de los quirofanos y salas
+  siga_quirofano:
+    _attributes:          { phpName: Quirofano, package: lib.model.config }
+    _propel_behaviors:
+      sluggable:
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true, primaryString: true }
+    activo:               { type: boolean, default: true }
+    ambulatorio:          { type: boolean }
+    permisos:             { type: object }
+    created_at:
+    updated_at:
+
+  siga_sala:
+    _attributes:          { phpName: Salaquirurgica, package: lib.model.config }
+    _propel_behaviors:
+      sluggable:
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true, primaryString: true }
+    activo:               { type: boolean }
+    bloqueado:            { type: boolean }
+    quirofano_id:         { type: integer }
+    activo:               { type: boolean, default: true }
+    permisos:             { type: object }
+    created_at:
+    updated_at:
+    _foreignKeys:
+      sala_quirofano:
+        foreignTable:     siga_quirofano
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: quirofano_id, foreign: id }

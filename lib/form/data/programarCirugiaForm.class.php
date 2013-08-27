@@ -54,15 +54,19 @@ class programarCirugiaForm extends BaseAgendaForm
 	      'show_in_index',
 	      'protocolo'
 	));
+	//$this->widgetSchema['programacion'] = new sfWidgetFormJqueryDate(array(
+	//'config' => '{"option", "dateFormat", "yy-mm-dd"}',
+	//));
 
 	$this->widgetSchema['programacion'] = new sfWidgetFormInputText();
 	$this->widgetSchema['hora'] = new sfWidgetFormInputText();
 	$this->widgetSchema['tiempo_est'] = new sfWidgetFormInputText();		
 	$this->widgetSchema['diagnostico_id'] = new sfWidgetFormInputHidden();
-
 	$this->widgetSchema['programacion']->setAttributes(array(
+		'id' => 'datepicker',
 		'placeholder' => 'año/mes/dia',
-		'data-source' => 'http://example.com/api/data'
+		'class' => 'hasDatapicker'
+		//'data-source' => 'http://example.com/api/data'
 	));
 
 	$this->widgetSchema['medico_name']->setAttributes(array(
@@ -126,5 +130,15 @@ class programarCirugiaForm extends BaseAgendaForm
 
 	$this->validatorSchema['medico_name']->setOption('required', true);
         $this->validatorSchema['medico_name']->setMessage('required','Falta nombre');
+	
+	$this->validatorSchema['riesgo_qx_pre']->setOption('required', true);
+        $this->validatorSchema['riesgo_qx_pre']->setMessage('required','Falta riesgo');
+
+	$this->validatorSchema['req_insumos']->setOption('required', true);
+        $this->validatorSchema['req_insumos']->setMessage('required','Falta insumos');
+
+	$this->validatorSchema['req_anestesico']->setOption('required', true);
+        $this->validatorSchema['req_anestesico']->setMessage('required','Falta anestesia');
+
   }
 }

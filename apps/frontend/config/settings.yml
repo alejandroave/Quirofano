@@ -39,6 +39,6 @@ all:
 
     secure_module:          sfGuardAuth   # To be called when a user doesn't have
     secure_action:          secure        # The credentials required for an action
-    enabled_modules:        [default, sfGuardAuth]
+    enabled_modules:        [default, sfGuardAuth, sfFormExtraPlugin]
     default_culture:        es        # Default user culture
     charset:                utf-8

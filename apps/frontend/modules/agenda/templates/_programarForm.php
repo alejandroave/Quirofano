@@ -30,9 +30,8 @@
 -->
 </style>
 
-<form method="POST">
+<form id='target' method="POST">
 <!-- <form method="POST" action="<?php //echo url_for('quirofano/programar?slug='.$Quirofano->getSlug()) ?>">   -->
-
 <div class="area cols09">
     <div class="label"><?php echo $form['medico_name']->renderLabel() ?></div>
     <div class="field">
@@ -217,6 +216,12 @@
   </div>-->
 
 
+<script>
+$('#target').submit(function() {
+if(!confirm(" Esta seguro ? "))
+{
+}}
+</script>
 
 <script>
   $('#add_newProcedimientocirugia_link').addClass('addLink');
