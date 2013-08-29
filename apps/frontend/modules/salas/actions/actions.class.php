@@ -16,7 +16,21 @@ class salasActions extends sfActions
   * @param sfRequest $request A request object
   */
   public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('default', 'module');
+  { 
   }
+  
+  //registro para los quirofanos
+  public function executeRegistroq(sfWebRequest $request) 
+  {
+	$this->form = new programarQuirofanoForm();
+
+  }	
+  
+
+  //registro para las salas
+  public function executeRegistrosalas(sfWebRequest $request)
+  {
+      $this->form = new programarSalaForm();
+  }
+  
 }

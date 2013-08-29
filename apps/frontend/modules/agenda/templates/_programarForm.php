@@ -30,7 +30,12 @@
 -->
 </style>
 
-<form id='target' method="POST">
+<script type="text/javascript"> 
+  function pregunta(){ 
+    return confirm('¿Estas seguro de enviar este registro?'); 
+  } 
+</script>
+<form id='target' method="POST" onsubmit="return pregunta();">
 <!-- <form method="POST" action="<?php //echo url_for('quirofano/programar?slug='.$Quirofano->getSlug()) ?>">   -->
 <div class="area cols09">
     <div class="label"><?php echo $form['medico_name']->renderLabel() ?></div>

@@ -9,8 +9,10 @@
                 <li><?php echo link_to('Busqueda de Pacientes','pacientes/search')  ?></li>
                 <li><?php echo link_to('Coordinación de Enfermeria','coordenfermeria/default')  ?></li>
                 <li><?php echo link_to('Camas','cama/index')  ?></li>
-                <li><?php echo link_to('Departamentos','departamento/index')  ?></li>-->
+	         <li><?php echo link_to('Departamentos','departamento/index')  ?></li>-->
                 <li><?php echo link_to('Programacion Quirofano','agenda/index')  ?></li>
+		<li><?php echo link_to('Agregar Quirofanos','salas/registroq')  ?></li>
+		<li><?php echo link_to('Registrar salas','salas/registrosalas')  ?></li>		
                 <!-- <li><?php //echo link_to('Tipo Historia','tipohc/index')  ?></li> -->
               </ul>
             </li>

@@ -8,7 +8,7 @@
     width: 700px;
   }
 
-
+<!--
   .formulario {
     float: left;
     background:#ebf4fb;;   
@@ -27,48 +27,23 @@
     margin:0px 0 0px 0px;
     float: left;
   }
-
+-->
 </style>
-
-<?php use_stylesheets_for_form($form) ?>
-<?php use_javascripts_for_form($form) ?>
-
-<!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="/sfJQueryUIPlugin/css/ui-lightness/jquery-ui.css" />
-<script type="text/javascript" src="/sfJqueryReloadedPlugin/js/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="/sfJQueryUIPlugin/js/jquery-ui.js"></script>
--->
-
-
-
-<!--<script>
-  $(function() {
-  $( "#datepicker" ).datepicker();
-  });
+<script type="text/javascript"> 
+  function pregunta(){ 
+    return confirm('¿Estas seguro de enviar este formulario?'); 
+  } 
 </script>
--->
-
-
-<!--<form method="POST">-->
+<form id='target' method="POST" onsubmit="return pregunta();">
 <!-- <form method="POST" action="<?php //echo url_for('quirofano/programar?slug='.$Quirofano->getSlug()) ?>">   -->
+<div class="area cols09">
+    <div class="label"><?php echo $form['medico_name']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['medico_name']->renderError() ?>
+      <?php echo $form['medico_name'] ?>
+    </div>
+</div>
 
-
-<form action="<?php echo url_for('agenda/'.($form->getObject()->isNew() ? 'create' : 'update').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
-<?php if (!$form->getObject()->isNew()): ?>
-<input type="hidden" name="sf_method" value="put" />
-<?php endif; ?>
-
-<?php echo $form->renderHiddenFields(false) ?>
-	&nbsp;<a href="<?php echo url_for('agenda/index') ?>">Back to list</a>
-<?php if (!$form->getObject()->isNew()): ?>
-        &nbsp;<?php echo link_to('Delete', 'agenda/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
-<?php endif; ?>
-
-
-
-
-<?php echo $form->renderGlobalErrors() ?>
 <div class="area cols03">
     <div class="label"><?php echo $form['sala_id']->renderLabel() ?></div>
     <div class="field">
@@ -76,7 +51,6 @@
       <?php echo $form['sala_id'] ?>
     </div>
   </div>
-
 <div class="area cols02">
     <div class="label"><?php echo $form['programacion']->renderLabel() ?></div>
     <div class="field">
@@ -84,7 +58,6 @@
       <?php echo $form['programacion'] ?>
     </div>
   </div>
-
 <div class="area cols02">
     <div class="label"><?php echo $form['hora']->renderLabel() ?></div>
     <div class="field">
@@ -92,23 +65,21 @@
       <?php echo $form['hora'] ?>
     </div>
   </div>
-
-<div class="area cols02">
+  <div class="area cols02">
     <div class="label"><?php echo $form['tiempo_est']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['tiempo_est']->renderError() ?>
-      <?php echo $form['tiempo_est']  ?>
+      <?php echo $form['tiempo_est'] ?>
     </div>
   </div>
 
-<div class="area cols03">
+  <div class="area cols03">
     <div class="label"><?php echo $form['tipo_proc_id']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['tipo_proc_id']->renderError() ?>
       <?php echo $form['tipo_proc_id'] ?>
     </div>
   </div>
-
 <div class="area cols03">
     <div class="label"><?php echo $form['registro']->renderLabel() ?></div>
     <div class="field">
@@ -117,29 +88,29 @@
     </div>
   </div>
 
-<div class="area cols03">
+  <div class="area cols09">
     <div class="label"><?php echo $form['paciente_name']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['paciente_name']->renderError() ?>
       <?php echo $form['paciente_name'] ?>
     </div>
-</div>
+  </div>
 
-<div class="area cols03">
+  <div class="area cols03">
     <div class="label"><?php echo $form['edad']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['edad']->renderError() ?>
       <?php echo $form['edad'] ?>
     </div>
-</div>
+  </div>
 
-<div class="area cols03">
+  <div class="area cols03">
     <div class="label"><?php echo $form['genero']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['genero']->renderError() ?>
       <?php echo $form['genero'] ?>
     </div>
-</div>
+  </div>
 
 <div class="area cols03">
     <div class="label"><?php echo $form['procedencia']->renderLabel() ?></div>
@@ -147,72 +118,71 @@
       <?php echo $form['procedencia']->renderError() ?>
       <?php echo $form['procedencia'] ?>
     </div>
-</div>
+  </div>
 
-<div class="area cols03">
+  <div class="area cols03">
     <div class="label"><?php echo $form['servicio']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['servicio']->renderError() ?>
       <?php echo $form['servicio'] ?>
     </div>
-</div>
+  </div>
 
-<div class="area cols03">
+  <div class="area cols03">
     <div class="label"><?php echo $form['diagnostico']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['diagnostico']->renderError() ?>
       <?php echo $form['diagnostico'] ?>
     </div>
-</div>
+  </div>
 
-<div class="area cols03">
+  <div class="area cols03">
     <div class="label"><?php echo $form['protocolo']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['protocolo']->renderError() ?>
       <?php echo $form['protocolo'] ?>
     </div>
-</div>
+  </div>
 
-<div class="area cols03">
+  <div class="area cols03">
     <div class="label"><?php echo $form['reintervencion']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['reintervencion']->renderError() ?>
       <?php echo $form['reintervencion'] ?>
     </div>
   </div>
-
 <div class="area cols03">
     <div class="label"><?php echo $form['atencion_id']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['atencion_id']->renderError() ?>
       <?php echo $form['atencion_id'] ?>
     </div>
-</div>
+  </div>
 
  
-<div class="area cols03">
+  <div class="area cols03">
     <div class="label"><?php echo $form['riesgo_qx_pre']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['riesgo_qx_pre']->renderError() ?>
       <?php echo $form['riesgo_qx_pre'] ?>
     </div>
-</div>
+  </div>
 
-<div class="area cols03">
+  <div class="area cols03">
     <div class="label"><?php echo $form['req_insumos']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_insumos']->renderError() ?>
       <?php echo $form['req_insumos'] ?>
     </div>
-</div>
+  </div>
 
-<div class="area cols03">
+  <div class="area cols05">
     <div class="label"><?php echo $form['req_anestesico']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_anestesico']->renderError() ?>
       <?php echo $form['req_anestesico'] ?>
     </div>
-</div>
+  </div>
 
 <div class="area cols03">
     <div class="label"><?php echo $form['req_hemoderiv']->renderLabel() ?></div>
@@ -220,23 +190,23 @@
       <?php echo $form['req_hemoderiv']->renderError() ?>
       <?php echo $form['req_hemoderiv'] ?>
     </div>
-</div>
+  </div>
 
-<div class="area cols03">
+  <div class="area cols03">
     <div class="label"><?php echo $form['req_laboratorio']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_laboratorio']->renderError() ?>
       <?php echo $form['req_laboratorio'] ?>
     </div>
-</div>
+  </div>
 
-<div class="area cols03">
+  <div class="area cols03">
     <div class="label"><?php echo $form['requerimiento']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['requerimiento']->renderError() ?>
       <?php echo $form['requerimiento'] ?>
     </div>
-</div>
+  </div>
 
 <div class="area control">
     <?php echo $form->renderHiddenFields() ?>
@@ -244,27 +214,28 @@
   </div>
 </form><!-Termina form->
 
-
-
 <!--  <div class="area control">
     <?php echo $form->renderHiddenFields() ?>
     <input type="submit" value="Guardar">
   </div>-->
 
 
+<script>
+$('#target').submit(function() {
+if(!confirm(" Esta seguro ? "))
+{
+}}
+</script>
 
-<!--<script>
+<script>
   $('#add_newProcedimientocirugia_link').addClass('addLink');
-
   $(function() {
     $('textarea').elastic();
-
     $('.searchable').each(function() {
       var $this = $(this),
           source = '<?php echo url_for('@homepage', true)?>' + $this.data('url'),
           focus = $this.attr('id'),
           select = $this.data('select');
-
       $this.autocomplete({
       minLength: 2,
       delay: 350,
@@ -284,14 +255,12 @@
           .appendTo( ul );
       }; /**/
     });
-
     $('.searchpx').each(function() {
       var $this = $(this),
           source = '<?php echo url_for('@homepage', true)?>' + $this.data('url'),
           focus = $this.attr('id'),
           select = $this.data('select');
           /* console.log(select); /**/
-
       $this.autocomplete({
         minLength: 2,
         delay: 350,
@@ -333,6 +302,5 @@
         });
       });
     });
-
   });
-</script>-->
+</script>
