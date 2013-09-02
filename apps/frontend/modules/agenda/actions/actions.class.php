@@ -14,7 +14,7 @@ class agendaActions extends sfActions
     //$this->form = new IndexForm();
     //$this->filtro = $request->getParameter('filter', false);
     //$this->Cirugias = AgendaQuery::create()->find();
-
+    $this->Quirofanos = QuirofanoQuery::create()->find();
     $quirofano_id = $request->getParameter('quirofano');
     $date = $request->getParameter('date', 'today');
     $this->Cirugias = AgendaQuery::create()
@@ -102,4 +102,27 @@ class agendaActions extends sfActions
       $this->redirect('agenda/edit?id='.$programarCirugia->getId());
     }
   }
+  //registro para los quirofanos
+  public function executeRegistroq(sfWebRequest $request)
+  {
+        $this->form = new programarQuirofanoForm();
+        if ($request->isMethod('POST')) {
+           $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+           if ($this->form->isValid()) {
+             $Quirofano= $this->form->save();
+             $this->redirect('agenda/index');
+             }
+        }
+
+  }
+
+
+  //registro para las salas
+  public function executeRegistrosalas(sfWebRequest $request)
+  {
+      $this->form = new programarSalaForm();
+  }
+
+
+
 }

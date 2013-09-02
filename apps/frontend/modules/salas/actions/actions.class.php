@@ -15,14 +15,27 @@ class salasActions extends sfActions
   *
   * @param sfRequest $request A request object
   */
+
+//  public function executeIndex(sfWebRequest $request)
+//  { 
+//  }
+
   public function executeIndex(sfWebRequest $request)
-  { 
+  {
+    $this->Quirofanos = QuirofanoQuery::create()->find();
   }
   
   //registro para los quirofanos
   public function executeRegistroq(sfWebRequest $request) 
   {
 	$this->form = new programarQuirofanoForm();
+        if ($request->isMethod('POST')) {
+           $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+           if ($this->form->isValid()) {
+             $Quirofano= $this->form->save();
+	     $this->redirect('agenda/index');
+	     }
+	}
 
   }	
   

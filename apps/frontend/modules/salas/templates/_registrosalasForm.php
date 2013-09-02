@@ -18,18 +18,18 @@
 <form id='target' method="POST" onsubmit="return pregunta();">
 
 
+<div class="area cols05">
+    <div class="label"><?php echo $form['nombre']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['nombre']->renderError() ?>
+      <?php echo $form['nombre'] ?>
+    </div>
+</div>
 <div class="area cols03">
     <div class="label"><?php echo $form['quirofano_id']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['quirofano_id']->renderError() ?>
       <?php echo $form['quirofano_id'] ?>
-    </div>
-</div>
-<div class="area cols03">
-    <div class="label"><?php echo $form['bloqueado']->renderLabel() ?></div>
-    <div class="field">
-      <?php echo $form['bloqueado']->renderError() ?>
-      <?php echo $form['bloqueado'] ?>
     </div>
 </div>
 
@@ -40,6 +40,17 @@
       <?php echo $form['permisos'] ?>
     </div>
 </div>
+
+
+
+<div class="area cols03">
+    <div class="label"><?php echo $form['bloqueado']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['bloqueado']->renderError() ?>
+      <?php echo $form['bloqueado'] ?>
+    </div>
+</div>
+
     	    
 <div class="area cols03">
     <div class="label"><?php echo $form['activo']->renderLabel() ?></div>
@@ -48,6 +59,8 @@
       <?php echo $form['activo'] ?>
     </div>
 </div>   
+
+
 <div class="area control">
     <?php echo $form->renderHiddenFields() ?>
     <input type="submit" value="Guardar">
