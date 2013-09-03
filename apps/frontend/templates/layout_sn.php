@@ -61,7 +61,10 @@
   <!-- <script type="text/javascript" src="/js/global/interactiveControl.js"></script>     <!-- Script generico para ocultar campos relacionados -->
 
   <!--conditional comments --><!--[if IE]><script src="js/html5.js"></script><![endif]--> <!-- Activa la compatibilidad con IE8 -->
-
+<script type="text/javascript" src="/js/global/facebox.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="/css/global/widescreen.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/global/styleAgenda.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/global/facebox.css" />
 <!-- Hojas de Estilo y JavaScrips añadidos por el Template de la Accion -->
 </head>
 
@@ -149,27 +152,6 @@
 
 
 
-      <aside id='sidebar' class='grid_4'>
-      <?php if($sf_user->isAuthenticated()): ?>
-        <div id="userId">
-          <div id="name"><?php echo $sf_user->getFullName() ?></div> <!-- Se comentarion las lneas de identificacion del usuario -->
-          <div><?php echo $sf_user->getServicioName() ?></div>
-          <div><?php echo $sf_user->getDepartamentoName() ?></div>
-          <div><?php echo $sf_user->getArea() ?></div>
-          <span id='perfil'><a href='<?php echo url_for('profile/editar') ?>'>Mi Perfil</a></span>
-          <span><a href='<?php echo url_for('comentario/index') ?>'>Comentarios</a></span>
-          <span><a href='<?php echo url_for('sfGuardAuth/signout') ?>'>Cerrar</a></span>
-        </div>
-
-      <?php endif; ?>
-      <!-- --------- Termina Id Usuario ----------------- -->
-
-      <!-- --------- Inicia Menu Lateral ----------------- -->
-	<?php if($sf_user->isAuthenticated()): ?>
-        <?php include_partial('global/sidemenu', array('user' => $sf_user)) ?>
-        <?php endif;?>
-      <!-- --------- termina Menu Lateral ----------------- -->
-      </aside>
 <!-- barra lateral izquiera-->
       <section id='content' class='grid_12 alpha omega' >
 <!-- ############################################## Contenido del Modulo Symfony ############################################## -->

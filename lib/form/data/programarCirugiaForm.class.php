@@ -57,7 +57,8 @@ class programarCirugiaForm extends BaseAgendaForm
 	//$this->widgetSchema['programacion'] = new sfWidgetFormJqueryDate(array(
 	//'config' => '{"option", "dateFormat", "yy-mm-dd"}',
 	//));
-
+	
+	$this->widgetSchema['quirofano_id'] = new sfWidgetFormInputHidden();
 	$this->widgetSchema['programacion'] = new sfWidgetFormInputText();
 	$this->widgetSchema['hora'] = new sfWidgetFormInputText();
 	$this->widgetSchema['tiempo_est'] = new sfWidgetFormInputText();		
@@ -138,7 +139,15 @@ class programarCirugiaForm extends BaseAgendaForm
         $this->validatorSchema['req_insumos']->setMessage('required','Falta insumos');
 
 	$this->validatorSchema['req_anestesico']->setOption('required', true);
-        $this->validatorSchema['req_anestesico']->setMessage('required','Falta anestesia');
+        $this->validatorSchema['req_anestesico']->setMessage('required','Falta anestesia');	
 
+
+	
+        $this->setWidget('sala_id', new sfWidgetFormPropelChoice(array(
+           'model'     => 'Salaquirurgica'
+
+	   
+           ))
+           );  
   }
 }

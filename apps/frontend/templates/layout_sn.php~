@@ -149,27 +149,6 @@
 
 
 
-      <aside id='sidebar' class='grid_4'>
-      <?php if($sf_user->isAuthenticated()): ?>
-        <div id="userId">
-          <div id="name"><?php echo $sf_user->getFullName() ?></div> <!-- Se comentarion las lneas de identificacion del usuario -->
-          <div><?php echo $sf_user->getServicioName() ?></div>
-          <div><?php echo $sf_user->getDepartamentoName() ?></div>
-          <div><?php echo $sf_user->getArea() ?></div>
-          <span id='perfil'><a href='<?php echo url_for('profile/editar') ?>'>Mi Perfil</a></span>
-          <span><a href='<?php echo url_for('comentario/index') ?>'>Comentarios</a></span>
-          <span><a href='<?php echo url_for('sfGuardAuth/signout') ?>'>Cerrar</a></span>
-        </div>
-
-      <?php endif; ?>
-      <!-- --------- Termina Id Usuario ----------------- -->
-
-      <!-- --------- Inicia Menu Lateral ----------------- -->
-	<?php if($sf_user->isAuthenticated()): ?>
-        <?php include_partial('global/sidemenu', array('user' => $sf_user)) ?>
-        <?php endif;?>
-      <!-- --------- termina Menu Lateral ----------------- -->
-      </aside>
 <!-- barra lateral izquiera-->
       <section id='content' class='grid_12 alpha omega' >
 <!-- ############################################## Contenido del Modulo Symfony ############################################## -->

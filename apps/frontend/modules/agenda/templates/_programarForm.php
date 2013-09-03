@@ -37,7 +37,7 @@
 </script>
 <form id='target' method="POST" onsubmit="return pregunta();">
 <!-- <form method="POST" action="<?php //echo url_for('quirofano/programar?slug='.$Quirofano->getSlug()) ?>">   -->
-<div class="area cols09">
+<div class="area cols07">
     <div class="label"><?php echo $form['medico_name']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['medico_name']->renderError() ?>
@@ -45,7 +45,7 @@
     </div>
 </div>
 
-<div class="area cols03">
+<div class="area cols02">
     <div class="label"><?php echo $form['sala_id']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['sala_id']->renderError() ?>
