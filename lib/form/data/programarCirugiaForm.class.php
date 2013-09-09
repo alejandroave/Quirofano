@@ -63,12 +63,24 @@ class programarCirugiaForm extends BaseAgendaForm
 	$this->widgetSchema['hora'] = new sfWidgetFormInputText();
 	$this->widgetSchema['tiempo_est'] = new sfWidgetFormInputText();		
 	$this->widgetSchema['diagnostico_id'] = new sfWidgetFormInputHidden();
+
 	$this->widgetSchema['programacion']->setAttributes(array(
 		'id' => 'datepicker',
 		'placeholder' => 'año/mes/dia',
 		'class' => 'hasDatapicker'
 		//'data-source' => 'http://example.com/api/data'
 	));
+
+	
+	$this->widgetSchema['hora']->setAttributes(array(
+		'id' => 'datahora',
+	
+	));
+	
+	$this->widgetSchema['tiempo_est']->setAttributes(array(
+                'id' => 'datahoraest',
+
+        ));
 
 	$this->widgetSchema['medico_name']->setAttributes(array(
 		'planceholder' => 'Nombre del médico que programa la cirugia',
@@ -82,10 +94,10 @@ class programarCirugiaForm extends BaseAgendaForm
 		'paciente_name' => 'Nombre del Paciente:',
 		'diagnostico'   => 'Diágnostico',
 		'medico_name'   => 'Nombre del médico que programa la cirugía:',
-		'hora'          => 'Hora propuesta',
+		'hora'          => 'Hora inicial',
 		'tipo_proc_id'  => 'Tipo de programación',
 		'programacion'  => 'Programación',
-		'tiempo_est'    => 'Tiempo estimado',
+		'tiempo_est'    => 'Hora final',
 		'riesgo_qx_pre' => 'Riesgo quirurgico:',
 		'req_insumos'   => 'Insumos indispensables:',
 		'req_anestesico'  => 'Requerimientos de Anestesiología:', 
@@ -142,7 +154,7 @@ class programarCirugiaForm extends BaseAgendaForm
         $this->validatorSchema['req_anestesico']->setMessage('required','Falta anestesia');	
 
 
-	
+	//Para pasar las salas existentes//
         $this->setWidget('sala_id', new sfWidgetFormPropelChoice(array(
            'model'     => 'Salaquirurgica'
 

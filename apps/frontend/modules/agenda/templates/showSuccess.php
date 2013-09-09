@@ -40,8 +40,8 @@ HEAD;
   <input type="search" id="datepicker" name="date" placeholder="Fitrar por fecha" style="width:120px" value="<?php echo date('d-m-Y', $date) ?>">
   <input type="submit" value="Ir">
 </form>
-<a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/show?slug='.$Quirofano->getSlug().'&date='.date('d-m-Y', $date - 86400))?>" title="<?php echo $date==strtotime('today') ? 'Ayer': date('d-m-Y', $date-86400) ?>">&nbsp;&nbsp;<&nbsp;&nbsp;</a>
-<a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/show?slug='.$Quirofano->getSlug().'&date='.date('d-m-Y', $date + 86400))?>" title="<?php echo $date==strtotime('today') ? 'Mañana': date('d-m-Y', $date+86400) ?>">&nbsp;&nbsp;>&nbsp;&nbsp;</a>
+<a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/show?slug='.$Quirofano->getSlug().'&date='.date('Y-m-d', $date - 86400))?>" title="<?php echo $date==strtotime('today') ? 'Ayer': date('Y-m-d', $date-86400) ?>">&nbsp;&nbsp;<&nbsp;&nbsp;</a>
+<a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/show?slug='.$Quirofano->getSlug().'&date='.date('Y-m-d', $date + 86400))?>" title="<?php echo $date==strtotime('today') ? 'Mañana': date('Y-m-d', $date+86400) ?>">&nbsp;&nbsp;>&nbsp;&nbsp;</a>
 
 <form action="<?php echo url_for('agenda/busqueda') ?>" style="display:inline; float:right;">
   <input type="text" id="busqueda" name="term" placeholder="Buscar" style="width:120px">
@@ -52,6 +52,23 @@ HEAD;
 <!- Va todo el menu de arriba -->
 
 
+<div id="camasPanel">
+  <table id="agenda" border="0" width="100%" cellspacing="0">
+</div>
+
+<!-- agregado -->
+<?php $title = null ?>
+<?php foreach($Cirugias as $cirugia): ?>
+  <td colspan="11"><h3 style="padding-top: 11px;"><?php echo 'Programada' ?></h3></td>
+  <?php echo print_head() ?>
+  <?php $title = $cirugia->getStatus() ?>
+
+
+<?php include_partial('agendaQuirofano', array('cirugia' => $cirugia, 'slug' => $Quirofano->getSlug())) ?>
+<?php endforeach; ?>
+<!-- agregado -->
+
+</table>
 
 
 <script>

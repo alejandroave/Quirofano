@@ -1,4 +1,6 @@
 <html>
+<script type="text/javascript" src="/js/global/jquery.ptTimeSelect.js"></script>    <!-- 1.8.2 -->
+<link rel="stylesheet" type="text/css" href="/css/global/jquery.ptTimeSelect.css" />
 <style>
 /* Mientras podemos hacer botones con jQueryUI usamos css */
 
@@ -21,6 +23,7 @@
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>-->
 
+<!-- Para poner calendario-->
   <script>
   $(function() {
     $( "#datepicker" ).datepicker();
@@ -29,6 +32,18 @@
     //});
   });
   </script> 
+<!-- Para poner calendario-->
+
+<!-- Para poner reloj-->
+<script type="text/javascript">
+        $(document).ready(function(){
+            // find the input fields and apply the time select to them.
+            $('#datahora').ptTimeSelect();
+	    $('#datahoraest').ptTimeSelect();
+
+        });
+</script>
+<!-- Para poner reloj-->
 
 <div class="menubar">
   <a href="<?php echo url_for('agenda/show?slug='.$quirofano->getSlug()) ?>">Agenda de <?php echo $quirofano ?></a>

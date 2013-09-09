@@ -1,0 +1,10 @@
+default:
+  http_metas:
+    content-type: text/html
+  metas:
+    title: Lynx Cms, Content Management System
+    language: en
+  stylesheets: []
+  javascripts: []
+  has_layout: false // Anula el layout de la vista
+- See more at: http://www.strappinc.com/blog/laboratorio/item/348-consulta-en-symfony-que-regresa-un-json#sthash.KWZPrsu6.dpuf
