@@ -19,11 +19,11 @@ class agendaActions extends sfActions
     $quirofano_id = $request->getParameter('quirofano');  
     $date = $request->getParameter('date', 'today');
 
-    $this->Cirugias = AgendaQuery::create()  //datos para la programacion
-      ->filterByQuirofanoId($quirofano_id)
-      ->filterByLastTime(array('min' => strtotime($date), 'max' => strtotime($date.' + 1 Day')))
-      ->orderByStatus()
-      ->find();
+    //$this->Cirugias = AgendaQuery::create()  //datos para la programacion
+    //  ->filterByQuirofanoId($quirofano_id)
+    //  ->filterByLastTime(array('min' => strtotime($date), 'max' => strtotime($date.' + 1 Day')))
+    //  ->orderByStatus()
+    //  ->find();
 
   }
   
@@ -111,31 +111,33 @@ class agendaActions extends sfActions
 //mostrar pruebas versión 1
 public function executeShow(sfWebRequest $request)
   {
+
     $this->Quirofano = QuirofanoQuery::create()
       ->findOneBySlug($request->getParameter('slug'));
+         
+      
     $offset = $request->getParameter('offset', 0) * 3600;
-    $this->date = strtotime($request->getParameter('date', date('d-m-Y')));
+    $this->date = strtotime($request->getParameter('date', date('Y-m-d')));
     $date['max'] = $this->date + $offset;
     $date['min'] = ($request->hasParameter('date')) ? $date['max'] - 86400: null;
-
-    $this->cirugias = AgendaQuery::create()
-      //->filterByProgramadas()
-      //->filterByArea($this->Quirofano)
-      ->filterByShowInIndex(true)
-      ->filterByCancelada(false)
-      //->joinWith('Personalcirugia', Criteria::LEFT_JOIN)
-      ->joinWith('Procedimientocirugia', Criteria::LEFT_JOIN)
-      ->orderByStatus('asc')
-      //->orderByDefault()
-      //->queryAgenda($date)
+    $this->Cirugias = AgendaQuery::create()
+      ->filterByquirofanoid($this->Quirofano->getid())
+      ->filterByprogramacion($date)      
       ->find();
-
     $this->forward404Unless($this->Quirofano);
   }
 
 //mostrar pruebas versión 1
 
-
+public function executeInspeccionar(sfWebRequest $request)
+{
+      $this->salas = SalaquirurgicaQuery::create()
+      ->joinWith('Quirofano')
+      ->useQuery('Quirofano')
+        ->filterBySlug($request->getParameter('slug'))
+      ->endUse()
+      ->find();	
+}
 
 
 }

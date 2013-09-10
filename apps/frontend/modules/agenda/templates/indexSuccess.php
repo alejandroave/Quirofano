@@ -139,7 +139,7 @@
 <h1>Lista de Quirofanos</h1>
 
 <ul id="navTabs">
-  <li class="tab active"><a href="/quirofano/activo/1">Activos</a></li>
+  <li class="tab active"><a href="index">Activos</a></li>
   <li class="tab "><a href="/quirofano/ambulatorio/1">Ambulatorios</a></li>
   <li class="tab "><a href="/quirofano/todas/1">Todos</a></li>
 </ul>
