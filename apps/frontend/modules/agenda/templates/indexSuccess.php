@@ -144,15 +144,13 @@
   <li class="tab "><a href="/quirofano/todas/1">Todos</a></li>
 </ul>
 
-
-
 <div id="camasPanel">
   <table width="100%">
     <thead>
     <tr id="tabla">
       <th>Nombre</th>
       <th>Programar</th>
-      <th>Diferidas</th>      
+      <th>Diferidas</th>
       <th>Inspeccionar</th>
     </tr>
     </thead>
@@ -163,13 +161,11 @@
       <td><a href="<?php echo url_for('agenda/programar?slug='.$Quirofano->getSlug())  ?>">Programar Cirugia</a></td>
       <td><a href="<?php echo url_for('agenda/diferidas?slug='.$Quirofano->getSlug())  ?>">Cirugias Diferidas</a></td>
       <td><a href="<?php echo url_for('agenda/inspeccionar?slug='.$Quirofano->getSlug())  ?>">Salas</a></td>
-      
+
     </tr>
     <?php endforeach; ?>
 
-
     </tbody>
-
   </table>
   <a href="<?php echo url_for('quirofano/agendadiaria')?>">Agenda del Dia</a>
   <a href="<?php echo url_for('agenda/programar')?>">Programar cirugia</a>

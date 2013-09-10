@@ -1,18 +1,10 @@
-<?php
-  header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-  header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-?>
-
 <!DOCTYPE html>
+<?php $template = $sf_user->isAuthenticated() ? $template = $sf_user->getAttribute('template', "ProAzul", 'options') : "ProAzul" ?>
 <?php
-  //$template = 'nourish';
-  if ($sf_user->isAuthenticated()) {
-    $template = $sf_user->getAttribute('template', "ProAzul", 'options');
-  } else {
-    $template = "ProAzul";
-  }
+  $less = new lessc;
+  $less->setFormatter('compressed');
+  $less->checkedCompile('css/global/main.less', 'css/less/main.min.css');
 ?>
-
 <html lang="es">
 <head>
   <meta charset="utf-8">
@@ -31,16 +23,21 @@
   <meta http-equiv="Pragma" content="no-cache">
 
   <!-- ======================== STYLESHEET ======================== -->
+  <!-- Combinamos y minimizamos multiples hojas de estilo usando Minify [https://code.google.com/p/minify/] -->
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/min/b=css/global&f=reset.css,common.css,960gs-16-fixed.css,main.css" /> <!-- Hoja combinada -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/min/g=basic" /> <!-- Hoja combinada -->
+
   <!-- Hojas de estilo global todas reciden en /css/global/  -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/reset.css" /> <!-- Elimina los estilos por default -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/common.css" />  <!-- Marcado basico para elementos mas comunes -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/960gs-16-fixed.css" /> <!-- Permite el uso de 960 grid System a 16 columnas -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/main.css" /> <!-- Da formato basico a los formularios -->
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/global/reset.css" /> <!-- Elimina los estilos por default -->
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/global/common.css" />  <!-- Marcado basico para elementos mas comunes -->
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/global/960gs-16-fixed.css" /> <!-- Permite el uso de 960 grid System a 16 columnas -->
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/global/main.css" /> <!-- Da formato basico a los formularios -->
 
   <!-- Hoja de Estilos del Template estan en /css/templates/$nombredeplantilla-->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/default.css" /> <!-- Hoja de estilos principal -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/styles.css" />  <!-- Modificaciones del template -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/jquery-ui.custom.css" />  <!-- Estilos de widgets -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/min/b=css/templates2/<?php echo $template ?>&f=default.css,styles.css,jquery-ui.custom.css " /> <!-- Hoja de estilos principal -->
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/default.css" /> <!-- Hoja de estilos principal -->
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/styles.css" />  <!-- Modificaciones del template -->
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/jquery-ui.custom.css" />  <!-- Estilos de widgets -->
 
   <!-- Hojas de estilo de utilidades -->
   <link rel="stylesheet" type="text/css" media="screen" href="/css/global/jquery.pnotify.default.css" /> <!-- Hoja de estilos de las Notificaciones -->
@@ -165,7 +162,7 @@
       <!-- --------- Termina Id Usuario ----------------- -->
 
       <!-- --------- Inicia Menu Lateral ----------------- -->
-	<?php if($sf_user->isAuthenticated()): ?>
+  <?php if($sf_user->isAuthenticated()): ?>
         <?php include_partial('global/sidemenu', array('user' => $sf_user)) ?>
         <?php endif;?>
       <!-- --------- termina Menu Lateral ----------------- -->
