@@ -63,7 +63,10 @@ class programarCirugiaForm extends BaseAgendaForm
 	$this->widgetSchema['hora'] = new sfWidgetFormInputText();
 	$this->widgetSchema['tiempo_est'] = new sfWidgetFormInputText();		
 	$this->widgetSchema['diagnostico_id'] = new sfWidgetFormInputHidden();
-
+	
+//	 $this->setWidget('tiempo_est', new sfWidgetFormChoice(array(
+//      'choices' => AgendaPeer::getDuracion()
+//    )));
 	$this->widgetSchema['programacion']->setAttributes(array(
 		'id' => 'datepicker',
 		'placeholder' => 'año/mes/dia',
@@ -71,16 +74,18 @@ class programarCirugiaForm extends BaseAgendaForm
 		//'data-source' => 'http://example.com/api/data'
 	));
 
-	
+        $this->widgetSchema['tiempo_est']->setAttributes(array(
+                 'id' => 'tiest'
+
+        ));	
 	$this->widgetSchema['hora']->setAttributes(array(
 		'id' => 'datahora',
 	
 	));
 	
-	$this->widgetSchema['tiempo_est']->setAttributes(array(
-                'id' => 'datahoraest',
+	
 
-        ));
+
 
 	$this->widgetSchema['medico_name']->setAttributes(array(
 		'planceholder' => 'Nombre del médico que programa la cirugia',
@@ -97,7 +102,7 @@ class programarCirugiaForm extends BaseAgendaForm
 		'hora'          => 'Hora inicial',
 		'tipo_proc_id'  => 'Tipo de programación',
 		'programacion'  => 'Programación',
-		'tiempo_est'    => 'Hora final',
+		'tiempo_est'    => 'Tiempo estimado',
 		'riesgo_qx_pre' => 'Riesgo quirurgico:',
 		'req_insumos'   => 'Insumos indispensables:',
 		'req_anestesico'  => 'Requerimientos de Anestesiología:', 

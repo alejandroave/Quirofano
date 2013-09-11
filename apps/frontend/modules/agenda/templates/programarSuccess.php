@@ -38,11 +38,18 @@
 <script type="text/javascript">
         $(document).ready(function(){
             // find the input fields and apply the time select to them.
-            $('#datahora').ptTimeSelect();
-	    $('#datahoraest').ptTimeSelect();
-
+            $("#datahora").ptTimeSelect();
         });
 </script>
+
+<script type="text/javascript">
+$(function()
+{
+            $("#tiest").timepicker({ 'timeFormat': 'H:i:s' });
+});
+</script>
+
+
 <!-- Para poner reloj-->
 
 <div class="menubar">

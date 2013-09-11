@@ -86,7 +86,19 @@ CREATE TABLE `hc_agenda`
     `cancelada` TINYINT(1) DEFAULT 0,
     `created_at` DATETIME,
     `updated_at` DATETIME,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    INDEX `FI_nda_sala` (`sala_id`),
+    INDEX `FI_nda_quirofano` (`quirofano_id`),
+    CONSTRAINT `agenda_sala`
+        FOREIGN KEY (`sala_id`)
+        REFERENCES `siga_sala` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+    CONSTRAINT `agenda_quirofano`
+        FOREIGN KEY (`quirofano_id`)
+        REFERENCES `siga_quirofano` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------

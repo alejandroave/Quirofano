@@ -55,6 +55,14 @@
   <script type="text/javascript" src="/js/global/datepickerPreferences.js"></script>
   <!-- <script type="text/javascript" src="/js/global/seekAttention.jquery.js"></script>   <!-- plugin para llamar la atencion de areas -->
 
+  <script type="text/javascript" src="/js/global/jquery.timepicker.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/global/jquery.timepicker.css" />
+
+
+
+
+
   <!-- Estas lineas se deben agregar a cada modulo que realmente requiera usar las funciones de colapsado de cajas   -->
   <!-- <script type="text/javascript" src="/js/jquery.elastic-1.6.1.js"></script>     <!-- textarea elasticas -->
   <!-- <script type="text/javascript" src="/js/toggleTextarea.js"></script>           <!-- Ocultar textarea de los campos -->
