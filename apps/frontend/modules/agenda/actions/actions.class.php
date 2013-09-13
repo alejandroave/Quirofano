@@ -138,6 +138,36 @@ public function executeInspeccionar(sfWebRequest $request)
       ->endUse()
       ->find();	
 }
+ public function executeDiferidas(sfWebRequest $request)
+  {
+    $this->Quirofano = QuirofanoQuery::create()->findOneBySlug($request->getParameter('slug'));
+    //$maxDate = array('max' => strtotime('today'));
+    $this->cirugias = AgendaQuery::create()
+      ->filterByquirofanoid($this->Quirofano->getid())
+      //->filterByProgramadas()
+      //->filterByArea($this->Quirofano)
+      ->filterByquirofanoid($this->Quirofano->getid())
+      //->filterByShowInIndex(0)
+      //->filterByStatus(-50)
+      //->orderByStatus('Desc')
+      //->orderByDefault()
+      ->joinsAgenda()
+      ->find();
 
+    $this->forward404Unless($this->cirugias);
+  }
+
+public function executeDiferir(sfWebRequest $request)
+  {
+    $this->cirugia = AgendaQuery::create()->joinWith('Quirofano')->findPk($request->getParameter('id'));
+    $this->form = New diferirCirugiaForm($this->cirugia);
+    if ($request->getMethod() == 'POST') {
+      $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+      if ($this->form->isValid()) {
+        $agenda = $this->form->save();
+        $this->redirect('agenda/show?slug='.$agenda->getQuirofano()->getSlug());
+      }
+    }
+  }
 
 }

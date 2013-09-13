@@ -1,0 +1,8 @@
+##principales cosas que hacer##
+
+->Diferisación.
+->Reprogramar.
+->Agenda normal.
+->Agenda del día.
+->Datos del usuario.
+->test's todo lo anterior.

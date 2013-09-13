@@ -1,5 +1,5 @@
 <?php
-require_once '../lib/vendor/lessphp/lessc.inc.php';
+require_once dirname(__FILE__).'/../lib/vendor/lessphp/lessc.inc.php';
 
 require_once dirname(__FILE__).'/../SYM/symfony/lib/autoload/sfCoreAutoload.class.php';
 sfCoreAutoload::register();
