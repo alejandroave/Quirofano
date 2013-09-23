@@ -1,0 +1,23 @@
+<html>
+<style>
+/* Mientras podemos hacer botones con jQueryUI usamos css */
+
+.menubar a {
+  background: white;
+  border: 1px solid black;
+  color: blue;
+  margin: 0 0 3px 0;
+  padding: 2px 4px;
+  text-decoration: none;
+}
+
+.menubar a:hover {
+  background: lightgray;
+}
+</style>
+
+<div class="formulario clearfix">
+<h1 style="color:#FFFFFF;">Registrar Sala</h1>
+<?php include_partial('registrosalasForm', array('form' => $form)) ?>
+</div>
+</html>

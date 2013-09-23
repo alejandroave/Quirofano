@@ -168,7 +168,7 @@
     height: 20px !important;
     width: 20px !important;
   }
-  #agenda  .preoperacion {
+  #agenda  .button {
     background-image: url('/images/tipos de cirugía.png') !important;
     background-position: 0px -120px;
     display: inline-block !important;

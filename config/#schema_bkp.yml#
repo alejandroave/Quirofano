@@ -1,0 +1,3337 @@
+# Archivo de configuracion de la base de datos del proyecto Sistema Integral de
+# Gestion Administrativa  (SIGA)
+# Cada tabla esta comentada en su funcion
+
+propel:
+#-------------------------------------------------------------------------------
+# Tablas con prefijo SIGA_
+#   Son tablas que pertenecen a la categoria de administracion del sistema,
+#   sus valores son parte del sistema de configuracion de la aplicacion
+#-------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------
+# Esta tabla se elimina por la tabla sfGuardUserProfile
+# ------------------------------------------------------------------------------------
+# Tabla que guarda un identificador unico para cada usuario del Sistema de Gestion
+#  siga_usuario:
+#    _attributes:        { phpName: User, package: lib.model.config }
+#    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+#    login:              { type: varchar(30), required: true }
+#    password:           { type: varchar(30), required: true }
+#    preferencias:       { type: longvarchar }
+#    credenciales:       { type: longvarchar }
+#    created_at:
+#    updated_at:
+# ------------------------------------------------------------------------------------
+
+# Categorias de los usuarios de la aplicacion, ej. Medico, Residente, Estudiante
+# Enfermera, Administrativo, etc
+  siga_categoria:
+    _attributes:        { phpName: Categoria, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(70), required: true }
+    nivel:              { type: integer, required: true }
+    created_at:
+
+# Nombre de los departamentos del hospital
+# ESTA TABLA VA A DESAPARECER EN FAVOR DE LA TABLA ORGANIZACION POR DEPARTAMENTOS Y SERVICIOS
+  siga_departamento:
+    _attributes:        { phpName: Departamento, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(70), required: true }
+    asistencia:         { type: boolean }
+    docencia:           { type: boolean }
+    investigacion:      { type: boolean }
+    activo:             { type: boolean, default: true }
+    created_at:
+
+# Nombre de los diferentes servicios integrados a un departamento y a un piso
+# con un numero de identificacion unico
+# ESTA TABLA VA A DESAPARECER EN FAVOR DE LA TABLA ORGANIZACION POR DEPARTAMENTOS Y SERVICIOS
+  siga_servicio:
+    _attributes:        { phpName: Servicio, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    departamento_id:    { type: integer }
+    piso_id:            { type: integer }
+    nombre:             { type: varchar(70), required: true }
+    created_at:
+    _foreignKeys:
+      servicio_departamento:
+        foreignTable: siga_departamento
+        onDelete:     setnull
+        references:
+          - { local: departamento_id, foreign: id }
+      servicio_piso:
+        foreignTable: siga_piso
+        onDelete:     setnull
+        references:
+          - { local: piso_id, foreign: id }
+
+# Especialidades medicas - Esquema anidado que almacena las especialidades troncales y ademas las
+# subespecialidades
+  siga_especialidad:
+    _attributes:        { phpName: Especialidad, package: lib.model.config }
+    id:                 ~
+    nombre:             { type: varchar, size: 64 }
+    medica:             { type: boolean, default: true }
+    quirurgica:         { type: boolean, default: true }
+    activo:             { type: boolean, default: true }
+    created_at:
+    _propel_behaviors:
+      nested_set:       { use_scope: true }
+
+# Entidades - Tabla que almacena las relaciones entre las areas fisicas, las especialidades y los
+# diferentes departamentos y servicios.
+  siga_entidad:
+    _attributes:        { phpName: Entidad, package: lib.model.config }
+    id:
+    organizacion_id:    { type: integer, foreignTable: siga_organizacion, foreignReference: id, onUpdate: cascade, required: true }
+    ubicacion_id:       { type: integer, foreignTable: siga_ubicacion, foreignReference: id, onUpdate: cascade, required: true }
+    especialidad_id:    { type: integer, foreignTable: siga_especialidad, foreignReference: id, onUpdate: cascade, required: true }
+    nombre:             { type: varchar, size: 256 }
+    activo:             { type: boolean, default: true }
+    created_at:
+
+# Locaciones dentro del hospital, pueden ser cualquier lugar que exista realmente dentro de
+# las instalaciones del hospital o área médica
+  siga_ubicacion:
+    _attributes:        { phpName: Ubicacion, package: lib.model.config }
+    id:
+    nombre:             { type: varchar, size: 64 }
+    corto:              { type: varchar, size: 32 }
+    desc:               { type: varchar, size: 128 }
+    clave:              { type: varchar, size: 8 }
+    activo:             { type: boolean, default: true }
+    tipo:               { type: enum, valueSet: "Edificio, Piso, Sala, Area, Cuarto, Oficina" }
+    genero:             { type: enum, valueSet: "Mixto, Femenino, Masculino, Niños, Privado" }
+    uso:                { type: array }
+    created_at:
+    _propel_behaviors:
+      nested_set:       { use_scope: true }
+
+# Organizacion Administrativa del hospital y sus diferentes departamentos, servicios y areas
+  siga_organizacion:
+    _attributes:        { phpName: Organizacion, package: lib.model.config }
+    id:                 ~
+    nombre:             { type: varchar, size: 64 }
+    jefe:               { type: varchar, size: 128 }
+    clave:              { type: varchar, size: 8 }
+    activo:             { type: boolean, default: true }
+    tipo:               { type: enum, valueSet: "Departamento, Servicio, Consulta, Jefatura, Unidad, Centro, Clinica" }
+    created_at:
+    _propel_behaviors:
+      nested_set:       { use_scope: true }
+
+# Diferentes areas fisicas de ubicacion en el HU, ej. Sótano, Planta baja,
+# Segundo piso, etc
+# ESTA TABLA VA A DESAPARECER EN FAVOR DE LA TABLA ORGANIZACION POR DEPARTAMENTOS Y SERVICIOS
+  siga_piso:
+    _attributes:        { phpName: Piso, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(70), required: true }
+    created_at:
+
+# Cuartos en los que se asignan los pacientes, deben estar en algun area fisica
+# del HU, ej. piso
+# ESTA TABLA VA A DESAPARECER EN FAVOR DE LA TABLA ORGANIZACION POR DEPARTAMENTOS Y SERVICIOS
+  siga_cuarto:
+    _attributes:        { phpName: Cuarto, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    numero:             { type: varchar(15), required: true }
+    piso_id:            { type: integer }
+    activo:             { type: boolean }
+    created_at:
+    _foreignKeys:
+      cuarto_piso:
+        foreignTable:   siga_piso
+        onDelete:       setnull
+        references:
+          - { local: piso_id, foreign: id }
+
+# Catalogo de camas o lugares donde puede estar un paciente internado
+  siga_cama:
+    _attributes:        { phpName: Cama, package: lib.model.config }
+    id:
+    nombre:             { type: varchar(16), required: true }
+    organizacion_id:    { type: integer, foreignTable: siga_organizacion, foreignReference: id, onUpdate: cascade, required: true }
+    ubicacion_id:       { type: integer, foreignTable: siga_ubicacion, foreignReference: id, onUpdate: cascade, required: true }
+    camafisica_id:      { type: integer }
+    posicion:           { type: integer }
+    statuscama_id:
+    activo:             { type: boolean, default: true }
+    auto_nombre:        { type: boolean, default: true }
+    causa_baja:         { type: longvarchar }
+    created_at:
+    updated_at:
+
+
+# Catalogo de camas fisicas dentro del inventario del hospital
+  siga_camafisica:
+    _attributes:        { phpName: Camafisica, package: lib.model.config }
+    id:
+    nombre:             { type: varchar(10), required: true }
+    activo:             { type: boolean, default: true }
+    created_at:
+    updated_at:
+
+# Roles que desempeñan los usuarios del expediente.
+  siga_personal:
+    _attributes:        { phpName: Personal, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(70), required: true }
+    nivel:              { type: integer, required: false }
+    descripcion:        { type: longvarchar, required: false }
+    updated_at:
+
+# Posibles Estados de las camas. P. ej. Libre, Ocupada, Sucia
+  siga_status_cama:
+    _attributes:        { phpName: Statuscama, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    status:             { type: varchar(25), required: true }
+    updated_at:
+
+# Representa las camas fisicamente, como piezas que pueden estar activas o
+# inactivas, en reparacion o sin usar
+  siga_inventario_cama:
+    _attributes:        { phpName: Invcama, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(25), required: true }
+    activa:             { type: boolean, required: false }
+    comentario:         { type: longvarchar, required: false }
+    created_at:
+
+# Lista de proveedores (en desarrollo)
+  siga_proveedor:
+    _attributes:        { phpName: Proveedor, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(50), required: true }
+    giro:               { type: varchar(50), required: false }
+    rubro:              { type: varchar(50), required: false }
+    rfc:                { type: varchar(30), required: true }
+    created_at:
+
+# Permite controlar el inventario de productos
+  siga_inventario:
+    _attributes:        { phpName: Inventario, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    tipo:               { type: integer, required: false }
+    codigo:             { type: varchar(20), required: true }
+    existencia:         { type: integer, required: true, default: 0 }
+    nombre:             { type: varchar(100), required: true }
+    descripcion:        { type: longvarchar, required: false }
+    precio:             { type: decimal, required: true }
+    proveedor_id:       { type: integer }
+    created_at:
+    updated_at:
+    _foreignKeys:
+      inventario_proveedor:
+        foreignTable:   siga_proveedor
+        onDelete:       setnull
+        references:
+          - { local: proveedor_id, foreign: id }
+
+#siga_cuadro basico:
+  siga_cuadrobasico:
+    _attributes:        { phpName: Cbasico, package: lib.model.config }
+    clave:              { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(70), required: true }
+    grupoter:           { type: varchar(30), required: true }
+    descripcion:        { type: longvarchar, required: false }
+    dosis:              { type: varchar(30), required: true }
+    presentacion:       { type: varchar(50), required: true }
+    niveluso:           { type: varchar(50), required: true }
+    created_at:
+    updated_at:
+
+# Entidad federativa a la que pertenece el paciente
+  siga_estados:
+    _attributes:        { phpName: Estado, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(50), required: true }
+    created_at:
+
+# Tabla que contiene los Codigos Postales de las colonias
+  siga_cp:
+    _attributes:        { phpName: Codpost, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    asentamiento:       { type: varchar(50), required: false }
+    municipio:          { type: varchar(50), required: true }
+    estado_id:          { type: integer }
+    colonia:            { type: varchar(100), required: false }
+    cp:                 { type: varchar(10), required: true }
+    updated_at:
+    _foreignKeys:
+      cp_estado:
+        foreignTable:   siga_estados
+        onDelete:       cascade
+        references:
+          - { local: estado_id, foreign: id }
+
+# Claves de diagnostico del CIE 10
+# Almacena las claves de diagnistico y sus descripciones
+  siga_clave:
+    _attributes:        { phpName: Cie10, package: lib.model.config }
+    clave:              { type: varchar(8), required: true, primaryKey: true }
+    descripcion:        { type: longvarchar, required: true }
+    created_at:
+    updated_at:
+
+# Claves de procedimientos del CIE9mc
+# Almacena las claves de procedimientos y sus descripciones
+  siga_cie9mc:
+    _attributes:        { phpName: Cie09mc, package: lib.model.config }
+    clave:              { type: varchar(8), required: true, primaryKey: true }
+    descripcion:        { type: longvarchar, required: true }
+    created_at:
+    updated_at:
+
+# Tabla que guarda los archivos de ayuda de cada formulario relacionado
+  siga_edocivil:
+    _attributes:        { phpName: Edocivil, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(30), required: true }
+    updated_at:
+
+# Tabla que guarda los archivos de ayuda de cada formulario relacionado
+  siga_escolaridad:
+    _attributes:        { phpName: Escolaridad, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(30), required: true }
+    updated_at:
+
+# Tabla que guarda los archivos de ayuda de cada formulario relacionado
+  siga_religion:
+    _attributes:        { phpName: Religion, package: lib.model.config }
+Call to undefined method: getVerboseStatus
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(50), required: true }
+    updated_at:
+
+# Tabla que guarda el genero de los pacientes
+  siga_sexo:
+    _attributes:        { phpName: Sexo, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(30), required: true }
+    updated_at:
+
+# Tabla de informantes
+  siga_informante:
+    _attributes:        { phpName: Informante, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(60), required: true }
+    updated_at:
+
+#  Tipos de acciones realizadas en cada internamiento
+  siga_tipoaccion:
+    _attributes:        { phpName: Tipoaccion, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(60), required: true }
+    updated_at:
+
+# Tabla que guarda los formularios XUL asi como su codigo JS y los parametros
+# CSS especificos, cada ID relaciona con un archivo de ayuda
+  siga_xulforms:
+    _attributes:        { phpName: Xulform, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    xulcode:            { type: longvarchar, required: false }
+    jscode:             { type: longvarchar, required: false }
+    csscode:            { type: longvarchar, required: false }
+    created_at:
+    updated_at:
+
+# Tabla que guarda los archivos de ayuda de cada formulario relacionado
+  siga_helpfiles:
+    _attributes:        { phpName: Helpfile, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    help:               { type: longvarchar, required: true }
+    css:                { type: longvarchar, required: false }
+    js:                 { type: longvarchar, required: false }
+    created_at:
+    updated_at:
+
+# Tabla de Opciones
+  siga_opciones:
+    _attributes:        { phpName: Opcion, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    on_screen_keyboard: { type: boolean}
+    use_touch_screen:   { type: boolean}
+    updated_at:
+
+# Indicaciones Medicas disponibles para cada paciente, se dividen en 8 rubros manejado
+# cada area de influencia
+  siga_tarea:
+    _attributes:        { phpName: Ofertaindicaciones, package: lib.model.config }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    tipo:               { type: integer }
+    user_id:            { type: integer }
+    nombre:             { type: varchar, size: 128, required: true }
+    dosis:              { type: boolean }
+    via:                { type: boolean }
+    periodico:          { type: boolean }
+    programable:        { type: boolean }
+    descripcion:        { type: boolean }
+    rastreable:         { type: boolean }
+    activo:             { type: boolean }
+    json_string:        { type: longvarchar }
+    created_at:
+    updated_at:
+    via_admin:          { type: integer }
+    _foreignKeys:
+      usuario_oferta:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+
+#Tablas que guardan los diferentes tipos de clasificacion en las cirugias
+  siga_riesgoqx:
+    _attributes:          { phpName: Riesgoqx, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true }
+    descripcion:          { type: longvarchar }
+    activo:               { type: boolean, default: true }
+
+  siga_contaminacionqx:
+    _attributes:          { phpName: Contaminacionqx, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true }
+    descripcion:          { type: longvarchar }
+    activo:               { type: boolean, default: true }
+
+  siga_eventoqx:
+    _attributes:          { phpName: Eventoqx, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true }
+    descripcion:          { type: longvarchar }
+    activo:               { type: boolean, default: true }
+
+# tipos de procedimiento quirurgico
+  siga_procedimiento:
+    _attributes:          { phpName: Procedimiento, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true }
+    activo:               { type: boolean, default: true }
+    created_at:
+    updated_at:
+
+# Causas por las que se difiere la cx
+  siga_causa_diferido:
+    _attributes:          { phpName: Causadiferido, package: lib.model.config }
+    _propel_behaviors:
+      nested_set:         { use_scope: true }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    codigo:               { type: varchar(5), required: true }
+    nombre:               { type: varchar(128), required: true }
+    activo:               { type: boolean, default: true }
+    created_at:
+    updated_at:
+
+# tipos de procedimiento quirurgico
+  siga_atencion:
+    _attributes:          { phpName: Atencion, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true }
+    activo:               { type: boolean, default: true }
+    created_at:
+    updated_at:
+
+#Tablas que guardan informacion de los quirofanos y salas
+  siga_quirofano:
+    _attributes:          { phpName: Quirofano, package: lib.model.config }
+    _propel_behaviors:
+      sluggable:
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true, primaryString: true }
+    activo:               { type: boolean, default: true }
+    ambulatorio:          { type: boolean }
+    permisos:             { type: object }
+    created_at:
+    updated_at:
+
+  siga_sala:
+    _attributes:          { phpName: Salaquirurgica, package: lib.model.config }
+    _propel_behaviors:
+      sluggable:
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true, primaryString: true }
+    activo:               { type: boolean }
+    bloqueado:            { type: boolean }
+    quirofano_id:         { type: integer }
+    activo:               { type: boolean, default: true }
+    permisos:             { type: object }
+    created_at:
+    updated_at:
+    _foreignKeys:
+      sala_quirofano:
+        foreignTable:     siga_quirofano
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: quirofano_id, foreign: id }
+
+#Tabla que guarda informacion acerca del tipo de anestecia
+  siga_tipo_anestesia:
+    _attributes:          { phpName: Anestesia, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true }
+    activo:               { type: boolean, default: true }
+    created_at:
+    updated_at:
+
+#Tabla que guarda los turnos laborales
+  siga_turno:
+    _attributes:          { phpName: Turno, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true }
+    created_at:
+    updated_at:
+
+# Tabla que almacena marcas de tiempo para diversos eventos del sistema
+  siga_timestamp:
+    _attributes:          { phpName: Timestamp, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar, size: 64, required: true }
+    descripcion:          { type: varchar, size: 512, required: true }
+    hash:                 { type: varchar, size: 32, required: true }
+    updated_at:           ~
+
+# Tabla para almacenar la sustancia activa de los medicamentos
+  siga_sustancia_activa:
+    _attributes:          { phpName: Sustanciaactiva, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar, size: 64, required: true }
+    familia:              { type: varchar, size: 64, required: false }
+    hash:                 { type: varchar, size: 16 }
+    activo:               { type: boolean, default: true }
+
+# Tabla que almacena las presentaciones de los medicamentos
+  siga_presentacion:
+    _attributes:          { phpName: Medicamento, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    descripcion:          { type: varchar, size: 256, required: true }
+    presentacion:         { type: varchar, size: 32, required: true }
+    demanda:              { type: integer, required: true, default: 0 }
+    precio:               { type: decimal, required: false }
+    volumen:              { type: integer }
+    grupo:                { type: integer, required: true, default: 1 }
+    alto_riesgo:          { type: boolean, default: false }
+    desecho:              { type: integer, required: false, default: 1 }
+    alto_valor:           { type: boolean, default: false }
+
+# Relacion sustancias activas contra presentaciones
+  siga_sustancia_presentacion:
+    _attributes:          { phpName: Presentacionmedicamento, isCrossRef: true, package: lib.model.config }
+    sustanciaactiva_id:   ~
+    medicamento_id:       ~
+    conc:                 { type: integer }
+    unidad_conc:          { type: varchar, size: 16 }
+
+# Tabla con el catalogo de estudios de laboratorio realizables en el hospital
+  siga_estudios:
+    _attributes:          { phpName: Estudio, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar, size: 64, required: true }
+    uso_clinico:          { type: longvarchar }
+    tiempo_respuesta:     { type: longvarchar }
+    metodologia:          { type: longvarchar }
+    laboratorio:          { type: longvarchar }
+
+# Tabla con las plantillas para los reportes de los formularios
+  siga_templates:
+    _attributes:          { phpName: Template, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    codigo:               { type: varchar, size: 64, required: true }
+    version:              { type: varchar, size: 8, required: true }
+    template:             { type: longvarchar, required: true }
+    formulario:           { type: varchar, size: 128 }
+    created_at:           ~
+    updated_at:           ~
+
+#-------------------------------------------------------------------------------
+# Tablas con prefijo PX_
+#   Son tablas que contienen la informacion general de los pacientes, asi como
+# los eventos generados por su estancia en el Hospital
+#-------------------------------------------------------------------------------
+
+# Cama del paciente, es una cama dentro del bloque de camas fisicas activas que
+# esta ocupada por un paciente
+  px_movimiento:
+    _attributes:        { phpName: Movimiento, package: lib.model.admin }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer, foreignTable: px_evento, foreignReference: id, onUpdate: cascade, required: true }
+    organizacion_id:    { type: integer, foreignTable: siga_organizacion, foreignReference: id, onUpdate: cascade, required: true }
+    cama_id:            { type: integer }
+    f_entrada:          { type: timestamp }
+    f_salida:           { type: timestamp }
+    activo:             { type: boolean, default: true }
+    created_at:
+    updated_at:
+
+# Datos del paciente que permanecen constantes y que nos permiten reconocerlo
+# entre una visita y otra
+  px_paciente:
+    _attributes:        { phpName: Paciente, package: lib.model.admin }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(70), required: true }
+    app:                { type: varchar(70), required: true }
+    apm:                { type: varchar(70), required: false }
+    registro:           { type: varchar(10), required: true, index: unique }
+    edad:               { type: bu_date }
+    curp:               { type: varchar(25), required: false }
+    ocupacion:          { type: varchar(50), required: false }
+    telmovil:           { type: varchar(20), required: false }
+    teltrabajo:         { type: varchar(20), required: false }
+    edocivil_id:        { type: integer }
+    sexo_id:            { type: integer }
+    calle:              { type: varchar(50), required: false }
+    numero:             { type: varchar(8), required: false }
+    telparticular:      { type: varchar(20), required: false }
+    teladicional:       { type: varchar(20), required: false }
+    codpost_id:         { type: integer }
+    colonia:            { type: varchar(70), required: false }
+    estado:             { type: varchar(50), required: false }
+    relacion:           { type: varchar(50), required: false }
+  # marca si el px esta en el hu
+    ingreso:            { type: boolean, required: false }
+  # Marca el estado del paciente
+    fallecido:          { type: boolean, required: false }
+    fechamuerte:        { type: timestamp, required: false }
+    causamuerte:        { type: longvarchar, required: false }
+    seguridad:          { type: object }
+    created_at:
+    updated_at:
+    _foreignKeys:
+      paciente_edocivil:
+        foreignTable:   siga_edocivil
+        references:
+          - { local: edocivil_id, foreign: id }
+      paciente_sexo:
+        foreignTable:   siga_sexo
+        references:
+          - { local: sexo_id, foreign: id }
+      paciente_codpost:
+        foreignTable:   siga_cp
+        references:
+          - { local: codpost_id, foreign: id }
+    _indexes:
+      paciente_index:   [nombre, app, apm, registro]
+
+# Direcciones de los pacientes, permite agregar varias direcciones
+  px_direccion:
+    _attributes:        { phpName: Direccion, package: lib.model.admin }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    paciente_id:        { type: integer, required: true }
+    calle:              { type: varchar(50), required: false }
+    numero:             { type: varchar(8), required: false }
+    colonia:            { type: varchar(64), required: false }
+    estado:             { type: varchar(64), required: false }
+    telparticular:      { type: varchar(20), required: false }
+    teladicional:       { type: varchar(20), required: false }
+    actual:             { type: boolean, default: false }
+    codpost_id:         { type: integer }
+    created_at:
+    _foreignKeys:
+       direccion_paciente:
+         foreignTable:   px_paciente
+         onDelete:       cascade
+         references:
+           - { local: paciente_id, foreign: id }
+
+
+# Datos del ingreso del paciente
+  px_evento:
+    _attributes:        { phpName: Evento, package: lib.model.admin }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    fechaingreso:       { type: timestamp, required: true }
+    causa:              { type: varchar(150), required: false }
+    cvemot:             { type: integer, required: false }
+    juridico:           { type: boolean, required: false }
+    referido:           { type: integer, required: false }
+    ingresa:            { type: integer, required: false }
+    arribo:             { type: integer, required: false }
+    informante:         { type: varchar(150), required: false }
+    responsable:        { type: varchar(150), required: false }
+    nota:               { type: longvarchar, required: false }
+    cvesec:             { type: varchar(64), required: false }
+    fechaegreso:        { type: date, required: false }
+    altapor:            { type: integer, required: false }
+    pasaa:              { type: integer, required: false }
+    notaegreso:         { type: boolean, required: false, default: false }
+  # Si el paciente aun esta ingresado
+    activa:             { type: boolean, required: false }
+  # Si ya esta liberada la cuenta
+    pagado:             { type: boolean, required: false }
+    costo:              { type: varchar(16), required: false }
+    propiedades:        { type: longvarchar, required: false }
+  # contiene el objeto de id del paciente
+    idtag:              { type: longvarchar, required: false }
+    cie10_id:           { type: varchar(8) }
+    modalidad:          { type: varchar(40) }
+    cama_id:            { type: integer }
+    paciente_id:        { type: integer, required: false }
+    movimiento_activo:  { type: integer }
+    created_at:
+    updated_at:
+    _foreignKeys:
+      admision_clave:
+        foreignTable:   siga_clave
+        onDelete:       setnull
+        onUpdate:       cascade
+        references:
+          - { local: cie10_id, foreign: clave }
+      #admision_cama:
+      #  foreignTable:   px_cama
+      #  onDelete:       setnull
+      #  references:
+      #    - { local: cama_id, foreign: id }
+      admision_paciente:
+        foreignTable:   px_paciente
+        onDelete:       cascade
+        references:
+          - { local: paciente_id, foreign: id }
+
+  px_evento_responsable:
+    _attributes:          { phpName: Eventoresponsable, package: lib.model.admin }
+    evento_id:            { type: integer }
+    usuario_id:           { type: integer }
+    created_at:
+    updated_at:
+    _foreignKeys:
+      evento:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      responsable:
+        foreignTable:   sf_guard_user
+        onDelete:       cascade
+        references:
+          - { local: usuario_id, foreign: id }
+
+
+# Antecedentes Globales del Paciente
+  px_antecedentes:
+    _attributes:        { phpName: Antecedente, package: lib.model.admin }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    paciente_id:        { type: integer }
+    seccion:            { type: varchar(64), required: false }
+    valor:              { type: longvarchar, required: false }
+    activa:             { type: boolean, required: false }
+    created_at:
+    updated_at:
+    _foreignKeys:
+      antecedente_paciente:
+        foreignTable:   px_paciente
+        onDelete:       cascade
+        references:
+          - { local: paciente_id, foreign: id }
+
+# Detalles sobre la cuenta del paciente, se maneja una por ingreso
+  px_cuenta:
+    _attributes:        { phpName: Cuenta, package: lib.model.admin }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    cargo:              { type: varchar(50), required: true }
+    descripcion:        { type: longvarchar, required: false }
+    precio:             { type: decimal, required: true, default: 1 }
+    descuento:          { type: decimal, required: false }
+    evento_id:          { type: integer }
+    created_at:
+    _foreignKeys:
+      cuenta_evento:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+
+# Productos que se van consumiendo en la atencion de un paciente y que son
+# cargados a su cuenta
+  px_consumible:
+    _attributes:        { phpName: Consumible, package: lib.model.admin }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(50), required: true }
+    cantidad:           { type: integer, required: false }
+
+# Changelog - tabla que lamacena los cambios en las versiones del expediente
+  dev_changelog:
+    _attributes:        { phpName: Changelog, package: lib.model.developer }
+    version:            { type: varchar(64), required: true, primaryKey: true }
+    nombre:             { type: varchar(64), required: false }
+    desc:               { type: longvarchar, required: false }
+    stable:             { type: boolean, required: false }
+    fecha:              { type: timestamp, required: false }
+
+# Comentarios - Tabla para alojar los comentarios al diseño de la aplicacion
+  dev_comentarios:
+    _attributes:        { phpName: Comentario, package: lib.model.developer }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    user:               { type: varchar(256) }
+    user_id:            { type: integer }
+    url:                { type: varchar(64), required: false }
+    # para borrar
+    fullurl:            { type: varchar(256), required: false }
+    text:               { type: longvarchar, required: false }
+    respuesta:          { type: longvarchar, required: false }
+    #paraborrar
+    extra:              { type: longvarchar, required: false }
+    estado:             { type: integer, required: false }
+    clase:              { type: integer, required: false }
+    contestado:         { type: boolean }
+    created_at:
+    updated_at:
+
+#-------------------------------------------------------------------------------
+# Tablas con prefijo HC_
+#   Son tablas que contienen la informacion general de los pacientes, asi como
+# los eventos generados por su estancia en el Hospital
+#-------------------------------------------------------------------------------
+
+# Diferentes acciones que pueden ocurrir durante un internamiento, se guardan
+# para poder ubicarlos mas rapidamente en el visor de eventos por paciente
+  hc_accionesinternamiento:
+    _attributes:        { phpName: Accion, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(100), required: true }
+    modulo:             { type: varchar(50), required: false }
+    action:             { type: varchar(50), required: false }
+    situacion:          { type: integer, required: false }
+    orden:              { type: integer, required: false }
+    tipoaccion_id:      { type: integer }
+    evento_id:          { type: integer }
+    tipo_doc:           { type: varchar(32), default: "Reporte General" }
+    clase:              { type: varchar(64) }
+    medico:             { type: varchar(128), default: "No Especificado" }
+    servicio:           { type: varchar(32), default: "No Especificado" }
+    created_at:
+    _foreignKeys:
+      acciones_tipo:
+        foreignTable:   siga_tipoaccion
+        onDelete:       setnull
+        references:
+          - { local: tipoaccion_id, foreign: id }
+      acciones_evento:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+    _indexes:
+      accionesint_index:    [nombre]
+      tipoaccion_index:     [tipoaccion_id]
+
+# Guarda los tipos de historia clinica, con todos sus modulos
+  hc_tipos:
+    _attributes:        { phpName: Tipo, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:             { type: varchar(50), required: true }
+    departamento_id:
+    clave:              { type: varchar(50), required: false }
+    modulos:            { type: longvarchar, required: true }
+    activa:             { type: boolean, default: true }
+
+#hc_historia: Tabla Contenedora de la Historia Clinica, todos los apartados posteriores a ella la refieren
+  hc_historia:
+    _attributes:        { phpName: Historia, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    creador:            { type: varchar(150), required: true }
+    descripcion:        { type: varchar(255), required: false }
+    anotaciones:        { type: longvarchar, required: false }
+    condensado:         { type: longvarchar, required: false }
+    status:             { type: varchar(50), required: true }
+    modulo:             { type: varchar(50), required: false }
+    evento_id:          { type: integer, required: true }
+    user_id:            { type: integer, required: true }
+    tipo_id:            { type: integer, required: true }
+    informante_id:      { type: integer }
+    created_at:
+    updated_at:
+    _foreignKeys:
+      historia_evento:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      historia_usuario:
+        foreignTable:   sf_guard_user
+        onDelete:       cascade
+        references:
+          - { local: user_id, foreign: id }
+      historia_tipo:
+        foreignTable:   hc_tipos
+        onDelete:       restrict
+        references:
+          - { local: tipo_id, foreign: id }
+      historia_informante:
+        foreignTable:   siga_informante
+        onDelete:       setnull
+        references:
+          - { local: informante_id, foreign: id }
+
+# Historia Clinica - Agregados a las notas
+  hc_adendum:
+    _attributes:        { phpName: Adendum, package: lib.model.adendum }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    user_id:            { type: integer, required: true }
+#    type:
+#      inheritance:
+#        datgen:         datgenAdendum
+#        motcons:        motconsAdendum
+    tipo:               { type: varchar(16), required: true }
+    ref_id:             { type: integer, required: true }
+    campo:              { type: varchar(64) }
+    text:               { type: longvarchar }
+    created_at:
+    _foreignKeys:
+      adendum_usuario:
+        foreignTable:   sf_guard_user
+        onDelete:       cascade
+        references:
+          - { local: user_id, foreign: id }
+    _indexes:
+      adendum_index:    [tipo, ref_id]
+
+# Historia Clinica - Datos Generales
+  hc_datosgrales:
+    _attributes:        { phpName: Hcdatgen, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    lugar_nac:          { type: varchar(150) }
+    fecha_nac:          { type: bu_date }
+    oc_actual:          { type: varchar(150) }
+    oc_anterior:        { type: varchar(150) }
+    escolaridad_id:     { type: integer }
+    edocivil_id:        { type: integer }
+    fec_mat:            { type: bu_date }
+    religion_id:        { type: integer }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      datosgenerales_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+      datosgenerales_escolaridad:
+        foreignTable:   siga_escolaridad
+        references:
+          - { local: escolaridad_id, foreign: id }
+      datosgenerales_estadocivil:
+        foreignTable:   siga_edocivil
+        references:
+          - { local: edocivil_id, foreign: id }
+      datosgenerales_religion:
+        foreignTable:   siga_religion
+        references:
+          - { local: religion_id, foreign: id }
+
+# Historia Clinica - Motivo de Consulta
+  hc_motcons:
+    _attributes:        { phpName: Hcmotcon, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    motcons:            { type: longvarchar, required: true }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      motcons_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Antecedentes Familiares
+  hc_antfam:
+    _attributes:        { phpName: Hcantfam, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkdm:              { type: boolean }
+    txtdm:              { type: longvarchar }
+    chkhta:             { type: boolean }
+    txthta:             { type: longvarchar }
+    chkartritis:        { type: boolean }
+    txtartritis:        { type: longvarchar }
+    chktb:              { type: boolean }
+    txttb:              { type: longvarchar }
+    chkenfrenal:        { type: boolean }
+    txtenfrenal:        { type: longvarchar }
+    chkgota:            { type: boolean }
+    txtgota:            { type: longvarchar }
+    chkneoplasia:       { type: boolean }
+    txtneoplasia:       { type: longvarchar }
+    chksordera:         { type: boolean }
+    txtsordera:         { type: longvarchar }
+    chkanemia:          { type: boolean }
+    txtanemia:          { type: longvarchar }
+    chkacv:             { type: boolean }
+    txtacv:             { type: longvarchar }
+    chkceguera:         { type: boolean }
+    txtceguera:         { type: longvarchar }
+    chkenfcard:         { type: boolean }
+    txtenfcard:         { type: longvarchar }
+    comantfam:          { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      antfamiliares_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Antecedentes Personales Patologicos
+  hc_antperpat:
+    _attributes:        { phpName: Hcantperpat, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkparotiditis:     { type: boolean }
+    txtparotiditis:     { type: longvarchar }
+    chksarampion:       { type: boolean }
+    txtsarampion:       { type: longvarchar }
+    chkvaricela:        { type: boolean }
+    txtvaricela:        { type: longvarchar }
+    chkrubeola:         { type: boolean }
+    txtrubeola:         { type: longvarchar }
+    chkescarlatina:     { type: boolean }
+    txtescarlatina:     { type: longvarchar }
+    chkfreumatica:      { type: boolean }
+    txtfreumatica:      { type: longvarchar }
+    chkartritis:        { type: boolean }
+    txtartritis:        { type: longvarchar }
+    chkenfreumat:       { type: boolean }
+    txtenfreumat:       { type: longvarchar }
+    chkneumonia:        { type: boolean }
+    txtneumonia:        { type: longvarchar }
+    chktuberculosis:    { type: boolean }
+    txttuberculosis:    { type: longvarchar }
+    chkdm:              { type: boolean }
+    txtdm:              { type: longvarchar }
+    chkcardiopatia:     { type: boolean }
+    txtcardiopatia:     { type: longvarchar }
+    chkenfrenal:        { type: boolean }
+    txtenfrenal:        { type: longvarchar }
+    chkneoplasia:       { type: boolean }
+    txtneoplasia:       { type: longvarchar }
+    chkhta:             { type: boolean }
+    txthta:             { type: longvarchar }
+    chkictericia:       { type: boolean }
+    txtictericia:       { type: longvarchar }
+    chkhospitalizacion: { type: boolean }
+    txthospitalizacion: { type: longvarchar }
+    chktrauma:          { type: boolean }
+    txttrauma:          { type: longvarchar }
+    chktransfusion:     { type: boolean }
+    txttransfusion:     { type: longvarchar }
+    chkalergia:         { type: boolean }
+    txtalergia:         { type: longvarchar }
+    chkmedactuales:     { type: boolean }
+    txtmedactuales:     { type: longvarchar }
+    chkinmunizacion:    { type: boolean }
+    txtinmunizacion:    { type: longvarchar }
+    comentarios:        { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      antperpat_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Antecedentes Personales No Patologicos
+  hc_antpernopat:
+    _attributes:        { phpName: Hcantpernopat, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chktabaquismo:      { type: boolean }
+    txttabaquismo:      { type: longvarchar }
+    chkalcoholismo:     { type: boolean }
+    txtalcoholismo:     { type: longvarchar }
+    chkdrogas:          { type: boolean }
+    txtdrogas:          { type: longvarchar }
+    chktatuajes:        { type: boolean }
+    txttatuajes:        { type: longvarchar }
+    chkvarios:          { type: boolean }
+    txtvarios:          { type: longvarchar }
+    chkdieta:           { type: boolean }
+    txtdieta:           { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    comentarios:        { type: longvarchar }
+    created_at:
+    _foreignKeys:
+      antpernopat_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Antecedentes Ginecologicos y Obstetricos
+  hc_antgenital:
+    _attributes:        { phpName: Hcantgenital, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }:
+# Antecedentes masculinos
+    chkdescarga:        { type: boolean }
+    txtdescarga:        { type: longvarchar }
+    chklesion:          { type: boolean }
+    txtlesion:          { type: longvarchar }
+    chkenfvenerea:      { type: boolean }
+    txtenfvenerea:      { type: longvarchar }
+    chkserologia:       { type: boolean }
+    txtserologia:       { type: longvarchar }
+    chkdolortest:       { type: boolean }
+    txtdolortest:       { type: longvarchar }
+    chkmasatest:        { type: boolean }
+    txtmasatest:        { type: longvarchar }
+    chkinfertilidad:    { type: boolean }
+    txtinfertilidad:    { type: longvarchar }
+    chkdisfuncion:      { type: boolean }
+    txtdisfuncion:      { type: longvarchar }
+    chklibido:          { type: boolean }
+    txtlibido:          { type: longvarchar }
+# Antecedentes ginecologicos
+    menarquia:          { type: varchar(30) }
+    menopausia:         { type: varchar(30) }
+    upm:                { type: date }
+    ritmo:              { type: varchar(30) }
+    chksanpm:           { type: boolean }
+    txtsanpm:           { type: longvarchar }
+    chksaninm:          { type: boolean }
+    txtsaninm:          { type: longvarchar }
+    chksanpc:           { type: boolean }
+    txtsanpc:           { type: longvarchar }
+    mesnanor:           { type: boolean }
+    chkleucorrea:       { type: boolean }
+    txtleucorrea:       { type: longvarchar }
+    chkprurito:         { type: boolean }
+    txtprurito:         { type: longvarchar }
+    sangrado:           { type: varchar(30) }
+    papanicolau:        { type: date }
+    resultadop:         { type: varchar(255) }
+# Antecedentes obstetricos
+    gestas:             { type: integer }
+    partos:             { type: integer }
+    cesareas:           { type: integer }
+    abortos:            { type: integer }
+    hijosviv:           { type: integer }
+    chkpreeclamsia:     { type: boolean }
+    txtpreeclamsia:     { type: longvarchar }
+    chkecplamsia:       { type: boolean }
+    txtecplamsia:       { type: longvarchar }
+    chkobesidad:        { type: boolean }
+    txtobesidad:        { type: longvarchar }
+    chkdiabetesgest:    { type: boolean }
+    txtdiabetesgest:    { type: longvarchar }
+    chkcompemb:         { type: boolean }
+    txtcompemb:         { type: longvarchar }
+    anticoncep:         { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    comentarios:        { type: longvarchar }
+    created_at:
+    _foreignKeys:
+      antgenitales_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Antecedentes Sexuales
+  hc_antsex:
+    _attributes:        { phpName: Hcantsex, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    ivsa:               { type: varchar(25) }
+    prefsex:            { type: integer }
+    parsex:             { type: integer }
+    chkvihp:            { type: boolean }
+    fdxvih:             { type: date }
+    chkets:             { type: boolean }
+    txtets:             { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    comentarios:        { type: longvarchar }
+    created_at:
+    _foreignKeys:
+      antsex_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Principio, Evolucion y Estado Actual
+  hc_peea:
+    _attributes:        { phpName: Peea, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    peea:               { type: longvarchar }
+    drn:                { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      peea_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Datos Generales
+  hc_ipasgen:
+    _attributes:        { phpName: Ipasgeneral, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkdebilidad:       { type: boolean }
+    txtdebilidad:       { type: longvarchar }
+    chkfatiga:          { type: boolean }
+    txtfatiga:          { type: longvarchar }
+    chkdifpeso:         { type: boolean }
+    txtdifpeso:         { type: longvarchar }
+    chkapetito:         { type: boolean }
+    txtapetito:         { type: longvarchar }
+    chksueno:           { type: boolean }
+    txtsueno:           { type: longvarchar }
+    chkescalofrio:      { type: boolean }
+    txtescalofrio:      { type: longvarchar }
+    chkfiebre:          { type: boolean }
+    txtfiebre:          { type: longvarchar }
+    chksudoracion:      { type: boolean }
+    txtsudoracion:      { type: longvarchar }
+    comgen:             { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipasgen_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Piel
+  hc_ipaspiel:
+    _attributes:        { phpName: Ipaspiel, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkcolor:           { type: boolean }
+    txtcolor:           { type: longvarchar }
+    chkprurito:         { type: boolean }
+    txtprurito:         { type: longvarchar }
+    chknevos:           { type: boolean }
+    txtnevos:           { type: longvarchar }
+    chkinfeccion:       { type: boolean }
+    txtinfeccion:       { type: longvarchar }
+    chktumorbien:       { type: boolean }
+    txttumorbien:       { type: longvarchar }
+    chktumormal:        { type: boolean }
+    txttumormal:        { type: longvarchar }
+    chkdermatosis:      { type: boolean }
+    txtdermatosis:      { type: longvarchar }
+    chkdifpelo:         { type: boolean }
+    txtdifpelo:         { type: longvarchar }
+    chkdifunas:         { type: boolean }
+    txtdifunas:         { type: longvarchar }
+    comgen:             { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipaspiel_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Hematopoyetico
+  hc_ipashemato:
+    _attributes:        { phpName: Ipashemato, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkanemia:          { type: boolean }
+    txtanemia:          { type: longvarchar }
+    chksanganorm:       { type: boolean }
+    txtsanganorm:       { type: longvarchar }
+    chkadeno:           { type: boolean }
+    txtadeno:           { type: longvarchar }
+    chkequimosis:       { type: boolean }
+    txtequimosis:       { type: longvarchar }
+    comhemato:          { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipashemato_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Sistema Nervioso Central
+  hc_ipassnc:
+    _attributes:        { phpName: Ipassnc, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkcefalea:         { type: boolean }
+    txtcefalea:         { type: longvarchar }
+    chksincope:         { type: boolean }
+    txtsincope:         { type: longvarchar }
+    chkconvul:          { type: boolean }
+    txtconvul:          { type: longvarchar }
+    chkvertigo:         { type: boolean }
+    txtvertigo:         { type: longvarchar }
+    chkamaurosis:       { type: boolean }
+    txtamaurosis:       { type: longvarchar }
+    chkdiplopia:        { type: boolean }
+    txtdiplopia:        { type: longvarchar }
+    chkparalisis:       { type: boolean }
+    txtparalisis:       { type: longvarchar }
+    chkdebilidad:       { type: boolean }
+    txtdebilidad:       { type: longvarchar }
+    chktemblor:         { type: boolean }
+    txttemblor:         { type: longvarchar }
+    chkataxia:          { type: boolean }
+    txtataxia:          { type: longvarchar }
+    chkdisestesia:      { type: boolean }
+    txtdisestesia:      { type: longvarchar }
+    comsnc:             { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipassnc_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Ojos
+  hc_ipasojos:
+    _attributes:        { phpName: Ipasojos, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkvision:          { type: boolean }
+    txtvision:          { type: longvarchar }
+    chklentes:          { type: boolean }
+    txtlentes:          { type: longvarchar }
+    chkcontacto:        { type: boolean }
+    txtcontacto:        { type: longvarchar }
+    ultexamen:          { type: date }
+    chkescotoma:        { type: boolean }
+    txtescotoma:        { type: longvarchar }
+    chkdolor:           { type: boolean }
+    txtdolor:           { type: longvarchar }
+    chklagrimas:        { type: boolean }
+    txtlagrimas:        { type: longvarchar }
+    chkojorojo:         { type: boolean }
+    txtojorojo:         { type: longvarchar }
+    comojos:            { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipasojos_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Oidos
+  hc_ipasoidos:
+    _attributes:        { phpName: Ipasoidos, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chktinitus:         { type: boolean }
+    txttinitus:         { type: longvarchar }
+    chkhipoacusia:      { type: boolean }
+    txthipoacusia:      { type: longvarchar }
+    chkotros:           { type: boolean }
+    txtotros:           { type: longvarchar }
+    comoidos:           { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipasoidos_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Otorrinolaringologia
+  hc_ipasorl:
+    _attributes:        { phpName: Ipasorl, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkepistaxis:       { type: boolean }
+    txtepistaxis:       { type: longvarchar }
+    chkrinorrea:        { type: boolean }
+    txtrinorrea:        { type: longvarchar }
+    chkdescarga:        { type: boolean }
+    txtdescarga:        { type: longvarchar }
+    chksinusitis:       { type: boolean }
+    txtsinusitis:       { type: longvarchar }
+    chkfaringitis:      { type: boolean }
+    txtfaringitis:      { type: longvarchar }
+    chkdisfonia:        { type: boolean }
+    txtdisfonia:        { type: longvarchar }
+    comorl:             { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipasorl_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Odontologia
+  hc_ipasodonto:
+    _attributes: { phpName: Ipasodonto, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkcaries:          { type: boolean }
+    txtcaries:          { type: longvarchar }
+    chkpiorrea:         { type: boolean }
+    txtpiorrea:         { type: longvarchar }
+    chkdentadura:       { type: boolean }
+    txtdentadura:       { type: longvarchar }
+    comodonto:          { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipasodonto_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Glandula Mamaria
+  hc_ipasmamas:
+    _attributes:        { phpName: Ipasmamas, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkmasas:           { type: boolean }
+    txtmasas:           { type: longvarchar }
+    chksecresion:       { type: boolean }
+    txtsecresion:       { type: longvarchar }
+    chkdolor:           { type: boolean }
+    txtdolor:           { type: longvarchar }
+    chkcamcolor:        { type: boolean }
+    txtcamcolor:        { type: longvarchar }
+    chkinvpezon:        { type: boolean }
+    txtinvpezon:        { type: longvarchar }
+    commamas:           { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipasmamas_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Respiratorio
+  hc_ipasresp:
+    _attributes:        { phpName: Ipasresp, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    tosprod:            { type: boolean }
+    campatron:          { type: boolean }
+    cycesputo:          { type: varchar(150) }
+    duresputo:          { type: varchar(150) }
+    chkhumo:            { type: boolean }
+    txthumo:            { type: longvarchar }
+    chksibilancias:     { type: boolean }
+    txtsibilancias:     { type: longvarchar }
+    chkhemoptisis:      { type: boolean }
+    txthemoptisis:      { type: longvarchar }
+    chkinfresp:         { type: boolean }
+    txtinfresp:         { type: longvarchar }
+    chkppdp:            { type: boolean }
+    txtppdp:            { type: longvarchar }
+    chkronquido:        { type: boolean }
+    txtronquido:        { type: longvarchar }
+    chksomnolencia:     { type: boolean }
+    txtsomnolencia:     { type: longvarchar }
+    chkcefmatutina:     { type: boolean }
+    txtcefmatutina:     { type: longvarchar }
+    comresp:            { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipasresp_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Cardiovascular
+  hc_ipascv:
+    _attributes:        { phpName: Ipascv, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkdolor:           { type: boolean }
+    txtdolor:           { type: longvarchar }
+    chkangina:          { type: boolean }
+    txtangina:          { type: longvarchar }
+    chkdisneaesf:       { type: boolean }
+    txtdisneaesf:       { type: longvarchar }
+    chkdpn:             { type: boolean }
+    txtdpn:             { type: longvarchar }
+    chkedemaper:        { type: boolean }
+    txtedemaper:        { type: longvarchar }
+    chkpalp:            { type: boolean }
+    txtpalp:            { type: longvarchar }
+    chkvarices:         { type: boolean }
+    txtvarices:         { type: longvarchar }
+    chktromboflebitis:  { type: boolean }
+    txttromboflebitis:  { type: longvarchar }
+    chkclaud:           { type: boolean }
+    txtclaud:           { type: longvarchar }
+    chkfenrayna:        { type: boolean }
+    txtfenrayna:        { type: longvarchar }
+    chksincope:         { type: boolean }
+    txtsincope:         { type: longvarchar }
+    chkpresincope:      { type: boolean }
+    txtpresincope:      { type: longvarchar }
+    comcv:              { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipascv_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Gastrointestinal
+  hc_ipasgastro:
+    _attributes:        { phpName: Ipasgastro, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chknausea:          { type: boolean }
+    txtnausea:          { type: longvarchar }
+    chkvomito:          { type: boolean }
+    txtvomito:          { type: longvarchar }
+    chkdiarrea:         { type: boolean }
+    txtdiarrea:         { type: longvarchar }
+    chkconstipacion:    { type: boolean }
+    txtconstipacion:    { type: longvarchar }
+    chkmelena:          { type: boolean }
+    txtmelena:          { type: longvarchar }
+    chkhematemesis:     { type: boolean }
+    txthematemesis:     { type: longvarchar }
+    chksangrectal:      { type: boolean }
+    txtsangrectal:      { type: longvarchar }
+    chkchabintest:      { type: boolean }
+    txtchabintest:      { type: longvarchar }
+    chkhemorroides:     { type: boolean }
+    txthemorroides:     { type: longvarchar }
+    chkdisfagia:        { type: boolean }
+    txtdisfagia:        { type: longvarchar }
+    chkintaliment:      { type: boolean }
+    txtintaliment:      { type: longvarchar }
+    chkmeteorismo:      { type: boolean }
+    txtmeteorismo:      { type: longvarchar }
+    chkdispepsia:       { type: boolean }
+    txtdispepsia:       { type: longvarchar }
+    chkdolorabd:        { type: boolean }
+    txtdolorabd:        { type: longvarchar }
+    chkictericia:       { type: boolean }
+    txtictericia:       { type: longvarchar }
+    chkantiacidos:      { type: boolean }
+    txtantiacidos:      { type: longvarchar }
+    chklaxantes:        { type: boolean }
+    txtlaxantes:        { type: longvarchar }
+    comgastro:          { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipasgastro_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Tracto Urinario
+  hc_ipasturi:
+    _attributes:        { phpName: Ipasturi, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkdisuria:         { type: boolean }
+    txtdisuria:         { type: longvarchar }
+    chkhematuria:       { type: boolean }
+    txthematuria:       { type: longvarchar }
+    chkpoliuria:        { type: boolean }
+    txtpoliuria:        { type: longvarchar }
+    chkfrecuencia:      { type: boolean }
+    txtfrecuencia:      { type: longvarchar }
+    chkurgencia:        { type: boolean }
+    txturgencia:        { type: longvarchar }
+    chkretardo:         { type: boolean }
+    txtretardo:         { type: longvarchar }
+    chkincontinencia:   { type: boolean }
+    txtincontinencia:   { type: longvarchar }
+    chkurolitiasis:     { type: boolean }
+    txturolitiasis:     { type: longvarchar }
+    chknicturia:        { type: boolean }
+    txtnicturia:        { type: longvarchar }
+    chkinfeccion:       { type: boolean }
+    txtinfeccion:       { type: longvarchar }
+    chkgoteoterm:       { type: boolean }
+    txtgoteoterm:       { type: longvarchar }
+    comturi:            { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipasturi_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Sistema Musculo Esqueletico
+  hc_ipassme:
+    _attributes:        { phpName: Ipassme, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkdolorart:        { type: boolean }
+    txtdolorart:        { type: longvarchar }
+    chkedema:           { type: boolean }
+    txtedema:           { type: longvarchar }
+    chkcalor:           { type: boolean }
+    txtcalor:           { type: longvarchar }
+    chkrubor:           { type: boolean }
+    txtrubor:           { type: longvarchar }
+    chkrigidez:         { type: boolean }
+    txtrigidez:         { type: longvarchar }
+    chkdeformidad:      { type: boolean }
+    txtdeformidad:      { type: longvarchar }
+    comart:             { type: longvarchar }
+    chkmialgias:        { type: boolean }
+    txtmialgias:        { type: longvarchar }
+    comsme:             { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipassme_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Endocrinologico
+  hc_ipasendo:
+    _attributes:        { phpName: Ipasendo, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkbocio:           { type: boolean }
+    txtbocio:           { type: longvarchar }
+    chkintfrio:         { type: boolean }
+    txtintfrio:         { type: longvarchar }
+    chkintcalor:        { type: boolean }
+    txtintcalor:        { type: longvarchar }
+    chkcamvoz:          { type: boolean }
+    txtcamvoz:          { type: longvarchar }
+    chkpoliuria:        { type: boolean }
+    txtpoliuria:        { type: longvarchar }
+    chkpolidipsia:      { type: boolean }
+    txtpolidipsia:      { type: longvarchar }
+    chkpolifagia:       { type: boolean }
+    txtpolifagia:       { type: longvarchar }
+    comendo:            { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipasendo_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - IPAS Psiquiatrico
+  hc_ipaspsiq:
+    _attributes:        { phpName: Ipaspsiq, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chknerviosismo:     { type: boolean }
+    txtnerviosismo:     { type: longvarchar }
+    chkansiedad:        { type: boolean }
+    txtansiedad:        { type: longvarchar }
+    chkdepresion:       { type: boolean }
+    txtdepresion:       { type: longvarchar }
+    chkinsomnio:        { type: boolean }
+    txtinsomnio:        { type: longvarchar }
+    chkpesadillas:      { type: boolean }
+    txtpesadillas:      { type: longvarchar }
+    chkmemoria:         { type: boolean }
+    txtmemoria:         { type: longvarchar }
+    chkhipervent:       { type: boolean }
+    txthipervent:       { type: longvarchar }
+    compsiq:            { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      ipaspsiq_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Signos Vitales
+  hc_efsv:
+    _attributes:        { phpName: Efsv, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    historia_id:        { type: integer }
+    pulso:              { type: integer }
+    regular:            { type: boolean }
+    fresp:              { type: integer }
+    temperatura:        { type: decimal }
+    tempzona:           { type: decimal }
+    preart:             { type: varchar(10) }
+    presionzona:        { type: integer }
+    peso:               { type: decimal }
+    estatura:           { type: decimal }
+    imc:                { type: decimal }
+    comefsv:            { type: longvarchar }
+    habitus:            { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efsv_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: historia_id, foreign: id }
+
+# Historia Clinica - Habitus Exterior
+  hc_habext:
+    _attributes:        { phpName: Efhabext, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    historia_id:        { type: integer }
+    habitus:            { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      habitus_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Fisica Piel
+  hc_efpiel:
+    _attributes:        { phpName: Efpiel, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkturgencia:       { type: boolean }
+    txtturgencia:       { type: longvarchar }
+    chktertura:         { type: boolean }
+    txttertura:         { type: longvarchar }
+    chkpigmentacion:    { type: boolean }
+    txtpigmentacion:    { type: longvarchar }
+    chkcianosis:        { type: boolean }
+    txtcianosis:        { type: longvarchar }
+    chktelangiectasia:  { type: boolean }
+    txttelangiectasia:  { type: longvarchar }
+    chkpetequias:       { type: boolean }
+    txtpetequias:       { type: longvarchar }
+    chkpurpura:         { type: boolean }
+    txtpurpura:         { type: longvarchar }
+    chkequimosis:       { type: boolean }
+    txtequimosis:       { type: longvarchar }
+    chkinfeccion:       { type: boolean }
+    txtinfeccion:       { type: longvarchar }
+    chklesiones:        { type: boolean }
+    txtlesiones:        { type: longvarchar }
+    chkpelo:            { type: boolean }
+    txtpelo:            { type: longvarchar }
+    chkunas:            { type: boolean }
+    txtunas:            { type: longvarchar }
+    chkmucosas:         { type: boolean }
+    txtmucosas:         { type: longvarchar }
+    comefpiel:          { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efpiel_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Fisica Ganglios Linfaticos
+  hc_efganlinf:
+    _attributes:        { phpName: Efganlinf, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkcervicales:      { type: boolean }
+    txtcervicales:      { type: longvarchar }
+    chkpostaur:         { type: boolean }
+    txtpostaur:         { type: longvarchar }
+    chksupraclav:       { type: boolean }
+    txtsupraclav:       { type: longvarchar }
+    chkaxilares:        { type: boolean }
+    txtaxilares:        { type: longvarchar }
+    chksupracond:       { type: boolean }
+    txtsupracond:       { type: longvarchar }
+    chkinguinales:      { type: boolean }
+    txtinguinales:      { type: longvarchar }
+    comefganlinf:       { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efganlinf_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Fisica Cabeza y Cuello
+  hc_efcabycue:
+    _attributes:        { phpName: Efcabycue, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chktrauma:          { type: boolean }
+    txttrauma:          { type: longvarchar }
+    chkcicatrices:      { type: boolean }
+    txtcicatrices:      { type: longvarchar }
+    chkfascies:         { type: boolean }
+    txtfascies:         { type: longvarchar }
+    chktraquea:         { type: boolean }
+    txttraquea:         { type: longvarchar }
+    chktiroides:        { type: boolean }
+    txttiroides:        { type: longvarchar }
+    chkrigcuello:       { type: boolean }
+    txtrigcuello:       { type: longvarchar }
+    comefcabycue:       { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efcabycue_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Fisica Ojos
+  hc_efojos:
+    _attributes:        { phpName: Efojos, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkglandlag:        { type: boolean }
+    txtglandlag:        { type: longvarchar }
+    chkcornea:          { type: boolean }
+    txtcornea:          { type: longvarchar }
+    chkparpados:        { type: boolean }
+    txtparpados:        { type: longvarchar }
+    chkescleroticas:    { type: boolean }
+    txtescleroticas:    { type: longvarchar }
+    chkconjuntivas:     { type: boolean }
+    txtconjuntivas:     { type: longvarchar }
+    chkexoftalmos:      { type: boolean }
+    txtexoftalmos:      { type: longvarchar }
+    comefojos:          { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efojos_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Fisica Fondo de Ojo
+  hc_effojo:
+    _attributes:        { phpName: Effojo, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkdiscos:          { type: boolean }
+    txtdiscos:          { type: longvarchar }
+    chkarterias:        { type: boolean }
+    txtarterias:        { type: longvarchar }
+    chkvenas:           { type: boolean }
+    txtvenas:           { type: longvarchar }
+    chkhemorragias:     { type: boolean }
+    txthemorragias:     { type: longvarchar }
+    chkexudados:        { type: boolean }
+    txtexudados:        { type: longvarchar }
+    chkmaneurismas:     { type: boolean }
+    txtmaneurismas:     { type: longvarchar }
+    comeffojo:          { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      effojo_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Fisica Oidos
+  hc_efoidos:
+    _attributes:        { phpName: Efoidos, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chktofos:           { type: boolean }
+    txttofos:           { type: longvarchar }
+    chkmemtimp:         { type: boolean }
+    txtmemtimp:         { type: longvarchar }
+    chkcondaudext:      { type: boolean }
+    txtcondaudext:      { type: longvarchar }
+    chkaudicion:        { type: boolean }
+    txtaudicion:        { type: longvarchar }
+    chkcondaerea:       { type: boolean }
+    txtcondaerea:       { type: longvarchar }
+    chkcondosea:        { type: boolean }
+    txtcondosea:        { type: longvarchar }
+    chklateralizacion:  { type: boolean }
+    txtlateralizacion:  { type: longvarchar }
+    comefoidos:         { type: longvarchar }
+    created_at:
+    _foreignKeys:
+      efoidos_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Fisica Boca, Nariz y Garganta
+  hc_eforl:
+    _attributes:        { phpName: Eforl, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkdientes:         { type: boolean }
+    txtdientes:         { type: longvarchar }
+    chkencias:          { type: boolean }
+    txtencias:          { type: longvarchar }
+    chklengua:          { type: boolean }
+    txtlengua:          { type: longvarchar }
+    chkamigdalas:       { type: boolean }
+    txtamigdalas:       { type: longvarchar }
+    chkfaringe:         { type: boolean }
+    txtfaringe:         { type: longvarchar }
+    chkmucnasal:        { type: boolean }
+    txtmucnasal:        { type: longvarchar }
+    chksepnasal:        { type: boolean }
+    txtsepnasal:        { type: longvarchar }
+    chksenosparaas:     { type: boolean }
+    txtsenosparaas:     { type: longvarchar }
+    comeforl:           { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      eforl_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Fisica Torax
+  hc_eftorax:
+    _attributes:        { phpName: Eftorax, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    fres:               { type: integer }
+    amplitud:           { type: integer }
+    patron:             { type: varchar(150) }
+    pareddef:           { type: boolean }
+    paredmov:           { type: boolean }
+    movlateral:         { type: integer }
+    muscacc:            { type: boolean }
+    tiros:              { type: boolean }
+    auscultacion:       { type: boolean }
+    sonresp:            { type: integer }
+    transvoz:           { type: boolean }
+    chktransvoz:        { type: boolean }
+    txttransvoz:        { type: longvarchar }
+    comeftorax:         { type: longvarchar }
+    percusion:          { type: integer }
+    sindpleupulm:       { type: varchar(150) }
+    otros:              { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      eftorax_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Cardiovasdular
+  hc_efcv:
+    _attributes:        { phpName: Efcv, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    pvy:                { type: boolean }
+    onda:               { type: varchar, size: 4 }
+    dominante:          { type: integer }
+    rhy:                { type: boolean }
+    soplocar:           { type: boolean }
+    intensidad:         { type: varchar, size: 256 }
+    pprecordial:        { type: boolean }
+    impapical:          { type: varchar, size: 256 }
+    levparaest:         { type: boolean }
+    comefcv:            { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efcv_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Auscultacion Cardiovascular
+  hc_efcv2:
+    _attributes:        { phpName: Efcv2, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    s1norm:             { type: boolean }
+    s1var:              { type: integer }
+    s2:                 { type: boolean }
+    s2anorm:            { type: integer }
+    soplos:             { type: boolean }
+    soploqua:           { type: integer }
+    ruidos:             { type: boolean }
+    ruidosqua:          { type: integer }
+    pulso:              { type: boolean }
+    pulsoqua:           { type: integer }
+    pcarotideo:         { type: integer }
+    phumeral:           { type: integer }
+    pradial:            { type: integer }
+    pfemoral:           { type: integer }
+    ppopliteo:          { type: integer }
+    ppedio:             { type: integer }
+    ptibp:              { type: integer }
+    template:           { type: varchar, size: 64 }
+    comefcv2:           { type: longvarchar }
+    created_at:
+    _foreignKeys:
+      efcv2_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Soplos y Pulsos perifericos
+  hc_efsoplos:
+    _attributes:        { phpName: Efsoplos, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    sistproto:          { type: boolean }
+    sistmeso:           { type: boolean }
+    sisttele:           { type: boolean }
+    sistholo:           { type: boolean }
+    diasproto:          { type: boolean }
+    diasmeso:           { type: boolean }
+    diastele:           { type: boolean }
+    diasholo:           { type: boolean }
+    contpca:            { type: boolean }
+    contasv:            { type: boolean }
+    aontfav:            { type: boolean }
+    ragrs3:             { type: boolean }
+    ragrs4:             { type: boolean }
+    clicsisaor:         { type: boolean }
+    clicsispul:         { type: boolean }
+    clicmeso:           { type: boolean }
+    froteper:           { type: boolean }
+    ppcarotd:           { type: integer }
+    pphumerd:           { type: integer }
+    ppradiad:           { type: integer }
+    ppaortad:           { type: integer }
+    ppfemord:           { type: integer }
+    pppoplid:           { type: integer }
+    pppd:               { type: integer }
+    pptpd:              { type: integer }
+    ppcaroti:           { type: integer }
+    pphumeri:           { type: integer }
+    ppradiai:           { type: integer }
+    ppaortai:           { type: integer }
+    ppfemori:           { type: integer }
+    pppoplii:           { type: integer }
+    pppi:               { type: integer }
+    pptpi:              { type: integer }
+    template:           { type: varchar, size: 64 }
+    comefsoplos:        { type: longvarchar }
+    created_at:
+    _foreignKeys:
+      efsoplos_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion de extremidades
+  hc_efext:
+    _attributes:        { phpName: Efext, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkedema:           { type: boolean }
+    txtedema:           { type: longvarchar }
+    chkcianosis:        { type: boolean }
+    txtcianosis:        { type: longvarchar }
+    chkestasis:         { type: boolean }
+    txtestasis:         { type: longvarchar }
+    chkulceras:         { type: boolean }
+    txtulceras:         { type: longvarchar }
+    chkvello:           { type: boolean }
+    txtvello:           { type: longvarchar }
+    chkacropaq:         { type: boolean }
+    txtacropaq:         { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    comefext:           { type: longvarchar }
+    created_at:
+    _foreignKeys:
+      efext_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Abdominal
+  hc_efabdom:
+    _attributes: { phpName: Efabdom, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    contorno:           { type: integer }
+    vello:              { type: integer }
+    paniculo:           { type: integer }
+    chkedema:           { type: boolean }
+    txtedema:           { type: longvarchar }
+    chkcicatriz:        { type: boolean }
+    txtcicatriz:        { type: longvarchar }
+    chkdolor:           { type: boolean }
+    txtdolor:           { type: longvarchar }
+    chkresismusc:       { type: boolean }
+    txtresismusc:       { type: longvarchar }
+    chkhiperest:        { type: boolean }
+    txthiperest:        { type: longvarchar }
+    chkrebote:          { type: boolean }
+    txtrebote:          { type: longvarchar }
+    chkmasas:           { type: boolean }
+    txtmasas:           { type: longvarchar }
+    chkrigidez:         { type: boolean }
+    txtrigidez:         { type: longvarchar }
+    chkoleada:          { type: boolean }
+    txtoleada:          { type: longvarchar }
+    chkmatidezcam:      { type: boolean }
+    txtmatidezcam:      { type: longvarchar }
+    chkascitis:         { type: boolean }
+    txtascitis:         { type: longvarchar }
+    chksoplos:          { type: boolean }
+    txtsoplos:          { type: longvarchar }
+    chkhernias:         { type: boolean }
+    txthernias:         { type: longvarchar }
+    chkrevencol:        { type: boolean }
+    txtrevencol:        { type: longvarchar }
+    chkdolorangcv:      { type: boolean }
+    txtdolorangcv:      { type: longvarchar }
+    chkpuntosdol:       { type: boolean }
+    txtpuntosdol:       { type: longvarchar }
+    comefabdom:         { type: longvarchar }
+    peristalsis:        { type: integer }
+    chkomhigado:        { type: boolean }
+    txtomhigado:        { type: longvarchar }
+    chkombazo:          { type: boolean }
+    txtombazo:          { type: longvarchar }
+    chkomrinones:       { type: boolean }
+    txtomrinones:       { type: longvarchar }
+    chkomvejiga:        { type: boolean }
+    txtomvejiga:        { type: longvarchar }
+    chkombilis:         { type: boolean }
+    txtombilis:         { type: longvarchar }
+    higado:             { type: integer }
+    chkhepatalg:        { type: boolean }
+    txthepatalg:        { type: longvarchar }
+    bordehep:           { type: integer }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efabdom_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion de genitales
+  hc_efgenital:
+    _attributes:        { phpName: Efgenital, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+# Genital Femenino
+    chklabios:          { type: boolean }
+    txtlabios:          { type: longvarchar }
+    chkclitoris:        { type: boolean }
+    txtclitoris:        { type: longvarchar }
+    chkintroito:        { type: boolean }
+    txtintroito:        { type: longvarchar }
+    chkuretra:          { type: boolean }
+    txturetra:          { type: longvarchar }
+    chkperineo:         { type: boolean }
+    txtperineo:         { type: longvarchar }
+    chkvagina:          { type: boolean }
+    txtvagina:          { type: longvarchar }
+    chkcervix:          { type: boolean }
+    txtcervix:          { type: longvarchar }
+    chkanexos:          { type: boolean }
+    txtanexos:          { type: longvarchar }
+    chkfdesaco:         { type: boolean }
+    txtfdesaco:         { type: longvarchar }
+    chkdescarga:        { type: boolean }
+    txtdescarga:        { type: longvarchar }
+    papanicolau:        { type: boolean }
+# Genital masculino
+    chkpene:            { type: boolean }
+    txtpene:            { type: longvarchar }
+    chkescroto:         { type: boolean }
+    txtescroto:         { type: longvarchar }
+    chkepididimo:       { type: boolean }
+    txtepididimo:       { type: longvarchar }
+# Comunes
+    chkmasas:           { type: boolean }
+    txtmasas:           { type: longvarchar }
+    chkotros:           { type: boolean }
+    txtotros:           { type: longvarchar }
+    chkhemorroide:      { type: boolean }
+    txthemorroide:      { type: longvarchar }
+    chktonoesf:         { type: boolean }
+    txttonoesf:         { type: longvarchar }
+    chksangrado:        { type: boolean }
+    txtsangrado:        { type: longvarchar }
+    chkheces:           { type: boolean }
+    txtheces:           { type: longvarchar }
+    comefgenital:       { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efgenital_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion fisica Articulaciones
+  hc_efart:
+    _attributes:        { phpName: Efart, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    chkdeforme:         { type: boolean }
+    txtdeforme:         { type: longvarchar }
+    chkrubor:           { type: boolean }
+    txtrubor:           { type: longvarchar }
+    chkcalor:           { type: boolean }
+    txtcalor:           { type: longvarchar }
+    chkdolor:           { type: boolean }
+    txtdolor:           { type: longvarchar }
+    chkedema:           { type: boolean }
+    txtedema:           { type: longvarchar }
+    chkdedos:           { type: boolean }
+    txtdedos:           { type: longvarchar }
+    chkmunecas:         { type: boolean }
+    txtmunecas:         { type: longvarchar }
+    chkcodos:           { type: boolean }
+    txtcodos:           { type: longvarchar }
+    chkhombros:         { type: boolean }
+    txthombros:         { type: longvarchar }
+    chkcaderas:         { type: boolean }
+    txtcaderas:         { type: longvarchar }
+    chktobillos:        { type: boolean }
+    txttobillos:        { type: longvarchar }
+    chkcvcifosis:       { type: boolean }
+    txtcvcifosis:       { type: longvarchar }
+    chkcvlordosis:      { type: boolean }
+    txtcvlordosis:      { type: longvarchar }
+    chkcvescoliosis:    { type: boolean }
+    txtcvescoliosis:    { type: longvarchar }
+    chkcvextorac:       { type: boolean }
+    txtcvextorac:       { type: longvarchar }
+    chkcvmialgias:      { type: boolean }
+    txtcvmialgias:      { type: longvarchar }
+    chkcvpundolor:      { type: boolean }
+    txtcvpundolor:      { type: longvarchar }
+    chkrodillas:        { type: boolean }
+    txtrodillas:        { type: longvarchar }
+    comefart:           { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efart_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Fisica Neurologica
+  hc_efneuro:
+    _attributes:        { phpName: Efneuro, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    funccer:            { type: integer }
+    estadoment:         { type: longvarchar }
+    minimt:             { type: integer }
+    glasgow:            { type: integer }
+    nc:                 { type: longvarchar }
+    olf:                { type: longvarchar }
+    optico:             { type: longvarchar }
+    oculomot:           { type: longvarchar }
+    pupilad:            { type: integer }
+    pupilai:            { type: integer }
+    forma:              { type: integer }
+    ralpd:              { type: integer }
+    ralpi:              { type: integer }
+    rconspd:            { type: integer }
+    rconspi:            { type: integer }
+    viscercd:           { type: integer }
+    viscerci:           { type: integer }
+    movextocul:         { type: longvarchar }
+    trig1:              { type: longvarchar }
+    trig2:              { type: longvarchar }
+    trig3:              { type: longvarchar }
+    corneald:           { type: boolean }
+    corneali:           { type: boolean }
+    trigmotor:          { type: longvarchar }
+    faciald:            { type: longvarchar }
+    faciali:            { type: longvarchar }
+    auditivo:           { type: longvarchar }
+    glosofaringeo:      { type: longvarchar }
+    vago:               { type: longvarchar }
+    espinal:            { type: longvarchar }
+    hipogloso:          { type: longvarchar }
+    marcha:             { type: longvarchar }
+    ataxia:             { type: longvarchar }
+    romberg:            { type: longvarchar }
+    movinv:             { type: longvarchar }
+    cerebelo:           { type: longvarchar }
+    sensitivo:          { type: longvarchar }
+    tonomusc:           { type: longvarchar }
+    funcasoc:           { type: longvarchar }
+    comefneuro:         { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efneuro_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Exploracion Fisica Reflejos
+  hc_efreflejos:
+    _attributes:        { phpName: Efreflejos, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    bicepsd:            { type: integer }
+    tricepsd:           { type: integer }
+    pronadord:          { type: integer }
+    cuadricepsd:        { type: integer }
+    aquilesd:           { type: integer }
+    abdomend:           { type: integer }
+    babinskid:          { type: integer }
+    hoffmand:           { type: integer }
+    palmomentd:         { type: integer }
+    bicepsi:            { type: integer }
+    tricepsi:           { type: integer }
+    pronadori:          { type: integer }
+    cuadricepsi:        { type: integer }
+    aquilesi:           { type: integer }
+    abdomeni:           { type: integer }
+    babinskii:          { type: integer }
+    hoffmani:           { type: integer }
+    palmomenti:         { type: integer }
+    comefreflejos:      { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efreflejos_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+# Historia Clinica - Estudios Radiologicos
+  hc_efestrx:
+    _attributes: { phpName: Efestrx, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    teledetorax:        { type: longvarchar }
+    otros:              { type: longvarchar }
+    ekg:                { type: longvarchar }
+    comefestrx:         { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      efestrx_historia:
+        foreignTable:   hc_historia
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+
+#hc_notaevolucion: Nota de evolucion
+  hc_notaevolucion:
+    _attributes:        { phpName: Notaevolucion, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    user_id:            { type: integer }
+    html:               { type: longvarchar }
+    resumen:            { type: longvarchar }
+    cuadrocl:           { type: longvarchar }
+    resultados:         { type: longvarchar }
+    diagnostico:        { type: longvarchar }
+    ta:                 { type: varchar(20) }
+    fr:                 { type: integer }
+    fc:                 { type: integer }
+    temp:               { type: decimal }
+    peso:               { type: integer }
+    ind01:              { type: varchar(250) }
+    ind02:              { type: varchar(250) }
+    ind03:              { type: varchar(250) }
+    ind04:              { type: varchar(250) }
+    ind05:              { type: varchar(250) }
+    ind06:              { type: varchar(250) }
+    ind07:              { type: varchar(250) }
+    ind08:              { type: varchar(250) }
+    ind09:              { type: varchar(250) }
+    ind10:              { type: varchar(250) }
+    medico:             { type: varchar(255) }
+    medico_id:          { type: integer }
+    profesor:           { type: varchar(255) }
+    profesor_id:        { type: integer }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      evento_notaevolucion:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      usuario_notaevolucion:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+
+# Historia Clinica - Hoja de Indicaciones, concentra todas las indicaciones en un tiempo dado
+  hc_indicaciones:
+    _attributes:        { phpName: Indicacion, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    user_id:            { type: integer }
+    indicaciones:       { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      evento_indicaciones:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      usuario_indicaciones:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+
+# Historia Clinica - Indicaciones Medicas individuales que se asignana un paciente
+  hc_tarea:
+    _attributes:        { phpName: Tarea, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    user_id:            { type: integer }
+    tipo:               { type: integer }
+    indicacion:         { type: varchar(255) }
+    via:                { type: integer }
+    cantidad:           { type: varchar(32) }
+    periodicidad:       { type: integer }
+    descripcion:        { type: longvarchar }
+    programacion:       { type: date }
+    estado:             { type: boolean }
+    rastreable:         { type: boolean }
+    rastreo:            { type: longvarchar }
+    # campo jerarquia permitq que otro usuario relacionado lo pueda cancelar
+    jerarquia:          { type: integer }
+    finaliza:           { type: timestamp }
+    created_at:
+    paciente_id:        { type: integer }
+    _foreignKeys:
+      evento_tarea:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      usuario_tarea:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+      paciente_tarea:
+        foreignTable:   px_paciente
+        onDelete:       setnull
+        references:
+          - { local: paciente_id, foreign: id }
+
+# Historia Clinica - Notas de Enfermeria
+  hc_enfermeria:
+    _attributes:        { phpName: Enfermeria, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    user_id:            { type: integer }
+    temp:               { type: decimal }
+    pulso:              { type: decimal }
+    tmax:               { type: decimal }
+    amax:               { type: decimal }
+    med:                { type: longvarchar }
+    observaciones:      { type: longvarchar }
+    created_at:
+    _foreignKeys:
+      evento_enfermeria:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      usuario_enfermeria:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+
+
+# Historia Clinica - Egreso Voluntario
+  hc_egresovol:
+    _attributes:        { phpName: Egresovol, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    user_id:            { type: integer }
+    ingreso:            { type: date }
+    egreso:             { type: date }
+    dias:               { type: varchar(10) }
+    nombre:             { type: varchar(150) }
+    parentesco:         { type: varchar(150) }
+    resumen:            { type: longvarchar }
+    indicaciones:       { type: longvarchar }
+    medico:             { type: varchar(150) }
+    testigo1:           { type: varchar(150) }
+    testigo2:           { type: varchar(150) }
+    medico2:            { type: varchar(150) }
+    supervisor:         { type: varchar(150) }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      evento_egresovol:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+      usuario_egresovol:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+
+# Formulario de registro de colocacion de cateter
+  hc_colcat:
+    _attributes:        { phpName: Colcateter, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    user_id:            { type: integer }
+    evento_id:          { type: integer }
+    fecha:              { type: timestamp }
+    via:                { type: varchar, size: 64 }
+    cateter:            { type: varchar, size: 64 }
+    novias:             { type: integer }
+    antiseptico:        { type: varchar, size: 64 }
+    descripcion:        { type: longvarchar }
+    parterial:          { type: boolean }
+    neumotorax:         { type: boolean }
+    pinadecuada:        { type: boolean }
+    pmultiple:          { type: boolean }
+    hematoma:           { type: boolean }
+    ninguna:            { type: boolean }
+    chkotra:            { type: boolean }
+    txtotra:            { type: longvarchar }
+    medico:             { type: varchar, size: 128 }
+    medico_id:          { type: integer, foreignTable: sf_guard_user, foreignReference: id } }
+    profesor:           { type: varchar, size: 128 }
+    profesor_id:        { type: integer, foreignTable: sf_guard_user, foreignReference: id } }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      evento_cateter:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      usuario_cateter:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+
+# Historia Clinica - Nota de Egreso
+  hc_egreso:
+    _attributes:        { phpName: Egreso, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: false }
+    user_id:            { type: integer }
+    paciente_id:        { type: integer }
+    tipo:               { type: varchar(64) }
+    ingreso:            { type: date }
+    egreso:             { type: date }
+    dias:               { type: varchar(8) }
+    diagnostico:        { type: longvarchar }
+    mortalidad:         { type: longvarchar }
+    autopsia:           { type: boolean , default: false }
+    solicitante:        { type: varchar(128) }
+    parentesco:         { type: varchar(128) }
+    resumen:            { type: longvarchar }
+    manejo:             { type: longvarchar }
+    problemas:          { type: longvarchar }
+    indicaciones:       { type: longvarchar }
+    recomendaciones:    { type: longvarchar }
+    riesgo:             { type: longvarchar }
+    medico:             { type: varchar(150) }
+    medico_id:          { type: integer }
+    testigo1:           { type: varchar(128) }
+    testigo2:           { type: varchar(128) }
+    tratante:           { type: varchar(128) }
+    profesor:           { type: varchar(128) }
+    profesor_id:        { type: integer }
+    pronostico:         { type: varchar(128) }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      evento_egreso:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: id, foreign: id }
+      usuario_egreso:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        onUpdate:       cascade
+        references:
+          - { local: user_id, foreign: id }
+      paciente_egreso:
+        foreignTable:   px_paciente
+        onDelete:       setnull
+        onUpdate:       cascade
+        references:
+          - { local: paciente_id, foreign: id }
+
+# Historia Clinica - Nota de Interconsulta
+  hc_intercons:
+    _attributes:        { phpName: Interconsulta, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    user_id:            { type: integer }
+    servicio_id:        { type: integer }
+    criterios:          { type: longvarchar }
+    estudios:           { type: longvarchar }
+    diagnosticos:       { type: longvarchar }
+    sugerencias:        { type: longvarchar }
+    fc:                 { type: integer }
+    fr:                 { type: integer }
+    ta:                 { type: integer }
+    pul:                { type: integer }
+    temp:               { type: decimal }
+    tratamiento:        { type: longvarchar }
+    pronostico:         { type: longvarchar }
+    medicos:            { type: varchar(150) }
+    medicoc:            { type: varchar(150) }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      evento_interconsulta:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      usuario_interconsulta:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+      servicio_interconsulta:
+        foreignTable:   siga_servicio
+        onDelete:       setnull
+        references:
+          - { local: servicio_id, foreign: id }
+
+# Historia Clinica - Nota Preoperatoria
+  hc_preope:
+    _attributes:        { phpName: Preoperatorio, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    user_id:            { type: integer }
+    servicio_id:        { type: integer }
+    created_at:
+  # Campos variables
+    plan:               { type: longvarchar }
+    tipo:               { type: longvarchar }
+    riesgo:             { type: longvarchar }
+    cuidado:            { type: longvarchar }
+    pronostico:         { type: longvarchar }
+    profesor:           { type: varchar(255) }
+    profesor_id:        { type: integer }
+    dxpreope:           { type: varchar(255) }
+    dxpreope_id:        { type: varchar(8) }
+    fecha:              { type: date }
+    template:           { type: varchar, size: 64 }
+  # Referencias externas
+    _foreignKeys:
+      evento_preope:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      usuario_preope:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+      servicio_preope:
+        foreignTable:   siga_servicio
+        onDelete:       setnull
+        references:
+          - { local: servicio_id, foreign: id }
+
+# Historia Clinica - Nota Postoperatoria
+  hc_posope:
+    _attributes:        { phpName: Posoperatorio, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    user_id:            { type: integer }
+    servicio_id:        { type: integer }
+    created_at:
+  # Campos variables
+    cirujano1:          { type: varchar(128) }
+    cirujano1_id:       { type: integer }
+    cirujano2:          { type: varchar(128) }
+    cirujano2_id:       { type: integer }
+    cirujano3:          { type: varchar(128) }
+    cirujano3_id:       { type: integer }
+    instrumentista:     { type: varchar(128) }
+    instrumentista_id:  { type: integer }
+    anestesiologo:      { type: varchar(128) }
+    anestesiologo_id:   { type: integer }
+    otro:               { type: varchar(128) }
+    otro_id:            { type: integer }
+    fecha:              { type: date }
+    dxpreope:           { type: varchar(128) }
+    dxpreope_id:        { type: varchar(8) }
+    dxposope:           { type: varchar(128) }
+    dxposope_id:        { type: varchar(8) }
+    cxplaneada:         { type: varchar(128) }
+    cxrealizada:        { type: varchar(128) }
+    descripcion:        { type: longvarchar }
+    hallazgos:          { type: longvarchar }
+    gasas:              { type: varchar(128) }
+    incidentes:         { type: longvarchar }
+    sangrado:           { type: varchar(128) }
+    pronostico:         { type: varchar(128) }
+    equipopq:           { type: varchar(256) }
+    mhptc:              { type: integer }
+    mhptd:              { type: varchar(256) }
+    hallazgos2:         { type: longvarchar }
+    estudiosto1:        { type: varchar(128) }
+    estudiosto1:        { type: varchar(128) }
+    profesor:           { type: varchar(255) }
+    profesor_id:        { type: integer }
+    template:           { type: varchar, size: 64 }
+  # Referencias externas
+    _foreignKeys:
+      evento_posope:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      usuario_posope:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+      servicio_posope:
+        foreignTable:   siga_servicio
+        onDelete:       setnull
+        references:
+          - { local: servicio_id, foreign: id }
+
+# Acciones de internamiento - Diagnósticos
+  hc_diagnostico:
+    _attributes:        { phpName: Diagnostico, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    paciente_id:
+    user_id:            { type: integer }
+    cie10_id:           { type: varchar(8) }
+    estado:             { type: integer, required: true }
+    justificacion:      { type: longvarchar }
+    errordx:            { type: boolean }
+    resolucion:         { type: timestamp, required: false }
+    created_at:
+    _foreignKeys:
+      evento_diagnostico:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      usuario_diagnostico:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+      diagnostico_cie10:
+        foreignTable:   siga_clave
+        onDelete:       setnull
+        references:
+          - { local: cie10_id, foreign: clave }
+
+
+# Historia Clinica - Listado de Problemas
+  hc_problemas:
+    _attributes:        { phpName: Problemas, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    user_id:            { type: integer }
+    problema:           { type: varchar(150) }
+    activo:             { type: boolean }
+    relacion:           { type: varchar(256) }
+    created_at:
+    _foreignKeys:
+      evento_problemas:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      usuario_problemas:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        references:
+          - { local: user_id, foreign: id }
+
+# tabla de Relacion usuarios a telefonos
+  rel_problema_diagnostico:
+    _attributes:      { phpName: problema2dx, isCrossRef: true, package: lib.model.admin }
+    diagnostico_id:   { type: integer, foreignTable: hc_diagnostico, foreignReference: id }
+    problema_id:      { type: integer, foreignTable: hc_problemas, foreignReference: id }
+
+# Estudios de laboratorio - Biometria Hematica
+  hc_Biometriahematica:
+    _attributes:        { phpName: Biometriahematica, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    hb:                 { type: decimal }
+    hcto:               { type: decimal }
+    vcm:                { type: decimal }
+    cmhg:               { type: decimal }
+    plaquetas:          { type: decimal }
+    leucocitos:         { type: decimal }
+    neutros:            { type: decimal }
+    basofilos:          { type: decimal }
+    eosinofilos:        { type: decimal }
+    linfos:             { type: decimal }
+    bandas:             { type: decimal }
+    mastocitos:         { type: decimal }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      evento_biometriahematica:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+
+# Estudios de laboratorio - Quimica sanguinea
+  hc_Quimicasanguinea:
+    _attributes: { phpName: Quimicasang, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    na:                 { type: decimal }
+    k:                  { type: decimal }
+    ca:                 { type: decimal }
+    creat:              { type: decimal }
+    bun:                { type: decimal }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      evento_quimicasanguinea:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+
+# Estudios de laboratorio - Reporte radiografico
+  hc_reporteradiografico:
+    _attributes:        { phpName: Reporterx, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    estudio:            { type: integer }
+    descripcion:        { type: longvarchar }
+    reporte:            { type: longvarchar }
+    user_id:            { type: integer }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      evento_reporteradiografico:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+      usuario_reporteradiografico:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        onUpdate:       setnull
+        references:
+          - { local: evento_id, foreign: id }
+
+# Recetas para el paciente
+  hc_receta:
+    _attributes:        { phpName: Receta, package: lib.model.data }
+    id:                 { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:          { type: integer }
+    user_id:            { type: integer }
+    servicio_id:        { type: integer }
+    contenido:          { type: longvarchar }
+    template:           { type: varchar, size: 64 }
+    created_at:
+    _foreignKeys:
+      receta_usuario:
+        foreignTable:   sf_guard_user
+        onDelete:       setnull
+        onUpdate:       setnull
+        references:
+          - { local: user_id, foreign: id }
+      receta_servicio:
+        foreignTable:   siga_servicio
+        onDelete:       setnull
+        references:
+          - { local: servicio_id, foreign: id }
+      receta_evento:
+        foreignTable:   px_evento
+        onDelete:       cascade
+        onUpdate:       cascade
+        references:
+          - { local: evento_id, foreign: id }
+
+# Tabla de los perfiles de usuario
+  sf_guard_user_profile:
+    _attributes:        { phpName: sfGuardUserProfile, package: lib.model.sfGuard }
+    id:                 ~
+    user_id:            { type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
+    nombre:             { type: varchar(64) }
+    app:                { type: varchar(64) }
+    apm:                { type: varchar(64) }
+    full_name:          { type: varchar(256) }
+    email:              { type: varchar(64) }
+    titulo:             { type: varchar(16) }
+    template:           { type: varchar(32) }
+    cedula:             { type: varchar(8) }
+    sexo_id:            ~
+    especialidad_id:    { type: integer, foreignTable: siga_especialidad, foreignReference: id, required: false }
+    departamento_id:    { type: integer }
+    area_id:            { type: integer, foreignTable: siga_ubicacion, foreignReference: id, required: false }
+    permisos:           { type: object }
+    personal_id:        ~
+    categoria_id:       ~
+    edad:               { type: bu_date }
+    servicio_id:        ~
+    container:          { type: longvarchar }
+    _foreignKeys:
+      profile_departamento:
+        foreignTable:     siga_organizacion
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: departamento_id, foreign: id }
+
+
+# Tabla de nombres de usuario del sistema
+  siga_usuarios:
+    _attributes:            { phpName: Trabajador, package: lib.model.config }
+    id:                     ~
+    nombre:                 { type: varchar(64) }
+    app:                    { type: varchar(64) }
+    apm:                    { type: varchar(64) }
+    titulo:                 { type: varchar(16) }
+    full_name:              { type: varchar(256) }
+    sfGuardUserProfile_id:  { type: integer, foreignTable: sf_guard_user_profile, foreignReference: id, required: false, onDelete: cascade }
+
+#Tabla referente a la programacion de cirugias
+  hc_agenda:
+    _attributes:          { phpName: Agenda, package: lib.model.data }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:
+    programacion:         { type: date }
+    hora:                 { type: time }
+    ingreso:              { type: timestamp }
+    sala_id:              { type: integer }
+    quirofano_id:         { type: integer }
+    egreso:               { type: timestamp }
+    cie9mc:               { type: longvarchar }
+    cie9mc_id:            { type: varchar(8) }
+    cx_realizada:         { type: longvarchar }
+    cx_realizada_id:      { type: varchar(8) }
+    tipo_cx:              { type: integer }
+    diagnostico:          { type: varchar(256) }
+    diagnostico_id:       { type: varchar(8) }
+    paciente_name:        { type: varchar(256) }
+    paciente_id:          { type: integer }
+    edad:                 { type: varchar(16) }
+    genero:               { type: varchar(16) }
+    genero_id:            { type: integer }
+    registro:             { type: varchar(16) }
+    servicio:             { type: integer }
+    #programa:             { type: varchar(256) }
+    #programa_id:          { type: integer }
+    #realiza:              { type: varchar(256) }
+    #realiza_id:           { type: integer }
+    #cx_final:             { type: varchar(256) }
+    #cx_final_id:          { type: integer }
+    #supervisor:           { type: varchar(256) }
+    #supervisor_id:        { type: integer }
+    #supervisor_final:     { type: varchar(256) }
+    #supervisor_final_id:  { type: integer }
+    #anestesiologo:        { type: varchar(256) }
+    #anestesiologo_id:     { type: integer }
+    #anestesiologo_qx:     { type: varchar(256) }
+    #anestesiologo_qx_id:        { type: integer }
+    #anestesiologo_qx_final:     { type: varchar(256) }
+    #anestesiologo_qx_final_id:  { type: integer }
+    #maestro_anestesia:          { type: varchar(256) }
+    #maestro_anestesia_id:       { type: integer }
+    #maestro_anestesia_final:    { type: varchar(256) }
+    #maestro_anestesia_final_id: { type: integer }
+    anestesia_id:               { type: integer }
+    anestesia_empleada:         { type: varchar(256) }
+    ev_adversos_anestesia:      { type: longvarchar }
+    #instrumentista:             { type: varchar(256) }
+    #instrumentista_id:          { type: integer }
+    #instrumentista_final:       { type: varchar(256) }
+    #instrumentista_final_id:    { type: integer }
+    #circulante:                 { type: varchar(256) }
+    #circulante_id:              { type: integer }
+    #circulante_final:           { type: varchar(256) }
+    #circulante_final_id:        { type: integer }
+    observaciones:        { type: longvarchar }
+    requerimiento:        { type: longvarchar }
+    req_insumos:          { type: longvarchar }
+    req_hemoderiv:        { type: longvarchar }
+    req_laboratorio:      { type: longvarchar }
+    req_anestesico:       { type: longvarchar }
+    status:               { type: integer, default "1" }
+    causa_diferido_id:    { type: integer }
+    solicitado:           { type: boolean }
+    riesgoqx_id:          { type: integer }
+    contaminacionqx_id:   { type: integer }
+    eventoqx_id:          { type: integer }
+    complicaciones:       { type: longvarchar }
+    val_pre_anestesica:   { type: longvarchar }
+    reintervencion:       { type: boolean, notnull: true }
+    permisos:             { type: object }
+    tipo_proc_id:         { type: integer }
+    atencion_id:          { type: integer }
+    #turno_ci_id:          { type: integer }
+    #turno_cf_id:          { type: integer }
+    #turno_ii_id:          { type: integer }
+    #turno_if_id:          { type: integer }
+    tiempo_fuera:         { type: boolean }
+    procedencia:          { type: varchar(128) }
+    clasificacionqx:      { type: integer }
+    region_px:            { type: integer }
+    extension_px:         { type: integer }
+    anexo_detalle:        { type: integer }
+    destino_px:           { type: integer }
+    liberacion_sala:      { type: time }
+    tiempo_est:           { type: time }
+    riesgo_qx_pre:        { type: varchar(256) }
+    show_in_index:        { type: boolean, default: true }
+    protocolo:            { type: boolean, default: false }
+    cancelada:            { type: boolean, default: false }
+    created_at:
+    updated_at:
+    _foreignKeys:
+      agenda_sala:
+        foreignTable:     siga_sala
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: sala_id, foreign: id }
+      agenda_quirofano:
+        foreignTable:     siga_quirofano
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: quirofano_id, foreign: id }
+      agenda_cie9mc:
+        foreignTable:     siga_cie9mc
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: cie9mc_id, foreign: clave }
+      agenda_cx_realizada:
+        foreignTable:     siga_cie9mc
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: cx_realizada_id, foreign: clave }
+      agenda_diagnostico:
+        foreignTable:     siga_clave
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: diagnostico_id, foreign: clave }
+      agenda_paciente:
+        foreignTable:     px_paciente
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: paciente_id, foreign: id }
+      #agenda_programa:
+      #  foreignTable:     sf_guard_user
+      #  onUpdate:         cascade
+      #  onDelete:         setnull
+      #  references:
+      #    - { local: programa_id, foreign: id }
+      #agenda_realiza:
+      #  foreignTable:     sf_guard_user
+      #  onUpdate:         cascade
+      #  onDelete:         setnull
+      #  references:
+      #    - { local: realiza_id, foreign: id }
+      #agenda_supervisor:
+      #  foreignTable:     sf_guard_user
+      #  onUpdate:         cascade
+      #  onDelete:         setnull
+      #  references:
+      #    - { local: supervisor_id, foreign: id }
+      #agenda_anestesiologo:
+      #  foreignTable:     sf_guard_user
+      #  onUpdate:         cascade
+      #  onDelete:         setnull
+      #  references:
+      #    - { local: anestesiologo_id, foreign: id }
+      agenda_anestesia:
+        foreignTable:     siga_tipo_anestesia
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: anestesia_id, foreign: id }
+      #agenda_anestesia_empleada:
+      #  foreignTable:     siga_tipo_anestesia
+      #  onUpdate:         cascade
+      #  onDelete:         setnull
+      #  references:
+      #    - { local: anestesia_empleada, foreign: id }
+     #agenda_instrumentista:
+     #  foreignTable:     sf_guard_user
+     #  onUpdate:         cascade
+     #  onDelete:         setnull
+     #  references:
+     #    - { local: instrumentista_id, foreign: id }
+     #agenda_circulante:
+     #  foreignTable:     sf_guard_user
+     #  onUpdate:         cascade
+     #  onDelete:         setnull
+     #  references:
+     #     - { local: circulante_id, foreign: id }
+      agenda_riesgoqx:
+        foreignTable:     siga_riesgoqx
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: riesgoqx_id, foreign: id }
+      agenda_contaminacionqx:
+        foreignTable:     siga_contaminacionqx
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: contaminacionqx_id, foreign: id }
+      agenda_eventoqx:
+        foreignTable:     siga_eventoqx
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: eventoqx_id, foreign: id }
+      agenda_tipo_proc:
+        foreignTable:     siga_procedimiento
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: tipo_proc_id, foreign: id }
+      agenda_causa_dif:
+        foreignTable:     siga_causa_diferido
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: causa_diferido_id, foreign: id }
+      agenda_atencion:
+        foreignTable:     siga_atencion
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: atencion_id, foreign: id }
+     #agenga_turno_ci:
+     #  foreignTable:     siga_turno
+     #  onUpdate:         cascade
+     #  onDelete:         setnull
+     #  references:
+     #    - { local: turno_ci_id, foreign: id }
+     #agenga_turno_cf:
+     #  foreignTable:     siga_turno
+     #  onUpdate:         cascade
+     #  onDelete:         setnull
+     #  references:
+     #    - { local: turno_cf_id, foreign: id }
+     #agenga_turno_ii:
+     #  foreignTable:     siga_turno
+     #  onUpdate:         cascade
+     #  onDelete:         setnull
+     #  references:
+     #    - { local: turno_ii_id, foreign: id }
+     #agenga_turno_if:
+     #  foreignTable:     siga_turno
+     #  onUpdate:         cascade
+     #  onDelete:         setnull
+     #  references:
+     #     - { local: turno_if_id, foreign: id }
+      agenga_especialidad:
+        foreignTable:     siga_especialidad
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: servicio, foreign: id }
+
+  siga_sala_log:
+    _attributes:          { phpName: Registrosala, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    sala_id:              { type: integer }
+    motivo:               { type: varchar(255) }
+    inicio:               { type: timestamp }
+    fin:                  { type: timestamp }
+    duracion:             { type: varchar(32) }
+    _foreignKeys:
+      sala_log:
+        foreignTable:     siga_sala
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: sala_id, foreign: id }
+
+  hc_agenda_personal:
+    _attributes:          { phpName: Personalcirugia, package: lib.model.data }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    personal_id:          { type: integer }
+    agenda_id:            { type: integer }
+    personal_nombre:      { type: varchar, size: 256 }
+    especialidad_id:
+    tipo:                 { type: enum, valueSet: "cirujano, anestesista, enfermeria, otro" }
+    status:               { type: integer }
+    programa:             { type: boolean }
+    inicia:               { type: boolean }
+    transoperatorio:      { type: boolean }
+    finaliza:             { type: boolean }
+    turno:                { type: integer }
+    created_at:
+    _foreignKeys:
+      agenda_personal:
+        foreignTable:     hc_agenda
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: agenda_id, foreign: id }
+      agenda_personal_id:
+        foreignTable:     sf_guard_user
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: personal_id, foreign: id }
+
+  hc_agenda_diagnosticos:
+    _attributes:          { phpName: Diagnosticocirugia, package: lib.model.data }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    agenda_id:
+    diagnostico_cie10:    { type: varchar, size: 256 }
+    diagnostico_id:       { type: varchar, size: 8 }
+    tipo_diagnostico:     { type: integer }
+    created_at:
+    _foreignKeys:
+      agenda_diagnosticos:
+        foreignTable:     siga_clave
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: diagnostico_id, foreign: clave }
+
+  hc_agenda_procedimientos:
+    _attributes:          { phpName: Procedimientocirugia, package: lib.model.data }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    agenda_id:
+    cie9mc:               { type: varchar, size: 256 }
+    cie9mc_id:            { type: varchar, size: 8 }
+    region:               { type: integer }
+    detalles:             { type: varchar, size 256 }
+    servicio_id:          { type: integer }
+    created_at:
+    _foreignKeys:
+      agenda_procedimientos:
+        foreignTable:     siga_cie9mc
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: cie9mc_id, foreign: clave }
+      agenda_procedimientos:
+        foreignTable:     siga_especialidad
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: servicio_id, foreign: id }
+
+  hc_agenda_regrogramar:
+    _attributes:          { phpName: Procedimientregrogramado, package: lib.model.data }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    agenda_id:
+    programacion:         { type: date }
+    hora:                 { type: time }
+    sala_id:              { type: integer }
+    tiempo_est:           { type: time }
+    created_at:
+
+# Tabla para los formularios de riesgo nutricional
+  hc_riesgo_nutricional:
+    _attributes:          { phpName: Riesgonutricional, package: lib.model.data }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    evento_id:
+    paciente_id:
+  # Datos generales
+    fecha:                { type: date, required: true }
+    peso:                 { type: varchar, size: 8 }
+    talla:                { type: varchar, size: 8 }
+    medico_txt:           { type: varchar, size: 256 }
+    medico_id:            { type: integer, foreignTable: sf_guard_user, foreignReference: id }
+    diagnostico_txt:      { type: varchar, size: 256 }
+    diagnostico_id:       { type: varchar, size: 8 , foreignTable: siga_clave, foreignReference: clave }
+  # Etapa 1
+    imc:                  { type: boolean }
+    peso_perdido:         { type: boolean }
+    ingesta_reducida:     { type: boolean }
+    grave:                { type: boolean }
+  # Etapa 2 A
+    perdida_peso:         { type: integer }
+    cambio_imc:           { type: integer }
+    ingesta_alim:         { type: integer }
+  # Etapa 2 B
+    severidad:            { type: integer }
+    edad:                 { type: integer }
+  # Final
+    dx_riesgo:            { type: varchar, size: 256 }
+    total:                { type: integer }
+    observaciones:        { type: longvarchar }
+    creador_txt:          { type: varchar, size: 256 }
+    creador_id:           { type: integer, foreignTable: sf_guard_user, foreignReference: id }
+    created_at:
+

@@ -33,7 +33,10 @@ HEAD;
 <a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/index') ?>">&nbsp;&nbsp;Lista general de quirofanos&nbsp;&nbsp;</a>
 <a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/programar?slug='.$Quirofano->getSlug())?>" rel="facebox">&nbsp;&nbsp;Programar Cirugia&nbsp;&nbsp;</a>
 <a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/diferidas?slug='.$Quirofano->getSlug())?>">&nbsp;&nbsp;Cirugias Diferidas&nbsp;&nbsp;</a>
-<a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/show?slug='.$Quirofano->getSlug())?>">&nbsp;&nbsp;Agenda del día&nbsp;&nbsp;</a>
+
+<a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/show?slug='.$Quirofano->getSlug().'&date='.date('Y-m-d', strtotime("now")))?>">&nbsp;&nbsp;Todas las cirugias&nbsp;&nbsp;</a>
+
+<a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/show?slug='.$Quirofano->getSlug().'&date='.date('Y-m-d', strtotime("now")))?>">&nbsp;&nbsp;Agenda del día&nbsp;&nbsp;</a>
 
 <form action="<?php echo url_for('agenda/show') ?>" style="display:inline;">
   <input type="hidden" name="slug" value="<?php echo $Quirofano->getSlug() ?>">
@@ -59,7 +62,7 @@ HEAD;
 <!-- agregado -->
 <?php $title = null ?>
 <?php foreach($Cirugias as $cirugia): ?>
-  <td colspan="11"><h3 style="padding-top: 11px;"><?php echo 'Programada' ?></h3></td>
+  <td colspan="11"><h3 style="padding-top: 11px;"><?php echo 'programada'//$cirugia->getVerboseStatus()  ?></h3></td>
   <?php echo print_head() ?>
   <?php $title = $cirugia->getStatus() ?>
 

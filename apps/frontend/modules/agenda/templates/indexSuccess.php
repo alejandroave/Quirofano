@@ -157,7 +157,7 @@
     <tbody>
     <?php foreach ($Quirofanos as $Quirofano): ?>
     <tr>
-      <td><a href="<?php echo url_for('agenda/show?slug='.$Quirofano->getSlug()) ?>"><?php echo $Quirofano->getNombre() ?></a></td>
+      <td><a href="<?php echo url_for('agenda/show?slug='.$Quirofano->getSlug().'&date='.date('Y-m-d', strtotime("now")))?>"><?php echo $Quirofano->getNombre() ?></a></td>
       <td><a href="<?php echo url_for('agenda/programar?slug='.$Quirofano->getSlug())  ?>">Programar Cirugia</a></td>
       <td><a href="<?php echo url_for('agenda/diferidas?slug='.$Quirofano->getSlug())  ?>">Cirugias Diferidas</a></td>
       <td><a href="<?php echo url_for('agenda/inspeccionar?slug='.$Quirofano->getSlug())  ?>">Salas</a></td>
@@ -167,6 +167,6 @@
 
     </tbody>
   </table>
-  <a href="<?php echo url_for('quirofano/agendadiaria')?>">Agenda del Dia</a>
-  <a href="<?php echo url_for('agenda/programar')?>">Programar cirugia</a>
+  <!--<a href="<?php echo url_for('quirofano/agendadiaria')?>">Agenda del Dia</a>
+  <a href="<?php echo url_for('agenda/programar')?>">Programar cirugia</a>-->
 </div>
