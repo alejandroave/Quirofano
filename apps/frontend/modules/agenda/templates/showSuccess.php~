@@ -21,9 +21,6 @@ HEAD;
   }
 ?>
 
-<?php slot('titulo') ?>
-  <title>Agenda de <?php echo $Quirofano->getNombre() ?> | SIGA-HU </title>
-<?php end_slot() ?>
 
 
 <h1>Agenda de procedimientos en <?php echo $Quirofano->getNombre() ?></h1>
@@ -62,7 +59,7 @@ HEAD;
 <!-- agregado -->
 <?php $title = null ?>
 <?php foreach($Cirugias as $cirugia): ?>
-  <td colspan="11"><h3 style="padding-top: 11px;"><?php echo 'algo'//$cirugia->getVerboseStatus()  ?></h3></td>
+  <td colspan="11"><h3 style="padding-top: 11px;"><?php echo 'programada'//$cirugia->getVerboseStatus()  ?></h3></td>
   <?php echo print_head() ?>
   <?php $title = $cirugia->getStatus() ?>
 

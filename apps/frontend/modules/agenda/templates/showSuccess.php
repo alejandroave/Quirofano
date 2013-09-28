@@ -21,6 +21,7 @@ HEAD;
   }
 ?>
 
+
 <?php slot('titulo') ?>
   <title>Agenda de <?php echo $Quirofano->getNombre() ?> | SIGA-HU </title>
 <?php end_slot() ?>

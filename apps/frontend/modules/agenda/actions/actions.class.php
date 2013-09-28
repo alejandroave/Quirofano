@@ -113,6 +113,7 @@ public function executeShow(sfWebRequest $request)
   {
 
     $this->Quirofano = QuirofanoQuery::create()
+//Quirofano = QuirofanoQuery::create()
       ->findOneBySlug($request->getParameter('slug'));
          
       
@@ -125,8 +126,12 @@ public function executeShow(sfWebRequest $request)
     $date = $this->date; 
     //$date['max'] = $this->date + $offset;
     //$date['min'] = ($request->hasParameter('date')) ? $date['max'] - 86400: null;
+    $qui = $this->Quirofano->getid();
+    $nombre = $this->Quirofano->getslug();
     $this->Cirugias = AgendaQuery::create()
-      ->filterByquirofanoid($this->Quirofano->getid())
+      //->filterByArea($this->Quirofano)
+      ->filterByquirofanoid($qui)
+      //->filterByquirofanoid('slug')
       ->filterByprogramacion($date)
       //->filterByShowInIndex(true)      
       //->queryAgenda($date)
@@ -185,7 +190,7 @@ public function executeTransoperatorio(sfWebRequest $request)
       $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
       if ($this->form->isValid()) {
         $cirugia = $this->form->save();
-        $this->redirect('quirofano/show?slug='.$cirugia->getQuirofano()->getSlug());
+        $this->redirect('agenda/show?slug='.$cirugia->getQuirofano()->getSlug());
       }
     }
     $this->form->setDefault('ingreso', date('H:i:s'));
@@ -196,8 +201,9 @@ public function executeTransoperatorio(sfWebRequest $request)
     $this->forward404Unless($request->hasParameter('id'));
     $cirugia = AgendaQuery::create()->findPk($request->getParameter('id'));
     $cirugia->setSolicitado(!$cirugia->getSolicitado())->save();
-    //$this->redirect('agenda/show?slug='.$request->getParameter('id'));
     $this->redirect($request->getReferer());
+    //$this->redirect('agenda/show?slug='.$request->getParameter('id'));
+
   }
  public function executeReprogramar(sfWebRequest $request)
   {
@@ -213,11 +219,25 @@ public function executeTransoperatorio(sfWebRequest $request)
     if ($request->getMethod() == 'POST') {
       $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
       if ($this->form->isValid()) {
-        $Quirofano = $this->form->save();
+        //$Quirofano = $this->form->save();
+        $this->form->save();
         $this->redirect('agenda/show?slug='.$request->getParameter('slug'));
       }
     }
 
     //$this->form->setSalaWidget($request->getParameter('slug'));
   }
+
+ public function executeCancelar(sfWebRequest $request)
+  {
+  $this->forward404unless($request->hasParameter('id'));
+  $this->cirugia = AgendaQuery::create()->findPk($request->getParameter('id'));
+  	
+  $this->Quirofano = QuirofanoQuery::create()
+    ->findOneByid($this->cirugia->getquirofanoid());      
+  if ($request->getMethod() == 'POST') {
+      $this->cirugia->setCancelada(true)->save();
+      $this->redirect('agenda/show?slug='.$this->Quirofano->getSlug().'&date='.date('Y-m-d', strtotime("now")));
+    }
+}
 }
