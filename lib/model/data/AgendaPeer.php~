@@ -80,7 +80,6 @@ class AgendaPeer extends BaseAgendaPeer
   static public function getLabels() {
     return self::$labels;
   }
-
   static $status = array(
     '-50' => 'diferida',
     '1'   => 'programada',

@@ -63,6 +63,10 @@ class programarCirugiaForm extends BaseAgendaForm
 	$this->widgetSchema['hora'] = new sfWidgetFormInputText();
 	$this->widgetSchema['tiempo_est'] = new sfWidgetFormInputText();		
 	$this->widgetSchema['diagnostico_id'] = new sfWidgetFormInputHidden();
+        $this->setWidget('status', new sfWidgetFormInputHidden());
+        $this->widgetSchema['status']->setAttribute('value', 1);
+        $this->widgetSchema->setLabels(AgendaPeer::getLabels());
+
 	
 //	 $this->setWidget('tiempo_est', new sfWidgetFormChoice(array(
 //      'choices' => AgendaPeer::getDuracion()

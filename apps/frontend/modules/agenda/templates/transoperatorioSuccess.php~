@@ -28,7 +28,7 @@
 <?php $paciente = $form->getObject()?>
 
 <div id="idTag">
-  <div class="name"><?php echo "nombre del paciente" ?></div>
+  <div class="name"><?php echo $cirugia ?></div>
   <div><span class="label">Registro: </span><span><?php echo "registro del pasciente" ?></span></div>
 </div>
 
@@ -51,7 +51,7 @@
 
 <?php $quirofano = $form->getObject()->getQuirofano() ?>
 <div class="menubar">
-  <a href="<?php echo url_for('quirofano/show?slug='.$quirofano->getSlug()) ?>">Agenda de <?php echo $quirofano ?></a>
+  <a href="<?php echo url_for('agenda/show?slug='.$quirofano->getSlug()) ?>">Agenda de <?php echo $quirofano ?></a>
 </div>
 
 <div class="formulario clearfix">

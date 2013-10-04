@@ -150,7 +150,6 @@ public function estaSolicitado()
 
     return $return;
   }
-
  public function esDiferido() {
     return $this->getStatus() == '-50' ? true: false;
   }
