@@ -29,15 +29,15 @@
 
   <!-- Hojas de estilo global todas reciden en /css/global/  -->
   <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/global/reset.css" /> <!-- Elimina los estilos por default -->
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/global/common.css" />  <!-- Marcado basico para elementos mas comunes -->
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/global/960gs-16-fixed.css" /> <!-- Permite el uso de 960 grid System a 16 columnas -->
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/global/main.css" /> <!-- Da formato basico a los formularios -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/common.css" />  <!-- Marcado basico para elementos mas comunes -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/960gs-16-fixed.css" /> <!-- Permite el uso de 960 grid System a 16 columnas -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/global/main.css" /> <!-- Da formato basico a los formularios -->
 
   <!-- Hoja de Estilos del Template estan en /css/templates/$nombredeplantilla-->
   <link rel="stylesheet" type="text/css" media="screen" href="/min/b=css/templates2/<?php echo $template ?>&f=default.css,styles.css,jquery-ui.custom.css " /> <!-- Hoja de estilos principal -->
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/default.css" /> <!-- Hoja de estilos principal -->
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/styles.css" />  <!-- Modificaciones del template -->
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/jquery-ui.custom.css" />  <!-- Estilos de widgets -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/default.css" /> <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/styles.css" />  <!-- Modificaciones del template -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/templates2/<?php echo $template ?>/jquery-ui.custom.css" />  <!-- Estilos de widgets -->
 
   <!-- Hojas de estilo de utilidades -->
   <link rel="stylesheet" type="text/css" media="screen" href="/css/global/jquery.pnotify.default.css" /> <!-- Hoja de estilos de las Notificaciones -->
@@ -48,9 +48,9 @@
   <!-- ======================== JAVASCRIPT ======================== -->
   <script type="text/javascript" src="/js/global/jquery-1.7.1.min.js"></script>    <!-- 1.5.1 --><!-- 1.4.2 -->
   <script type="text/javascript" src="/js/global/jquery-ui-1.8.20.custom.min.js"></script>    <!-- 1.8.2 -->
-  <!--<script type="text/javascript" src="/js/global/ui.timepickr.js"></script>    <!-- 1.8.2 -->
+  <script type="text/javascript" src="/js/global/ui.timepickr.js"></script>    <!-- 1.8.2 -->
   <script type="text/javascript" src="/js/global/datepickerPreferences.js"></script>
-  <!-- <script type="text/javascript" src="/js/global/seekAttention.jquery.js"></script>   <!-- plugin para llamar la atencion de areas -->
+  <script type="text/javascript" src="/js/global/seekAttention.jquery.js"></script>   <!-- plugin para llamar la atencion de areas -->
 
   <script type="text/javascript" src="/js/global/jquery.timepicker.js"></script>
 

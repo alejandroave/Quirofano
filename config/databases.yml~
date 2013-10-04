@@ -1,6 +1,5 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/07-Databases
-
 dev:
   propel:
     param:
@@ -26,7 +25,8 @@ all:
       classname:  PropelPDO
       dsn:        mysql:dbname=Quirofano;host=localhost
       username:   root
-      password:   Prefontainex9
+      password:   ave9201
+      #password:   mesostel
       encoding:   utf8
       persistent: true
       pooling:    true

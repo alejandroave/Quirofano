@@ -3,10 +3,11 @@ propel.packageObjectModel  = true
 propel.project             = Quirofano
 propel.database            = mysql
 propel.database.driver     = mysql
-propel.database.url        = mysql:dbname=Quirofano;host=localhost
+propel.database.url        = 'mysql:dbname=Quirofano;host=localhost'
 propel.database.creole.url = ${propel.database.url}
 propel.database.user       = root
-propel.database.password   = ave9201
+propel.database.password   = 131090
+#propel.database.password   = mesostel
 propel.database.encoding   = utf8
 
 ; mysql options

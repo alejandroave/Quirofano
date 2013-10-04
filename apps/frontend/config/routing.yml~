@@ -1,0 +1,37 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfGuardAuth, action: password }
+
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: signin }
+
+# default rules default
+homepage:
+  url:   /
+  param: { module: agenda, action: index }
+
+por_quirofano:
+  url:   /agenda-quirofano/:quirofano/:date
+  param: { module: agenda, action: quirofano }
+
+#rutas del plugin sfGuardPlugin
+
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
