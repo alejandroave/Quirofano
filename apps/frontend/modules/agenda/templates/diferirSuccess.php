@@ -3,7 +3,7 @@
 <?php end_slot() ?>
 <?php if($form->getObject()): ?>
 <div id="idTag" class="clearfix">
-  <div class="name"><?php echo 'nombredelpasiente'?></div>
+  <div class="name"><?php echo  $cirugia->getPacienteName()?></div>
   <div><span class="label">Registro: </span><span><?php echo 'registro' ?></span></div>
 </div>
 <?php endif; ?>

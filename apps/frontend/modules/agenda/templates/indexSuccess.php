@@ -136,12 +136,12 @@
   <title>Lista General de Quirofanos | SIGA-HU </title>
 <?php end_slot() ?>
 
-<h1>Lista de Quirofanos</h1>
+<h1>Quirofanos Activos</h1>
 
 <ul id="navTabs">
-  <li class="tab active"><a href="index">Activos</a></li>
-  <li class="tab "><a href="/quirofano/ambulatorio/1">Ambulatorios</a></li>
-  <li class="tab "><a href="/quirofano/todas/1">Todos</a></li>
+  <li class="tab active"><a href="<?php echo url_for('agenda/index')?>">Quirofano Activos</a></li>
+  <li class="tab"><a href="<?php echo url_for('agenda/ambulatorio')?>">Ambulatorio</a></li>
+  <li class="tab"><a href="<?php echo url_for('agenda/tquirofanos')?>">Todos</a></li>
 </ul>
 
 <div id="camasPanel">

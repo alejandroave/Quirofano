@@ -28,7 +28,7 @@
 <?php $paciente = $form->getObject()?>
 
 <div id="idTag">
-  <div class="name"><?php echo "nombre del paciente" ?></div>
+  <div class="name"><?php echo $cirugia->getPacienteName() ?></div>
   <div><span class="label">Registro: </span><span><?php echo "registro del pasciente" ?></span></div>
 </div>
 

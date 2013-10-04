@@ -25,6 +25,51 @@ class Agenda extends BaseAgenda
   * @autor: Antonio Sánchez Uresti
   * @date:  2013-08-02
   */
+
+
+ 
+ protected $classes = array();
+
+  public function __toString()
+  {
+    return $this->getId().' '.$this->getProgramacion('d-M-Y').' a las '.$this->getHora('h:i A');
+  }
+
+  public function getClasses()
+  {
+    $classes = array();
+    $string = '';
+    $status = AgendaPeer::getStatus();
+
+    if ($this->getStatus() < 10) {
+      $classes['solicitado'] = $this->estaSolicitado() ? 'solicitado' : false;
+
+      if ($this->estaAtrasado()) {
+        $classes['diferido'] = 'atrasada';
+      }
+      else {
+        if ($this->getIntervaloAtraso() > 0 ) {
+          $classes['diferido'] = 'diferido'.$this->getTiempoDiferido(false);
+        }
+      }
+    }
+
+    if ($this->getStatus() == -50) {
+      $classes['diferido'] = 'diferido';
+    }
+
+    $classes['agenda'] = 'cxrow';
+    $classes['tipocx'] = $this->getTipoProcId() ? 'cxtipo_'.$this->getTipoProcId() : false;
+    $classes['convenio'] = 'convenio'.$this->getAtencionId();
+    $classes['status'] = $status[$this->getStatus()];
+
+    return trim(implode(' ', $classes));
+  }
+
+
+
+
+
   public function doSave(PropelPDO $con) 
   {
     switch ($this->getStatus()) {
@@ -38,6 +83,83 @@ class Agenda extends BaseAgenda
         break;
     }
     return parent::doSave($con);
+  }
+
+
+
+ public function getTiempoDiferido($useUnits = true)
+  {
+    $time = $this->getIntervaloAtraso();
+
+    if ($time > 0) {
+      if ($useUnits) {
+        if ($time >= 86400) {
+          $time /= 86400;
+          $unit = $time <= 2 ? 'Dia': 'Dias';
+        }
+        elseif ($time >= 3600) {
+          $time /= 3600;
+          $unit = $time <= 2 ? 'Hora': 'Horas';
+        }
+        else {
+          $time /= 60;
+          $unit = $time <= 2 ? 'Minuto': 'Minutos';
+        }
+      }
+      else {
+        if ($time >= 3600) {
+          $time /= 3600;
+        }
+      }
+
+      $time = round($time);
+      return  $useUnits ? $time.' '.$unit : $time;
+    }
+
+    return 'A tiempo';
+  }
+
+protected function getIntervaloAtraso()
+  {
+    $hora = $this->getHora('H');
+    $min = $this->getHora('i');
+    $dia = $this->getProgramacion('d');
+    $mes = $this->getProgramacion('m');
+    $ano = $this->getProgramacion('y');
+
+    return date('U') - mktime($hora, $min, 0, $mes, $dia, $ano);
+  } 
+public function estaSolicitado()
+  {
+    return $this->getSolicitado() ? true : false;
+  }
+
+  public function estaAtrasado()
+  {
+    $time = $this->getIntervaloAtraso();
+
+    if ($time < 0) {
+      $return = false;
+    }
+    elseif ($time > 86400) {
+      $return = true;
+    }
+    else {
+      $return = false;
+    }
+
+    return $return;
+  }
+
+ public function esDiferido() {
+    return $this->getStatus() == '-50' ? true: false;
+  }
+
+public function getVerboseStatus()
+  {
+    $status = AgendaPeer::getStatus();
+    //return $status;
+    return ucfirst($status[$this->getStatus()]);
   }
   
 }

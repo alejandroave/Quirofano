@@ -1,0 +1,43 @@
+
+1-.  "1" activo y a tiempo 
+
+Iconos:
+paciente en preoperatorio
+reprogramar
+transoperatorio
+cancelar
+
+color: verde
+-------------------------------------
+-------------------------------------
+2-. "2" no a tiempo:
+Iconos:
+diferir cirugia
+cancelar cirugia
+
+color: rojo
+-------------------------------------
+-------------------------------------
+
+3-. "3" cirugias diferidas
+Iconos:
+Reprogramar
+cancelar
+
+color: naranja
+-------------------------------------
+-------------------------------------
+4-. "4" Cirugia en proceso
+Iconos:
+cambio de personal
+status
+
+color: amarillo
+-------------------------------------
+-------------------------------------
+5-. "5"  cirugia realizada
+Iconos:
+cirugia realizada
+cambio de personal
+
+color: azul

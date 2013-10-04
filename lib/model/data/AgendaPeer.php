@@ -19,4 +19,112 @@
  */
 class AgendaPeer extends BaseAgendaPeer
 {
+
+
+  static $labels = array(
+    'programacion' => 'Fecha:',
+    'ingreso' => 'Ingreso a quirófano:',
+    'sala_id' => 'Sala:',
+    'egreso' => 'Salida de quirófano',
+    'cie9mc' => 'Procedimiento o Cirugía Planeado:',
+    'cie9mc_id' => 'procedimiento',
+    'diagnostico' => 'Diagnóstico:',
+    'diagnostico_id' => 'Diagnóstico:',
+    'paciente_name' => 'Nombre del paciente:',
+    'paciente_id' => 'Nombre del paciente:',
+    'edad' => 'Edad:',
+    'genero' => 'Genero:',
+    'registro' => 'Registro',
+    'servicio' => 'Especialidad:',
+    'programa' => 'Médico que programa:',
+    'programa_id' => 'Médico que programa:',
+    'req_insumos' => 'Insumos indispensables:',
+    'req_anestesico' => 'Requerimientos de Anestesiología:',
+    'req_hemoderiv' => 'Hemoderivados Necesarios:',
+    'req_laboratorio' => 'Requisitos de Laboratorio:',
+    'requerimiento' => 'Otras necesidades:',
+    'reintervencion' => 'Reintervencion',
+    'realiza' => 'Médico que realiza el procedimiento:',
+    'atencion_id' => 'En atención a:',
+    'supervisor' => 'Médico supervisor:',
+    'maestro_anestesia' => 'Supervisor de aplicacion de anestesia:',
+    'anestesiologo' => 'Anestesiologo:',
+    'cx_realizada' => 'Cirugia:',
+    'cx_realizada_id' => 'Cirugia:',
+    'ev_adversos_anestesia' => 'Eventos en anestesia',
+    'anestesiologo_qx' => 'Anestesiologo:',
+    'circulante' => 'Circulante:',
+    'instrumentista' => 'Instrumentista',
+    'circulante_id' => 'Circulante:',
+    'instrumentista_id' => 'Instrumentista',
+    'anestesia_empleada' => 'Técnica anestesica empleada:',
+    'tipo_proc_id' => 'Tipo Programacion:',
+    'turno_ci_id' => 'Turno',
+    'turno_cf_id' => 'Turno',
+    'turno_ii_id' => 'Turno',
+    'turno_if_id' => 'Turno',
+    'cx_final' => 'Cirujano que finaliza:',
+    'hora' => 'Hora propuesta:',
+    'region_px' => 'Región:',
+    'extension_px' => 'Extención del procedimiento:',
+    'anexo_detalle' => 'Detalles adicionales:',
+    'tiempo_est' => 'Duración:',
+    'riesgo_qx_pre' => 'Riesgo quirurgico:',
+    'clasificacionqx' => 'Clasificacion de la cirugía',
+    'eventoqx_id' => 'Evento adverso',
+    'riesgoqx_id' => 'Infección de sitio quirurgico',
+    'contaminacionqx_id' => 'Contamintación',
+    'destino_px' => 'Destino del paciente'
+  );
+
+  static public function getLabels() {
+    return self::$labels;
+  }
+
+  static $status = array(
+    '-50' => 'diferida',
+    '1'   => 'programada',
+    '10'  => 'transoperatorio',
+    '100' => 'realizadas',
+    '500' => 'Bloqueada por Sistema'
+  );
+
+  static public function getStatus() { 
+    return self::$status;
+  }
+
+  static public function getDuracion() {
+    return array(
+      '3600' => '1:00 hr',
+      '5400' => '1:30 hrs',
+      '7200' => '2:00 hrs',
+      '9000' => '2:30 hr',
+      '10800' => '3:00 hrs',
+      '12600' => '3:30 hrs',
+      '14400' => '4:00 hrs',
+      '16200' => '4:30 hrs',
+      '18000' => '5:00 hrs',
+      '19800' => '5:30 hrs',
+      '21600' => '6:00 hrs',
+      '23400' => '6:30 hrs',
+      '25200' => '7:00 hrs',
+      '27000' => '7:30 hrs',
+      '28800' => '8:00 hrs',
+      '30600' => '8:30 hrs',
+      '32400' => '9:00 hrs',
+      '34200' => '9:30 hrs',
+      '36000' => '10:00 hrs',
+      '37800' => '10:30 hrs',
+      '39600' => '11:00 hrs',
+      '31400' => '11:30 hrs',
+      '43200' => '12:00 hrs',
+    );
+  }
+
+  static public function getMonths() {
+    return array (
+      'en' => array('','january','february','march','april','may','june','july','august','september','october','november','december'),
+      'es' => array('','enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre')
+    );
+  }
 }
