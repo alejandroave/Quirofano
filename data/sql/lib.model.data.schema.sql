@@ -140,9 +140,15 @@ CREATE TABLE `hc_agenda_personal`
     `created_at` DATETIME,
     PRIMARY KEY (`id`),
     INDEX `FI_nda_personal` (`agenda_id`),
+    INDEX `FI_nda_personal_id` (`personal_id`),
     CONSTRAINT `agenda_personal`
         FOREIGN KEY (`agenda_id`)
         REFERENCES `hc_agenda` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+    CONSTRAINT `agenda_personal_id`
+        FOREIGN KEY (`personal_id`)
+        REFERENCES `sf_guard_user` (`id`)
         ON UPDATE CASCADE
         ON DELETE SET NULL
 ) ENGINE=InnoDB;

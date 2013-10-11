@@ -150,6 +150,7 @@ public function estaSolicitado()
 
     return $return;
   }
+
  public function esDiferido() {
     return $this->getStatus() == '-50' ? true: false;
   }
@@ -160,5 +161,119 @@ public function getVerboseStatus()
     //return $status;
     return ucfirst($status[$this->getStatus()]);
   }
-  
+  protected $objPrograma;
+
+   public function getMedicoPrograma()
+  {
+    if ($this->objPrograma == null && $this->getPersonalcirugias() != null ) {
+      foreach ($this->getPersonalcirugias() as $personal) {
+        if ($personal->getTipo() == 'cirujano' && $personal->getprograma() == true  && $personal->getStatus() == 0){
+          $this->objPrograma = $personal;
+          break;
+        }
+      }
+    }
+
+    return $this->objPrograma ? $this->objPrograma : new Personalcirugia();
+  }
+ protected $cxInicia;
+
+  public function getCirujanoInicial() {
+    if ($this->cxInicia == null && $this->getPersonalcirugias() != null ) {
+      foreach ($this->getPersonalcirugias() as $personal) {
+        if ($personal->getTipo() === 'cirujano' && $personal->getInicia() == 1  && $personal->getStatus() == 0) {
+          $this->cxInicia = $personal;
+          break;
+        }
+      }
+    }
+
+    return $this->cxInicia ? $this->cxInicia : new Personalcirugia();
+  }
+
+ protected $transPersonal;
+
+  public function getPersonalTransoperatorio() {
+    if ($this->transPersonal === null && $this->getPersonalcirugias() != null ) {
+      $this->transPersonal = new PropelCollection();
+      foreach ($this->getPersonalcirugias() as $personal ) {
+        if ($personal->getTransoperatorio()) {
+          $this->transPersonal->set('Personalcirugia_'.$personal->getId(), $personal);
+        }
+
+      }
+    }
+
+    return $this->transPersonal ? $this->transPersonal : null;
+  }
+ protected $cxSupInicia;
+
+  public function getCirujanoSupInicial() {
+    if ($this->cxSupInicia == null  && $this->getPersonalcirugias() != null ) {
+      foreach ($this->getPersonalcirugias() as $personal) {
+        if ($personal->getTipo() == 'cirujano' && $personal->getInicia() == true && $personal->getStatus() == 1) {
+          $this->cxSupInicia = $personal;
+          break;
+        }
+      }
+    }
+
+    return $this->cxSupInicia ? $this->cxSupInicia : new Personalcirugia() ;
+  }
+protected $anesInicia;
+
+  public function getAnestesiologoInicial() {
+    if ($this->anesInicia == null && $this->getPersonalcirugias() != null ) {
+      foreach ($this->getPersonalcirugias() as $personal) {
+        if ($personal->getTipo() == 'anestesista' && $personal->getInicia() == true && $personal->getStatus() == 0) {
+          $this->anesInicia = $personal;
+          break;
+        }
+      }
+    }
+
+    return $this->anesInicia ? $this->anesInicia : new Personalcirugia();
+  }
+  protected $anesSupInicia;
+
+  public function getAnestesiologoSupInicial() {
+    if ($this->anesSupInicia == null && $this->getPersonalcirugias() != null ) {
+      foreach ($this->getPersonalcirugias() as $personal) {
+        if ($personal->getTipo() == 'anestesista' && $personal->getInicia() == true && $personal->getStatus() == 1) {
+          $this->anesSupInicia = $personal;
+          break;
+        }
+      }
+    }
+
+    return $this->anesSupInicia ? $this->anesSupInicia : new Personalcirugia();
+  }
+protected $instrumentistaInicial;
+
+  public function getInstrumentistaInicial() {
+    if ($this->instrumentistaInicial == null && $this->getPersonalcirugias() != null ) {
+      foreach ($this->getPersonalcirugias() as $personal) {
+        if ($personal->getTipo() == 'enfermeria' && $personal->getInicia() == true && $personal->getStatus() == 2) {
+          $this->instrumentistaInicial = $personal;
+          break;
+        }
+      }
+    }
+
+    return $this->instrumentistaInicial ? $this->instrumentistaInicial : new Personalcirugia();
+  }
+ protected $circulanteInicial;
+
+  public function getCirculanteInicial() {
+    if ($this->circulanteInicial == null && $this->getPersonalcirugias() != null ) {
+      foreach ($this->getPersonalcirugias() as $personal) {
+        if ($personal->getTipo() == 'enfermeria' && $personal->getInicia() == true && $personal->getStatus() == 3) {
+          $this->circulanteInicial = $personal;
+          break;
+        }
+      }
+    }
+
+    return $this->circulanteInicial ? $this->circulanteInicial : new Personalcirugia();
+  }
 }

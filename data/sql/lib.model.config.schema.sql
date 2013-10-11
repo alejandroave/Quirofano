@@ -50,5 +50,20 @@ CREATE TABLE `siga_sala`
         ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
+-- ---------------------------------------------------------------------
+-- siga_turno
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `siga_turno`;
+
+CREATE TABLE `siga_turno`
+(
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(128) NOT NULL,
+    `created_at` DATETIME,
+    `updated_at` DATETIME,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;

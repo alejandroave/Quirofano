@@ -76,8 +76,35 @@
       <?php echo $form['tiempo_fuera'] ?>
     </div>
   </div>
+<div class="area cols06">
+    <div class="label"><?php echo $form['cxInicial']['personal_nombre']->renderLabel('Médico que inicia el procedimiento:') ?></div>
+    <div class="field">
+      <?php echo $form['cxInicial']['personal_nombre']->renderError() ?>
+      <?php echo $form['cxInicial']['personal_nombre'] ?>
+    </div>
+  </div>
+  <div class="area cols06">
+    <div class="label"><?php echo $form['cxSupInicial']['personal_nombre']->renderLabel('Cirujano que supervisa:') ?></div>
+    <div class="field">
+      <?php echo $form['cxSupInicial']['personal_nombre']->renderError() ?>
+      <?php echo $form['cxSupInicial']['personal_nombre'] ?>
+    </div>
+  </div>
+<div class="area cols06">
+    <div class="label"><?php echo $form['anesInicia']['personal_nombre']->renderLabel('Anestesiologo Inicial:') ?></div>
+    <div class="field">
+      <?php echo $form['anesInicia']['personal_nombre']->renderError() ?>
+      <?php echo $form['anesInicia']['personal_nombre'] ?>
+    </div>
+  </div>
 
- 
+<div class="area cols06">
+    <div class="label"><?php echo $form['anesSupInicia']['personal_nombre']->renderLabel('Anestesiologo que supervisa:') ?></div>
+    <div class="field">
+      <?php echo $form['anesSupInicia']['personal_nombre']->renderError() ?>
+      <?php echo $form['anesSupInicia']['personal_nombre'] ?>
+    </div>
+  </div>
 
   <div class="area cols12">
     <div class="label"><?php echo $form['anestesia_empleada']->renderLabel() ?></div>
@@ -86,6 +113,24 @@
       <?php echo $form['anestesia_empleada'] ?>
     </div>
   </div>
+
+<div class="area cols04">
+    <div class="label"><?php echo $form['instrumentistaInicial']['personal_nombre']->renderLabel('Instrumentista que inicia:') ?></div>
+    <div class="field">
+      <?php echo $form['instrumentistaInicial']['personal_nombre']->renderError() ?>
+      <?php echo $form['instrumentistaInicial']['personal_nombre'] ?>
+    </div>
+  </div>
+<!--aqui falta turno -->
+ <div class="area cols02">
+    <div class="label"><?php echo $form['instrumentistaInicial']['turno']->renderLabel('Turno:') ?></div>
+    <div class="field">
+      <?php echo $form['instrumentistaInicial']['turno']->renderError() ?>
+      <?php echo $form['instrumentistaInicial']['turno'] ?>
+    </div>
+  </div>
+<!--aqui falta turno-->
+
 
 
 
