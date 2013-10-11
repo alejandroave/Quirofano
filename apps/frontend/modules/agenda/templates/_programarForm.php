@@ -37,21 +37,14 @@
 </script>
 <form id='target' method="POST" onsubmit="return pregunta();">
 <!-- <form method="POST" action="<?php //echo url_for('quirofano/programar?slug='.$Quirofano->getSlug()) ?>">   -->
-<div class="area cols07">
-    <div class="label"><?php echo $form['medico_name']->renderLabel() ?></div>
-    <div class="field">
-      <?php echo $form['medico_name']->renderError() ?>
-      <?php echo $form['medico_name'] ?>
-    </div>
-</div>
-
-<div class="area cols02">
+<div class="area cols03">
     <div class="label"><?php echo $form['sala_id']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['sala_id']->renderError() ?>
       <?php echo $form['sala_id'] ?>
     </div>
   </div>
+
 <div class="area cols02">
     <div class="label"><?php echo $form['programacion']->renderLabel() ?></div>
     <div class="field">
@@ -59,6 +52,8 @@
       <?php echo $form['programacion'] ?>
     </div>
   </div>
+
+
 <div class="area cols02">
     <div class="label"><?php echo $form['hora']->renderLabel() ?></div>
     <div class="field">
@@ -66,13 +61,16 @@
       <?php echo $form['hora'] ?>
     </div>
   </div>
-  <div class="area cols02">
+
+
+<div class="area cols02">
     <div class="label"><?php echo $form['tiempo_est']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['tiempo_est']->renderError() ?>
       <?php echo $form['tiempo_est'] ?>
     </div>
   </div>
+
 
   <div class="area cols03">
     <div class="label"><?php echo $form['tipo_proc_id']->renderLabel() ?></div>
@@ -81,6 +79,8 @@
       <?php echo $form['tipo_proc_id'] ?>
     </div>
   </div>
+
+
 <div class="area cols03">
     <div class="label"><?php echo $form['registro']->renderLabel() ?></div>
     <div class="field">
@@ -88,6 +88,8 @@
       <?php echo $form['registro'] ?>
     </div>
   </div>
+
+
 
   <div class="area cols09">
     <div class="label"><?php echo $form['paciente_name']->renderLabel() ?></div>
@@ -97,13 +99,16 @@
     </div>
   </div>
 
-  <div class="area cols03">
+
+<div class="area cols03">
     <div class="label"><?php echo $form['edad']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['edad']->renderError() ?>
       <?php echo $form['edad'] ?>
     </div>
   </div>
+
+
 
   <div class="area cols03">
     <div class="label"><?php echo $form['genero']->renderLabel() ?></div>
@@ -113,6 +118,7 @@
     </div>
   </div>
 
+
 <div class="area cols03">
     <div class="label"><?php echo $form['procedencia']->renderLabel() ?></div>
     <div class="field">
@@ -120,6 +126,8 @@
       <?php echo $form['procedencia'] ?>
     </div>
   </div>
+
+
 
   <div class="area cols03">
     <div class="label"><?php echo $form['servicio']->renderLabel() ?></div>
@@ -129,7 +137,7 @@
     </div>
   </div>
 
-  <div class="area cols03">
+<div class="area cols06">
     <div class="label"><?php echo $form['diagnostico']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['diagnostico']->renderError() ?>
@@ -137,7 +145,8 @@
     </div>
   </div>
 
-  <div class="area cols03">
+ 
+  <div class="area cols03 horizontal">
     <div class="label"><?php echo $form['protocolo']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['protocolo']->renderError() ?>
@@ -145,13 +154,23 @@
     </div>
   </div>
 
-  <div class="area cols03">
+ <div class="area cols03 horizontal">
     <div class="label"><?php echo $form['reintervencion']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['reintervencion']->renderError() ?>
       <?php echo $form['reintervencion'] ?>
     </div>
   </div>
+<!-- personal -->
+
+  <div class="area cols09">
+    <div class="label"><?php echo $form['programa']['personal_nombre']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['programa']['personal_nombre']->renderError() ?>
+      <?php echo $form['programa']['personal_nombre'] ?>
+    </div>
+  </div>
+<!-- personal -->
 <div class="area cols03">
     <div class="label"><?php echo $form['atencion_id']->renderLabel() ?></div>
     <div class="field">
@@ -160,8 +179,16 @@
     </div>
   </div>
 
+
+<!--Esperemos que funque-->
+ <?php foreach ($form['Procedimientocirugia'] as $subform) :?>
+  <div class="formCie9">
+  <?php echo $subform;?>
+  </div>
+  <?php endforeach; ?>
+<!--Esperemos que funque-->
  
-  <div class="area cols03">
+  <div class="area cols04">
     <div class="label"><?php echo $form['riesgo_qx_pre']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['riesgo_qx_pre']->renderError() ?>
@@ -169,7 +196,7 @@
     </div>
   </div>
 
-  <div class="area cols03">
+  <div class="area cols04">
     <div class="label"><?php echo $form['req_insumos']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_insumos']->renderError() ?>
@@ -177,7 +204,7 @@
     </div>
   </div>
 
-  <div class="area cols05">
+  <div class="area cols04">
     <div class="label"><?php echo $form['req_anestesico']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_anestesico']->renderError() ?>
@@ -185,7 +212,7 @@
     </div>
   </div>
 
-<div class="area cols03">
+<div class="area cols04">
     <div class="label"><?php echo $form['req_hemoderiv']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_hemoderiv']->renderError() ?>
@@ -193,7 +220,7 @@
     </div>
   </div>
 
-  <div class="area cols03">
+  <div class="area cols04">
     <div class="label"><?php echo $form['req_laboratorio']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['req_laboratorio']->renderError() ?>
@@ -201,13 +228,24 @@
     </div>
   </div>
 
-  <div class="area cols03">
+  <div class="area cols04">
     <div class="label"><?php echo $form['requerimiento']->renderLabel() ?></div>
     <div class="field">
       <?php echo $form['requerimiento']->renderError() ?>
       <?php echo $form['requerimiento'] ?>
     </div>
   </div>
+
+
+<!--
+<div class="area cols07">
+    <div class="label"><?php echo $form['medico_name']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['medico_name']->renderError() ?>
+      <?php echo $form['medico_name'] ?>
+    </div>
+</div>
+-->
 
 <div class="area control">
     <?php echo $form->renderHiddenFields() ?>

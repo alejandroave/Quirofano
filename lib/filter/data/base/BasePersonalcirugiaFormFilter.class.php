@@ -12,7 +12,7 @@ abstract class BasePersonalcirugiaFormFilter extends BaseFormFilterPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'personal_id'     => new sfWidgetFormFilterInput(),
+      'personal_id'     => new sfWidgetFormPropelChoice(array('model' => 'sfGuardUser', 'add_empty' => true)),
       'agenda_id'       => new sfWidgetFormPropelChoice(array('model' => 'Agenda', 'add_empty' => true)),
       'personal_nombre' => new sfWidgetFormFilterInput(),
       'tipo'            => new sfWidgetFormChoice(array('choices' => array(''=>'all',0=>'cirujano',1=>'anestesista',2=>'enfermeria',3=>'otro',))),
@@ -26,7 +26,7 @@ abstract class BasePersonalcirugiaFormFilter extends BaseFormFilterPropel
     ));
 
     $this->setValidators(array(
-      'personal_id'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'personal_id'     => new sfValidatorPropelChoice(array('required' => false, 'model' => 'sfGuardUser', 'column' => 'id')),
       'agenda_id'       => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Agenda', 'column' => 'id')),
       'personal_nombre' => new sfValidatorPass(array('required' => false)),
       'tipo'            => new sfValidatorChoice(array('required' => false, 'choices' => array(0=>0,1=>1,2=>2,3=>3,))),
@@ -55,7 +55,7 @@ abstract class BasePersonalcirugiaFormFilter extends BaseFormFilterPropel
   {
     return array(
       'id'              => 'Number',
-      'personal_id'     => 'Number',
+      'personal_id'     => 'ForeignKey',
       'agenda_id'       => 'ForeignKey',
       'personal_nombre' => 'Text',
       'tipo'            => 'Text',

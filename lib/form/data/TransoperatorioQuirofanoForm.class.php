@@ -58,20 +58,19 @@ class transoperatorioQuirofanoForm extends AgendaForm
       'expanded' => true
     ));
 
-  ///a  $transPersonal = $object->getPersonalTransoperatorio();
+  $transPersonal = $object->getPersonalTransoperatorio();
+  $cxInicial = $object->getCirujanoInicial();
 
-    //$cxInicial = $object->getCirujanoInicial();
-
-  ///a  $this->embedPersonalForm($object->getCirujanoInicial(), 'cxInicial', array('Tipo' => 'cirujano','Inicia' => true,'Status' => '0'));
-  ///a  $this->embedPersonalForm($object->getCirujanoSupInicial(), 'cxSupInicial', array('Tipo' => 'cirujano','Inicia' => true,'Status' => '1'));
+  $this->embedPersonalForm($object->getCirujanoInicial(), 'cxInicial', array('Tipo' => 'cirujano','Inicia' => true,'Status' => '0'));
+  $this->embedPersonalForm($object->getCirujanoSupInicial(), 'cxSupInicial', array('Tipo' => 'cirujano','Inicia' => true,'Status' => '1'));
 
   //-------------------------------------------------------------------------
-  ///a  $this->embedPersonalForm($object->getAnestesiologoInicial(), 'anesInicia', array('Tipo' => 'anestesista','Inicia' => true,'Status' => '0'));
-  ///a  $this->embedPersonalForm($object->getAnestesiologoSupInicial(), 'anesSupInicia', array('Tipo' => 'anestesista','Inicia' => true,'Status' => '1'));
+  $this->embedPersonalForm($object->getAnestesiologoInicial(), 'anesInicia', array('Tipo' => 'anestesista','Inicia' => true,'Status' => '0'));
+  $this->embedPersonalForm($object->getAnestesiologoSupInicial(), 'anesSupInicia', array('Tipo' => 'anestesista','Inicia' => true,'Status' => '1'));
 
 
-  ///a  $this->embedPersonalForm($object->getInstrumentistaInicial(), 'instrumentistaInicial', array('Tipo' => 'enfermeria','Inicia' => true,'Status' => '2'));
-  ///a  $this->embedPersonalForm($object->getCirculanteInicial(), 'circulanteInicial', array('Tipo' => 'enfermeria','Inicia' => true,'Status' => '3'));
+  $this->embedPersonalForm($object->getInstrumentistaInicial(), 'instrumentistaInicial', array('Tipo' => 'enfermeria','Inicia' => true,'Status' => '2'));
+  $this->embedPersonalForm($object->getCirculanteInicial(), 'circulanteInicial', array('Tipo' => 'enfermeria','Inicia' => true,'Status' => '3'));
 
 
 
@@ -91,7 +90,7 @@ class transoperatorioQuirofanoForm extends AgendaForm
     $this->setDefault('solicitado', true);
 
 
- ///a   $this->widgetSchema->setLabels(AgendaPeer::getLabels());
+  $this->widgetSchema->setLabels(AgendaPeer::getLabels());
     /* Ajustes a los validadores */
 
 /*

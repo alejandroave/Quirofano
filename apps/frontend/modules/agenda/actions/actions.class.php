@@ -60,7 +60,7 @@ class agendaActions extends sfActions
       if ($request->isMethod('POST')) {
       	 $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
 	 if ($this->form->isValid()) {
-             $Agenda= $this->form->save();
+             $this->form->save();
 	     $this->redirect('agenda/show?slug='.$request->getParameter('slug'));
              //$Agenda->setStatus(1)->save();	
 	     //$this->redirect('agenda/index');
@@ -216,6 +216,7 @@ public function executeTransoperatorio(sfWebRequest $request)
     $this->cirugia = AgendaQuery::create()->findPk($request->getParameter('id'));
     $this->form = new TransoperatorioQuirofanoForm($this->cirugia);
     if ($request->getMethod() == 'POST') {
+
       $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
       if ($this->form->isValid()) {
         $cirugia = $this->form->save();
@@ -269,8 +270,10 @@ public function executeTransoperatorio(sfWebRequest $request)
 }
 
 
-public function nuevo()
-{
-return 0;
-}
+ public function executeBusqueda(sfWebRequest $request) {
+    $this->term = $request->getParameter('term');
+    $this->cirugias = AgendaQuery::create()
+      ->filterByRegistro($this->term)
+      ->find();
+  }
 }

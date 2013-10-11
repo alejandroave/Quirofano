@@ -291,12 +291,12 @@ propel:
         onDelete:         setnull
         references:
           - { local: agenda_id, foreign: id }
-#      agenda_personal_id:
-#        foreignTable:     sf_guard_user
-#        onUpdate:         cascade
-#        onDelete:         setnull
-#        references:
-#          - { local: personal_id, foreign: id }
+      agenda_personal_id:
+        foreignTable:     sf_guard_user
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: personal_id, foreign: id }
 
   hc_agenda_diagnosticos:
     _attributes:          { phpName: Diagnosticocirugia, package: lib.model.data }
@@ -389,3 +389,11 @@ propel:
         onDelete:         setnull
         references:
           - { local: quirofano_id, foreign: id }
+#Tabla que guarda los turnos laborales
+  siga_turno:
+    _attributes:          { phpName: Turno, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true }
+    created_at:
+    updated_at:
+
