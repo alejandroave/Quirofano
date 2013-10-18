@@ -31,7 +31,7 @@
       <a href="<?php echo url_for('agenda/diferir?id='.$cirugia->getId()) ?>" title="Diferir Cirugia"><div class="diferir"></div></a>
       <a href="<?php echo url_for('agenda/cancelar?id='.$cirugia->getId()) ?>" title="Cancelar cirugía"><div class="cancelar"></div></a>
   <?php elseif($cirugia->getStatus() <= 10 ): ?>
-      <a href="<?php echo url_for('agenda/reprogramar?slug='.$slug.'&id='.$cirugia->getId()) ?>" rel="facebox" title="Modificar"><div class="modificar"></div></a>
+
       <a href="<?php echo url_for('agenda/postoperatorio?id='.$cirugia->getId()) ?>" title="Cirugia Realizada"><div class="realizada"></div></a>
       <a href="<?php echo url_for('agenda/agregarpersonal?id='.$cirugia->getid())?>" title="Cambio de personal"><div class="cambio"></div></a>
   <?php elseif($cirugia->getStatus() <= 100 ): ?>

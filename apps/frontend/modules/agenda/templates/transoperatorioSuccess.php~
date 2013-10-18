@@ -122,7 +122,13 @@
     </div>
   </div>
 <!--aqui falta turno -->
- 
+ <div class="area cols02">
+    <div class="label"><?php echo $form['instrumentistaInicial']['turno']->renderLabel('Turno:') ?></div>
+    <div class="field">
+      <?php echo $form['instrumentistaInicial']['turno']->renderError() ?>
+      <?php echo $form['instrumentistaInicial']['turno'] ?>
+    </div>
+  </div>
 <!--aqui falta turno-->
 
 

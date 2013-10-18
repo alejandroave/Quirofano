@@ -70,7 +70,7 @@ class transoperatorioQuirofanoForm extends AgendaForm
 
 
   $this->embedPersonalForm($object->getInstrumentistaInicial(), 'instrumentistaInicial', array('Tipo' => 'enfermeria','Inicia' => true,'Status' => '2'));
-  $this->embedPersonalForm($object->getCirculanteInicial(), 'circulanteInicial', array('Tipo' => 'enfermeria','Inicia' => true,'Status' => '3'));
+  //$this->embedPersonalForm($object->getCirculanteInicial(), 'circulanteInicial', array('Tipo' => 'enfermeria','Inicia' => true,'Status' => '3'));
 
 
 
@@ -90,7 +90,7 @@ class transoperatorioQuirofanoForm extends AgendaForm
     $this->setDefault('solicitado', true);
 
 
- ///a   $this->widgetSchema->setLabels(AgendaPeer::getLabels());
+  $this->widgetSchema->setLabels(AgendaPeer::getLabels());
     /* Ajustes a los validadores */
 
 /*
