@@ -131,7 +131,21 @@
   </div>
 <!--aqui falta turno-->
 
+ <div class="area cols04">
+    <div class="label"><?php echo $form['circulanteInicial']['personal_nombre']->renderLabel('Circulante que inicia:') ?></div>
+    <div class="field">
+      <?php echo $form['circulanteInicial']['personal_nombre']->renderError() ?>
+      <?php echo $form['circulanteInicial']['personal_nombre'] ?>
+    </div>
+  </div>
 
+  <div class="area cols02">
+    <div class="label"><?php echo $form['circulanteInicial']['turno']->renderLabel('Turno:') ?></div>
+    <div class="field">
+      <?php echo $form['circulanteInicial']['turno']->renderError() ?>
+      <?php echo $form['circulanteInicial']['turno'] ?>
+    </div>
+  </div>
 
 
   <div class="area cols12">

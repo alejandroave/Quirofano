@@ -1,7 +1,7 @@
 <h1>Salas de <?php echo $sf_request->getParameter('slug')?></h1>
 
 
-<?php echo link_to('Volver', 'quirofano/default')?>
+<?php echo link_to('Volver', 'agenda/index')?>
 
 <ul id="navTabs">
   <li class="tab active"><a href="/quirofano/todas/1">Todos</a></li>
@@ -22,8 +22,30 @@
     <?php foreach ($salas as $sala): ?>
     <tr>
       <td><a href="<?php echo url_for('quirofano/show?slug='.$sala->getSlug()) ?>"><?php echo $sala->getNombre() ?></a></td>
-      <td><?php echo $sala->getActivo() ?></td>
-      <td><?php echo $sala->getBloqueado() ?></td>
+      
+      <td>
+      <?php 
+      if ($sala->getActivo() == 1)
+      {
+	echo "si";
+      }else 
+      {
+	echo "no";
+      };
+      ?>
+      </td>
+      
+      <td>
+      <?php
+      if ($sala->getBloqueado() == 1)
+      {
+        echo "si";
+      }else
+      {
+        echo "no";
+      };
+      ?>
+      </td>
     </tr>
     <?php endforeach; ?>
     </tbody>

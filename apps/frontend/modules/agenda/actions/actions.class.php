@@ -276,4 +276,38 @@ public function executeTransoperatorio(sfWebRequest $request)
       ->filterByRegistro($this->term)
       ->find();
   }
+ public function executeAgregarpersonal(sfWebRequest $request)
+  {
+    $this->form = new PersonalcirugiaForm();
+    $this->form->configureNewPersonal()
+      ->setAgendaId($request->getParameter('id'));
+    if ($request->getMethod() == 'POST') {
+      $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+      if ($this->form->isValid()) {
+        $agenda = $this->form->save();
+        $this->form = new PersonalcirugiaForm();
+        $this->form->configureNewPersonal()
+          ->setAgendaId($request->getParameter('id'));
+      }
+    }
+    $this->cirugia = AgendaQuery::create()->findPk($request->getParameter('id'));
+    $this->forward404Unless($this->cirugia);
+  }
+public function executePostoperatorio(sfWebRequest $request)
+  {
+    AgendaQuery::create()
+      ->filterByStatus(100)
+      ->filterByEgreso(array('min' => strtotime('now') - 86400, 'max' => strtotime('now')))
+      ->update(array('ShowInIndex' => false));
+
+    $cirugia = AgendaQuery::create()->findPk($request->getParameter('id'));
+    $this->form = new PostoperatorioQuirofanoForm($cirugia);
+    if ($request->getMethod() == 'POST') {
+      $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+      if ($this->form->isValid()) {
+        $agenda = $this->form->save();
+        $this->redirect('agenda/show?slug='.$agenda->getQuirofano()->getSlug());
+      }
+    }
+  }
 }
