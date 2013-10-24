@@ -104,13 +104,23 @@ class programarCirugiaForm extends BaseAgendaForm
       'max_additions'       =>  4
     ));
 
-
+ $this->widgetSchema['reintervencion'] = new sfWidgetFormChoice(array(
+      'choices' => array('0' => 'No', '1' => 'Si'),
+      'expanded' => true
+    ));
+    $this->widgetSchema['protocolo'] = new sfWidgetFormChoice(array(
+      'choices' => array('0' => 'No', '1' => 'Si'),
+      'expanded' => true
+    ));
 
 
 	$this->widgetSchema['quirofano_id'] = new sfWidgetFormInputHidden();
 	$this->widgetSchema['programacion'] = new sfWidgetFormInputText();
 	$this->widgetSchema['hora'] = new sfWidgetFormInputText();
-	$this->widgetSchema['tiempo_est'] = new sfWidgetFormInputText();		
+	//$this->widgetSchema['tiempo_est'] = new sfWidgetFormInputText();	
+	$this->setWidget('tiempo_est', new sfWidgetFormChoice(array(
+      'choices' => AgendaPeer::getDuracion()
+    )));	
 	$this->widgetSchema['diagnostico_id'] = new sfWidgetFormInputHidden();
         $this->setWidget('status', new sfWidgetFormInputHidden());
         $this->widgetSchema['status']->setAttribute('value', 1);
@@ -127,10 +137,10 @@ class programarCirugiaForm extends BaseAgendaForm
 		//'data-source' => 'http://example.com/api/data'
 	));
 
-        $this->widgetSchema['tiempo_est']->setAttributes(array(
-                 'id' => 'tiest'
+       // $this->widgetSchema['tiempo_est']->setAttributes(array(
+                // 'id' => 'tiest'
 
-        ));	
+       // ));	
 	$this->widgetSchema['hora']->setAttributes(array(
 		'id' => 'datahora',
 	
@@ -155,7 +165,7 @@ class programarCirugiaForm extends BaseAgendaForm
 		'hora'          => 'Hora inicial',
 		'tipo_proc_id'  => 'Tipo de programación',
 		'programacion'  => 'Programación',
-		'tiempo_est'    => 'Tiempo estimado',
+		'tiempo_est'    => 'Duración',
 		'riesgo_qx_pre' => 'Riesgo quirurgico:',
 		'req_insumos'   => 'Insumos indispensables:',
 		'req_anestesico'  => 'Requerimientos de Anestesiología:', 
@@ -210,6 +220,11 @@ class programarCirugiaForm extends BaseAgendaForm
 
 	$this->validatorSchema['req_anestesico']->setOption('required', true);
         $this->validatorSchema['req_anestesico']->setMessage('required','Falta anestesia');	
+    $this->getObject()->isNew() ?
+    $this->validatorSchema['programacion']->setOption('min', strtotime('today')):
+    $this->validatorSchema['programacion']->setOption('max', strtotime('today + 30 days'));
+    $this->validatorSchema['programacion']->setMessage('min','Fecha invalida');
+    $this->validatorSchema['programacion']->setMessage('max','No se puede progrmar con mas de un mes de anticipación');
 
 
 	//Para pasar las salas existentes//
@@ -219,5 +234,10 @@ class programarCirugiaForm extends BaseAgendaForm
 	   
            ))
            );  
+  }
+  
+  public function renderForm($num) {
+    return $this->widgetSchema['Procedimientocirugia']['newProcedimientocirugia'.$num];
+    //return $this->widgetSchema['Procedimientocirugia'];
   }
 }
