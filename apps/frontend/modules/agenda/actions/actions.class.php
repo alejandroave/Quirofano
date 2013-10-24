@@ -62,7 +62,6 @@ class agendaActions extends sfActions
     if ($request->isMethod('POST')) {
       	 $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
 	       if ($this->form->isValid()) {
-           $comparacion = $this->form->$request->getParameter('id');
            $this->form->save();
 	         $this->redirect('agenda/show?slug='.$request->getParameter('slug'));
          
