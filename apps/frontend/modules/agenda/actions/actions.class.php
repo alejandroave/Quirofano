@@ -57,14 +57,15 @@ class agendaActions extends sfActions
   {   
       $this->forward404Unless($request->hasParameter('slug'));
       $this->form = new programarCirugiaForm();
-      if ($request->isMethod('POST')) {
+      $Quirofano = QuirofanoQuery::create()
+        ->findOneBySlug($request->getParameter('slug'));
+    if ($request->isMethod('POST')) {
       	 $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
-	 if ($this->form->isValid()) {
-             $this->form->save();
-	     $this->redirect('agenda/show?slug='.$request->getParameter('slug'));
-             //$Agenda->setStatus(1)->save();	
-	     //$this->redirect('agenda/index');
-	     }
+	       if ($this->form->isValid()) {
+           $this->form->save();
+	         $this->redirect('agenda/show?slug='.$request->getParameter('slug'));
+         
+	       } 
     }
     $this->quirofano = QuirofanoQuery::create()->findOneBySlug($request->getParameter('slug'));    
     $this->form->setDefault('quirofano_id', $this->quirofano->getId());
@@ -141,33 +142,16 @@ public function executeShow(sfWebRequest $request)
 
     $this->Quirofano = QuirofanoQuery::create()
       ->findOneBySlug($request->getParameter('slug'));
-         
-      
     $offset = $request->getParameter('offset', 0) * 3600;
-    //$date = strtotime($request->getParameter('date', date('Y-m-d')));
     $this->date = strtotime($request->getParameter('date', date('Y-m-d')));
-    //$date = strtotime("now");
     $hinicio = $request->getParameter('hora');
     $hfinal = $request->getParameter('tiempo_est');
-    $date = $this->date; 
-
-
-    #$date = strtotime("now");
-    //$date['max'] = $this->date + $offset;
-    //$date['min'] = ($request->hasParameter('date')) ? $date['max'] - 86400: null;
-    $qui = $this->Quirofano->getid();
     $nombre = $this->Quirofano->getslug();
     $this->Cirugias = AgendaQuery::create()
-      //->filterByArea($this->Quirofano)
-      ->filterByquirofanoid($qui)
-      //->filterByquirofanoid('slug')
-      ->filterByprogramacion($date)
-      //->filterByShowInIndex(true)      
-      //->queryAgenda($date)
+      ->filterByquirofanoid($this->Quirofano->getid())
+      ->filterByprogramacion($this->date)
       ->orderByStatus('asc')
-      //->orderByDefault()
       ->find();
-    //$this->forward404Unless($this->Quirofano);
   }
 
 //mostrar pruebas versión 1

@@ -251,7 +251,7 @@
     <?php echo $form->renderHiddenFields() ?>
     <input type="submit" value="Guardar">
   </div>
-</form><!-Termina form->
+</form><!--Termina form-->
 
 <!--  <div class="area control">
     <?php echo $form->renderHiddenFields() ?>

@@ -98,6 +98,14 @@ class Agenda extends BaseAgenda {
     return $this->getStatus() == '-50' ? true: false;
   }
 
+  public function esmepalmado()
+  {
+
+
+
+    return 0;
+  }
+  
   protected function getIntervaloAtraso()
   {
     $hora = $this->getHora('H');
@@ -290,11 +298,27 @@ class Agenda extends BaseAgenda {
   }
   
   public function writeProcedimientos() {
-    $result = '';  $i = 0;
+    $result = '';  $i = 1;
     foreach ($this->getProcedimientocirugias() as $procedimiento) {
-      $result .= $i++ ? '<br/>'.$procedimiento: $procedimiento;
-    }
+            //$result .= $i++ ? '<br/>'.$procedimiento: $procedimiento;
+      $result .=  ' |||procedimiento: ' .$i++;
+      $result .=' id =  '.$procedimiento->getId();
+      $result .=' cie9mc = '.$procedimiento->getcie9mc();
+      $result .=' region = '.$procedimiento->getregion();
+      $result .=' detalles = '.$procedimiento->getdetalles();
+      $result .=' Servicio = '.$procedimiento->getservicioId();
+      $result .=' ||| '; 
+
+          }
     return $result;
   }
+
+public function empalmado()
+{
+  foreach ($this as $cirugia) {
+  }
+  return null;
+}
+  
 
 } // Agenda
