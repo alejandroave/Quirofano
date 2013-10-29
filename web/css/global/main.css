@@ -735,7 +735,20 @@ textarea {
 /****************************************************
  * Estilos del Id de Usuario
  ****************************************************/
+.flash_notice
+{
+  font-size: 20px;
+  font-weight: 300; 
+  background-color:#FFFF99;
+  border: 1px solid #999;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #999999;
+  margin-bottom: 10px;
+  padding: 5px;
+  text-align: justify;
+  width: 194px !important;
 
+}
 #userId {
   background: white;
   border: 1px solid #999;

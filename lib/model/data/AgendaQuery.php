@@ -19,4 +19,7 @@
  */
 class AgendaQuery extends BaseAgendaQuery
 {
+
+
+  
 }

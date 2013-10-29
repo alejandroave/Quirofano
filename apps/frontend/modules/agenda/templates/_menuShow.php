@@ -29,7 +29,7 @@ HEAD;
 
 <h1>Agenda de procedimientos en <?php echo $Quirofano->getNombre() ?></h1>
 
-<!-    Va todo el menu de arriba-->
+<!--    Va todo el menu de arriba-->
 <div id="headtable">
 <a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/index') ?>">&nbsp;&nbsp;Lista general de quirofanos&nbsp;&nbsp;</a>
 <a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/programar?slug='.$Quirofano->getSlug())?>" rel="facebox">&nbsp;&nbsp;Programar Cirugia&nbsp;&nbsp;</a>
@@ -53,14 +53,40 @@ HEAD;
 </form>
 </div>
 
-<!- Va todo el menu de arriba -->
+<!-- Va todo el menu de arriba -->
 
 
 <div id="camasPanel">
   <table id="agenda" border="0" width="100%" cellspacing="0">
 </div>
 
-<!-- agregado -->
+<!--Script para mostrar alertas-->
+<script type="text/javascript">
+function saludo() {alert('Programación Exitosa')}
+function verificar() {alert('Verificar la hora')}
+</script>
+<!--Script para mostrar alertas-->
+
+<!--Mostrar alertas-->
+<?php if ($sf_user->hasFlash('notice')): ?>
+<?php if ($sf_user->getFlash('notice') == 'Verificar la hora' ):?>
+
+<script type="text/javascript">
+function start() {verificar()}
+window.onload = start;
+</script>
+
+<?php else: ?>
+
+<script type="text/javascript">
+function start() {saludo()}
+window.onload = start;
+</script>
+
+<?php endif; ?>
+<?php endif; ?>
+ 
+<!-- Mostrar alertas-->
 <?php $title = null ?>
 <?php foreach($Cirugias as $cirugia): ?>
 

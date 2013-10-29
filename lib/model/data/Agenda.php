@@ -297,6 +297,13 @@ class Agenda extends BaseAgenda {
     return ucfirst($status[$this->getStatus()]);
   }
   
+  public function getempalmado()
+  {
+    foreach ($this as $cirugia) {
+    }
+    return null;
+  }
+  
   public function writeProcedimientos() {
     $result = '';  $i = 1;
     foreach ($this->getProcedimientocirugias() as $procedimiento) {
@@ -313,12 +320,5 @@ class Agenda extends BaseAgenda {
     return $result;
   }
 
-public function empalmado()
-{
-  foreach ($this as $cirugia) {
-  }
-  return null;
-}
-  
 
 } // Agenda
