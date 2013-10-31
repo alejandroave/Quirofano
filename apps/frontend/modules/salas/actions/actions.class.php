@@ -33,6 +33,8 @@ class salasActions extends sfActions
            $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
            if ($this->form->isValid()) {
              $Quirofano= $this->form->save();
+             $this->getUser()->setFlash('notice', sprintf('Registro exitoso'));
+
 	     $this->redirect('agenda/index');
 	     }
 	}
@@ -48,6 +50,8 @@ class salasActions extends sfActions
            $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
            if ($this->form->isValid()) {
              $Salaquirurgica= $this->form->save();
+              $this->getUser()->setFlash('notice', sprintf('Registro exitoso'));
+
              $this->redirect('agenda/index');
              }
         }

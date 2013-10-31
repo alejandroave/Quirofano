@@ -136,6 +136,21 @@
   <title>Lista General de Quirofanos | SIGA-HU </title>
 <?php end_slot() ?>
 
+
+<script type="text/javascript">
+function saludo() {alert('Registro Exitoso')}
+</script>
+
+<?php if ($sf_user->hasFlash('notice')): ?>
+<script type="text/javascript">
+function start() {saludo()}
+window.onload = start;
+</script>
+<?php endif; ?>
+
+
+
+
 <h1>Quirofanos Activos</h1>
 
 <ul id="navTabs">

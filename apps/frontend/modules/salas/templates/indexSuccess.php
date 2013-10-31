@@ -1,4 +1,4 @@
-<p>ola</p>
+<!--<p>ola</p>-->
 <?php foreach ($Quirofanos as $Quirofano): ?>
     <tr>
       <td><a href="<?php echo url_for('quirofano/show?slug='.$Quirofano->getSlug()) ?>"><?php echo $Quirofano->getNombre() ?></a></td>

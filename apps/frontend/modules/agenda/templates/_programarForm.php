@@ -30,11 +30,26 @@
 -->
 </style>
 
+<!-- scripts para mostrar alertas-->
 <script type="text/javascript"> 
   function pregunta(){ 
     return confirm('¿Estas seguro de enviar este registro?'); 
   } 
+  function saludo() {alert('Programación Exitosa')}
+  function verificar() {alert('Verificar la hora')}
 </script>
+<!-- Scripts para mostrar alertas-->
+
+<!-- Mostrar alerta-->
+<?php if ($sf_user->hasFlash('notice')): ?>
+<script type="text/javascript">
+function start() {verificar()}
+window.onload = start;
+</script>
+<?php endif;?>
+<!-- Mostrar alerta-->
+
+
 <form id='target' method="POST" onsubmit="return pregunta();">
 <!-- <form method="POST" action="<?php //echo url_for('quirofano/programar?slug='.$Quirofano->getSlug()) ?>">   -->
 <div class="area cols03">

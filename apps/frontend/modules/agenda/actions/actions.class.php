@@ -17,6 +17,7 @@ class agendaActions extends sfActions
       ->find();
     $quirofano_id = $request->getParameter('quirofano');  
     $date = $request->getParameter('date', 'today');
+
   }
   
  public function executeAmbulatorio(sfWebRequest $request)
@@ -55,6 +56,8 @@ class agendaActions extends sfActions
 
   public function executeProgramar(sfWebRequest $request)
   {   
+
+
       $this->forward404Unless($request->hasParameter('slug'));
       $this->form = new programarCirugiaForm();
       $Quirofano = QuirofanoQuery::create()
@@ -62,9 +65,32 @@ class agendaActions extends sfActions
     if ($request->isMethod('POST')) {
       	 $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
 	       if ($this->form->isValid()) {
-           $this->form->save();
-	         $this->redirect('agenda/show?slug='.$request->getParameter('slug'));
-         
+
+             $horapropuesta = $this->form->getValue("hora");
+             $salaselecc = $this->form->getValue("sala_id");
+             $fechaselecc = $this->form->getValue("programacion");
+             $tiempo_est = $this->form->getValue("tiempo_est");
+
+             $agenda = AgendaQuery::create()
+              ->filterByquirofanoid($Quirofano->getid())
+              ->filterByprogramacion($fechaselecc)
+              ->filterByhora($horapropuesta)
+              ->filterBysalaid($salaselecc)
+              ->find();
+             $control = false;
+
+             foreach($agenda as $agendas):
+              $control = true;
+             endforeach; 
+
+             if ($control == true)
+             {
+                $this->getUser()->setFlash('notice', sprintf('Verificar la hora'));
+             }else{
+             $this->form->save();
+             $this->getUser()->setFlash('notice', sprintf('Programación exitosa'));
+	           $this->redirect('agenda/show?slug='.$request->getParameter('slug'));
+         }
 	       } 
     }
     $this->quirofano = QuirofanoQuery::create()->findOneBySlug($request->getParameter('slug'));    
