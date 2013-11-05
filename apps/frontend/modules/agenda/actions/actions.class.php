@@ -279,6 +279,7 @@ public function executeTransoperatorio(sfWebRequest $request)
     $cirugia->setSolicitado(!$cirugia->getSolicitado())->save();
     $this->redirect($request->getReferer());
   }
+
  public function executeReprogramar(sfWebRequest $request)
   {
     $this->forward404Unless($request->hasParameter('id'));
@@ -307,13 +308,13 @@ public function executeTransoperatorio(sfWebRequest $request)
              $fechaselecc['max'] = $this->form->getValue("programacion");
              $fechaselecc['min'] = date("Y-m-d",strtotime($fechaselecc['max'].' -1 day'));
              $tiempo_est = $this->form->getValue("tiempo_est");
+             $identificacion = $this->form->getValue('id');
              $control = $this->emHoras($fechaselecc,$horapropuesta,$Quirofano->getid(),$salaselecc,$tiempo_est);
-             if ($control != NULL)
+             if ($control != NULL && $control != $identificacion)
              {
                 $text = 'Se empalma con la cirugia: '.$control;
                 $this->getUser()->setFlash('notice', sprintf("$text"));
                 //rv$this->redirect('agenda/programar?slug='.$request->getParameter('slug'));
-
              }else{
              $this->form->save();
              $this->getUser()->setFlash('notice', sprintf('Programación exitosa'));

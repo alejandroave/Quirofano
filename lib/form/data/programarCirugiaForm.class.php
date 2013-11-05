@@ -115,6 +115,10 @@ class programarCirugiaForm extends BaseAgendaForm
 
 
 	$this->widgetSchema['quirofano_id'] = new sfWidgetFormInputHidden();
+	$this->widgetSchema['id'] = new sfWidgetFormInputHidden();
+
+
+
 	$this->widgetSchema['programacion'] = new sfWidgetFormInputText();
 	$this->widgetSchema['hora'] = new sfWidgetFormInputText();
 	$this->widgetSchema['tiempo_est'] = new sfWidgetFormInputText();	
