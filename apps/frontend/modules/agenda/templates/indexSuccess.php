@@ -142,10 +142,16 @@ function saludo() {alert('Registro Exitoso')}
 </script>
 
 <?php if ($sf_user->hasFlash('notice')): ?>
+<?php if ($sf_user->getFlash('notice') == 'Registro exitoso' ):?>
+
+
+
+
 <script type="text/javascript">
 function start() {saludo()}
 window.onload = start;
 </script>
+<?php endif; ?>
 <?php endif; ?>
 
 

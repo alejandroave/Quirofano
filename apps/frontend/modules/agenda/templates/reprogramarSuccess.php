@@ -30,7 +30,7 @@ $(function()
 
 
 <!-- Para poner reloj-->
-
+  
 <div class="formulario clearfix">
 
 <h1>Reprogramar Cirugia</h1>

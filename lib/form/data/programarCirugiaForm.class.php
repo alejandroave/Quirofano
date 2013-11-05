@@ -117,10 +117,11 @@ class programarCirugiaForm extends BaseAgendaForm
 	$this->widgetSchema['quirofano_id'] = new sfWidgetFormInputHidden();
 	$this->widgetSchema['programacion'] = new sfWidgetFormInputText();
 	$this->widgetSchema['hora'] = new sfWidgetFormInputText();
-	//$this->widgetSchema['tiempo_est'] = new sfWidgetFormInputText();	
-	$this->setWidget('tiempo_est', new sfWidgetFormChoice(array(
-      'choices' => AgendaPeer::getDuracion()
-    )));	
+	$this->widgetSchema['tiempo_est'] = new sfWidgetFormInputText();	
+	//$this->setWidget('tiempo_est', new sfWidgetFormChoice(array(
+      //'choices' => AgendaPeer::getDuracion()
+		//'id' => 'tiest'
+    //)));	
 	$this->widgetSchema['diagnostico_id'] = new sfWidgetFormInputHidden();
         $this->setWidget('status', new sfWidgetFormInputHidden());
         $this->widgetSchema['status']->setAttribute('value', 1);
@@ -137,10 +138,10 @@ class programarCirugiaForm extends BaseAgendaForm
 		//'data-source' => 'http://example.com/api/data'
 	));
 
-       // $this->widgetSchema['tiempo_est']->setAttributes(array(
-                // 'id' => 'tiest'
+        $this->widgetSchema['tiempo_est']->setAttributes(array(
+                 'id' => 'tiest'
 
-       // ));	
+        ));	
 	$this->widgetSchema['hora']->setAttributes(array(
 		'id' => 'datahora',
 	

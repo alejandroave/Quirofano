@@ -19,4 +19,7 @@
  */
 class Personalcirugia extends BasePersonalcirugia
 {
+	public function __toString() {
+		return $this->getPersonalNombre();
+	}
 }

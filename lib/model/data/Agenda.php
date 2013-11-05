@@ -320,5 +320,7 @@ class Agenda extends BaseAgenda {
     return $result;
   }
 
-
+  public function doSave(PropelPDO $con) {
+    parent::doSave($con);
+  }/**/
 } // Agenda

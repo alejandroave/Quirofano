@@ -40,7 +40,7 @@
       <?php if ($cirugia->estaAtrasado() == true):?>
        <a href="<?php echo url_for('agenda/pxsolicitado?id='.$cirugia->getId()) ?>" title="Paciente en preoperatorio"><div class="button"></div></a>
       <a href="<?php echo url_for('agenda/reprogramar?slug='.$slug.'&id='.$cirugia->getId()) ?>" rel="facebox" title="Modificar"><div class="modificar"></div></a>
-      <a href="<?php echo url_for('agenda/transoperatorio?id='.$cirugia->getId()) ?>" title="Iniciar cirugía"><div class="iniciar"></div></a>
+     <!-- <a href="<?php echo url_for('agenda/transoperatorio?id='.$cirugia->getId()) ?>" title="Iniciar cirugía"><div class="iniciar"></div></a>-->
       <?php endif;?>
       <a href="<?php echo url_for('agenda/diferir?id='.$cirugia->getId()) ?>" title="Diferir Cirugia"><div class="diferir"></div></a>
       <a href="<?php echo url_for('agenda/cancelar?id='.$cirugia->getId()) ?>" title="Cancelar cirugía"><div class="cancelar"></div></a>

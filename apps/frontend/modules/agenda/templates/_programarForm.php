@@ -42,7 +42,11 @@
 
 <!-- Mostrar alerta-->
 <?php if ($sf_user->hasFlash('notice')): ?>
+    <div class="flash_notice"><?php echo $sf_user->getFlash('notice') ?></div>
+
+
 <script type="text/javascript">
+
 function start() {verificar()}
 window.onload = start;
 </script>

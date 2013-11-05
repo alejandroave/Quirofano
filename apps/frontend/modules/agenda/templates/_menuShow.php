@@ -77,9 +77,11 @@ window.onload = start;
 </script>
 
 <?php else: ?>
+   <!-- <div class="flash_notice"><?php echo $sf_user->getFlash('notice') ?></div>-->
 
 <script type="text/javascript">
 function start() {saludo()}
+
 window.onload = start;
 </script>
 
