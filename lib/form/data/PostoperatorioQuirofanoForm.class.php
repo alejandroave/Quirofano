@@ -16,8 +16,8 @@ class postoperatorioQuirofanoForm extends AgendaForm
   $object = $this->getObject();
 
     $this->useFields(array(
-    //'paciente_name',
-    //'paciente_id',
+    'paciente_name',
+    'paciente_id',
     'egreso',
     'complicaciones',
     'riesgoqx_id',
@@ -52,12 +52,11 @@ class postoperatorioQuirofanoForm extends AgendaForm
 
     /* Ajustes a los validadores */
   $this->validatorSchema['egreso']->setOption('required', true);
-    $this->validatorSchema['egreso']->setMessage('required','Falta hora');
+  $this->validatorSchema['egreso']->setMessage('required','Falta hora');
 
 
   // Agregando las personas del transoperatorio
   $transPersonal = $object->getPersonalTransoperatorio();
-
   $tmp = new sfForm();
 
   if($transPersonal != null) {
@@ -65,6 +64,7 @@ class postoperatorioQuirofanoForm extends AgendaForm
       if ($personal->getPersonalNombre()) {
         $x = new PersonalcirugiaForm($personal);
         $x->useFields(array('finaliza', 'personal_nombre'));
+        //$tmp->embedForm($x);
         $tmp->embedForm('personal'.$personal->getId(), $x);
       }
     }

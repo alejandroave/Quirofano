@@ -65,5 +65,23 @@ CREATE TABLE `siga_turno`
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
+-- ---------------------------------------------------------------------
+-- siga_procedimiento
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `siga_procedimiento`;
+
+CREATE TABLE `siga_procedimiento`
+(
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(128) NOT NULL,
+    `activo` TINYINT(1) DEFAULT 1,
+    `created_at` DATETIME,
+    `updated_at` DATETIME,
+    `slug` VARCHAR(255),
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `siga_procedimiento_slug` (`slug`(255))
+) ENGINE=InnoDB;
+
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;

@@ -19,4 +19,13 @@
  */
 class SalaquirurgicaQuery extends BaseSalaquirurgicaQuery
 {
+
+	 public function getSalasActivasPorQuirofano($quirofano)
+  {
+    return $this->filterByActivo(true)
+      ->joinWith('Quirofano')
+      ->useQuery('Quirofano')
+        ->filterBySlug($quirofano)
+      ->endUse();
+  }
 }

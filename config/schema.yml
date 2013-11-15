@@ -204,12 +204,12 @@ propel:
 #        onDelete:         setnull
 #        references:
 #          - { local: eventoqx_id, foreign: id }
-#      agenda_tipo_proc:
-#        foreignTable:     siga_procedimiento
-#        onUpdate:         cascade
-#        onDelete:         setnull
-#        references:
-#          - { local: tipo_proc_id, foreign: id }
+      agenda_tipo_proc:
+        foreignTable:     siga_procedimiento
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: tipo_proc_id, foreign: id }
 #      agenda_causa_dif:
 #        foreignTable:     siga_causa_diferido
 #        onUpdate:         cascade
@@ -396,4 +396,3 @@ propel:
     nombre:               { type: varchar(128), required: true }
     created_at:
     updated_at:
-

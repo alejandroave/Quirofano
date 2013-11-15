@@ -49,6 +49,14 @@
 }
 </style>
 
+
+
+
+
+
+
+
+
 <?php $quirofano = $form->getObject()->getQuirofano() ?>
 <div class="menubar">
   <a href="<?php echo url_for('agenda/show?slug='.$quirofano->getSlug()) ?>">Agenda de <?php echo $quirofano ?></a>

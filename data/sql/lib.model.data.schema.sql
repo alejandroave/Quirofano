@@ -28,6 +28,7 @@ CREATE TABLE `hc_agenda`
 (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `programacion` DATE,
+    `fecha_control` DATE,
     `hora` TIME,
     `inicio` DATETIME,
     `last_time` DATETIME,
@@ -89,6 +90,7 @@ CREATE TABLE `hc_agenda`
     PRIMARY KEY (`id`),
     INDEX `FI_nda_sala` (`sala_id`),
     INDEX `FI_nda_quirofano` (`quirofano_id`),
+    INDEX `FI_nda_tipo_proc` (`tipo_proc_id`),
     CONSTRAINT `agenda_sala`
         FOREIGN KEY (`sala_id`)
         REFERENCES `siga_sala` (`id`)
@@ -97,6 +99,11 @@ CREATE TABLE `hc_agenda`
     CONSTRAINT `agenda_quirofano`
         FOREIGN KEY (`quirofano_id`)
         REFERENCES `siga_quirofano` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+    CONSTRAINT `agenda_tipo_proc`
+        FOREIGN KEY (`tipo_proc_id`)
+        REFERENCES `siga_procedimiento` (`id`)
         ON UPDATE CASCADE
         ON DELETE SET NULL
 ) ENGINE=InnoDB;

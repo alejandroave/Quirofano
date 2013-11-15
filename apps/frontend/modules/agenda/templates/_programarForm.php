@@ -100,13 +100,6 @@ window.onload = start;
   </div>
 
 
-<div class="area cols03">
-    <div class="label"><?php echo $form['registro']->renderLabel() ?></div>
-    <div class="field">
-      <?php echo $form['registro']->renderError() ?>
-      <?php echo $form['registro'] ?>
-    </div>
-  </div>
 
 
 
@@ -155,6 +148,17 @@ window.onload = start;
       <?php echo $form['servicio'] ?>
     </div>
   </div>
+
+
+
+<div class="area cols02">
+    <div class="label"><?php echo $form['registro']->renderLabel() ?></div>
+    <div class="field">
+      <?php echo $form['registro']->renderError() ?>
+      <?php echo $form['registro'] ?>
+    </div>
+  </div>
+
 
 <div class="area cols06">
     <div class="label"><?php echo $form['diagnostico']->renderLabel() ?></div>

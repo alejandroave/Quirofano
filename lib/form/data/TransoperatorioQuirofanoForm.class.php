@@ -47,9 +47,13 @@ class transoperatorioQuirofanoForm extends AgendaForm
     //$this->widgetSchema['maestro_anestesia_id'] = new sfWidgetFormInputHidden();
     //$this->widgetSchema['instrumentista_id'] = new sfWidgetFormInputHidden();
     //$this->widgetSchema['circulante_id'] = new sfWidgetFormInputHidden();
+
+
     $this->widgetSchema['solicitado'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['status'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['ingreso'] = new sfWidgetFormInputText();
+
+
     $this->widgetSchema['anestesia_empleada'] = new sfWidgetFormInputText();
     $this->widgetSchema['anestesia_id'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['observaciones'] = new sfWidgetFormTextarea();

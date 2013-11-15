@@ -13,6 +13,7 @@ abstract class BaseAgendaFormFilter extends BaseFormFilterPropel
   {
     $this->setWidgets(array(
       'programacion'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'fecha_control'         => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'hora'                  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'inicio'                => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'last_time'             => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
@@ -54,7 +55,7 @@ abstract class BaseAgendaFormFilter extends BaseFormFilterPropel
       'val_pre_anestesica'    => new sfWidgetFormFilterInput(),
       'reintervencion'        => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'permisos'              => new sfWidgetFormFilterInput(),
-      'tipo_proc_id'          => new sfWidgetFormFilterInput(),
+      'tipo_proc_id'          => new sfWidgetFormPropelChoice(array('model' => 'Procedimiento', 'add_empty' => true)),
       'atencion_id'           => new sfWidgetFormFilterInput(),
       'tiempo_fuera'          => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'procedencia'           => new sfWidgetFormFilterInput(),
@@ -75,6 +76,7 @@ abstract class BaseAgendaFormFilter extends BaseFormFilterPropel
 
     $this->setValidators(array(
       'programacion'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'fecha_control'         => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'hora'                  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'inicio'                => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'last_time'             => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
@@ -116,7 +118,7 @@ abstract class BaseAgendaFormFilter extends BaseFormFilterPropel
       'val_pre_anestesica'    => new sfValidatorPass(array('required' => false)),
       'reintervencion'        => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'permisos'              => new sfValidatorPass(array('required' => false)),
-      'tipo_proc_id'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'tipo_proc_id'          => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Procedimiento', 'column' => 'id')),
       'atencion_id'           => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'tiempo_fuera'          => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'procedencia'           => new sfValidatorPass(array('required' => false)),
@@ -152,6 +154,7 @@ abstract class BaseAgendaFormFilter extends BaseFormFilterPropel
     return array(
       'id'                    => 'Number',
       'programacion'          => 'Date',
+      'fecha_control'         => 'Date',
       'hora'                  => 'Date',
       'inicio'                => 'Date',
       'last_time'             => 'Date',
@@ -193,7 +196,7 @@ abstract class BaseAgendaFormFilter extends BaseFormFilterPropel
       'val_pre_anestesica'    => 'Text',
       'reintervencion'        => 'Boolean',
       'permisos'              => 'Text',
-      'tipo_proc_id'          => 'Number',
+      'tipo_proc_id'          => 'ForeignKey',
       'atencion_id'           => 'Number',
       'tiempo_fuera'          => 'Boolean',
       'procedencia'           => 'Text',

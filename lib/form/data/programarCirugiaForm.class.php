@@ -73,7 +73,7 @@ class programarCirugiaForm extends BaseAgendaForm
 
 
 	//$this->widgetSchema['programacion'] = new sfWidgetFormJqueryDate(array(
-	//'config' => '{"option", "dateFormat", "yy-mm-dd"}',
+	//'config' => '{"option", "dateFormat", "yy-mm-dd"}',each(array)
 	//));
 
 
@@ -168,7 +168,7 @@ class programarCirugiaForm extends BaseAgendaForm
 		'diagnostico'   => 'Diágnostico',
 		'medico_name'   => 'Nombre del médico que programa la cirugía:',
 		'hora'          => 'Hora inicial',
-		'tipo_proc_id'  => 'Tipo de programación',
+		'tipo_proc_id'  => 'Tipo de programación:',
 		'programacion'  => 'Programación',
 		'tiempo_est'    => 'Duración',
 		'riesgo_qx_pre' => 'Riesgo quirurgico:',
@@ -232,14 +232,20 @@ class programarCirugiaForm extends BaseAgendaForm
     $this->validatorSchema['programacion']->setMessage('max','No se puede progrmar con mas de un mes de anticipación');
 
 
-	//Para pasar las salas existentes//
-        $this->setWidget('sala_id', new sfWidgetFormPropelChoice(array(
-           'model'     => 'Salaquirurgica'
 
-	   
-           ))
-           );  
   }
+
+  public function setSalaWidget($quirofano) {
+    //$choices = SalaquirurgicaPeer::getSalasActivasPorQuirofano($quirofano);
+
+    $this->setWidget('sala_id', new sfWidgetFormPropelChoice(array(
+      'model'     => 'Salaquirurgica',
+      'criteria'  => SalaquirurgicaQuery::create()->getSalasActivasPorQuirofano($quirofano)
+      ))
+    );
+  }
+
+
   
   public function renderForm($num) {
     return $this->widgetSchema['Procedimientocirugia']['newProcedimientocirugia'.$num];

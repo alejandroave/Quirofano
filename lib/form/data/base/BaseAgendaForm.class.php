@@ -16,6 +16,7 @@ abstract class BaseAgendaForm extends BaseFormPropel
     $this->setWidgets(array(
       'id'                    => new sfWidgetFormInputHidden(),
       'programacion'          => new sfWidgetFormDate(),
+      'fecha_control'         => new sfWidgetFormDate(),
       'hora'                  => new sfWidgetFormTime(),
       'inicio'                => new sfWidgetFormDateTime(),
       'last_time'             => new sfWidgetFormDateTime(),
@@ -57,7 +58,7 @@ abstract class BaseAgendaForm extends BaseFormPropel
       'val_pre_anestesica'    => new sfWidgetFormTextarea(),
       'reintervencion'        => new sfWidgetFormInputCheckbox(),
       'permisos'              => new sfWidgetFormInputText(),
-      'tipo_proc_id'          => new sfWidgetFormInputText(),
+      'tipo_proc_id'          => new sfWidgetFormPropelChoice(array('model' => 'Procedimiento', 'add_empty' => true)),
       'atencion_id'           => new sfWidgetFormInputText(),
       'tiempo_fuera'          => new sfWidgetFormInputCheckbox(),
       'procedencia'           => new sfWidgetFormInputText(),
@@ -79,6 +80,7 @@ abstract class BaseAgendaForm extends BaseFormPropel
     $this->setValidators(array(
       'id'                    => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
       'programacion'          => new sfValidatorDate(array('required' => false)),
+      'fecha_control'         => new sfValidatorDate(array('required' => false)),
       'hora'                  => new sfValidatorTime(array('required' => false)),
       'inicio'                => new sfValidatorDateTime(array('required' => false)),
       'last_time'             => new sfValidatorDateTime(array('required' => false)),
@@ -120,7 +122,7 @@ abstract class BaseAgendaForm extends BaseFormPropel
       'val_pre_anestesica'    => new sfValidatorString(array('required' => false)),
       'reintervencion'        => new sfValidatorBoolean(array('required' => false)),
       'permisos'              => new sfValidatorPass(array('required' => false)),
-      'tipo_proc_id'          => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
+      'tipo_proc_id'          => new sfValidatorPropelChoice(array('model' => 'Procedimiento', 'column' => 'id', 'required' => false)),
       'atencion_id'           => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
       'tiempo_fuera'          => new sfValidatorBoolean(array('required' => false)),
       'procedencia'           => new sfValidatorString(array('max_length' => 128, 'required' => false)),

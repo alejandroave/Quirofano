@@ -84,7 +84,8 @@ class agendaActions extends sfActions
          }
 	       } 
     }
-    $this->quirofano = QuirofanoQuery::create()->findOneBySlug($request->getParameter('slug'));    
+    $this->quirofano = QuirofanoQuery::create()->findOneBySlug($request->getParameter('slug'));
+    $this->form->setSalaWidget($request->getParameter('slug'));
     $this->form->setDefault('quirofano_id', $this->quirofano->getId());
     $request->hasParameter('sala') ? $this->form->setSalaDefault($request->getParameter('sala')): null;
   }
@@ -261,12 +262,19 @@ public function executeTransoperatorio(sfWebRequest $request)
   {
     $this->cirugia = AgendaQuery::create()->findPk($request->getParameter('id'));
     $this->form = new TransoperatorioQuirofanoForm($this->cirugia);
+    
+//se guardara con la fecha en que se realize la cirugia
+
+    $fechaactual = date('Y-m-d', strtotime("now"));
+
+
     if ($request->getMethod() == 'POST') {
 
       $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
       if ($this->form->isValid()) {
         $cirugia = $this->form->save();
         $cirugia->setStatus(10)->save();
+        $cirugia->setProgramacion($fechaactual)->save();
         $this->redirect('agenda/show?slug='.$cirugia->getQuirofano()->getSlug());
       }
     }
@@ -368,21 +376,29 @@ public function executeTransoperatorio(sfWebRequest $request)
     $this->cirugia = AgendaQuery::create()->findPk($request->getParameter('id'));
     $this->forward404Unless($this->cirugia);
   }
-public function executePostoperatorio(sfWebRequest $request)
+
+
+
+  public function executePostoperatorio(sfWebRequest $request)
   {
-    AgendaQuery::create()
-      ->filterByStatus(100)
-      ->filterByEgreso(array('min' => strtotime('now') - 86400, 'max' => strtotime('now')))
-      ->update(array('ShowInIndex' => false));
+    //AgendaQuery::create()
+    //  ->filterByStatus(100)
+    //  ->filterByEgreso(array('min' => strtotime('now') - 86400, 'max' => strtotime('now')))
+    //  ->update(array('ShowInIndex' => false));
+    //   $fechaactual = date('Y-m-d', strtotime("now"));
 
     $cirugia = AgendaQuery::create()->findPk($request->getParameter('id'));
     $this->form = new PostoperatorioQuirofanoForm($cirugia);
+
+
     if ($request->getMethod() == 'POST') {
       $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
       if ($this->form->isValid()) {
         $agenda = $this->form->save();
         $this->redirect('agenda/show?slug='.$agenda->getQuirofano()->getSlug());
       }
-    }
-  }
+}
+}
+
+
 }

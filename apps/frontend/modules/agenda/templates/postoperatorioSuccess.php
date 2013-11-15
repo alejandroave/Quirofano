@@ -23,6 +23,11 @@
 
 <!- Aqui va el paciente ->
 
+<div id="idTag">
+  <div class="name"><?php echo "Nombre del paciente: ".$form->getObject()->getPacienteName() ?></div>
+  </div>
+  
+
 <!- Aqui va el paciente ->
 
 <style>
@@ -124,9 +129,12 @@
 
 <?php //$formularios = $form->getEmbeddedForm('temporal')?>
 
-<h3 style="float: left; margin-top: 20px; width: 100%;">Del personal que participa en esta cirugia, quienes finalizan</h3>
+<?php $x = 1?>
 
+
+<h3 style="float: left; margin-top: 20px; width: 100%;">Del personal que participa en esta cirugia, quienes finalizan</h3>
 <?php foreach ($form['temporal'] as $formulario):?>
+  <?php $x += 1?>
   <div class="area cols04">
     <!-- <div class="label"><?php echo $formulario['finaliza']->renderLabel($formulario['personal_nombre']->getValue()) ?></div> -->
     <div class="label"><?php echo $formulario['personal_nombre']->getValue() ?></div>
@@ -135,6 +143,8 @@
     <?php echo $formulario['finaliza'] ?>
   </div>
 <?php endforeach;?>
+
+<h><?php echo $x ?></h>
 
   <div class="area control">
     <?php echo $form->renderHiddenFields() ?>
