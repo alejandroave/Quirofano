@@ -396,3 +396,14 @@ propel:
     nombre:               { type: varchar(128), required: true }
     created_at:
     updated_at:
+#tabla de los procedimiento
+
+  siga_procedimiento:
+    _attributes:          { phpName: Procedimiento, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true }
+    activo:               { type: boolean, default: true }
+    created_at:
+    updated_at:
+
+

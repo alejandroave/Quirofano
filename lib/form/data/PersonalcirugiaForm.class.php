@@ -46,7 +46,6 @@ class PersonalcirugiaForm extends BasePersonalcirugiaForm
 
     public function setAgendaId($id) {
       $this->widgetSchema['agenda_id']->setAttribute('value', $id);
-
       return $this;
     }
 }

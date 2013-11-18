@@ -292,13 +292,8 @@ public function executeTransoperatorio(sfWebRequest $request)
   {
     $this->forward404Unless($request->hasParameter('id'));
     $agenda = AgendaQuery::create()->findPk($request->getParameter('id'));
-   
-
       $Quirofano = QuirofanoQuery::create()
         ->findOneById($agenda->getQuirofanoid());
-
-
-
     if ($agenda->estaAtrasado() && !$agenda->esDiferido()) {
       $this->getUser()->setFlash('obligar', 'Esta cirugia tiene más de 24 Horas de atraso por lo que se debe marcar como diferida y especificar
       una causa, antes de poder reprogramarse');
@@ -308,9 +303,6 @@ public function executeTransoperatorio(sfWebRequest $request)
     if ($request->getMethod() == 'POST') {
       $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
       if ($this->form->isValid()) {
-
-
-
              $horapropuesta = $this->form->getValue("hora");
              $salaselecc = $this->form->getValue("sala_id");
              $fechaselecc['max'] = $this->form->getValue("programacion");
@@ -328,10 +320,6 @@ public function executeTransoperatorio(sfWebRequest $request)
              $this->getUser()->setFlash('notice', sprintf('Programación exitosa'));
              $this->redirect('agenda/show?slug='.$request->getParameter('slug'));
          }
-
-
-
-
         //$this->form->save();
         //$this->redirect('agenda/show?slug='.$request->getParameter('slug'));
       }
@@ -343,15 +331,13 @@ public function executeTransoperatorio(sfWebRequest $request)
   {
   $this->forward404unless($request->hasParameter('id'));
   $this->cirugia = AgendaQuery::create()->findPk($request->getParameter('id'));
-  	
   $this->Quirofano = QuirofanoQuery::create()
     ->findOneByid($this->cirugia->getquirofanoid());      
   if ($request->getMethod() == 'POST') {
       $this->cirugia->setCancelada(true)->save();
       $this->redirect('agenda/show?slug='.$this->Quirofano->getSlug().'&date='.date('Y-m-d', strtotime("now")));
     }
-}
-
+  }
 
  public function executeBusqueda(sfWebRequest $request) {
     $this->term = $request->getParameter('term');
@@ -359,6 +345,7 @@ public function executeTransoperatorio(sfWebRequest $request)
       ->filterByRegistro($this->term)
       ->find();
   }
+
  public function executeAgregarpersonal(sfWebRequest $request)
   {
     $this->form = new PersonalcirugiaForm();
@@ -377,8 +364,6 @@ public function executeTransoperatorio(sfWebRequest $request)
     $this->forward404Unless($this->cirugia);
   }
 
-
-
   public function executePostoperatorio(sfWebRequest $request)
   {
     //AgendaQuery::create()
@@ -386,19 +371,14 @@ public function executeTransoperatorio(sfWebRequest $request)
     //  ->filterByEgreso(array('min' => strtotime('now') - 86400, 'max' => strtotime('now')))
     //  ->update(array('ShowInIndex' => false));
     //   $fechaactual = date('Y-m-d', strtotime("now"));
-
     $cirugia = AgendaQuery::create()->findPk($request->getParameter('id'));
     $this->form = new PostoperatorioQuirofanoForm($cirugia);
-
-
     if ($request->getMethod() == 'POST') {
       $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
       if ($this->form->isValid()) {
         $agenda = $this->form->save();
         $this->redirect('agenda/show?slug='.$agenda->getQuirofano()->getSlug());
       }
-}
-}
-
-
+    }
+  }
 }
