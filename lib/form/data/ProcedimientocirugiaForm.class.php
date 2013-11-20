@@ -15,6 +15,13 @@ class ProcedimientocirugiaForm extends BaseProcedimientocirugiaForm
       $this['created_at']
     );
 
+/*if ($this->object->exists()) {
+      $this->widgetSchema['delete'] = new sfWidgetFormInputCheckbox();
+      $this->validatorSchema['delete'] = new sfValidatorPass();
+    }
+*/
+
+
     $this->setWidget('cie9mc_id', new sfWidgetFormInputHidden());
     $this->setWidget('region', new sfWidgetFormChoice(array(
       'choices' => array('' => 'Escoje una','1' => 'Derecha', '2' => 'Izquierda', '3' => 'Bilateral', '4' =>'Unica'),

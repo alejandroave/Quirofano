@@ -12,8 +12,8 @@ class postoperatorioQuirofanoForm extends AgendaForm
   {
   $object = $this->getObject();
     $this->useFields(array(
-    'paciente_name',
-    'paciente_id',
+    //'paciente_name',
+    //'paciente_id',
     'egreso',
     'complicaciones',
     'riesgoqx_id',

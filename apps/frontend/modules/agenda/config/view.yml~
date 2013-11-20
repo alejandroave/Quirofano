@@ -1,8 +1,6 @@
 diferidasSuccess:
  has_layout:     on
  layout:         layout_sn
-
-
 todosSuccess:
  has_layout:     on
  layout:         layout_sn

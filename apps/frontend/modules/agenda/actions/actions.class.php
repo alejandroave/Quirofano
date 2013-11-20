@@ -346,6 +346,12 @@ public function executeTransoperatorio(sfWebRequest $request)
       ->find();
   }
 
+
+
+
+
+
+
  public function executeAgregarpersonal(sfWebRequest $request)
   {
     $this->form = new PersonalcirugiaForm();

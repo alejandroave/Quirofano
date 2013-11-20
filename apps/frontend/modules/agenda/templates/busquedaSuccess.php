@@ -5,8 +5,8 @@
 <h1>Resultados de la búsqueda: <?php echo $term ?></h1>
 
 <div id="headtable">
-<a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('quirofano/index') ?>">&nbsp;&nbsp;Lista general de quirofanos&nbsp;&nbsp;</a>
-<form action="<?php echo url_for('quirofano/busqueda') ?>" style="display:inline; float:right;">
+<a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" href="<?php echo url_for('agenda/index') ?>">&nbsp;&nbsp;Lista general de quirofanos&nbsp;&nbsp;</a>
+<form action="<?php echo url_for('agenda/busqueda') ?>" style="display:inline; float:right;">
   <input type="text" id="busqueda" name="term" placeholder="Buscar" value="<?php echo $term ?>" style="width:120px">
   <input type="submit" value=">>">
 </form>

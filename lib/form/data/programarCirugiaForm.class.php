@@ -86,8 +86,12 @@ class programarCirugiaForm extends BaseAgendaForm
       ));
 
 
-   if($object->countProcedimientocirugias() == 0) {
+   if($object->countProcedimientocirugias() != 4) {
       $object->addProcedimientocirugia(new Procedimientocirugia());
+      //      $object->addProcedimientocirugia(new Procedimientocirugia());
+      //      $object->addProcedimientocirugia(new Procedimientocirugia());
+      //      $object->addProcedimientocirugia(new Procedimientocirugia());
+
     }
 
    $this->embedRelation('Procedimientocirugia', array(
