@@ -70,7 +70,10 @@ class agendaActions extends sfActions
              $fechaselecc['max'] = $this->form->getValue("programacion");
              $fechaselecc['min'] = date("Y-m-d",strtotime($fechaselecc['max'].' -1 day'));
              $tiempo_est = $this->form->getValue("tiempo_est");
-             $control = $this->emHoras($fechaselecc,$horapropuesta,$Quirofano->getid(),$salaselecc,$tiempo_est);
+             $identificacion = NULL;
+
+             $control = $this->emHoras($fechaselecc,$horapropuesta,$Quirofano->getid(),$salaselecc,$tiempo_est,$identificacion);
+
              if ($control != NULL)
              {
                 $text = 'Se empalma con la cirugia: '.$control;
@@ -90,7 +93,7 @@ class agendaActions extends sfActions
     $request->hasParameter('sala') ? $this->form->setSalaDefault($request->getParameter('sala')): null;
   }
 
-public function emHoras($fechaselecc,$horapropuesta,$Quiid,$salaselecc,$tiempo_est)
+public function emHoras($fechaselecc,$horapropuesta,$Quiid,$salaselecc,$tiempo_est,$identificacion)
 {
     $agenda = AgendaQuery::create()
         ->filterByquirofanoid($Quiid)
@@ -99,7 +102,8 @@ public function emHoras($fechaselecc,$horapropuesta,$Quiid,$salaselecc,$tiempo_e
         ->find();
     $control = NULL;
     foreach($agenda as $agendas):
-
+     if($identificacion != $agendas->getId())
+      {
         $comp = $this->sumarhoras($agendas->getHora(),$agendas->getTiempoest());
         $hora1 = strtotime($agendas->getHora());
         $hora2 = strtotime($horapropuesta);
@@ -109,6 +113,7 @@ public function emHoras($fechaselecc,$horapropuesta,$Quiid,$salaselecc,$tiempo_e
           //Verificar entre dia anterior y actual en caso de que la cirugia continue
           if( $hora1 >= $hora2 && $hora2 <= $hora3) 
             {
+              //$control = $indentificacion;
                $control = $agendas->getId();
               //$control = strtotime($fechaselecc);
             }
@@ -116,10 +121,16 @@ public function emHoras($fechaselecc,$horapropuesta,$Quiid,$salaselecc,$tiempo_e
           //para el mismo dia
           if( $hora1 <= $hora2 && $hora2 <= $hora3) 
             {
+
+               // $control = $identificacion; 
               //$control = strtotime($fechaselecc);
-              $control = $agendas->getId();
+             $control = $agendas->getId();
             }
         }
+     }else
+     {
+      $identificacion = NULL;
+     }
      endforeach;
   return $control;
 }
@@ -308,9 +319,9 @@ public function executeTransoperatorio(sfWebRequest $request)
              $fechaselecc['max'] = $this->form->getValue("programacion");
              $fechaselecc['min'] = date("Y-m-d",strtotime($fechaselecc['max'].' -1 day'));
              $tiempo_est = $this->form->getValue("tiempo_est");
-             $identificacion = $this->form->getValue('id');
-             $control = $this->emHoras($fechaselecc,$horapropuesta,$Quirofano->getid(),$salaselecc,$tiempo_est);
-             if ($control != NULL && $control != $identificacion)
+             $identificacion = $this->form->getValue("id");
+             $control = $this->emHoras($fechaselecc,$horapropuesta,$Quirofano->getid(),$salaselecc,$tiempo_est,$identificacion);
+             if ($control != NULL)
              {
                 $text = 'Se empalma con la cirugia: '.$control;
                 $this->getUser()->setFlash('notice', sprintf("$text"));
@@ -347,7 +358,12 @@ public function executeTransoperatorio(sfWebRequest $request)
   }
 
 
+ public function executePbusqueda(sfWebrequest $request){
+ 	$this->form = new busquedaPerForm();
+	
 
+	
+  }
 
 
 

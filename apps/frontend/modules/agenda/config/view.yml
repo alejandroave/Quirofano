@@ -11,6 +11,9 @@ busquedaSuccess:
   has_layout:     on
   layout:         layout_sn
 
+
+
+
 default:
   http_metas:
     content-type: text/html
