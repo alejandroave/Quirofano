@@ -16,7 +16,6 @@ abstract class BaseAgendaForm extends BaseFormPropel
     $this->setWidgets(array(
       'id'                    => new sfWidgetFormInputHidden(),
       'programacion'          => new sfWidgetFormDate(),
-      'fecha_control'         => new sfWidgetFormDate(),
       'hora'                  => new sfWidgetFormTime(),
       'inicio'                => new sfWidgetFormDateTime(),
       'last_time'             => new sfWidgetFormDateTime(),
@@ -80,7 +79,6 @@ abstract class BaseAgendaForm extends BaseFormPropel
     $this->setValidators(array(
       'id'                    => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
       'programacion'          => new sfValidatorDate(array('required' => false)),
-      'fecha_control'         => new sfValidatorDate(array('required' => false)),
       'hora'                  => new sfValidatorTime(array('required' => false)),
       'inicio'                => new sfValidatorDateTime(array('required' => false)),
       'last_time'             => new sfValidatorDateTime(array('required' => false)),

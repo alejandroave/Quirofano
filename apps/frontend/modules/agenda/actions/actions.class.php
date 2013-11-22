@@ -387,4 +387,14 @@ public function executeTransoperatorio(sfWebRequest $request)
       }
     }
   }
+
+  public function executeCalendar(sfWebRequest $request)
+  {
+     return sfView::SUCCESS;
+
+  }
+
+
+
+
 }

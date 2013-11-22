@@ -10,6 +10,9 @@ showSuccess:
 busquedaSuccess:
   has_layout:     on
   layout:         layout_sn
+calendarSucess:
+  has_layout:     on
+  layout:         layout_sn
 
 default:
   http_metas:

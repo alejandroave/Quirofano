@@ -28,7 +28,6 @@ CREATE TABLE `hc_agenda`
 (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `programacion` DATE,
-    `fecha_control` DATE,
     `hora` TIME,
     `inicio` DATETIME,
     `last_time` DATETIME,

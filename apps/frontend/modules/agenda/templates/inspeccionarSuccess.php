@@ -16,6 +16,7 @@
       <th>Nombre</th>
       <th>Activo</th>
       <th>Bloqueado</th>
+      <th>Calendario</th>
     </tr>
     </thead>
     <tbody>
@@ -46,6 +47,10 @@
       };
       ?>
       </td>
+      <td>
+        <a href="<?php echo url_for('agenda/calendar?slug='.$sala->getSlug()) ?>">Calendario</a>
+      </td>
+
     </tr>
     <?php endforeach; ?>
     </tbody>

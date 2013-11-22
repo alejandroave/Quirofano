@@ -78,9 +78,7 @@ CREATE TABLE `siga_procedimiento`
     `activo` TINYINT(1) DEFAULT 1,
     `created_at` DATETIME,
     `updated_at` DATETIME,
-    `slug` VARCHAR(255),
-    PRIMARY KEY (`id`),
-    UNIQUE INDEX `siga_procedimiento_slug` (`slug`(255))
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
 # This restores the fkey checks, after having unset them earlier
