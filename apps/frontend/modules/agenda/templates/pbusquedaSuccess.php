@@ -40,26 +40,39 @@
 
 
 <div class="formulario clearfix">
+<h1 style="color:#FFFFFF;">Busqueda Personalizada: </h1>
+
+
+<form action="<?php echo url_for('agenda/busquedapersonalisada') ?>" style="display:inline; float:right;">
+<div class="area cols06">
+    <div class="label"><?php echo "Quirofano: " ?></div>
+      <div class="field">
+        <input type="text" id="busqueda" name="Quirofano" placeholder="Quirofano" style="width:120px">
+      </div>
+</div>
+
+<div class="area cols06">
+    <div class="label"><?php echo "Sala: " ?></div>
+      <div class="field">
+        <input type="text" id="busqueda" name="Sala" placeholder="Sala" style="width:120px">
+      </div>
+</div>
+
+
+<div class="area cols06">
+    <div class="label"><?php echo "Nombre: " ?></div>
+      <div class="field">
+        <input type="text" id="busqueda" name="Nombre" placeholder="Nombre" style="width:120px">
+      </div>
+</div>
 
 
 
-<form id='target' method="POST" onsubmit="return pregunta();">
-<!-- <form method="POST" action="<?php //echo url_for('quirofano/programar?slug='.$Quirofano->getSlug()) ?>">   -->
-<div class="area cols03">
+<div class = "area cols03">
+  <input type="submit" value="Buscar">
+</div>
+</form>
 
   
-    <div class="label"><?php echo $form['paciente_name']->renderLabel() ?></div>
-    <div class="field">
-      <?php echo $form['paciente_name']->renderError() ?>
-      <?php echo $form['paciente_name'] ?>
-    </div>
-  </div>
-
-
-<div class="area control">
-    <?php echo $form->renderHiddenFields() ?>
-    <input type="submit" value="Buscar">
-  </div>
-</form>
 
 </div>

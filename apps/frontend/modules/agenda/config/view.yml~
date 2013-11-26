@@ -1,3 +1,5 @@
+
+
 diferidasSuccess:
  has_layout:     on
  layout:         layout_sn
@@ -7,9 +9,15 @@ todosSuccess:
 showSuccess:
   has_layout:     on
   layout:         layout_sn
-
-
-
+busquedaSuccess:
+  has_layout:     on
+  layout:         layout_sn
+calendarSuccess:
+  has_layout:     on
+  layout:         layout_sn
+busquedapersonalisadaSuccess:
+  has_layout:     on
+  layout:         layout_sn
 default:
   http_metas:
     content-type: text/html

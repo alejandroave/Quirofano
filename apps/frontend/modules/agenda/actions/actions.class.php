@@ -355,17 +355,41 @@ public function executeTransoperatorio(sfWebRequest $request)
     $this->cirugias = AgendaQuery::create()
       ->filterByRegistro($this->term)
       ->find();
+
   }
 
 
  public function executePbusqueda(sfWebrequest $request){
- 	$this->form = new busquedaPerForm();
-	
-
-	
+     return sfView::SUCCESS;	
   }
 
+public function executeBusquedapersonalisada(sfWebrequest $request)
+{
+	$this->quirofano = $request->getParameter('Quirofano');
+	$this->sala = $request->getParameter('Sala');
+	$this->nombre = $request->getParameter('Nombre');
 
+  $this->Quirofano = QuirofanoQuery::create()
+        ->findOneByNombre("%".$this->quirofano."%");
+
+  $this->Salas = SalaquirurgicaQuery::create()
+        ->findOneByNombre("%".$this->sala."%");
+	$this->cirugias = AgendaQuery::create()
+  ->filterByquirofanoid($this->existe($this->Quirofano))
+  ->filterBysalaid($this->existe($this->Salas))
+	->filterBypacientename("%".$this->nombre."%")
+  ->find();
+}
+
+public function existe($variable)
+{
+  $regreso = 0;
+if (count($variable) > 0)
+  {
+    $regreso = $variable->getId();
+  }
+return $regreso;
+}
 
 
  public function executeAgregarpersonal(sfWebRequest $request)
@@ -385,6 +409,8 @@ public function executeTransoperatorio(sfWebRequest $request)
     $this->cirugia = AgendaQuery::create()->findPk($request->getParameter('id'));
     $this->forward404Unless($this->cirugia);
   }
+
+
 
   public function executePostoperatorio(sfWebRequest $request)
   {

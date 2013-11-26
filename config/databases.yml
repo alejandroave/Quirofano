@@ -25,7 +25,7 @@ all:
       classname:  PropelPDO
       dsn:        mysql:dbname=Quirofano;host=localhost
       username:   root
-      password:   alice
+      password:   ave9201
       #password:   mesostel
       encoding:   utf8
       persistent: true

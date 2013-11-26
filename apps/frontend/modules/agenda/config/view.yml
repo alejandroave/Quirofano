@@ -1,3 +1,5 @@
+
+
 diferidasSuccess:
  has_layout:     on
  layout:         layout_sn
@@ -10,12 +12,12 @@ showSuccess:
 busquedaSuccess:
   has_layout:     on
   layout:         layout_sn
-calendarSucess:
+calendarSuccess:
   has_layout:     on
   layout:         layout_sn
-
-
-
+busquedapersonalisadaSuccess:
+  has_layout:     on
+  layout:         layout_sn
 
 default:
   http_metas:
