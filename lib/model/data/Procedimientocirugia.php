@@ -19,4 +19,8 @@
  */
 class Procedimientocirugia extends BaseProcedimientocirugia
 {
+	/*
+	public function __toString() {
+		return $this->getnombre();
+	}*/
 }

@@ -32,7 +32,7 @@ class diferirCirugiaForm extends AgendaForm
       $this->widgetSchema['show_in_index']->setAttribute('value', '0');
     }
 
-//    $this->widgetSchema->setLabels(AgendaPeer::getLabels());
+    $this->widgetSchema->setLabels(AgendaPeer::getLabels());
   }
 
 }

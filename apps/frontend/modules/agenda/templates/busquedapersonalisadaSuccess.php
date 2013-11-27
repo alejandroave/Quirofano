@@ -76,14 +76,14 @@
     <!-- <td><?php //echo $cirugia->getClasses() ?></td> -->
     <td>
     <?php if($cirugia->getStatus() < 10 ): ?>
-      <a href="<?php echo url_for('quirofano/pxsolicitado?id='.$cirugia->getId()) ?>" title="Paciente en preoperatorio"><div class="button"></div></a>
-      <a href="<?php echo url_for('quirofano/reprogramar?slug='.$slug.'&id='.$cirugia->getId()) ?>" rel="facebox" title="Modificar"><div class="modificar"></div></a>
-      <a href="<?php echo url_for('quirofano/transoperatorio?id='.$cirugia->getId()) ?>" title="Iniciar cirugía"><div class="iniciar"></div></a>
-      <a href="<?php echo url_for('quirofano/diferir?id='.$cirugia->getId()) ?>" title="Diferir Cirugia"><div class="diferir"></div></a>
+      <a href="<?php echo url_for('agenda/pxsolicitado?id='.$cirugia->getId()) ?>" title="Paciente en preoperatorio"><div class="button"></div></a>
+      <a href="<?php echo url_for('agenda/reprogramar?slug='.$slug.'&id='.$cirugia->getId()) ?>" rel="facebox" title="Modificar"><div class="modificar"></div></a>
+      <a href="<?php echo url_for('agenda/transoperatorio?id='.$cirugia->getId()) ?>" title="Iniciar cirugía"><div class="iniciar"></div></a>
+      <a href="<?php echo url_for('agenda/diferir?id='.$cirugia->getId()) ?>" title="Diferir Cirugia"><div class="diferir"></div></a>
       <a href="#" ><div class="cancelar"></div></a>
     <?php else: ?>
-      <a href="<?php echo url_for('quirofano/postoperatorio?id='.$cirugia->getId()) ?>" title="Cirugia Realizada"><div class="realizada"></div></a>
-      <a href="<?php echo url_for('quirofano/agregarpersonal?id='.$cirugia->getid())?>" title="Cambio de personal"><div class="cambio"></div></a>
+      <a href="<?php echo url_for('agenda/postoperatorio?id='.$cirugia->getId()) ?>" title="Cirugia Realizada"><div class="realizada"></div></a>
+      <a href="<?php echo url_for('agenda/agregarpersonal?id='.$cirugia->getid())?>" title="Cambio de personal"><div class="cambio"></div></a>
     <?php endif; ?>
     </td>
   </tr>

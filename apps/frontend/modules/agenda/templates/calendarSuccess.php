@@ -2,7 +2,8 @@
 
 
 <!--<?php echo link_to('Volver', 'agenda/index')?> -->
-<?php use_stylesheet('/css/global/prueba.css') ?>
+<!--<?php use_stylesheet('/css/global/prueba.css') ?>-->
+<link rel="stylesheet" type="text/css" media="screen" href="/css/global/prueba.css" /> 
 
 <ul id="navTabs">
 <div>

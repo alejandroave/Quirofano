@@ -90,6 +90,7 @@ CREATE TABLE `hc_agenda`
     INDEX `FI_nda_sala` (`sala_id`),
     INDEX `FI_nda_quirofano` (`quirofano_id`),
     INDEX `FI_nda_tipo_proc` (`tipo_proc_id`),
+    INDEX `FI_nda_causa_dif` (`causa_diferido_id`),
     CONSTRAINT `agenda_sala`
         FOREIGN KEY (`sala_id`)
         REFERENCES `siga_sala` (`id`)
@@ -103,6 +104,11 @@ CREATE TABLE `hc_agenda`
     CONSTRAINT `agenda_tipo_proc`
         FOREIGN KEY (`tipo_proc_id`)
         REFERENCES `siga_procedimiento` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+    CONSTRAINT `agenda_causa_dif`
+        FOREIGN KEY (`causa_diferido_id`)
+        REFERENCES `siga_causa_diferido` (`id`)
         ON UPDATE CASCADE
         ON DELETE SET NULL
 ) ENGINE=InnoDB;

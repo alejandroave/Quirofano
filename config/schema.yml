@@ -210,12 +210,12 @@ propel:
         onDelete:         setnull
         references:
           - { local: tipo_proc_id, foreign: id }
-#      agenda_causa_dif:
-#        foreignTable:     siga_causa_diferido
-#        onUpdate:         cascade
-#        onDelete:         setnull
-#        references:
-#          - { local: causa_diferido_id, foreign: id }
+      agenda_causa_dif:
+        foreignTable:     siga_causa_diferido
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: causa_diferido_id, foreign: id }
 #      agenda_atencion:
 #        foreignTable:     siga_atencion
 #        onUpdate:         cascade
@@ -400,8 +400,22 @@ propel:
 
   siga_procedimiento:
     _attributes:          { phpName: Procedimiento, package: lib.model.config }
+    _propel_behaviors:
+      sluggable:
     id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
-    nombre:               { type: varchar(128), required: true }
+    nombre:               { type: varchar(128), required: true, primaryString: true }
+    activo:               { type: boolean, default: true }
+    created_at:
+    updated_at:
+
+# Causas por las que se difiere la cx
+  siga_causa_diferido:
+    _attributes:          { phpName: Causadiferido, package: lib.model.config }
+    _propel_behaviors:
+      nested_set:         { use_scope: true }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    codigo:               { type: varchar(5), required: true  }
+    nombre:               { type: varchar(128), required: true, primaryString: true }
     activo:               { type: boolean, default: true }
     created_at:
     updated_at:

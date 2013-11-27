@@ -78,6 +78,29 @@ CREATE TABLE `siga_procedimiento`
     `activo` TINYINT(1) DEFAULT 1,
     `created_at` DATETIME,
     `updated_at` DATETIME,
+    `slug` VARCHAR(255),
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `siga_procedimiento_slug` (`slug`(255))
+) ENGINE=InnoDB;
+
+-- ---------------------------------------------------------------------
+-- siga_causa_diferido
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `siga_causa_diferido`;
+
+CREATE TABLE `siga_causa_diferido`
+(
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `codigo` VARCHAR(5) NOT NULL,
+    `nombre` VARCHAR(128) NOT NULL,
+    `activo` TINYINT(1) DEFAULT 1,
+    `created_at` DATETIME,
+    `updated_at` DATETIME,
+    `tree_left` INTEGER,
+    `tree_right` INTEGER,
+    `tree_level` INTEGER,
+    `tree_scope` INTEGER,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 

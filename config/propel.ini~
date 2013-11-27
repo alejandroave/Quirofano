@@ -6,7 +6,7 @@ propel.database.driver     = mysql
 propel.database.url        = 'mysql:dbname=Quirofano;host=localhost'
 propel.database.creole.url = ${propel.database.url}
 propel.database.user       = root
-propel.database.password   = alice
+propel.database.password   = ave9201
 #propel.database.password   = mesostel
 propel.database.encoding   = utf8
 
@@ -32,7 +32,7 @@ propel.emulateForeignKeyConstraints = true
 
 ; directories
 propel.home                    = .
-propel.output.dir              = /home/alice/Hospital
+propel.output.dir              = /home/ave/Quirofano
 propel.schema.dir              = ${propel.output.dir}/config
 propel.conf.dir                = ${propel.output.dir}/config
 propel.phpconf.dir             = ${propel.output.dir}/config

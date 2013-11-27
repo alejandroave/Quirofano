@@ -28,8 +28,6 @@ class programarCirugiaForm extends BaseAgendaForm
 	      'paciente_id',
 	      'diagnostico',
 	      'diagnostico_id',
-	      //'paciente_name',
-	      //'paciente_id',
 	      'edad',
 	      'genero',
 	      'registro',
@@ -86,7 +84,7 @@ class programarCirugiaForm extends BaseAgendaForm
       ));
 
 
-   if($object->countProcedimientocirugias() != 4) {
+   if($object->countProcedimientocirugias() == 0) {
       $object->addProcedimientocirugia(new Procedimientocirugia());
       //      $object->addProcedimientocirugia(new Procedimientocirugia());
       //      $object->addProcedimientocirugia(new Procedimientocirugia());
@@ -235,8 +233,11 @@ class programarCirugiaForm extends BaseAgendaForm
     $this->validatorSchema['programacion']->setMessage('min','Fecha invalida');
     $this->validatorSchema['programacion']->setMessage('max','No se puede progrmar con mas de un mes de anticipación');
 
+$this->setWidget('tipo_proc_id' ,new sfWidgetFormPropelChoice(array(
+'model' => 'Procedimiento',
 
-
+	)
+));
   }
 
   public function setSalaWidget($quirofano) {
