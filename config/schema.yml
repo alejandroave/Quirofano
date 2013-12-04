@@ -11,7 +11,9 @@ propel:
     id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
 #    evento_id:
     programacion:         { type: date }
+    fechaestado:     	  { type: date }
     hora:                 { type: time }
+    horaestado:           { type: time }
     inicio:               { type: timestamp }
     last_time:            { type: timestamp }
     ingreso:              { type: timestamp }
@@ -186,24 +188,24 @@ propel:
      #  onDelete:         setnull
      #  references:
      #     - { local: circulante_id, foreign: id }
-#      agenda_riesgoqx:
-#        foreignTable:     siga_riesgoqx
-#        onUpdate:         cascade
-#        onDelete:         setnull
-#        references:
-#          - { local: riesgoqx_id, foreign: id }
-#      agenda_contaminacionqx:
-#        foreignTable:     siga_contaminacionqx
-#        onUpdate:         cascade
-#        onDelete:         setnull
-#        references:
-#          - { local: contaminacionqx_id, foreign: id }
-#      agenda_eventoqx:
-#        foreignTable:     siga_eventoqx
-#        onUpdate:         cascade
-#        onDelete:         setnull
-#        references:
-#          - { local: eventoqx_id, foreign: id }
+      agenda_riesgoqx:
+        foreignTable:     siga_riesgoqx
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: riesgoqx_id, foreign: id }
+      agenda_contaminacionqx:
+        foreignTable:     siga_contaminacionqx
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: contaminacionqx_id, foreign: id }
+      agenda_eventoqx:
+        foreignTable:     siga_eventoqx
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: eventoqx_id, foreign: id }
       agenda_tipo_proc:
         foreignTable:     siga_procedimiento
         onUpdate:         cascade
@@ -216,12 +218,12 @@ propel:
         onDelete:         setnull
         references:
           - { local: causa_diferido_id, foreign: id }
-#      agenda_atencion:
-#        foreignTable:     siga_atencion
-#        onUpdate:         cascade
-#        onDelete:         setnull
-#        references:
-#          - { local: atencion_id, foreign: id }
+      agenda_atencion:
+        foreignTable:     siga_atencion
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: atencion_id, foreign: id }
      #agenga_turno_ci:
      #  foreignTable:     siga_turno
      #  onUpdate:         cascade
@@ -246,12 +248,12 @@ propel:
      #  onDelete:         setnull
      #  references:
      #     - { local: turno_if_id, foreign: id }
-#      agenga_especialidad:
-#        foreignTable:     siga_especialidad
-#        onUpdate:         cascade
-#        onDelete:         setnull
-#        references:
-#          - { local: servicio, foreign: id }
+      agenga_especialidad:
+        foreignTable:     siga_especialidad
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: servicio, foreign: id }
 
   siga_sala_log:
     _attributes:          { phpName: Registrosala, package: lib.model.data }
@@ -324,19 +326,19 @@ propel:
     detalles:             { type: varchar, size 256 }
     servicio_id:          { type: integer }
     created_at:
-#    _foreignKeys:
-#      agenda_procedimientos:
-#        foreignTable:     siga_cie9mc
-#        onUpdate:         cascade
-#        onDelete:         setnull
-#        references:
-#          - { local: cie9mc_id, foreign: clave }
-#      agenda_procedimientos:
-#        foreignTable:     siga_especialidad
-#        onUpdate:         cascade
-#        onDelete:         setnull
-#        references:
-#          - { local: servicio_id, foreign: id }
+    _foreignKeys:
+      agenda_procedimientos:
+        foreignTable:     siga_cie9mc
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: cie9mc_id, foreign: clave }
+      agenda_procedimientos:
+        foreignTable:     siga_especialidad
+        onUpdate:         cascade
+        onDelete:         setnull
+        references:
+          - { local: servicio_id, foreign: id }
 
   hc_agenda_regrogramar:
     _attributes:          { phpName: Procedimientregrogramado, package: lib.model.data }
@@ -420,4 +422,57 @@ propel:
     created_at:
     updated_at:
 
+# Especialidades medicas - Esquema anidado que almacena las especialidades troncales y ademas las
+# subespecialidades
+  siga_especialidad:
+    _attributes:        { phpName: Especialidad, package: lib.model.config }
+    id:                 ~
+    nombre:             { type: varchar, size: 64, primaryString: true }
+    medica:             { type: boolean, default: true }
+    quirurgica:         { type: boolean, default: true }
+    activo:             { type: boolean, default: true }
+    created_at:
+    _propel_behaviors:
+      nested_set:       { use_scope: true }
+
+# tipos de procedimiento quirurgico
+  siga_atencion:
+    _attributes:          { phpName: Atencion, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true, primaryString: true }
+    activo:               { type: boolean, default: true }
+    created_at:
+    updated_at:
+
+# Claves de procedimientos del CIE9mc
+# Almacena las claves de procedimientos y sus descripciones
+  siga_cie9mc:
+    _attributes:        { phpName: Cie09mc, package: lib.model.config }
+    clave:              { type: varchar(8), required: true, primaryKey: true }
+    descripcion:        { type: longvarchar, required: true }
+    created_at:
+    updated_at:
+
+
+#Tablas que guardan los diferentes tipos de clasificacion en las cirugias
+  siga_riesgoqx:
+    _attributes:          { phpName: Riesgoqx, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true, primaryString: true}
+    descripcion:          { type: longvarchar }
+    activo:               { type: boolean, default: true }
+
+  siga_contaminacionqx:
+    _attributes:          { phpName: Contaminacionqx, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true, primaryString: true }
+    descripcion:          { type: longvarchar }
+    activo:               { type: boolean, default: true }
+
+  siga_eventoqx:
+    _attributes:          { phpName: Eventoqx, package: lib.model.config }
+    id:                   { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nombre:               { type: varchar(128), required: true, primaryString: true }
+    descripcion:          { type: longvarchar }
+    activo:               { type: boolean, default: true }
 

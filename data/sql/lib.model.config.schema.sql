@@ -104,5 +104,102 @@ CREATE TABLE `siga_causa_diferido`
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
+-- ---------------------------------------------------------------------
+-- siga_especialidad
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `siga_especialidad`;
+
+CREATE TABLE `siga_especialidad`
+(
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(64),
+    `medica` TINYINT(1) DEFAULT 1,
+    `quirurgica` TINYINT(1) DEFAULT 1,
+    `activo` TINYINT(1) DEFAULT 1,
+    `created_at` DATETIME,
+    `tree_left` INTEGER,
+    `tree_right` INTEGER,
+    `tree_level` INTEGER,
+    `tree_scope` INTEGER,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+-- ---------------------------------------------------------------------
+-- siga_atencion
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `siga_atencion`;
+
+CREATE TABLE `siga_atencion`
+(
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(128) NOT NULL,
+    `activo` TINYINT(1) DEFAULT 1,
+    `created_at` DATETIME,
+    `updated_at` DATETIME,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+-- ---------------------------------------------------------------------
+-- siga_cie9mc
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `siga_cie9mc`;
+
+CREATE TABLE `siga_cie9mc`
+(
+    `clave` VARCHAR(8) NOT NULL,
+    `descripcion` TEXT NOT NULL,
+    `created_at` DATETIME,
+    `updated_at` DATETIME,
+    PRIMARY KEY (`clave`)
+) ENGINE=InnoDB;
+
+-- ---------------------------------------------------------------------
+-- siga_riesgoqx
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `siga_riesgoqx`;
+
+CREATE TABLE `siga_riesgoqx`
+(
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(128) NOT NULL,
+    `descripcion` TEXT,
+    `activo` TINYINT(1) DEFAULT 1,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+-- ---------------------------------------------------------------------
+-- siga_contaminacionqx
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `siga_contaminacionqx`;
+
+CREATE TABLE `siga_contaminacionqx`
+(
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(128) NOT NULL,
+    `descripcion` TEXT,
+    `activo` TINYINT(1) DEFAULT 1,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+-- ---------------------------------------------------------------------
+-- siga_eventoqx
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `siga_eventoqx`;
+
+CREATE TABLE `siga_eventoqx`
+(
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(128) NOT NULL,
+    `descripcion` TEXT,
+    `activo` TINYINT(1) DEFAULT 1,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;

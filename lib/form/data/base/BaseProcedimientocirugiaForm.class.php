@@ -20,7 +20,7 @@ abstract class BaseProcedimientocirugiaForm extends BaseFormPropel
       'cie9mc_id'   => new sfWidgetFormInputText(),
       'region'      => new sfWidgetFormInputText(),
       'detalles'    => new sfWidgetFormInputText(),
-      'servicio_id' => new sfWidgetFormInputText(),
+      'servicio_id' => new sfWidgetFormPropelChoice(array('model' => 'Especialidad', 'add_empty' => true)),
       'created_at'  => new sfWidgetFormDateTime(),
     ));
 
@@ -31,7 +31,7 @@ abstract class BaseProcedimientocirugiaForm extends BaseFormPropel
       'cie9mc_id'   => new sfValidatorString(array('max_length' => 8, 'required' => false)),
       'region'      => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
       'detalles'    => new sfValidatorString(array('max_length' => 256, 'required' => false)),
-      'servicio_id' => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
+      'servicio_id' => new sfValidatorPropelChoice(array('model' => 'Especialidad', 'column' => 'id', 'required' => false)),
       'created_at'  => new sfValidatorDateTime(array('required' => false)),
     ));
 

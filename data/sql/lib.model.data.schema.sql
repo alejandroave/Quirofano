@@ -28,7 +28,9 @@ CREATE TABLE `hc_agenda`
 (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `programacion` DATE,
+    `fechaestado` DATE,
     `hora` TIME,
+    `horaestado` TIME,
     `inicio` DATETIME,
     `last_time` DATETIME,
     `ingreso` DATETIME,
@@ -89,8 +91,13 @@ CREATE TABLE `hc_agenda`
     PRIMARY KEY (`id`),
     INDEX `FI_nda_sala` (`sala_id`),
     INDEX `FI_nda_quirofano` (`quirofano_id`),
+    INDEX `FI_nda_riesgoqx` (`riesgoqx_id`),
+    INDEX `FI_nda_contaminacionqx` (`contaminacionqx_id`),
+    INDEX `FI_nda_eventoqx` (`eventoqx_id`),
     INDEX `FI_nda_tipo_proc` (`tipo_proc_id`),
     INDEX `FI_nda_causa_dif` (`causa_diferido_id`),
+    INDEX `FI_nda_atencion` (`atencion_id`),
+    INDEX `FI_nga_especialidad` (`servicio`),
     CONSTRAINT `agenda_sala`
         FOREIGN KEY (`sala_id`)
         REFERENCES `siga_sala` (`id`)
@@ -101,6 +108,21 @@ CREATE TABLE `hc_agenda`
         REFERENCES `siga_quirofano` (`id`)
         ON UPDATE CASCADE
         ON DELETE SET NULL,
+    CONSTRAINT `agenda_riesgoqx`
+        FOREIGN KEY (`riesgoqx_id`)
+        REFERENCES `siga_riesgoqx` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+    CONSTRAINT `agenda_contaminacionqx`
+        FOREIGN KEY (`contaminacionqx_id`)
+        REFERENCES `siga_contaminacionqx` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+    CONSTRAINT `agenda_eventoqx`
+        FOREIGN KEY (`eventoqx_id`)
+        REFERENCES `siga_eventoqx` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
     CONSTRAINT `agenda_tipo_proc`
         FOREIGN KEY (`tipo_proc_id`)
         REFERENCES `siga_procedimiento` (`id`)
@@ -109,6 +131,16 @@ CREATE TABLE `hc_agenda`
     CONSTRAINT `agenda_causa_dif`
         FOREIGN KEY (`causa_diferido_id`)
         REFERENCES `siga_causa_diferido` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+    CONSTRAINT `agenda_atencion`
+        FOREIGN KEY (`atencion_id`)
+        REFERENCES `siga_atencion` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+    CONSTRAINT `agenga_especialidad`
+        FOREIGN KEY (`servicio`)
+        REFERENCES `siga_especialidad` (`id`)
         ON UPDATE CASCADE
         ON DELETE SET NULL
 ) ENGINE=InnoDB;
@@ -204,9 +236,15 @@ CREATE TABLE `hc_agenda_procedimientos`
     `created_at` DATETIME,
     PRIMARY KEY (`id`),
     INDEX `hc_agenda_procedimientos_FI_1` (`agenda_id`),
+    INDEX `FI_nda_procedimientos` (`servicio_id`),
     CONSTRAINT `hc_agenda_procedimientos_FK_1`
         FOREIGN KEY (`agenda_id`)
-        REFERENCES `hc_agenda` (`id`)
+        REFERENCES `hc_agenda` (`id`),
+    CONSTRAINT `agenda_procedimientos`
+        FOREIGN KEY (`servicio_id`)
+        REFERENCES `siga_especialidad` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------

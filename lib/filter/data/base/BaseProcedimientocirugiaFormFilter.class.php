@@ -17,7 +17,7 @@ abstract class BaseProcedimientocirugiaFormFilter extends BaseFormFilterPropel
       'cie9mc_id'   => new sfWidgetFormFilterInput(),
       'region'      => new sfWidgetFormFilterInput(),
       'detalles'    => new sfWidgetFormFilterInput(),
-      'servicio_id' => new sfWidgetFormFilterInput(),
+      'servicio_id' => new sfWidgetFormPropelChoice(array('model' => 'Especialidad', 'add_empty' => true)),
       'created_at'  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
     ));
 
@@ -27,7 +27,7 @@ abstract class BaseProcedimientocirugiaFormFilter extends BaseFormFilterPropel
       'cie9mc_id'   => new sfValidatorPass(array('required' => false)),
       'region'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'detalles'    => new sfValidatorPass(array('required' => false)),
-      'servicio_id' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'servicio_id' => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Especialidad', 'column' => 'id')),
       'created_at'  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
     ));
 
@@ -52,7 +52,7 @@ abstract class BaseProcedimientocirugiaFormFilter extends BaseFormFilterPropel
       'cie9mc_id'   => 'Text',
       'region'      => 'Number',
       'detalles'    => 'Text',
-      'servicio_id' => 'Number',
+      'servicio_id' => 'ForeignKey',
       'created_at'  => 'Date',
     );
   }
