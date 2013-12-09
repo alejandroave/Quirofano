@@ -1,3 +1,6 @@
+<script type="text/javascript" src="/js/global/jquery.ptTimeSelect.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/global/jquery.ptTimeSelect.css" />
+
 <style>
   #idTag {
     background: #e1e279;
@@ -20,6 +23,15 @@
     font-weight: bold;
   }
 </style>
+
+<script type="text/javascript">
+        $(document).ready(function(){
+            // find the input fields and apply the time select to them.
+            $("#datahora").ptTimeSelect();
+        });
+</script>
+
+
 
 <?php slot('titulo') ?>
   <title>Transoperatorio | SIGA-HU </title>

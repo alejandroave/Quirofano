@@ -43,7 +43,10 @@ class postoperatorioQuirofanoForm extends AgendaForm
   $this->validatorSchema['egreso']->setMessage('required','Falta hora');
   // Agregando las personas del transoperatorio
   
-
+$this->widgetSchema['egreso']->setAttributes(array(
+    'id' => 'datahora',
+  
+  ));
   $transPersonal = $object->getPersonalTransoperatorio();
   $tmp = new sfForm();
 

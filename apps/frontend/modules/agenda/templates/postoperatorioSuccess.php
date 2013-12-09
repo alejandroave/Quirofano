@@ -1,3 +1,7 @@
+<script type="text/javascript" src="/js/global/jquery.ptTimeSelect.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/global/jquery.ptTimeSelect.css" />
+
+
 <style>
   #idTag {
     background: #e1e279;
@@ -33,6 +37,9 @@
 <style>
 /* Mientras podemos hacer botones con jQueryUI usamos css */
 
+
+
+
 .menubar a {
   background: white;
   border: 1px solid black;
@@ -46,6 +53,16 @@
   background: lightgray;
 }
 </style>
+
+
+<script type="text/javascript">
+        $(document).ready(function(){
+            // find the input fields and apply the time select to them.
+            $("#datahora").ptTimeSelect();
+        });
+</script>
+
+
 
 <?php $quirofano = $form->getObject()->getQuirofano() ?>
 <div class="menubar">

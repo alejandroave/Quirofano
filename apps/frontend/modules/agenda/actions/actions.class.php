@@ -113,12 +113,12 @@ class agendaActions extends sfActions
 
 /*Función para saber si se empalma con alguna programación anterior
 EL orden de los datos es de la siguiente manera:
-Fecha de programacion, LA hora propuesta, Id del quirofano, Id de la sala, tiempo estimado, id de la cirugia(si es nueva se pone solo 
+Fecha de programacion, La hora propuesta, Id del quirofano, Id de la sala, tiempo estimado, id de la cirugia(si es nueva se pone solo 
 un NULL) */
 
 public function emHoras($fechaselecc,$horapropuesta,$Quiid,$salaselecc,$tiempo_est,$identificacion)
 {
-
+     //Buscamos las posibles cirugias programadas que se pueden empalmar
     $control = NULL;
     $estados['trans'] = 10;
     $estados['progr'] = 1;                         
@@ -127,27 +127,37 @@ public function emHoras($fechaselecc,$horapropuesta,$Quiid,$salaselecc,$tiempo_e
         ->filterByfechaestado($fechaselecc)
         ->filterBysalaid($salaselecc)
         ->filterByStatus($estados)
+        ->filterByCancelada(0)
         ->find();
+   
+    //datos de la cirugia que se trata programar   
+    $tiempo1 = strtotime("".$fechaselecc['max']."".$horapropuesta);   
+    $hora1 = $this->darhora($tiempo_est);    
+    $tiempo2 = strtotime("".$fechaselecc['max']."".$horapropuesta."".$hora1); //final
+    //datos de la cirugia que se trata programar
 
-    //Buscamos las posibles cirugias programadas que se pueden empalmar    
     foreach($agenda as $agendas):
     if($identificacion != $agendas->getId()) //verificamos si no es la misma :P
-      {
-       
-          $tiempo1 = strtotime("".$agendas->getFechaestado()."".$agendas->getHoraestado());  //tiempo inicial de la cirugía a comparar
-          $tiempo2 = strtotime("".$fechaselecc['max']."".$horapropuesta);  //tiempo obtenido del form
-          $hora = date('H', strtotime($agendas->getTiempoest()));           //sumamos la horas que tardaran en finalizar la cirugía  
-          $minuto = date('i', strtotime($agendas->getTiempoest()));
-          $segundo = date('s', strtotime($agendas->getTiempoest()));
-          $hora2 = "+".$hora." hour +". $minuto ." minutes +".$segundo ." second";
-          $tiempo3 = strtotime("".$agendas->getFechaestado()."".$agendas->getHoraestado()."".$hora2);  
-          
-          if($tiempo1 <= $tiempo2 && $tiempo2 <= $tiempo3 )  //comparamos con la cirugía y en caso de que quede entre el medio
-          {                                                  //indicara que se empalma
+      {       
+          ///       datos de la cirugia ya existente
+          $tiempo3 = strtotime("".$agendas->getFechaestado()."".$agendas->getHoraestado());  //tiempo inicial de la cirugía a comparar
+          $hora2 = $this->darhora($agendas->getTiempoest());
+          $tiempo4 = strtotime("".$agendas->getFechaestado()."".$agendas->getHoraestado()."".$hora2);  
+          /// datos de la cirugia ya eistente
+
+          //comparamos si se empalman
+          if($tiempo1 == $tiempo3 and $tiempo2 == $tiempo4)
+          {
+            $control = $agendas->getId();
+          }
+          elseif(($tiempo3 < $tiempo1 && $tiempo1 < $tiempo4) or ($tiempo3 < $tiempo2 && $tiempo2 < $tiempo4))
+          {                                                  
+            $control = $agendas->getId();
+          }elseif(($tiempo1 < $tiempo3 && $tiempo3 < $tiempo2) or ($tiempo1 < $tiempo4 && $tiempo4 < $tiempo2)) {
 
             $control = $agendas->getId();
           }
-          
+          //comparamos si se empalman   
      }
      endforeach;
   return $control;
@@ -155,9 +165,16 @@ public function emHoras($fechaselecc,$horapropuesta,$Quiid,$salaselecc,$tiempo_e
 
 /*Función para saber si se empalma con alguna programación anterior
 EL orden de los datos es de la siguiente manera:
-Fecha de programacion, LA hora propuesta, Id del quirofano, Id de la sala, tiempo estimado, id de la cirugia(si es nueva se pone solo 
+Fecha de programacion, La hora propuesta, Id del quirofano, Id de la sala, tiempo estimado, id de la cirugia(si es nueva se pone solo 
 un NULL) */
 
+public function darhora($hor)
+{
+  $hora = date('H', strtotime($hor));           //sumamos la horas que tardaran en finalizar la cirugía  
+  $minuto = date('i', strtotime($hor));
+  $segundo = date('s', strtotime($hor));
+  return "+".$hora." hour +". $minuto ." minutes +".$segundo ." second";
+}
 
 
 /*Funciones iniciales de symfony*/
@@ -235,8 +252,8 @@ public function executeShow(sfWebRequest $request)
       ->findOneBySlug($request->getParameter('slug'));
     $offset = $request->getParameter('offset', 0) * 3600;
     $this->date = strtotime($request->getParameter('date', date('Y-m-d')));
-    $hinicio = $request->getParameter('hora');
-    $hfinal = $request->getParameter('tiempo_est');
+    //$hinicio = $request->getParameter('hora');
+    //$hfinal = $request->getParameter('tiempo_est');
     $nombre = $this->Quirofano->getslug();
     $this->Cirugias = AgendaQuery::create()
       ->filterByquirofanoid($this->Quirofano->getid())
@@ -303,15 +320,14 @@ public function executeTransoperatorio(sfWebRequest $request)
     $fechaactual = date('Y-m-d', strtotime("now"));
     $horaactual = date('H:i:s');
     if ($request->getMethod() == 'POST') {
-
+      $this->form->setDefault('ingreso', $horaactual);
       $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
       if ($this->form->isValid()) {
+        $hora = $this->form->getValue("ingreso");
         $cirugia = $this->form->save();
         $cirugia->setStatus(10)->save();
         $cirugia->setfechaestado($fechaactual)->save();
-        $cirugia->sethoraestado($horaactual)->save();
-        //$cirugia->setHora(date('H:i:s'))->save();
-        //$cirugia->setProgramacion($fechaactual)->save();
+        $cirugia->sethoraestado($hora)->save();
         $this->redirect('agenda/show?slug='.$cirugia->getQuirofano()->getSlug());
       }
     }
@@ -477,6 +493,8 @@ return $regreso;
         $this->redirect('agenda/show?slug='.$agenda->getQuirofano()->getSlug());
       }
     }
+    $this->form->setDefault('egreso', date('H:i:s'));
+
   }
 /*Finalizar la cirugía*/
 

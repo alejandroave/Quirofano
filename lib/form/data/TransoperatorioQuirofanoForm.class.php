@@ -53,6 +53,11 @@ class transoperatorioQuirofanoForm extends AgendaForm
     $this->widgetSchema['status'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['ingreso'] = new sfWidgetFormInputText();
 
+    $this->widgetSchema['ingreso']->setAttributes(array(
+      'id' => 'datahora',
+  
+     ));
+
 
     $this->widgetSchema['anestesia_empleada'] = new sfWidgetFormInputText();
     $this->widgetSchema['anestesia_id'] = new sfWidgetFormInputHidden();
