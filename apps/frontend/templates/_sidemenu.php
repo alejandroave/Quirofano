@@ -15,6 +15,7 @@
 		<li><?php echo link_to('Agregar Quirofanos','salas/registroq')  ?></li>
 		<li><?php echo link_to('Registrar salas','salas/registrosalas')  ?></li>
 		<li><?php echo link_to('Busqueda personalisada','agenda/pbusqueda') ?></li>		
+<!--    <li><?php echo link_to('Busqueda de cirugías canceladas',"agenda/fcancelada")?><li>-->
 		
 
                 <!-- <li><?php //echo link_to('Tipo Historia','tipohc/index')  ?></li> -->

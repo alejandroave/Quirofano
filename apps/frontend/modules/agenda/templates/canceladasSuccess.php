@@ -90,16 +90,10 @@ window.onload = start;
  
 <!-- Mostrar alertas-->
 <?php $title = null ?>
+  <td colspan="11"><h3 style="padding-top: 11px;"><?php echo 'Canceladas' ?></h3></td>
 <?php foreach($Cirugias as $cirugia): ?>
-
-<?php if ($cirugia->getCancelada() != 1): ?>
-<?php if ($cirugia->getStatus() != $title): ?>
-  <td colspan="11"><h3 style="padding-top: 11px;"><?php echo $cirugia->getVerboseStatus() ?></h3></td>
   <?php echo print_head() ?>
-  <?php $title = $cirugia->getStatus() ?>
-<?php endif; ?>
 <?php include_partial('agendaQuirofano', array('cirugia' => $cirugia, 'slug' => $Quirofano->getSlug())) ?>
-<?php endif; ?>
 <?php endforeach; ?>
 
 

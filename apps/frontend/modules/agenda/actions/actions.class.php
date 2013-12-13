@@ -127,7 +127,7 @@ public function emHoras($fechaselecc,$horapropuesta,$Quiid,$salaselecc,$tiempo_e
         ->filterByfechaestado($fechaselecc)
         ->filterBysalaid($salaselecc)
         ->filterByStatus($estados)
-        ->filterByCancelada(0)
+        ->filterByCancelada(false)
         ->find();
    
     //datos de la cirugia que se trata programar   
@@ -224,24 +224,36 @@ public function darhora($hor)
   }
 /*Funcioens iniciales de symfony*/
 
-/*Mostramos todas las cirugías de un cierto quirofano*/
+/*Mostramos todas las cirugías del mes actual cierto quirofano*/
 public function executeTodos(sfWebRequest $request)
 {
  $this->Quirofano = QuirofanoQuery::create()
       ->findOneBySlug($request->getParameter('slug'));
 
 
+$fechainicial = new DateTime();
+$fechainicial->modify('first day of this month');
+$mes['min'] =  $fechainicial->format('Y-m-d');
+
+$fechafinal = new DateTime();
+$fechafinal->modify('last day of this month');
+$mes['max'] = $fechafinal->format("Y-m-d");
+
+ $qui = $this->Quirofano->getid();
  $offset = $request->getParameter('offset', 0) * 3600;
  $this->date = strtotime($request->getParameter('date', date('Y-m-d')));
- $hinicio = $request->getParameter('hora');
- $hfinal = $request->getParameter('tiempo_est');
+
+ //$hinicio = $request->getParameter('hora');
+ //$hfinal = $request->getParameter('tiempo_est');
  $date = $this->date; 
- $qui = $this->Quirofano->getid();
+ 
  $this->Cirugias = AgendaQuery::create()
       ->filterByquirofanoid($qui)
+      ->filterByprogramacion($mes)
+      ->orderByStatus('asc')
       ->find();
 }
-/*Mostramos todas las cirugías de un cierto quirofano*/
+/*Mostramos todas las cirugías del mes actual un cierto quirofano*/
 
 
 /*Mostramos la agenda para el dia actual*/
@@ -282,10 +294,10 @@ public function executeInspeccionar(sfWebRequest $request)
    $this->Quirofano = QuirofanoQuery::create()
       ->findOneBySlug($request->getParameter('slug'));
  $offset = $request->getParameter('offset', 0) * 3600;
- //$this->date = strtotime($request->getParameter('date', date('Y-m-d')));
+ $this->date = strtotime($request->getParameter('date', date('Y-m-d')));
  //$hinicio = $request->getParameter('hora');
  //$hfinal = $request->getParameter('tiempo_est');
- //$date = $this->date; 
+ $date = $this->date; 
  $qui = $this->Quirofano->getid();
  $this->Cirugias = AgendaQuery::create()
       ->filterByquirofanoid($qui)
@@ -410,6 +422,7 @@ public function executeTransoperatorio(sfWebRequest $request)
     $this->term = $request->getParameter('term');
     $this->cirugias = AgendaQuery::create()
       ->filterByRegistro($this->term)
+      ->filterByCancelada(false)
       ->find();
 
   }
@@ -428,6 +441,18 @@ public function executeBusquedapersonalisada(sfWebrequest $request)
 	$this->quirofano = $request->getParameter('Quirofano');
 	$this->sala = $request->getParameter('Sala');
 	$this->nombre = $request->getParameter('Nombre');
+  $this->año = $request->getParameter("Año");
+  $this->mes = $request->getParameter("Mes");
+
+
+  $fechainicial = new DateTime("01-".$this->mes."-".$this->año."");
+  $fecha['min'] =  $fechainicial->format('Y-m-d');
+
+  $fechafinal = new DateTime("01-".$this->mes."-".$this->año."");
+  $fechafinal->modify('last day of this month');
+  $fecha['max'] = $fechafinal->format("Y-m-d");
+
+
 
   $this->Quirofano = QuirofanoQuery::create()
         ->findOneByNombre("%".$this->quirofano."%");
@@ -439,6 +464,8 @@ public function executeBusquedapersonalisada(sfWebrequest $request)
   ->filterByquirofanoid($this->existe($this->Quirofano))
   ->filterBysalaid($this->existe($this->Salas))
 	->filterBypacientename("%".$this->nombre."%")
+  ->filterByprogramacion($fecha)
+  ->filterByCancelada(false)
   ->find();
 }
 /*Realiza la busqueda personalizada*/
@@ -505,6 +532,38 @@ return $regreso;
 
   }
 /*Mostrar calendario*/
+
+/*Mostramos todas las cirugías del mes canceladas de  un cierto quirofano*/
+public function executeCanceladas(sfWebRequest $request)
+{
+ $this->Quirofano = QuirofanoQuery::create()
+      ->findOneBySlug($request->getParameter('slug'));
+
+
+$fechainicial = new DateTime();
+$fechainicial->modify('first day of this month');
+$mes['min'] =  $fechainicial->format('Y-m-d');
+
+$fechafinal = new DateTime();
+$fechafinal->modify('last day of this month');
+$mes['max'] = $fechafinal->format("Y-m-d");
+
+ $qui = $this->Quirofano->getid();
+ $offset = $request->getParameter('offset', 0) * 3600;
+ $this->date = strtotime($request->getParameter('date', date('Y-m-d')));
+
+ //$hinicio = $request->getParameter('hora');
+ //$hfinal = $request->getParameter('tiempo_est');
+ $date = $this->date; 
+ 
+ $this->Cirugias = AgendaQuery::create()
+      ->filterByquirofanoid($qui)
+      ->filterByprogramacion($mes)
+      ->filterByCancelada(true)
+      //->orderByStatus('asc')
+      ->find();
+}
+/*Mostramos todas las cirugías del mes canceladas de un cierto quirofano*/
 
 
 
